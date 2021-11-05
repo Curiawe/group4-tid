@@ -1,0 +1,17 @@
+/* ------------- Global CSS ------------- */
+
+/* ----------- Global Colors-------------
+------ the ScanCar Blue -------
+
+
+Blue 300 #4B7DB9 
+
+
+*/
+
+
+body {
+    font-family: 'Raleway', 'Arial', 'Helvetica', 'sans-serif';
+    background-color: white;
+    color:#4B7DB9;
+}
