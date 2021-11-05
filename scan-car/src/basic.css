@@ -3,7 +3,7 @@
 /*--------------Global Font Import ------------*/
 
 @import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
-@import url('https://fonts.googleapis.com/css?family=IBM+Mono+Plex&display=swap');
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap');
 
 /* ----------- Global Colors-------------
 ------ the ScanCar Blue -------
@@ -16,6 +16,7 @@ Blue 300 #4B7DB9
 
 */
 
+/* ------------- Default Body ---------------*/
 
 body {
     font-family: 'Raleway', 'Arial', 'Helvetica', 'sans-serif';
@@ -23,6 +24,8 @@ body {
     background-color: white;
     color:black;
 }
+
+/* ------------- Headlines ---------------*/
 
 h1, h2, h3 {
     font-family: 'IBM Plex Mono', 'Courier New', 'Courier', 'monospace';
@@ -58,16 +61,27 @@ h6 {
     font-size: 14px;
 }
 
+/* ------------- Paragraph Font IDs ---------------
+
+use <p id="yourId">your text here</p> in your HTML or react files
+to set styling for blocks of text.
+*/
+
+
+#tiny {
+    font-size: 8px;
+}
+
 #small {
-    font-size: 12;
+    font-size: 12px;
 }
 
 #medium {
-    font-size: 16;
+    font-size: 16px;
 }
 
 #large {
-    font-size: 24;
+    font-size: 24px;
 }
 
 a {
@@ -78,3 +92,4 @@ a {
 a:visited {
     color:black;
 }
+
