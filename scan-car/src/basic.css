@@ -6,12 +6,27 @@
 @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap');
 
 /* ----------- Global Colors-------------
------- the ScanCar Blue -------
 
-Dark 700 #20334B
-Dark 600 #31465F
+    The colors are both defined in this file and in /values/colors.js
+    The file includes a link to instructions on how to use it.
 
-Blue 300 #4B7DB9 
+    I encourage you to use react to call from the colors.js file for practice and consistency.
+    If you need to be quick, though, there is no shame in copying a hex-code.
+
+    Good luck team, we've got this! -jodh
+
+------ the ScanCar Blues  -------
+
+Blue-700: #20334B;      this is our main black substitute and dark blue
+Blue-600: #31465F;
+Blue-500: #355C8A;
+Blue-400: #3D6A9E;
+Blue-300: #4B7DB9;      this is our main Blue
+Blue-200: #9FBADB;
+Blue-100: #F0F4F9;      this is our main white substitute
+
+-------- the ScanCar Reds ------------------
+
 
 
 */
