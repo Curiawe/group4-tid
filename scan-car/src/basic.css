@@ -165,10 +165,10 @@ to set styling for blocks of text.
 
 a {
     font-weight: bolder; /*Using bolder instead of semi-bold*/
-    color: black;
+    color: #20334B;
 }
 
 a:visited {
-    color:black;
+    color: #20334B;
 }
 
