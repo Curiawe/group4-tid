@@ -17,17 +17,79 @@
 
 ------ the ScanCar Blues  -------
 
-Blue-700: #20334B;      this is our main black substitute and dark blue
-Blue-600: #31465F;
-Blue-500: #355C8A;
-Blue-400: #3D6A9E;
-Blue-300: #4B7DB9;      this is our main Blue
-Blue-200: #9FBADB;
-Blue-100: #F0F4F9;      this is our main white substitute
+Blue700: #20334B      this is our main black substitute and dark blue
+Blue600: #31465F
+Blue500: #355C8A
+Blue400: #3D6A9E
+Blue300: #4B7DB9      this is our main Blue
+Blue200: #9FBADB
+Blue100: #F0F4F9      this is our main white substitute
 
 -------- the ScanCar Reds ------------------
 
+Red700: #3F2222
+Red600: #642B2B
+Red500: #972B2B
+Red400: #D32828
+Red300: #F95959
+Red200: #FA9E9E
+Red100: #FED8D8
 
+-------- the ScanCar Reds ------------------
+
+Red700: #3F2222
+Red600: #642B2B
+Red500: #972B2B
+Red400: #D32828
+Red300: #F95959
+Red200: #FA9E9E
+Red100: #FED8D8
+
+-------- the ScanCar Secondaries ------------------
+
+---- Yellows ----
+
+Yellow700: #5A3911
+Yellow600: #774E1D
+Yellow500: #DD933C
+Yellow400: #FDBB6D
+Yellow300: #FDCE95
+Yellow200: #FAE3C7
+Yellow100: #FFF1E0
+
+---- Purples ----
+
+Purple700: #413F6B
+Purple600: #3F39AF
+Purple500: #6A62F2
+Purple400: #8882F4
+Purple300: #B1ADF4
+Purple200: #D5D3F6
+Purple100: #F2F1FC
+
+---- Greens ----
+
+Green700: #334646
+Green600: #3F6867
+Green500: #36817F
+Green400: #449794
+Green300: #89C1BF
+Green200: #CEEDEC
+Green100: #E0F8F7
+
+------------ the ScanCar Grays ------------------
+
+Gray700: #242E38
+Gray600: #3C4249
+Gray500: #60707B
+Gray400: #738896
+Gray300: #A2B6C3
+Gray200: #D1DAE0
+Gray100: #EAEEF1
+Gray000: #F7F7F9
+
+White: #FFF
+Black: #000
 
 */
 
@@ -78,7 +140,9 @@ h6 {
 
 /* ------------- Paragraph Font IDs ---------------
 
-use <p id="yourId">your text here</p> in your HTML or react files
+use <p id=yourId>your text here</p>
+or <text id=yourId><your text here</text>
+in your HTML or react files
 to set styling for blocks of text.
 */
 
