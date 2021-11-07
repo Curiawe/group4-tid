@@ -15,5 +15,5 @@ export let CARS = {
     JB12789: {Model:"Honda CR V",carGroup:'H',Color: "BLU",fuelType:'P',fuelStatus: 100,Location: LOCATIONS.CPC,Doors:2,Status:"Transfer",relStatus: "Released", Image: "scan-car/public/images/honda-crv.jpg"},
     JF94837: {Model:"Honda CR V",carGroup:'H',Color: "SLV",fuelType:'P',fuelStatus: 100,Location: LOCATIONS.CPC,Doors:2,Status:"Transfer",relStatus: "Released", Image: "scan-car/public/images/honda-crv.jpg"},
     JF19386: {Model:"Fiat 500",carGroup:'I',Color: "RED",fuelType:'P',fuelStatus: 100,Location: LOCATIONS.CPC,Doors:2,Status:"Transfer",relStatus: "Released", Image:"./public/images/fiat-500.jpg"}
-},
+}
 
