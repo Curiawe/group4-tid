@@ -1,0 +1,35 @@
+header {
+    background-color: #20334B;
+    height: 64px;
+    width: 100%;
+
+}
+
+#navTabs {
+    display: flex;
+    height:64px;
+    flex-direction: row;
+    font-size:16px;
+    color:white;
+}
+
+.navtab {
+    margin: 100;
+    height: 64px;
+    width: 256px;
+    align-content: center;
+    background-color:orange;
+    border-width: 2px;
+}
+
+.navTabActive {
+    height: 64px;
+    width: 256px;
+    background-color: #D32828;
+}
+
+#Logo {
+    margin: 10px 40px;
+    height: 40px;
+    pointer-events: none;
+  }
