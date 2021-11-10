@@ -10,6 +10,10 @@ header {
 
 }
 
+Link {
+    color:white;
+}
+
 .navtabs {
    /*  padding:10px; */
    background-color: #20334B;
@@ -27,7 +31,7 @@ header {
 /*Navigation tab for the header navigation bar.
 the clickety click that gets you to the 3 sub-sections of the page.
 The nav tabs looked really, REALLY wide in 256.*/
-.navtab {
+Link.navtab {
     width: 192px;
     height:auto;
     padding: 20px;
