@@ -1,10 +1,10 @@
-#Hello and Welcome to Group 4's ScanCar Project.#
+# Hello and Welcome to Group 4's ScanCar Project.
 
 There is nothing to see yet, but we are hard at work.
 
-##Current work in progress:##
+## Current work in progress:
 
-###Johanne###
+### Johanne
 
 sidebar-turned-routing
 - ensure that the header still works with the rounting enabled (which it currently does not and we don't know why)     
@@ -15,13 +15,13 @@ large-nav-buttons-jodh
 sidebar-jodh
 - the secondary navigation bar on the side. there are three large things missing: the working display grid, all of the components and all of the functionality 🙃
 
-###Marina###
+### Marina
 
 Branch
 - description
 
 
-###Mathilde###
+### Mathilde
 
 Branch
 - description
