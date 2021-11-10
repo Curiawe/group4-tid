@@ -10,8 +10,7 @@ import Schedule from './pages/schedule';
 function Routing() {
   return (
     <Router>
-      <Routes>{/* 
-        <Route path="/" exact component={Home} /> */}
+      <Routes>
         <Route path="/bookings" component={Bookings} />
         <Route path="/booking-search" component={BookingSearch} />
         <Route path="/car-groups" component={CarGroups} />
