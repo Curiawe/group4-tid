@@ -7,7 +7,7 @@ function Navigation () {
         <header>
             <div class="navtabs">
                 <div class ="navtab-Logo"><img src={logo} alt="ScanCar Logo" height="40px"></img></div>
-                <div class="navtab">Booking Management</div>
+                <div class="navTabActive">Booking Management</div>
                 <div class ="navtab">Rental Management</div>
                 <div class="navtab">Group Management</div>
             </div>
