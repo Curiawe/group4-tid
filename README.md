@@ -23,5 +23,5 @@ Branch
 
 ### Mathilde
 
-Branch
-- description
+booking-component-mgeh
+- this component is for the create/change booking page. It is still very much construction; it still only has very few components, so it is no way near done nor looking the way it should be. 
