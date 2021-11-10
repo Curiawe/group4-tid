@@ -51,8 +51,8 @@ The nav tabs looked really, REALLY wide in 256.*/
 }
 
 .navtab-Logo {
+    width: 200px;
     align-self: center;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-left: 32px;
     pointer-events: none;
   }
