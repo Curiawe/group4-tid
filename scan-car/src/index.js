@@ -1,12 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import Welcome from './components/booking';
 import reportWebVitals from './reportWebVitals';
 
+// Here we import the site components, e.g. 
+// import Welcome from '.components/booking';
+
+// Down here we call the component we imported above
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Welcome/>
   </React.StrictMode>,
   document.getElementById('root')
 );

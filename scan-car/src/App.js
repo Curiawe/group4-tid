@@ -1,9 +1,8 @@
 import logo from './logo.svg';
-import './App.css';
+/*import './App.css';*/
 import FeatherIcon from 'feather-icons-react';
 
-
-function App() {
+/*function App() {
   return (
     <div className="App">
       <header className="App-header">
@@ -24,7 +23,7 @@ function App() {
   );
 }
 
-export default App;
+export default App;*/
 
 /*How to get the icons to work
 
