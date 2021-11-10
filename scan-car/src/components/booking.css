@@ -1,19 +1,16 @@
 /* HEADING */
 .bookingHeader {
-    background-color: aqua;
     display: flex;
     width: 100%;
 }
 
 .title {
-    background-color: brown;
     width: 50%;
     justify-content: left;
     
 }
 
 .bookingNumber {
-    background-color: blueviolet;
     display: flex;
     justify-content: right;
     width: 50%;
@@ -34,7 +31,6 @@
 
 /* LOGISTICS */
 .pick-up, .return, .carGroup {
-    background-color:thistle;
     display: flex;
     flex-direction: row;
 }
@@ -46,7 +42,6 @@
     align-items: flex-start;
     height: 100px;
     margin: 10px;
-    border: dotted #F55A00 5px;
 }
 
 .dateAndTime {
@@ -56,7 +51,6 @@
     align-items: flex-start;
     height: 100px;
     margin: 10px;
-    border: dotted #F55A00 5px;
 }
 
 .locationForm input, .dateAndTime input {
@@ -101,5 +95,5 @@
 }
 
 .carGroupDropDown select::-ms-expand {
-    display:none;
+    display: none;
 }
