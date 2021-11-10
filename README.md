@@ -17,9 +17,8 @@ sidebar-jodh
 
 ### Marina
 
-Branch
-- description
-
+cards-marbj
+- the frames, texts and the button have successfully be implemented with correct spacing. Currently trying to find the best way to insert the icons and their descriptions (as flexbox vs. as a list). Once successful, actual icons and images will be inserted instead of boxes. 
 
 ### Mathilde
 
