@@ -1,9 +1,10 @@
 .sidebar {
     width: 256px;
-    background-color: #20334B;
+    background-color:#20334B;
 }
 
 .sidebarContent {
+    width: 256px;
     background-color:#20334B;
 }
 

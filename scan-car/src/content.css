@@ -1,0 +1,9 @@
+.content {
+    display:flex;
+    flex-direction: row;
+}
+
+.subContent {
+    display: grid;
+    grid-column:auto;
+}
