@@ -6,7 +6,7 @@ function Navigation () {
     return (
         <header>
             <div class="navtabs">
-                <navTab><img id="Logo" src={logo} alt="ScanCar Logo"></img></navTab>
+                <div class ="navtab-Logo"><img src={logo} alt="ScanCar Logo" height="40px"></img></div>
                 <div class="navtab">Booking Management</div>
                 <div class ="navtab">Rental Management</div>
                 <div class="navtab">Group Management</div>
