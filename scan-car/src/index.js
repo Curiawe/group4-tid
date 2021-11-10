@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Welcome from './components/booking';
+import Booking from './components/booking';
 import reportWebVitals from './reportWebVitals';
 
 // Here we import the site components, e.g. 
@@ -10,7 +10,7 @@ import reportWebVitals from './reportWebVitals';
 // Down here we call the component we imported above
 ReactDOM.render(
   <React.StrictMode>
-    <Welcome/>
+    <Booking/>
   </React.StrictMode>,
   document.getElementById('root')
 );

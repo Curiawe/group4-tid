@@ -103,7 +103,7 @@ Black: #000
 
 /* ------------- Default Body ---------------*/
 
-body {
+body, input {
     margin: 0;
     font-family: 'Raleway', 'Arial', 'Helvetica', 'sans-serif';
     font-size: 16;

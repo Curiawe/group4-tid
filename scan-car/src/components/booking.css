@@ -1,0 +1,105 @@
+/* HEADING */
+.bookingHeader {
+    background-color: aqua;
+    display: flex;
+    width: 100%;
+}
+
+.title {
+    background-color: brown;
+    width: 50%;
+    justify-content: left;
+    
+}
+
+.bookingNumber {
+    background-color: blueviolet;
+    display: flex;
+    justify-content: right;
+    width: 50%;
+}
+
+
+/* GENERAL */
+.hr {
+    color: #D1DAE0;
+    background-color: #FFFFFF;
+    height: 5px;
+    width: 80%
+}
+
+.pick-up h5, .return h5, .carGroup h5 {
+    width: 128px;
+}
+
+/* LOGISTICS */
+.pick-up, .return, .carGroup {
+    background-color:thistle;
+    display: flex;
+    flex-direction: row;
+}
+
+.location {
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: flex-start;
+    height: 100px;
+    margin: 10px;
+    border: dotted #F55A00 5px;
+}
+
+.dateAndTime {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100px;
+    margin: 10px;
+    border: dotted #F55A00 5px;
+}
+
+.locationForm input, .dateAndTime input {
+    display: flex;
+    width: 256px;
+    height: 48px;
+    left: 460px;
+    top: 275px;
+    background: #FFFFFF;
+    border: 1px solid #D1DAE0;
+    box-sizing: border-box;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.radioButton input {
+    margin: 10px;
+}
+
+
+/* CAR GROUP */
+/* firstly, we take away the custom select appearance, and then we add the custom */
+.carGroupDropDown select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 0px;
+    background-color: transparent;
+    font: inherit;
+    border-radius: 0;
+
+    display: left;
+    width: 256px;
+    height: 48px;
+    left: 460px;
+    top: 275px;
+    background: #FFFFFF;
+    border: 1px solid #D1DAE0;
+    box-sizing: border-box;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.carGroupDropDown select::-ms-expand {
+    display:none;
+}
