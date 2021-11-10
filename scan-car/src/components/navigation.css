@@ -1,0 +1,59 @@
+header {
+    background-color: #20334B;
+    height: 64px;
+    width: 100%;
+    display:flex;
+    flex-direction:row;
+    font-size:16px;
+    font-weight: bolder;
+    flex-wrap:wrap;
+
+}
+
+.navtabs {
+   /*  padding:10px; */
+   background-color: #20334B;
+    display: flex;
+
+    flex-direction: row;
+    justify-content:center;
+    flex-wrap:wrap;
+
+    height:auto;
+    color:white;
+}
+
+
+/*Navigation tab for the header navigation bar.
+the clickety click that gets you to the 3 sub-sections of the page.
+The nav tabs looked really, REALLY wide in 256.*/
+.navtab {
+    width: 192px;
+    height:auto;
+    padding: 20px;
+    align-self: center;
+    text-align: center; 
+}
+
+.navtab:hover {
+    background-color:#D32828;
+}
+
+.navTabActive {
+    width: 192px;
+    height:auto;
+    padding: 20px;
+    background-color:#F95959;
+    color:#3F2222;
+    font-weight: bold;
+    align-self: center;
+    text-align: center; 
+    
+}
+
+.navtab-Logo {
+    width: 200px;
+    align-self: center;
+    padding-left: 32px;
+    pointer-events: none;
+  }
