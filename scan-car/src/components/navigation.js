@@ -11,6 +11,7 @@ function Navigation () {
                 <div class ="navtab">Rental Management</div>
                 <div class="navtab">Group Management</div>
             </div>
+            
         </header>
     )
 }
