@@ -5,11 +5,11 @@ import logo from './logo.png';
 function Navigation () {
     return (
         <header>
-            <div id="navTabs">
+            <div class="navtabs">
                 <navTab><img id="Logo" src={logo} alt="ScanCar Logo"></img></navTab>
-                <navTab>Hello</navTab>
-                <navTab>My Name</navTab>
-                <navTab>Is Hell</navTab>
+                <div class="navtab">Booking Management</div>
+                <div class ="navtab">Rental Management</div>
+                <div class="navtab">Group Management</div>
             </div>
         </header>
     )

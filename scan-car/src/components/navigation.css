@@ -1,25 +1,39 @@
 header {
     background-color: #20334B;
+
     height: 64px;
     width: 100%;
+    display:flex;
+    flex-direction:row;
+    font-size:16px;
+    font-weight: bolder;
 
 }
 
-#navTabs {
+.navtabs {
+    background: #D32828;
+    padding:10px;
+
     display: flex;
-    height:64px;
+
     flex-direction: row;
-    font-size:16px;
+    justify-content:center;
+
+    height:auto;
     color:white;
 }
 
+/*Navigation tab for the header navigation bar.
+the clickety click that gets you to the 3 sub-sections of the page.
+The nav tabs looked really, REALLY wide in 256.*/
 .navtab {
-    margin: 100;
-    height: 64px;
-    width: 256px;
-    align-content: center;
-    background-color:orange;
-    border-width: 2px;
+    width: 192px;
+/*     align-content: center;
+    align-items: center; */
+    height:100%;
+    background-color:greenyellow;
+    align-self: center;
+    text-align: center;
 }
 
 .navTabActive {
@@ -29,7 +43,7 @@ header {
 }
 
 #Logo {
-    margin: 10px 40px;
+    padding-right:20px;
     height: 40px;
     pointer-events: none;
   }
