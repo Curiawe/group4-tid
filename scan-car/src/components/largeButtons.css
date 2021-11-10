@@ -1,0 +1,10 @@
+.largeButton {
+    height: 100px;
+    padding:100px;
+    margin:5px;
+}
+
+.largeButtons {
+    display:flex;
+    flex-flow: row wrap;
+}

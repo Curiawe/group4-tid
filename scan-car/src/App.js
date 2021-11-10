@@ -1,9 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
+import './components/largeButtons.css'
+import LargeButtons from './components/largeButtons'
 
 function App() {
   return (
     <div className="App">
+
+    <LargeButtons>
+      <button>Button 2</button>
+      <button>Button 3</button>
+    </LargeButtons>
+
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
