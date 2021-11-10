@@ -1,5 +1,4 @@
 import React from "react";
-import './App.css';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 /* import Home from './pages'; */
 import Bookings from './pages/bookings';
@@ -8,7 +7,7 @@ import Cars from './pages/cars';
 import CarGroups from './pages/carGroups'
 import Schedule from './pages/schedule';
 
-function App() {
+function Routing() {
   return (
     <Router>
       <Routes>{/* 
@@ -23,5 +22,5 @@ function App() {
   );
 }
 
-export default App;
+export default Routing;
 
