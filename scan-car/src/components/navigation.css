@@ -1,26 +1,27 @@
+/*
+------ Navigation Header ------
+*/
 header {
-    background-color: #20334B;
-    height: auto;
-    width: 100%;
-    display:flex;
-    flex-direction:row;
+    background-color: #20334B; /*sets the background of the entire header to blue. Needed for full width color*/
+    color:white;
+    height: auto; /*needed so the header can adapt when the contents flex into new rows*/
+    width: 100%; 
+
+    display:flex; /*needed so that the navtabs container can flex*/
+    flex-direction:row; /*We want to flex*/
+    flex-wrap:wrap; /*defines the wrap for the child*/
+
     font-size:16px;
     font-weight: bolder;
-    flex-wrap:wrap;
 
 }
 
 .navtabs {
-   /*  padding:10px; */
-   background-color: #20334B;
+   /*  You will be tempted to use "padding:10px;". Don't. It messes with the justify-content and the align-self of the children.  */
     display: flex;
-
     flex-direction: row;
     justify-content:center;
     flex-wrap:wrap;
-
-    height:auto;
-    color:white;
 }
 
 
@@ -28,11 +29,11 @@ header {
 the clickety click that gets you to the 3 sub-sections of the page.
 The nav tabs looked really, REALLY wide in 256.*/
 .navtab {
-    width: 192px;
+    width: 192px; /*This together with the padding will give us 212 px width.*/
     height:auto;
-    padding: 20px;
-    align-self: center;
-    text-align: center; 
+    padding: 20px; /*This ensures that the different tab descriptions don't touch each other. We don't need it all the way around, but this is easier to read.*/
+    align-self: center; /* this is so it is centered on the y axis*/
+    text-align: center; /* this is so that the font is centered on the x axis*/
 }
 
 .navtab:hover {
@@ -45,7 +46,6 @@ The nav tabs looked really, REALLY wide in 256.*/
     padding: 20px;
     background-color:#F95959;
     color:#3F2222;
-    font-weight: bold;
     align-self: center;
     text-align: center; 
     
@@ -54,6 +54,7 @@ The nav tabs looked really, REALLY wide in 256.*/
 .navtab-Logo {
     width: 200px;
     align-self: center;
+    justify-self: center;
     padding-left: 32px;
     pointer-events: none;
   }
