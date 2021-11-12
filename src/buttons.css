@@ -1,0 +1,412 @@
+/* These are the buttons used in the prototype.
+The colours used are:
+
+Blue200: #9FBADB
+Blue600: #31465F
+
+Red300: #F95959
+OR
+Red400: #D32828 
+
+Purple400: #8882F4
+
+Gray200: #D1DAE0
+Gray/Light100: #EAEEF1
+
+*/ 
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap');
+
+/* 'Save', 'Save & Start', 'Confirm Booking', 'Billing' and 'Send Invoice' buttons */
+/* Selectable */
+saveBtn1 { 
+    background-color: #31465F; 
+    width: 201px;
+    height: 60px;
+    border-radius: 128px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 128px;
+
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 55px;
+    text-align: center;
+    letter-spacing: 0.05em;
+    color: #FFFFFF;
+}
+
+/* Unselectable save button*/
+saveBtn2 { 
+    background-color: #D1DAE0; 
+    width: 201px;
+    height: 60px;
+    border-radius: 128px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 128px;
+
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 55px;
+    text-align: center;
+    letter-spacing: 0.05em;
+    color: #FFFFFF;
+}
+
+/* Check if this is different from selectable */
+
+bookingConfirmBtn { 
+    background-color: #D1DAE0; 
+    width: 201px;
+    height: 60px;
+    border-radius: 128px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 128px;
+
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 55px;
+    text-align: center;
+    letter-spacing: 0.05em;
+    color: #FFFFFF;
+}
+
+/* Add driver button */
+addDriverBtn {
+    background-color: #D1DAE0; 
+    width: 128px;
+    height: 24px;
+    border-radius: 128px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: 0.05em;
+    color: #EAEEF1;
+}
+
+/* Delete and cancel booking */
+/* Delete booking */
+bookingDeleteBtn {
+    background: #FFFFFF;
+    border: 3px solid #D1DAE0;
+    box-sizing: border-box;
+    width: 128px;
+    height: 24px;
+    border-radius: 128px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: 0.05em;
+    color: #D1DAE0;
+}
+
+/* Cancel booking  - same as reserve walk-in */
+bookingCancelBtn {
+    background: #FFFFFF;
+    border: 3px solid #8882F4;
+    box-sizing: border-box;
+    width: 128px;
+    height: 24px;
+    border-radius: 128px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: 0.05em;
+    color: #8882F4;
+}
+
+/* Search button */
+searchBtn {
+    background-color: #9FBADB; 
+    width: 136px;
+    height: 49px;
+    border-radius: 128px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 128px;
+
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    text-align: center;
+    line-height: 49px;
+    letter-spacing: 0.05em;
+    color: #FFFFFF;
+}
+
+/* pop-up buttons */ 
+/* ok button from pop-up */
+
+okBtn {
+    background-color: #9FBADB; 
+    width: 130.86px;
+    height: 26.37px;
+    border-radius: 128px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);    
+
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    text-align: center;
+    line-height: 26.37px;
+    letter-spacing: 0.05em;
+    color: #FFFFFF;
+}
+
+/* 'Yes!' button from pop-up && 'Select' button for Calendar and Map */
+yesBtn {
+    background: #31465F;
+    box-sizing: border-box;
+    width: 128px;
+    height: 24px;
+    border-radius: 128px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: 0.05em;
+    color: #FFFFFF;
+}
+
+/* return pop-up */
+returnBtn {
+    background: #FFFFFF;
+    border: 3px solid #31465F;
+    box-sizing: border-box;
+    width: 128px;
+    height: 24px;
+    border-radius: 128px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: 0.05em;
+    color: #31465F
+    ;
+}
+
+/* Check and edit information button */
+/* Check information */
+checkInfoBtn {
+    background-color: #6A62F2; 
+    width: 192px;
+    height: 48px;
+    border-radius: 128px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);  
+
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    text-align: center;
+    line-height: 48px;
+    letter-spacing: 0.05em;
+    color: #FFFFFF;
+}
+
+/* Edit information */
+editInfoBtn {
+    background-color: #FFFFFF; 
+    width: 192px;
+    height: 48px;
+    border-radius: 128px;
+    border: 3px solid #8882F4;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
+
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    text-align: center;
+    line-height: 48px;
+    letter-spacing: 0.05em;
+    color: #8882F4;
+}
+
+/* Save changes */
+/* Selectable 'only save changes' */ 
+saveDataBtn1 {
+    background: #FFFFFF;
+    border: 2px solid #31465F;
+    box-sizing: border-box;
+    width: 192px;
+    height: 24px;
+    border-radius: 128px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: 0.05em;
+    color: #31465F;
+}
+
+ /* Unselectable 'only save changes' */
+ saveDataBtn2 {
+    background: #D1DAE0;
+    box-sizing: border-box;
+    width: 128px;
+    height: 24px;
+    border-radius: 128px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: 0.05em;
+    color: #EAEEF1;
+}
+
+/* Transfers */
+transfersBtn {
+    background: #31465F;
+    box-sizing: border-box;
+    width: 121px;
+    height: 24px;
+    border-radius: 128px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: 0.05em;
+    color: #FFFFFF;
+}
+
+
+/* Booking buttons for car availability schedule */
+/* PIXELS DO NOT MAKE SENSE FOR THIS BUTTON */ 
+bookingBtn {
+    background: #334646;
+    box-sizing: border-box;
+    width: 109;
+    height: 20px;
+    border-radius: 128px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: 0.05em;
+    color: #FFFFFF;
+}
+
+/* 'Jump to Today' button for walk-in */ 
+todayBtn {
+    background-color: #9FBADB; 
+    width: 192px;
+    height: 48px;
+    border-radius: 128px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 128px;
+
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    text-align: center;
+    line-height: 48px;
+    letter-spacing: 0.05em;
+    color: #FFFFFF;
+}
+
+/* 'Add Car' in Car Transfer */
+addCarBtn1 {
+    background-color: #9FBADB; 
+    width: 128px;
+    height: 24px;
+    border-radius: 128px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: 0.05em;
+    color: #EAEEF1;
+}
+
+addCarBtn2 {
+    background-color: #8882F4; 
+    width: 128px;
+    height: 24px;
+    border-radius: 128px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: 0.05em;
+    color: #EAEEF1;
+}
+
+/* 'Send Request' button in Car Transfer */
+requestBtn {
+    background-color: #31465F; 
+    width: 192px;
+    height: 48px;
+    border-radius: 128px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    text-align: center;
+    line-height: 48px;
+    letter-spacing: 0.05em;
+    color: #FFFFFF;
+}
+
+/* 'Select' buttons */
+
+
+
+
+/* note to self: search for padding and margins */
