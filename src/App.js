@@ -5,6 +5,10 @@ function App() {
   return (
     <div className="App">
       <Navigation />
+      (//**Sidebar will go here */)
+      <div>
+      (//**Content goes here */)
+      </div>
     </div>
   );
 }
