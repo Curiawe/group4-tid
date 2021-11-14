@@ -1,7 +1,7 @@
-/* this is the original app css */
-
 .App {
   text-align: center;
+  display:flex;
+  flex-direction:column;
 }
 
 .App-logo {

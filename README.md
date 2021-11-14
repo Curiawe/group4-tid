@@ -1,26 +1,70 @@
-# Hello and Welcome to Group 4's ScanCar Project.
+# Getting Started with Create React App
 
-There is nothing to see yet, but we are hard at work.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Current work in progress:
+## Available Scripts
 
-### Johanne
+In the project directory, you can run:
 
-sidebar-turned-routing
-- ensure that the header still works with the rounting enabled (which it currently does not and we don't know why)     
+### `npm start`
 
-large-nav-buttons-jodh
-- the "3-button interface" from the landing pages, those don't work yet. The flex box does the way I want it to, just the nested components don't. 
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-sidebar-jodh
-- the secondary navigation bar on the side. there are three large things missing: the working display grid, all of the components and all of the functionality 🙃
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-### Marina
+### `npm test`
 
-cards-marbj
-- the frames, texts and the button have successfully be implemented with correct spacing. Currently trying to find the best way to insert the icons and their descriptions (as flexbox vs. as a list). Once successful, actual icons and images will be inserted instead of boxes. 
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### Mathilde
+### `npm run build`
 
-booking-component-mgeh
-- this component is for the create/change booking page. It is still very much under construction; it still only has very few components, so it is no way near done nor looking the way it should be. 
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `npm run eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
