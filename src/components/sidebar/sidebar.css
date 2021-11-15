@@ -1,12 +1,10 @@
 .sidebarcontainer {
     width:232px;
-    height:full;
     padding-top:16px;
     padding-bottom:16px;
     background-color: #20334B;
     color:white;
-    overflow:auto; 
-
+    overflow:auto;
 }
 
 .sidebarLinks {
