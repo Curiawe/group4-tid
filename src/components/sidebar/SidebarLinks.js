@@ -1,12 +1,41 @@
 import './sidebar.css'
 
-export default function SidebarLinks () {
+function RentalOperations () {
     return (
         <nav className = "sidebarLinks">
-            <sidebarLink className = "sidebarLink">One</sidebarLink>
-            <sidebarLink className = "sidebarLink">Two</sidebarLink>
-            <sidebarLink className = "sidebarLink">Three</sidebarLink>
-            <sidebarLink className = "sidebarLink">Four</sidebarLink>
-        </nav>       
+            <sidebarLink className = "sidebarLink">Booking Overview</sidebarLink>
+            <sidebarLink className = "sidebarLink">Booking Searc</sidebarLink>
+            <sidebarLink className = "sidebarLink">Car Overview</sidebarLink>
+            <sidebarLink className = "sidebarLink">Schedule</sidebarLink>
+        </nav> 
+    )
+}
+
+function RentalManagement () {
+    return (
+        <nav className = "sidebarLinks">
+        <sidebarLink className = "sidebarLink">Daily Overview</sidebarLink>
+        <sidebarLink className = "sidebarLink">Transfers</sidebarLink>
+        <sidebarLink className = "sidebarLink">Walk-ins</sidebarLink>
+    </nav> 
+    )
+}
+
+function GroupManagement () {
+    return (
+        <nav className = "sidebarLinks">
+        <sidebarLink className = "sidebarLink">Car Groups</sidebarLink>
+        <sidebarLink className = "sidebarLink">Rental Offices</sidebarLink>
+    </nav> 
+    )
+}
+
+export default function SidebarLinks () {
+    return (
+        <sidebar>
+            <RentalOperations />
+            <RentalManagement />
+            <GroupManagement />
+        </sidebar>
     )
 }
