@@ -1,45 +1,62 @@
+.booking {
+  width: 60%;
+}
+
+.input-wrap.align-icon-right.has-icon {
+  right: auto;
+  left: 7px;
+}
+
 /* HEADING */
 .bookingHeader {
   display: flex;
-  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .title {
-  width: 50%;
-  justify-content: left;
+  margin-left: 10px;
 }
 
 .bookingNumber {
-  display: flex;
-  justify-content: right;
-  width: 50%;
+  margin-right: 10px;
 }
 
 /* GENERAL */
-.hr {
+
+hr {
+  display: block;
   color: #d1dae0;
-  background-color: #ffffff;
+  background-color: #d1dae0;
+  border-radius: 8px;
   height: 5px;
   width: 80%;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
-.pick-up h5,
-.return h5,
-.carGroup h5 {
+h5 {
+  display: block;
   width: 128px;
 }
 
 /* LOGISTICS */
 .pick-up,
 .return,
-.carGroup {
+.carGroup,
+.extraServices,
+.customerInfo,
+.paymentMethod {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .location {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   justify-content: top;
   align-items: flex-start;
   height: 100px;
@@ -49,15 +66,16 @@
 .dateAndTime {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
-  align-items: flex-start;
   height: 100px;
   margin: 10px;
 }
 
-.locationForm input,
-.dateAndTime input {
+.inputField input {
   display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 2px;
   width: 256px;
   height: 48px;
   left: 460px;
@@ -67,6 +85,7 @@
   box-sizing: border-box;
   border-radius: 8px;
   font-size: 16px;
+  font-style: italic;
 }
 
 .radioButton input {
@@ -75,7 +94,7 @@
 
 /* CAR GROUP */
 /* firstly, we take away the custom select appearance, and then we add the custom */
-.carGroupDropDown select {
+.dropDown select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -98,4 +117,44 @@
 
 .carGroupDropDown select::-ms-expand {
   display: none;
+}
+
+/* Extra Services */
+.extraServicesSelect,
+.customerInfoFields,
+.payment {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.extraDriverSelect,
+.extraMileageSelect,
+.info {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.selectBox,
+.infoType {
+  margin-right: 100px;
+}
+
+.searchBox input {
+  display: center;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+  width: 256px;
+  height: 48px;
+  left: 460px;
+  top: 275px;
+  background: #ffffff;
+  border: 1px solid #d1dae0;
+  box-sizing: border-box;
+  border-radius: 8px;
+  font-size: 16px;
+  font-style: italic;
 }
