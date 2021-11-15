@@ -1,4 +1,5 @@
 import Navigation from './components/navigation/navigation'
+import Booking from './components/navigation/booking'
 import './App.css';
 
 function App() {
@@ -6,9 +7,7 @@ function App() {
     <div className="App">
       <Navigation />
       (//**Sidebar will go here */)
-      <div>
-      (//**Content goes here */)
-      </div>
+      (//**Content will go here */)
     </div>
   );
 }

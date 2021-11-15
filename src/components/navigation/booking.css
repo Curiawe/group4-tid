@@ -1,0 +1,160 @@
+.booking {
+  width: 60%;
+}
+
+.input-wrap.align-icon-right.has-icon {
+  right: auto;
+  left: 7px;
+}
+
+/* HEADING */
+.bookingHeader {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.title {
+  margin-left: 10px;
+}
+
+.bookingNumber {
+  margin-right: 10px;
+}
+
+/* GENERAL */
+
+hr {
+  display: block;
+  color: #d1dae0;
+  background-color: #d1dae0;
+  border-radius: 8px;
+  height: 5px;
+  width: 80%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+h5 {
+  display: block;
+  width: 128px;
+}
+
+/* LOGISTICS */
+.pick-up,
+.return,
+.carGroup,
+.extraServices,
+.customerInfo,
+.paymentMethod {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.location {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: top;
+  align-items: flex-start;
+  height: 100px;
+  margin: 10px;
+}
+
+.dateAndTime {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 100px;
+  margin: 10px;
+}
+
+.inputField input {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 2px;
+  width: 256px;
+  height: 48px;
+  left: 460px;
+  top: 275px;
+  background: #ffffff;
+  border: 1px solid #d1dae0;
+  box-sizing: border-box;
+  border-radius: 8px;
+  font-size: 16px;
+  font-style: italic;
+}
+
+.radioButton input {
+  margin: 10px;
+}
+
+/* CAR GROUP */
+/* firstly, we take away the custom select appearance, and then we add the custom */
+.dropDown select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 0px;
+  background-color: transparent;
+  font: inherit;
+  border-radius: 0;
+
+  display: left;
+  width: 256px;
+  height: 48px;
+  left: 460px;
+  top: 275px;
+  background: #ffffff;
+  border: 1px solid #d1dae0;
+  box-sizing: border-box;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.carGroupDropDown select::-ms-expand {
+  display: none;
+}
+
+/* Extra Services */
+.extraServicesSelect,
+.customerInfoFields,
+.payment {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.extraDriverSelect,
+.extraMileageSelect,
+.info {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.selectBox,
+.infoType {
+  margin-right: 100px;
+}
+
+.searchBox input {
+  display: center;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+  width: 256px;
+  height: 48px;
+  left: 460px;
+  top: 275px;
+  background: #ffffff;
+  border: 1px solid #d1dae0;
+  box-sizing: border-box;
+  border-radius: 8px;
+  font-size: 16px;
+  font-style: italic;
+}
