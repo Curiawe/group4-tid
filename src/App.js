@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <Navigation />
       (//**Sidebar will go here */)
-      <Booking />
+      (//**Content will go here */)
     </div>
   );
 }
