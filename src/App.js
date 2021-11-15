@@ -1,5 +1,6 @@
 import Navigation from './components/navigation/navigation'
 import Booking from './components/navigation/booking'
+import NavigationButtons from './components/navigation/navigationButtons'
 import './App.css';
 
 function App() {
