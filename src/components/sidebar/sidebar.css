@@ -22,6 +22,12 @@
 }
 
 .sidebarLink:active{
-    color: #31465F;
+    color: #20334B;
     background-color: #9FBADB;
+}
+
+.activeSideLink {
+    color: #20334B;
+    background-color: #9FBADB;
+    font-weight: bolder;
 }
