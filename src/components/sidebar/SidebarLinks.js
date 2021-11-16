@@ -4,7 +4,7 @@ function RentalOperations () {
     return (
         <nav className = "sidebarLinks">
             <sidebarLink className = "sidebarLink">Booking Overview</sidebarLink>
-            <sidebarLink className = "sidebarLink">Booking Searc</sidebarLink>
+            <sidebarLink className = "sidebarLink">Booking Search</sidebarLink>
             <sidebarLink className = "sidebarLink">Car Overview</sidebarLink>
             <sidebarLink className = "sidebarLink">Schedule</sidebarLink>
         </nav> 
