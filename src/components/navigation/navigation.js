@@ -1,6 +1,5 @@
 import './navigation.css';
 import logo from './logo.png';
-//import logo from '.\.\public\logo.png';
 
 function Navigation () {
     return (

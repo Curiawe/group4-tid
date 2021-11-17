@@ -3,7 +3,7 @@ import SidebarLinks from './SidebarLinks'
 
 function Sidebar () {
     return (
-        <nav className="sidebarcontainer">
+        <nav className="SidebarContainer">
             <SidebarLinks />
         </nav>
     )
