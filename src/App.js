@@ -27,7 +27,9 @@ import Pages from './pages/Pages';
 function App() {
   return (
     <div className="App">
-      <Router>
+      <Navigation /> {/* Navbar goes on top */}
+      <Sidebar /> {/* Sidebar on the side */}
+      <Router> {/* Then the content on the right */}
         <Routes>
           <Route exact path={Pages.BookingOverview} component={Bookings}/> {/**Booking Overview w/ cards */}
           <Route exact path={Pages.BookingSearch} component={BookingSearch}/> {/**Booking Search - do we need this? */}
@@ -43,12 +45,6 @@ function App() {
           <Route exact path={Pages.Home} component={Home}/> {/* Homepage with three buttons */}
         </Routes>
       </Router>
-
-      <Navigation />
-      <Sidebar />
-      <div>
-      (//**Content goes here */)
-      </div>
     </div>
   );
 }

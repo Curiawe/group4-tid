@@ -1,8 +1,8 @@
+import Booking from '../components/navigation/booking'
 function BookingOverview () {
-    return 
-    <page>
-
-    </page>
+    return (
+        <Booking />
+    )
 }
 
 export default BookingOverview
