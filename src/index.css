@@ -172,18 +172,6 @@ to set styling for blocks of text.
     font-size: 24px;
 }
 
-Link {
-    color:white;
-    text-decoration: none;
-    text-decoration-line: none; 
-}
-
-Link:visited {
-    color:white;
-    text-decoration: none;
-    text-decoration-line: none;
-}
-
 a {
     font-weight: bolder; /*Using bolder instead of semi-bold*/
     color: #20334B;
