@@ -10,10 +10,10 @@ import './App.css';
 //Pages
 import Bookings from './pages/BookingOverview';
 import BookingSearch from './pages/BookingSearch';
-import Home from './pages/Home';
 import Cars from './pages/Cars';
 import CarGroups from './pages/CarGroups';
 import DailyOverview from './pages/DailyOverview';
+import Home from './pages/Home'
 import Pickup from './pages/Pickup';
 import Return from './pages/Return';
 import RentalOffices from './pages/RentalOffices';
@@ -42,7 +42,7 @@ function App() {
           <Route exact path={Pages.Schedule} element={<Schedule/>}/> {/**Giant Schedule, empty */}
           <Route exact path={Pages.TransferRequest} element={<TransferRequest/>}/> {/**Transfer Request Form, empty */}
           <Route exact path={Pages.Walkins} element={<Walkins/>}/> {/**Walkin Overview */}
-          <Route exact path={Pages.Home} element={<Home/>}/> {/* Homepage with three buttons */}
+          <Route exact path="/" compoment= {<Home/>}/>
         </Routes>
       </Router>
     </div>
