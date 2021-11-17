@@ -32,17 +32,17 @@ function App() {
       <Router> {/* Then the content on the right */}
         <Routes>
           <Route exact path={Pages.BookingOverview} element={<Bookings/>}/> {/**Booking Overview w/ cards */}
-          <Route exact path={Pages.BookingSearch} element={BookingSearch}/> {/**Booking Search - do we need this? */}
-          <Route exact path={Pages.Cars} element={Cars}/> {/** Car Overview with Cards */}
-          <Route exact path={Pages.CarGroups} element={CarGroups}/> {/** Car Groups Overview - deprioritize, because not part of requirements */}
-          <Route exact path={Pages.DailyOverview} element={DailyOverview}/> {/** Landing-page of the Management Area */}
-          <Route exact path={Pages.Pickup} element={Pickup}/> {/**Car Pickup Form, empty */}
-          <Route exact path={Pages.RentalOffices} element={RentalOffices}/> {/** Rental Offices Overview - deprioritize, because not part of requirements */}
-          <Route exact path={Pages.Return} element={Return}/>  {/**Car Return Form, empty */}
-          <Route exact path={Pages.Schedule} element={Schedule}/> {/**Giant Schedule, empty */}
-          <Route exact path={Pages.TransferRequest} element={TransferRequest}/> {/**Transfer Request Form, empty */}
-          <Route exact path={Pages.Walkins} element={Walkins}/> {/**Walkin Overview */}
-          <Route exact path={Pages.Home} element={Home}/> {/* Homepage with three buttons */}
+          <Route exact path={Pages.BookingSearch} element={<BookingSearch/>}/> {/**Booking Search - do we need this? */}
+          <Route exact path={Pages.Cars} element={<Cars/>}/> {/** Car Overview with Cards */}
+          <Route exact path={Pages.CarGroups} element={<CarGroups/>}/> {/** Car Groups Overview - deprioritize, because not part of requirements */}
+          <Route exact path={Pages.DailyOverview} element={<DailyOverview/>}/> {/** Landing-page of the Management Area */}
+          <Route exact path={Pages.Pickup} element={<Pickup/>}/> {/**Car Pickup Form, empty */}
+          <Route exact path={Pages.RentalOffices} element={<RentalOffices/>}/> {/** Rental Offices Overview - deprioritize, because not part of requirements */}
+          <Route exact path={Pages.Return} element={<Return/>}/>  {/**Car Return Form, empty */}
+          <Route exact path={Pages.Schedule} element={<Schedule/>}/> {/**Giant Schedule, empty */}
+          <Route exact path={Pages.TransferRequest} element={<TransferRequest/>}/> {/**Transfer Request Form, empty */}
+          <Route exact path={Pages.Walkins} element={<Walkins/>}/> {/**Walkin Overview */}
+          <Route exact path={Pages.Home} element={<Home/>}/> {/* Homepage with three buttons */}
         </Routes>
       </Router>
     </div>
