@@ -1,5 +1,5 @@
 //Routing
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-rounter-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 
 //Global Components
@@ -28,7 +28,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Switch>
+        <Routes>
           <Route exact path={Pages.Home} component={Home}/> {/* Homepage with three buttons */}
           <Route exact path={Pages.BookingOverview} component={Bookings}/> {/**Booking Overview w/ cards */}
           <Route exact path={Pages.BookingSearch} component={BookingSearch}/> {/**Booking Search - do we need this? */}
@@ -41,7 +41,7 @@ function App() {
           <Route exact path={Pages.Schedule} compoment={Schedule}/> {/**Giant Schedule, empty */}
           <Route exact path={Pages.TransferRequest} compoment={TransferRequest}/> {/**Transfer Request Form, empty */}
           <Route exact path={Pages.Walkins} compoment={Walkins}/> {/**Walkin Overview */}
-        </Switch>
+        </Routes>
       </Router>
 
       <Navigation />
