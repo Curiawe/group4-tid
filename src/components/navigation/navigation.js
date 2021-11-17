@@ -1,14 +1,17 @@
 import './navigation.css';
 import logo from './logo.png';
+import Pages from '../../pages/Pages';
+import Navtab from './Navtab'
 
 function Navigation () {
     return (
         <header>
-            <div className="navtabs">
-                <div className ="navtab-Logo"><img src={logo} alt="ScanCar Logo" height="40px"></img></div>
-                <div className="navTabActive">Booking Management</div>
-                <div className="navtab">Rental Management</div>
-                <div className="navtab">Group Management</div>
+            <div className="Navtabs">
+                <div className ="Navtab-Logo"><img src={logo} alt="ScanCar Logo" height="40px"></img></div>
+                <div className="Navtab">Booking Management</div>
+                <div className="Navtab">Rental Management</div>
+{/*                 <div className="navtab">Group Management</div> */}
+                <Navtab title="Group Management" link={Pages.RentalOffices}/>
             </div>
             
         </header>

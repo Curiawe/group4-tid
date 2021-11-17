@@ -27,9 +27,9 @@ import Pages from './pages/Pages';
 function App() {
   return (
     <div className="App">
+      <Router> {/* Then the content on the right */}
       <Navigation /> {/* Navbar goes on top */}
       <Sidebar /> {/* Sidebar on the side */}
-      <Router> {/* Then the content on the right */}
         <Routes>
           <Route exact path={Pages.BookingOverview} element={<Bookings/>}/> {/**Booking Overview w/ cards */}
           <Route exact path={Pages.BookingSearch} element={<BookingSearch/>}/> {/**Booking Search - do we need this? */}
@@ -42,7 +42,7 @@ function App() {
           <Route exact path={Pages.Schedule} element={<Schedule/>}/> {/**Giant Schedule, empty */}
           <Route exact path={Pages.TransferRequest} element={<TransferRequest/>}/> {/**Transfer Request Form, empty */}
           <Route exact path={Pages.Walkins} element={<Walkins/>}/> {/**Walkin Overview */}
-          <Route exact path="/" compoment= {<Home/>}/>
+          <Route exact path="/" render= {<Home/>}/>
         </Routes>
       </Router>
     </div>
