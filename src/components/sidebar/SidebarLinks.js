@@ -1,28 +1,31 @@
 import './sidebar.css'
+import Pages from '../../pages/Pages'
+
+import {Link} from 'react-router-dom'
 
 function SidebarLink (props) {
     return (
-        <li className={props.className}>{props.title}</li>
+        <Link to={props.link} className={props.className} style={{ textDecoration: 'none', color:'white'}}>{props.title}</Link>
     )
 }
 
 function RentalOperations () {
     return (
         <nav className = "SidebarLinks">
-            <SidebarLink className = "SidebarLink" title="Booking Overview"/>
-            <SidebarLink className = "SidebarLink" title="Booking Search"/>
-            <SidebarLink className = "SidebarLink" title="Car Overview"/>
-            <SidebarLink className = "SidebarLink" title="Schedule"/>
+            <SidebarLink className = "SidebarLink" title="Booking Overview" link={Pages.BookingOverview}/>
+            <SidebarLink className = "SidebarLink" title="Booking Search" link={Pages.BookingSearch}/>
+            <SidebarLink className = "SidebarLink" title="Car Overview"link={Pages.Cars}/>
+            <SidebarLink className = "SidebarLink" title="Schedule"link={Pages.Schedule}/>
         </nav> 
     )
 }
 
 function RentalManagement () {
     return (
-        <nav className = "sidebarLinks">
-        <SidebarLink className = "SidebarLink" title="Daily Overview"/>
-        <SidebarLink className = "SidebarLink"title="Transfers"/>
-        <SidebarLink className = "SidebarLink" title="Walk-ins"/>
+        <nav className = "SidebarLinks">
+        <SidebarLink className = "SidebarLink" title="Daily Overview" link={Pages.DailyOverview}/>
+        <SidebarLink className = "SidebarLink" title="Transfers"link={Pages.TransferRequest}/>
+        <SidebarLink className = "SidebarLink" title="Walk-ins" link={Pages.Walkins}/>
     </nav> 
     )
 }
@@ -30,8 +33,8 @@ function RentalManagement () {
 function GroupManagement () {
     return (
         <nav className = "SidebarLinks">
-        <SidebarLink className = "SidebarLink" title="Car Groups"/>
-        <SidebarLink className = "SidebarLink" title="Rental Offices"/>
+        <SidebarLink className = "SidebarLink" title="Car Groups" link={Pages.CarGroups}/>
+        <SidebarLink className = "SidebarLink" title="Rental Offices" link={Pages.RentalOffices}/>
     </nav> 
     )
 }
