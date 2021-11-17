@@ -14,7 +14,6 @@ header {
   font-size: 16px;
   font-weight: bolder;
 }
-
 .Navtabs {
   /*  You will be tempted to use "padding:10px;". Don't. It messes with the justify-content and the align-self of the children.  */
   display: flex;
@@ -66,4 +65,8 @@ The nav tabs looked really, REALLY wide in 256.*/
   margin-bottom: 8px;
   padding-left: 32px;
   pointer-events: none;
+}
+
+Link > a {
+  color:white;
 }
