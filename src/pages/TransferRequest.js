@@ -1,8 +1,7 @@
 function TransferRequest () {
-    return 
-    <page>
-
-    </page>
+    return (
+        <h1>Beam me up, Scotty</h1>
+    )
 }
 
 export default TransferRequest

@@ -20,7 +20,7 @@ const Pages = {
     CarGroups: "car-groups",
     Cars: "cars",
     DailyOverview: "daily-overview",
-    Home: "",
+    Home: "/",
     Pickup: "pickup",
     RentalOffices: "offices",
     Return: "return",

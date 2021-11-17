@@ -1,8 +1,6 @@
 function Billing () {
     return 
-    <page>
-
-    </page>
+    (<h1>Billing go BRRRRR~</h1>)
 }
 
 export default Billing

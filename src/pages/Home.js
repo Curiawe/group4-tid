@@ -1,8 +1,8 @@
+import NavigationButtons from '../components/navigation/navigationButtons'
 function Home () {
-    return 
-    <page>
-
-    </page>
+    return (
+        <NavigationButtons/>
+    )
 }
 
 export default Home
