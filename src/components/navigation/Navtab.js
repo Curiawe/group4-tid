@@ -1,10 +1,5 @@
 import { Link } from 'react-router-dom';
-import './navigation.css'
-
-function IsActive (props) {
-    return ({props} === document.documentURI)
-}
-
+import './navigation.css';
 
 
 function Navtab (props) {
