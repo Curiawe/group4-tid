@@ -29,7 +29,6 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-          <Route exact path={Pages.Home} component={Home}/> {/* Homepage with three buttons */}
           <Route exact path={Pages.BookingOverview} component={Bookings}/> {/**Booking Overview w/ cards */}
           <Route exact path={Pages.BookingSearch} component={BookingSearch}/> {/**Booking Search - do we need this? */}
           <Route exact path={Pages.Cars} component={Cars}/> {/** Car Overview with Cards */}
@@ -41,6 +40,7 @@ function App() {
           <Route exact path={Pages.Schedule} compoment={Schedule}/> {/**Giant Schedule, empty */}
           <Route exact path={Pages.TransferRequest} compoment={TransferRequest}/> {/**Transfer Request Form, empty */}
           <Route exact path={Pages.Walkins} compoment={Walkins}/> {/**Walkin Overview */}
+          <Route exact path={Pages.Home} component={Home}/> {/* Homepage with three buttons */}
         </Routes>
       </Router>
 
