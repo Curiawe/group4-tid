@@ -15,10 +15,13 @@ import Cars from './pages/Cars';
 import CarGroups from './pages/CarGroups';
 import DailyOverview from './pages/DailyOverview';
 import Pickup from './pages/Pickup';
+import Return from './pages/Return';
 import RentalOffices from './pages/RentalOffices';
 import Schedule from './pages/Schedule';
 import TransferRequest from './pages/TransferRequest';
 import Walkins from './pages/Walkins';
+
+import Pages from './pages/Pages';
 
 
 function App() {
@@ -26,18 +29,18 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
-          <Route exact path="/" component={Home}/>
-          <Route exact path="/bookings" component={Bookings}/>
-          <Route exact path="/booking-search" component={BookingSearch}/>
-          <Route exact path="/cars" component={Cars}/>
-          <Route exact path="/car-groups" component={CarGroups}/>
-          <Route exact path="/daily-overview" component={DailyOverview}/>
-          <Route exact path="/pick-up" component={Pickup}/>
-          <Route exact path="/offices" component={RentalOffices}/>
-          <Route exact path="/schedule" compoment={Schedule}/>
-          <Route exact path="/transfer" compoment={TransferRequest}/>
-          <Route exact path="/walkins" compoment={Walkins}/>
-
+          <Route exact path={Pages.Home} component={Home}/> {/* Homepage with three buttons */}
+          <Route exact path={Pages.BookingOverview} component={Bookings}/> {/**Booking Overview w/ cards */}
+          <Route exact path={Pages.BookingSearch} component={BookingSearch}/> {/**Booking Search - do we need this? */}
+          <Route exact path={Pages.Cars} component={Cars}/> {/** Car Overview with Cards */}
+          <Route exact path={Pages.CarGroups} component={CarGroups}/> {/** Car Groups Overview - deprioritize, because not part of requirements */}
+          <Route exact path={Pages.DailyOverview} component={DailyOverview}/> {/** Landing-page of the Management Area */}
+          <Route exact path={Pages.Pickup} component={Pickup}/> {/**Car Pickup Form, empty */}
+          <Route exact path={Pages.RentalOffices} component={RentalOffices}/> {/** Rental Offices Overview - deprioritize, because not part of requirements */}
+          <Route exact path={Pages.Return} compoment={Return}/>  {/**Car Return Form, empty */}
+          <Route exact path={Pages.Schedule} compoment={Schedule}/> {/**Giant Schedule, empty */}
+          <Route exact path={Pages.TransferRequest} compoment={TransferRequest}/> {/**Transfer Request Form, empty */}
+          <Route exact path={Pages.Walkins} compoment={Walkins}/> {/**Walkin Overview */}
         </Switch>
       </Router>
 
