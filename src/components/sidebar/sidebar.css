@@ -1,5 +1,6 @@
 .SidebarContainer {
     width:232px;
+    min-height:500px;
     padding-top:16px;
     padding-bottom:16px;
     background-color: #20334B;
