@@ -1,44 +1,45 @@
-.pickup {
+.pickup,
+.return {
   width: 40%;
 }
 
-.pickupHeader {
+.pickupHeader,
+.returnHeader {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  background-color: aqua;
 }
 
 .info {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  background-color: aquamarine;
 }
 
 .attributeType {
   display: flex;
   flex-wrap: wrap;
-  background-color: rgb(38, 128, 128);
   width: 40%;
-  height: 64px;
+  height: 80px;
   justify-content: flex-start;
   align-items: flex-start;
 }
 
-.carInfo,
-.fuelandMileagefields {
+.carInfo {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  background-color: blueviolet;
 }
 
 .selectedCar,
 .carGroup,
 .fuelType,
-.startingLevel {
+.startingLevel,
+.carState,
+.returnTime,
+.fuelAndMileagefields,
+.returnLevel {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -50,23 +51,34 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  background-color: brown;
   width: 60%;
-  justify-content: center;
-  align-items: flex-start;
+  justify-content: flex-start;
 }
 
 .attribute2 {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  background-color: burlywood;
   width: 60%;
   justify-content: flex-end;
 }
 
-.icon {
-  background-color: cadetblue;
+.attribute3 {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 60%;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.attribute4 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 60%;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .attribute input {
@@ -99,4 +111,56 @@
   border-radius: 8px;
   font-size: 16px;
   font-style: italic;
+}
+
+.inputFieldSmall {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100px;
+}
+
+.inputFieldSmall input {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 2px;
+  margin-right: 5px;
+  width: 64px;
+  height: 48px;
+  left: 460px;
+  top: 275px;
+  background: #ffffff;
+  border: 1px solid #d1dae0;
+  box-sizing: border-box;
+  border-radius: 8px;
+  font-size: 16px;
+  font-style: italic;
+}
+
+.ontime {
+  display: block;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: left;
+  align-items: center;
+  width: 60%;
+}
+
+.lateBy {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: left;
+  align-items: center;
+  width: 60%;
+}
+
+.onTime input,
+.lateBy input,
+.selectBox input,
+.onTime label,
+.lateBy label,
+.selectBox label {
+  margin-right: 5px;
 }

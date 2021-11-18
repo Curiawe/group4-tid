@@ -2,8 +2,6 @@ import React from 'react';
 import './booking.css';
 import '../../index.css';
 
-
-
 function BookingHeader(props) {
     return (
         <div className="bookingHeader">

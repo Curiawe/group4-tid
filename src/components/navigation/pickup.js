@@ -1,6 +1,5 @@
 import React from 'react';
-import './navigationButtons.css';
-import './pickup.css';
+import './pickupAndReturn.css';
 import './booking.css';
 import '../../index.css';
 
@@ -64,9 +63,11 @@ function BookedCar(props) {
     )
 }
 
-function FuelandMileage(props) {
+export { BookedCar }
+
+function StartingFuelAndMileage(props) {
     return (
-        <div className="fuelandMileagefields">
+        <div className="fuelAndMileageFields">
             <div className="startingLevel">
                 <div className="attributeType">
                 Starting Mileage:
@@ -141,7 +142,7 @@ function Pickup(props) {
             <CheckCustomerInfo/>
             <BookedCar/>
             <BillCarAs/>
-            <FuelandMileage/>
+            <StartingFuelAndMileage/>
             <Buttons/>
         </div>
     )
