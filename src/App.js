@@ -1,6 +1,7 @@
 import Navigation from './components/navigation/navigation'
 import Booking from './components/navigation/booking'
 import NavigationButtons from './components/navigation/navigationButtons'
+import Pickup from './components/navigation/pickup';
 import './App.css';
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
       <Navigation />
       (//**Sidebar will go here */)
       (//**Content will go here */)
+      <Pickup/>
     </div>
   );
 }
