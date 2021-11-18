@@ -2,11 +2,6 @@
   width: 60%;
 }
 
-.input-wrap.align-icon-right.has-icon {
-  right: auto;
-  left: 7px;
-}
-
 /* HEADING */
 .bookingHeader {
   display: flex;
