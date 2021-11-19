@@ -1,0 +1,34 @@
+.SidebarContainer {
+    width:232px;
+    min-height:500px;
+    padding-top:16px;
+    padding-bottom:16px;
+    background-color: #20334B;
+    color:white;
+    overflow:auto;
+}
+
+.SidebarLinks {
+    width: 100%;
+    display:flex;
+    flex-direction:column;
+}
+
+.SidebarLink{
+    padding:10px 32px;
+}
+
+.SidebarLink:hover{
+    font-weight: bolder;
+}
+
+.SidebarLink:active{
+    color: #20334B;
+    background-color: #9FBADB;
+}
+
+.ActiveSideLink {
+    color: #20334B;
+    background-color: #9FBADB;
+    font-weight: bolder;
+}
