@@ -1,7 +1,7 @@
-import NavigationButtons from '../components/navigation/navigationButtons'
+import Card from "../cards"
 function Home () {
     return (
-        <NavigationButtons/>
+        <Card/>
     )
 }
 
