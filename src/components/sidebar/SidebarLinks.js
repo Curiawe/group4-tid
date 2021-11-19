@@ -1,21 +1,29 @@
 import './sidebar.css'
 import Pages from '../../pages/Pages'
 
-import {Link} from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
+
+function checkActive(link) {
+    return ("http://localhost:3000/" === (document.baseURI.replace(link, "")))
+}
 
 function SidebarLink (props) {
+    console.log (props.title + ". Currently active link: " + checkActive(props.link))
     return (
-        <Link to={props.link} className={props.className} style={{ textDecoration: 'none', color:'white'}}>{props.title}</Link>
+        <NavLink to={props.link} className="sidebar-link" activeClassName="active-side-link"
+            style={{ textDecoration: 'none', color:'white'}}>
+                {props.title}
+        </NavLink>
     )
 }
 
 function RentalOperations () {
     return (
         <nav className = "SidebarLinks">
-            <SidebarLink className = "SidebarLink" title="Booking Overview" link={Pages.BookingOverview}/>
-            <SidebarLink className = "SidebarLink" title="Booking Search" link={Pages.BookingSearch}/>
-            <SidebarLink className = "SidebarLink" title="Car Overview"link={Pages.Cars}/>
-            <SidebarLink className = "SidebarLink" title="Schedule"link={Pages.Schedule}/>
+            <SidebarLink title="Booking Overview" link={Pages.BookingOverview}/>
+            <SidebarLink title="Booking Search" link={Pages.BookingSearch}/>
+            <SidebarLink title="Car Overview"link={Pages.Cars}/>
+            <SidebarLink title="Schedule"link={Pages.Schedule}/>
         </nav> 
     )
 }
@@ -23,9 +31,9 @@ function RentalOperations () {
 function RentalManagement () {
     return (
         <nav className = "SidebarLinks">
-        <SidebarLink className = "SidebarLink" title="Daily Overview" link={Pages.DailyOverview}/>
-        <SidebarLink className = "SidebarLink" title="Transfers"link={Pages.TransferRequest}/>
-        <SidebarLink className = "SidebarLink" title="Walk-ins" link={Pages.Walkins}/>
+        <SidebarLink title="Daily Overview" link={Pages.DailyOverview}/>
+        <SidebarLink title="Transfers"link={Pages.TransferRequest}/>
+        <SidebarLink title="Walk-ins" link={Pages.Walkins}/>
     </nav> 
     )
 }
@@ -33,18 +41,18 @@ function RentalManagement () {
 function GroupManagement () {
     return (
         <nav className = "SidebarLinks">
-        <SidebarLink className = "SidebarLink" title="Car Groups" link={Pages.CarGroups}/>
-        <SidebarLink className = "SidebarLink" title="Rental Offices" link={Pages.RentalOffices}/>
+        <SidebarLink title="Car Groups" link={Pages.CarGroups}/>
+        <SidebarLink title="Rental Offices" link={Pages.RentalOffices}/>
     </nav> 
     )
 }
 
 export default function SidebarLinks () {
     return (
-        <sidebar>
+        <nav>
             <RentalOperations />
             <RentalManagement />
             <GroupManagement />
-        </sidebar>
+        </nav>
     )
 }
