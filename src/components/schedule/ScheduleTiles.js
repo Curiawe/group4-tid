@@ -105,6 +105,8 @@ function StatusTile(props) {
 // Table Row Date Header
 
 // Tiles Date Header
+
+// Table Row Hours Header
 function HeaderRow (props) {
     return (
         <tr>
@@ -133,28 +135,8 @@ function HeaderRow (props) {
     )
 }
 
-// Table Row Hours Header
-
 // Tiles Hours Header
 
 // Table Row car availability
 
 // Tiles Car Availability
-
-<table>
-<tr>
-  <th>Company</th>
-  <th>Contact</th>
-  <th>Country</th>
-</tr>
-<tr>
-  <td>Alfreds Futterkiste</td>
-  <td>Maria Anders</td>
-  <td>Germany</td>
-</tr>
-<tr>
-  <td>Centro comercial Moctezuma</td>
-  <td>Francisco Chang</td>
-  <td>Mexico</td>
-</tr>
-</table> 
