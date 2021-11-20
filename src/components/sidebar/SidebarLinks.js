@@ -2,7 +2,6 @@ import './sidebar.css'
 import Pages from '../../pages/Pages'
 
 import { Link } from 'react-router-dom'
-import PageGroups from '../navigation/PageGroups'
 
 //Use state to conditionally re-render.
 
@@ -21,10 +20,8 @@ function InactiveLink (props) {
 }
 
 function SidebarLink (props) {
-    const currentLink = state.currentLink;
-    let ReturnLink;
     return (
-        (currentLink) ? ReturnLink= <ActiveLink link={props.link} title={props.title}/>
+        (checkActive(props.link)) ? <ActiveLink link={props.link} title={props.title}/>
             : <InactiveLink link={props.link} title={props.title}/>
     )
 }

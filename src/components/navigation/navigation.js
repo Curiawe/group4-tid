@@ -15,6 +15,11 @@ function getLinkList (props) {
     return returnArray
 }
 
+/**
+ * 
+ * @param {title, link} props 
+ * @returns boolean - is this a current page or not?
+ */
 function conditionalRender(props) {
     let current = false
     const title = props.title.replace(" ","")
