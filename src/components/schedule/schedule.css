@@ -1,0 +1,44 @@
+table {
+    border-collapse: collapse;
+    margin:0px;
+}
+
+/*Format global values for all table rows in Schedule here*/
+tr {
+    height: 72px;
+}
+
+/*Format global values for all generic table cells here*/
+td {
+    height: 100%;
+    width: 124px;
+    padding:10px;
+    border-radius: 1px;
+    border: #A2B6C3 1px solid;
+}
+
+/* Car tile containing ScheduleCarContainer and ScheduleCarInfo elements */
+ScheduleCarTile {
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+
+    font-size:small;
+}
+
+/* Format image in first column here*/
+ScheduleCarImg {
+    height:36px;
+}
+
+/*Format Container with image and license plate text here*/
+ScheduleCarContainer {
+    width:50px;
+
+    display:flex;
+    flex-direction:column;
+    flex-wrap: wrap;
+
+}
+
+

@@ -1,6 +1,13 @@
-function Schedule () {
+import {ScheduleTable} from "../components/schedule/ScheduleTiles"; 
+
+function Schedule (props) {
     return (
-        <h1>Schedule go BRRRRR~</h1>
+        <div style={{marginLeft:"64px"}}>
+            <h1>Schedule go BRRRRR~</h1>
+            <table>
+                <ScheduleTable/>
+            </table>
+        </div>
     )
 }
 
