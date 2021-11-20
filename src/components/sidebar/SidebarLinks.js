@@ -1,19 +1,41 @@
 import './sidebar.css'
 import Pages from '../../pages/Pages'
 
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import PageGroups from '../navigation/PageGroups'
+
+//Use state to conditionally re-render.
 
 function checkActive(link) {
     return ("http://localhost:3000/" === (document.baseURI.replace(link, "")))
 }
 
-function SidebarLink (props) {
+function InactiveLink (props) {
     console.log (props.title + ". Currently active link: " + checkActive(props.link))
     return (
-        <NavLink to={props.link} className="sidebar-link" activeClassName="active-side-link"
+        <Link to={props.link} className="sidebar-link"
             style={{ textDecoration: 'none', color:'white'}}>
                 {props.title}
-        </NavLink>
+        </Link>
+    )
+}
+
+function SidebarLink (props) {
+    const currentLink = state.currentLink;
+    let ReturnLink;
+    return (
+        (currentLink) ? ReturnLink= <ActiveLink link={props.link} title={props.title}/>
+            : <InactiveLink link={props.link} title={props.title}/>
+    )
+}
+
+function ActiveLink (props) {
+    console.log ("This component is rendered as active: " + document.baseURI)
+    return (
+        <Link to={props.link} className = "active-side-link" 
+            style={{ textDecoration: 'none', color:'white'}}>
+                {props.title}
+        </Link>
     )
 }
 

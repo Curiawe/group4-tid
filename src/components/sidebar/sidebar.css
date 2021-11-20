@@ -14,7 +14,7 @@
     flex-direction:column;
 }
 
-.sidebar-link{
+a {
     padding:10px 32px;
 }
 
@@ -24,11 +24,11 @@
     font-weight: bolder;
     padding:10px 32px;
 }
-.sidebar-link:hover{
+a:hover{
     font-weight: bolder;
 }
 
-.sidebar-link:active{
+a:active{
     color: #20334B;
     background-color: #9FBADB;
 }
