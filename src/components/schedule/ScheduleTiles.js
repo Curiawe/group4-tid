@@ -10,12 +10,11 @@ function ScheduleTable () {
             <HeaderRow/>
             <tr>
                 <ScheduleCarTile car = {CARS.JF19386}></ScheduleCarTile>
-                <StatusTile car = {CARS.JF19386}/>
-                <EmptyScheduleTile/>
+                <RenderRow car = {CARS.JF19386}/>
             </tr>
             <tr>
                 <ScheduleCarTile car = {CARS.FM23456}/>
-                <StatusTile car = {CARS.FM23456}/>
+                <RenderRow car = {CARS.FM23456}/>
 
             </tr>
         </table>
@@ -110,7 +109,7 @@ function StatusTile(props) {
 function HeaderRow (props) {
     return (
         <tr>
-        <th>
+        <th id="small">
             4 cars found
         </th>
         <th>
@@ -138,5 +137,13 @@ function HeaderRow (props) {
 // Tiles Hours Header
 
 // Table Row car availability
+
+function RenderRow(props) {
+    let row = [];
+    for (var i =0 ; i<6;i++){
+        row.push(<StatusTile car={props.car}/>)
+    }
+    return row
+}
 
 // Tiles Car Availability
