@@ -7,6 +7,7 @@ import { COLORS } from '../../values/colors';
 function ScheduleTable () {
     return (
         <table>
+            <HeaderRow/>
             <tr>
                 <ScheduleCarTile car = {CARS.JF19386}></ScheduleCarTile>
                 <StatusTile car = {CARS.JF19386}/>
@@ -104,6 +105,33 @@ function StatusTile(props) {
 // Table Row Date Header
 
 // Tiles Date Header
+function HeaderRow (props) {
+    return (
+        <tr>
+        <th>
+            4 cars found
+        </th>
+        <th>
+            8-10
+        </th>
+        <th>
+            10-12
+        </th>
+        <th>
+            12-14
+        </th>
+        <th>
+            14-16
+        </th>
+        <th>
+            16-18
+        </th>
+        <th>
+            18-20
+        </th>
+    </tr>
+    )
+}
 
 // Table Row Hours Header
 

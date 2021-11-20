@@ -3,15 +3,19 @@ table {
     margin:0px;
 }
 
+tr > th {
+    margin:0px;
+    padding: 10px 20px;
+    border:#A2B6C3 1px solid;
+}
+
 /*Format global values for all table rows in Schedule here*/
 tr {
-    height: 72px;
+    height: auto;
 }
 
 /*Format global values for all generic table cells here*/
 td {
-    height: 100%;
-    width: 124px;
     padding:10px;
     border-radius: 1px;
     border: #A2B6C3 1px solid;
@@ -19,6 +23,7 @@ td {
 
 /* Car tile containing ScheduleCarContainer and ScheduleCarInfo elements */
 ScheduleCarTile {
+
     display:flex;
     flex-direction:row;
     flex-wrap:wrap;
