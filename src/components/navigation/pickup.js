@@ -2,6 +2,8 @@ import React from 'react';
 import './pickupAndReturn.css';
 import './booking.css';
 import '../../index.css';
+import InputField from './inputField';
+import SelectBox from './selectBoxes';
 
 function PickupHeader(props) {
     return (
@@ -72,21 +74,13 @@ function StartingFuelAndMileage(props) {
                 <div className="attributeType">
                 Starting Mileage:
                 </div>
-                <div className="attribute">
-                    <form>
-                        <input placeholder="Starting Mileage in km"/>
-                    </form>
-                </div>
+                <InputField className="attribute" placeHolder="Starting Mileage Level in km"/>
             </div>
             <div className="startingLevel">
                 <div className="attributeType">
                 Starting Fuel:
                 </div>
-                <div className="attribute">
-                    <form>
-                        <input placeholder="Starting Fuel Level in %" />
-                    </form>
-                </div>
+                <InputField className="attribute" placeHolder="Starting Fuel Level in %"/>
             </div>
             <div className="startingLevel">
                 <div className="attributeType">

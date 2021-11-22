@@ -4,6 +4,8 @@ import './navigationButtons.css';
 import './booking.css';
 import '../../index.css';
 import './pickupAndReturn.css';
+import SelectBox from './selectBoxes.js';
+import InputField from './inputField.js';
 
 function ReturnHeader(props) {
     return (
@@ -43,29 +45,10 @@ function ReturnTime(props) {
                 Arrival Time:
             </div>
             <div className="attribute3">
-                <div className="onTime">
-                    <form>
-                        <label>
-                            <input type="radio" value="On Time" checked={false}/>
-                            On Time
-                        </label>
-                    </form>
-                </div>
-
-                
+                <SelectBox className="onTime" type="radio" buttonText="On Time"/>
                 <div className="lateBy">
-                    <form>
-                        <label>
-                            <input type="radio" value="Late by" checked={false}/>
-                            Late by
-                        </label>
-                    </form>
-                    <div className="inputFieldSmall">
-                        <form>
-                            <input placeholder="km" type="number"/>
-                        </form>
-                        km
-                    </div>
+                    <SelectBox type="radio" buttonText="Late by"/>
+                    <InputField className="inputFieldSmall" placeHolder="min"/>
                 </div>
             </div>
         </div>
@@ -79,39 +62,15 @@ function ReturnFuelAndMileage(props) {
             Mileage:
             </div>
                 <div className="attribute4">
-                    <div className="inputFieldSmall">
-                        <form>
-                            <input placeholder="km"/>
-                        </form>
-                        km
-                    </div>
-                    <div className="selectBox">
-                        <form>
-                            <label>
-                                <input type="checkbox" value="Above Limit" checked={false}/>
-                                Above Limit
-                            </label>
-                        </form>
-                    </div>
+                    <InputField className="inputFieldSmall" placeHolder="km"/>
+                    <SelectBox className="selectBox" type="checkbox" buttonText="Above Limit"/>
                 </div>
             <div className="attributeType">
             Fuel Level:
             </div>
             <div className="attribute4">
-                <div className="inputFieldSmall">
-                    <form>
-                        <input placeholder="%" />
-                    </form>
-                    % 
-                </div>
-                <div className="selectBox">
-                    <form>
-                        <label>
-                            <input type="checkbox" value="Below Limit" checked={false}/>
-                            Below Limit
-                        </label>
-                    </form>
-                </div>
+                <InputField className="inputFieldSmall" placeHolder="%"/>
+                <SelectBox className="selectBox" type="checkbox" buttonText="Below Limit"/>
             </div>
             <div className="attributeType">
             Comments:

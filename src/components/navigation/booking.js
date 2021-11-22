@@ -1,6 +1,8 @@
 import React from 'react';
 import './booking.css';
 import '../../index.css';
+import InputField from './inputField';
+import SelectBox from './selectBoxes';
 
 function BookingHeader(props) {
     return (
@@ -22,54 +24,32 @@ function BookingLogistics(props) {
                 <h5>Pick-up</h5>
                 <div className="location">
                     <div className="locationForm">
-                        <div className="inputField">
-                            <form>
-                                <input placeholder="Select Location" />
-                            </form>
-                        </div>
+                        <InputField className="inputField" placeHolder="Select Location"/>
                     </div>
-                    <div className="radioButton">
-                        <form>
-                            <label>
-                                <input type="radio" value="Walk-in" checked={false}/>
-                                Walk-in
-                            </label>
-                        </form>
-                    </div>
-
+    
+                    <SelectBox className="radioButton" type="radio" buttonText="Walk-in"/>
+                  
                 </div>
                 <div className="dateAndTime">
-                    <div className="inputField">
-                        <form>
-                            <input placeholder="Select Date" />
-                            <input placeholder="Select Time" />
-                        </form>
-                    </div>
+                    <InputField className="inputField"  placeHolder="Select Date"/>
+                    <InputField className="inputField"  placeHolder="Select Time"/>
                 </div>
             </div>
             <div className="return">
                 <h5>Return</h5>
                 <div className="location">
-                    <div className="inputField">
-                        <form>
-                            <input placeholder="Select Location" />
-                        </form>
-                    </div>
+                    <InputField className="inputField" placeHolder="Select Location"/>
                 </div>
                 <div className="dateAndTime">
-                    <div className="inputField">
-                        <form>
-                            <input placeholder="Select Date" />
-                            <input placeholder="Select Time" />
-                        </form>
-                    </div>
+                    <InputField className="inputField" placeHolder="Select Date"/>
+                    <InputField className="inputField" placeHolder="Select Time"/>
                 </div>
             </div>
         </div>
     )
 }
 
-function HorizontalLine(props) {
+function HorizontalLine() {
     return (
         <hr/>
     )
@@ -102,30 +82,12 @@ function ExtraServices(props) {
             <h5>Extra Services</h5>
             <div className="extraServicesSelect">
                 <div className="extraDriverSelect">
-                    <div className="selectBox">
-                        <form>
-                            <label>
-                                <input type="checkbox" value="Extra Driver" checked={false}/>
-                                Extra Driver
-                            </label>
-                        </form>
-                    </div>
+                    <SelectBox className="selectBox" type="checkbox" buttonText="Extra Driver"/>
                     <div className="AddDriverBtn"> ADD DRIVER BTN </div>
                 </div>
                 <div className="extraMileageSelect">
-                    <div className="selectBox">
-                        <form>
-                            <label>
-                                <input type="checkbox" value="Extra Mileage" checked={false}/>
-                                Extra Mileage
-                            </label>
-                        </form>
-                    </div>
-                    <div className="inputField">
-                        <form>
-                            <input placeholder="Extra Mileage" />
-                        </form>
-                    </div>
+                    <SelectBox className="selectBox" type="checkbox" buttonText="Extra Mileage"/>
+                    <InputField className="inputField" placeHolder="Enter Extra Mileage"/>
                 </div>
             </div>
         </div>
@@ -138,90 +100,56 @@ function CustomerInformation(props) {
             <h5>Customer Information</h5>
             <div className="customerInfoFields">
                     <div className="searchBox">
-                        <form>
-                            <input placeholder="Search Existing" />
-                        </form>
+                        <InputField className="inputField" placeHolder="Search Existing Customers"/>
                     </div>
                     <div className="customerInfoInput">
                     <div className="info">
                         <div className="infoType">
                         Name:
                         </div>
-                        <div className="inputField">
-                            <form>
-                                <input placeholder="Driver name"/>
-                            </form>
-                        </div>
+                        <InputField className="inputField" placeHolder="Driver's Name"/>
                     </div>
                     <div className="info">
                         <div className="infoType">
                         Address:
                         </div>
-                        <div className="inputField">
-                            <form>
-                                <input placeholder="Driver address"/>
-                            </form>
-                        </div>
+                        <InputField className="inputField" placeHolder="Driver's Address"/>
                     </div>
                     <div className="info">
                         <div className="infoType">
                         Phone:
                         </div>
-                        <div className="inputField">
-                            <form>
-                                <input placeholder="Driver phone"/>
-                            </form>
-                        </div>
+                        <InputField className="inputField" placeHolder="Driver's Phone Number"/>
                     </div>
                     <div className="info">
                         <div className="infoType">
                         Email:
                         </div>
-                        <div className="inputField">
-                            <form>
-                                <input placeholder="Driver email"/>
-                            </form>
-                        </div>
+                        <InputField className="inputField" placeHolder="Driver's Email Address"/>
                     </div>
                     <div className="info">
                         <div className="infoType">
                         Date of Birth:
                         </div>
-                        <div className="inputField">
-                            <form>
-                                <input placeholder="Select Date"/>
-                            </form>
-                        </div>
+                        <InputField className="inputField" placeHolder="dd/mm/yy"/>
                     </div>
                     <div className="info">
                         <div className="infoType">
                         License ID:
                         </div>
-                        <div className="inputField">
-                            <form>
-                                <input placeholder="Driver License ID"/>
-                            </form>
-                        </div>
+                        <InputField className="inputField" placeHolder="Driver's License ID"/>
                     </div>
                     <div className="info">
                         <div className="infoType">
                         License Issued:
                         </div>
-                        <div className="inputField">
-                            <form>
-                                <input placeholder="Select Date"/>
-                            </form>
-                        </div>
+                        <InputField className="inputField" placeHolder="dd/mm/yy"/>
                     </div>
                     <div className="info">
                         <div className="infoType">
                         License Expiration:
                         </div>
-                        <div className="inputField">
-                            <form>
-                                <input placeholder="Select Date"/>
-                            </form>
-                        </div>
+                        <InputField className="inputField" placeHolder="dd/mm/yy"/>
                     </div>
                 </div>
             </div>
@@ -254,7 +182,7 @@ function PaymentMethod(props) {
                         Deposit:
                         </div>
                         <div className="inputField">
-                            deposit here
+                            {props.deposit}
                         </div>
                     </div>
                     <div className="info">
@@ -262,7 +190,7 @@ function PaymentMethod(props) {
                         Total:
                         </div>
                         <div className="inputField">
-                            total amount here
+                            {props.totalAmount}
                         </div>
                     </div>
                 </div>
