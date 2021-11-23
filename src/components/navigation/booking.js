@@ -3,10 +3,11 @@ import './booking.css';
 import '../../index.css';
 import InputField from './inputField';
 import SelectBox from './selectBoxes';
+import { SelectCarGroup, SelectPaymentMethod } from './dropDowns';
 
-function BookingHeader(props) {
+function BookingHeader() {
     return (
-        <div className="bookingHeader">
+        <div className="header">
             <div className="title">
                 <h1>New Booking</h1>
             </div>
@@ -20,22 +21,18 @@ function BookingHeader(props) {
 function BookingLogistics(props) {
     return (
         <div>
-            <div className="pick-up">
+            <div className="rowLayout">
                 <h5>Pick-up</h5>
                 <div className="location">
-                    <div className="locationForm">
-                        <InputField className="inputField" placeHolder="Select Location"/>
-                    </div>
-    
+                    <InputField className="inputField" placeHolder="Select Location"/>
                     <SelectBox className="radioButton" type="radio" buttonText="Walk-in"/>
-                  
                 </div>
                 <div className="dateAndTime">
                     <InputField className="inputField"  placeHolder="Select Date"/>
                     <InputField className="inputField"  placeHolder="Select Time"/>
                 </div>
             </div>
-            <div className="return">
+            <div className="rowLayout">
                 <h5>Return</h5>
                 <div className="location">
                     <InputField className="inputField" placeHolder="Select Location"/>
@@ -49,36 +46,27 @@ function BookingLogistics(props) {
     )
 }
 
+
 function HorizontalLine() {
     return (
         <hr/>
     )
 }
 
-function SelectCarGroup(props) {
+function CarGroup() {
     return (
-        <div className="carGroup">
+        <div className="rowLayout">
             <h5>Car Group</h5>
-            <div className="dropDown">
-                <select>
-                    <option value="A – Small">A – Small</option>
-                    <option value="B – Medium">B – Medium</option>
-                    <option value="C – Large">C – Large</option>
-                    <option value="D – X-Large">D – X-Large</option>
-                    <option value="E – Family">E – Family</option>
-                    <option value="F – Business">F – Business</option>
-                    <option value="G – Station">G – Station</option>
-                    <option value="H – Automatic">H – Automatic</option>
-                    <option value="I – Small Automatic">I – Small Automatic</option>
-                </select>
-            </div>
+            <SelectCarGroup/>
         </div>
     )
 }
 
+export {CarGroup}
+
 function ExtraServices(props) {
     return (
-        <div className="extraServices">
+        <div className="rowLayout">
             <h5>Extra Services</h5>
             <div className="extraServicesSelect">
                 <div className="extraDriverSelect">
@@ -96,7 +84,7 @@ function ExtraServices(props) {
 
 function CustomerInformation(props) {
     return (
-        <div className="customerInfo">
+        <div className="rowLayout">
             <h5>Customer Information</h5>
             <div className="customerInfoFields">
                     <div className="searchBox">
@@ -159,23 +147,14 @@ function CustomerInformation(props) {
 
 function PaymentMethod(props) {
     return (
-        <div className="paymentMethod">
+        <div className="rowLayout">
             <h5>Payment</h5>
                 <div className="payment">
                     <div className="info">
                         <div className="infoType">
                         Payment Method:
                         </div>
-                        <div className="dropDown">
-                        <select>
-                            <option value="Select Payment Method">Select Payment Method</option>
-                            <option value="Apple Pay">Apple Pay</option>
-                            <option value="Credit Card">Credit Card</option>
-                            <option value="Debit Card">Debit Card</option>
-                            <option value="MobilePay">MobilePay</option>
-                            <option value="PayPal">PayPal</option>
-                        </select>
-                        </div>
+                        <SelectPaymentMethod/>
                     </div>
                     <div className="info">
                         <div className="infoType">
@@ -198,7 +177,6 @@ function PaymentMethod(props) {
     )
 }
 
-
 function Buttons(props) {
     return (
         <div>
@@ -207,14 +185,13 @@ function Buttons(props) {
     )
 }
 
-
 function Booking(props) {
     return (
         <div className = "booking">
             <BookingHeader />
             <BookingLogistics />
             <HorizontalLine/>
-            <SelectCarGroup/>
+            <CarGroup/>
             <ExtraServices/>
             <HorizontalLine/>
             <CustomerInformation/>

@@ -3,7 +3,7 @@
 }
 
 /* HEADING */
-.bookingHeader {
+.header {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -32,19 +32,21 @@ hr {
 }
 
 h5 {
-  display: block;
+  display: flex;
+  flex-wrap: wrap;
   width: 128px;
 }
 
 /* LOGISTICS */
-.pick-up,
-.return,
-.carGroup,
-.extraServices,
-.customerInfo,
-.paymentMethod {
+.rowLayout {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.columnLayout {
+  display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
 }
 

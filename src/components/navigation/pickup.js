@@ -3,7 +3,7 @@ import './pickupAndReturn.css';
 import './booking.css';
 import '../../index.css';
 import InputField from './inputField';
-import SelectBox from './selectBoxes';
+import SelectCarGroup from './carGroup';
 
 function PickupHeader(props) {
     return (
@@ -103,19 +103,7 @@ function BillCarAs(props) {
             Bill car as:
             </div>
             <div className="attribute">
-                <div className="dropDown">
-                    <select>
-                        <option value="A – Small">A – Small</option>
-                        <option value="B – Medium">B – Medium</option>
-                        <option value="C – Large">C – Large</option>
-                        <option value="D – X-Large">D – X-Large</option>
-                        <option value="E – Family">E – Family</option>
-                        <option value="F – Business">F – Business</option>
-                        <option value="G – Station">G – Station</option>
-                        <option value="H – Automatic">H – Automatic</option>
-                        <option value="I – Small Automatic">I – Small Automatic</option>
-                    </select>
-                </div>
+                <SelectCarGroup/>
             </div>
         </div>
     )
