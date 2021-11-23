@@ -21,6 +21,11 @@ td {
     border: #A2B6C3 1px solid;
 }
 
+/* Filters */
+.dropDown select {
+    margin-bottom:32px;
+}
+
 
 /* Format image in first column here*/
 ScheduleCarImg {
