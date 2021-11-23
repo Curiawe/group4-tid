@@ -3,20 +3,17 @@ import './navigationButtons.css';
 import '../../index.css';
 
 const NavButtons = (props) => {
-    const buttonOne = props.buttonOne;
-    const buttonTwo = props.buttonTwo;
-    const buttonThree = props.buttonThree;
-    
+
     return ( 
         <div className="navButtons">
             <div className="button">
-                <h4> { buttonOne } </h4>
+                <h4> { props.navButtonOne } </h4>
             </div>
             <div className="button">
-                <h4> { buttonTwo } </h4>
+                <h4> { props.navButtonTwo } </h4>
             </div>
             <div className="button">
-                <h4> { buttonThree } </h4>
+                <h4> { props.navButtonThree } </h4>
             </div>
         </div>
     )
