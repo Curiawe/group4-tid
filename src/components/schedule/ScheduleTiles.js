@@ -2,6 +2,7 @@ import './schedule.css';
 import { CARS } from '../../data/cars';
 import { StatusTile } from './StatusTile';
 import Audi from '../../Images/audi-a6.jpg'
+import { HeaderRow } from './Headers';
 
 // let's simulate the array returned by the data base
 // Note: When implementing the database, replace this manual constant with the result of the function call
@@ -18,12 +19,11 @@ const carsArray = [
         CARS.JF19386,
         CARS.JF94837]
 
-
 // Full Table
 function ScheduleTable () {
     return (
         <table>
-            <HeaderRow/>
+            <HeaderRow size={carsArray.length}/>
             <RenderAllResults/>
         </table>
     )
@@ -51,49 +51,16 @@ function ScheduleCarContainer (props) {
 
 export {ScheduleCarContainer, ScheduleTable, ScheduleCarImg };
 
-// Day Header
-
-// Table Row Date Header
-
-// Tiles Date Header
-
-// Table Row Hours Header
-function HeaderRow (props) {
-    return (
-        <tr>
-        <th id="small">
-            4 cars found
-        </th>
-        <th>
-            8-10
-        </th>
-        <th>
-            10-12
-        </th>
-        <th>
-            12-14
-        </th>
-        <th>
-            14-16
-        </th>
-        <th>
-            16-18
-        </th>
-        <th>
-            18-20
-        </th>
-    </tr>
-    )
-}
-
-// Tiles Hours Header
-
 // Table Row car availability
 
 function RenderRow(props) {
     let row = [];
     for (var i =0 ; i<6;i++){
-        row.push(<StatusTile car={props.car}/>)
+        let carString = props.car.License
+        let start = (8 + 2*i).toString + "-"
+        let end =  (10+2*i)
+        const id = carString+start+end
+        row.push(<StatusTile key = {id} car={props.car}/>)
     }
     return row
 }
@@ -104,12 +71,16 @@ function RenderAllResults (props) {
     let rows = [];
     for (var i=0; i<carsArray.length;i++) {
         rows.push(
-            <tr>
+            <tr key={carsArray[i].License}>
             <ScheduleCarContainer car = {carsArray[i]}></ScheduleCarContainer>
             <RenderRow car = {carsArray[i]}/>
         </tr>
         )
     }
-    return rows
+    return (
+        <tbody>
+            {rows}
+        </tbody>
+        )
 }
 
