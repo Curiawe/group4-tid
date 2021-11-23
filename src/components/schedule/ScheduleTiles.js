@@ -1,6 +1,7 @@
 import './schedule.css';
 import { CARS } from '../../data/cars';
 import { StatusTile } from './StatusTile';
+import Audi from '../../Images/audi-a6.jpg'
 
 // let's simulate the array returned by the data base
 // Note: When implementing the database, replace this manual constant with the result of the function call
@@ -33,30 +34,22 @@ function ScheduleTable () {
 /* const image = CARS.JF19386.Image */
 
 function ScheduleCarImg (props) {
-    return (
-        <img src={props.car.Image} alt={props.car.License} title = {props.car.License}>{props.car.license}</img>
+    let carImage= <img src={Audi} alt={props.car.License} title = {props.car.License} height="48px"/>
+        return (
+            carImage
     )
 }
 
 function ScheduleCarContainer (props) {
     return(
-        <div>
-            <ScheduleCarImg car = {props.car}/>
-            <p id="small">{props.car.License}</p>
-        </div>
-    )
-}
-
-function ScheduleCarTile (props) {
-
-    return (
         <td>
-            <ScheduleCarContainer car={props.car}/>
+            <ScheduleCarImg car = {props.car}/>
+            <p id="small" style={{marginTop:"4px", marginBottom:"4px"}}>{props.car.License}</p>
         </td>
     )
 }
 
-export {ScheduleCarTile, ScheduleTable, ScheduleCarImg };
+export {ScheduleCarContainer, ScheduleTable, ScheduleCarImg };
 
 // Day Header
 
@@ -112,7 +105,7 @@ function RenderAllResults (props) {
     for (var i=0; i<carsArray.length;i++) {
         rows.push(
             <tr>
-            <ScheduleCarTile car = {carsArray[i]}></ScheduleCarTile>
+            <ScheduleCarContainer car = {carsArray[i]}></ScheduleCarContainer>
             <RenderRow car = {carsArray[i]}/>
         </tr>
         )

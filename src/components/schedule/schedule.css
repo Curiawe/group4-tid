@@ -16,33 +16,26 @@ tr {
 
 /*Format global values for all generic table cells here*/
 td {
-    padding:10px;
+    padding:4px;
     border-radius: 1px;
     border: #A2B6C3 1px solid;
 }
 
-/* Car tile containing ScheduleCarContainer and ScheduleCarInfo elements */
-ScheduleCarTile {
-
-    display:flex;
-    flex-direction:row;
-    flex-wrap:wrap;
-
-    font-size:small;
-}
 
 /* Format image in first column here*/
 ScheduleCarImg {
-    height:36px;
+    height:48px;
 }
 
 /*Format Container with image and license plate text here*/
 ScheduleCarContainer {
-    width:50px;
 
     display:flex;
     flex-direction:column;
     flex-wrap: wrap;
+
+    padding:0px;
+    margin:0px;
 
 }
 
