@@ -72,9 +72,9 @@ function RenderAllResults (props) {
     for (var i=0; i<carsArray.length;i++) {
         rows.push(
             <tr key={carsArray[i].License}>
-            <ScheduleCarContainer car = {carsArray[i]}></ScheduleCarContainer>
-            <RenderRow car = {carsArray[i]}/>
-        </tr>
+                <ScheduleCarContainer car = {carsArray[i]}></ScheduleCarContainer>
+                <RenderRow car = {carsArray[i]}/>
+            </tr>
         )
     }
     return (
