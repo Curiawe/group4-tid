@@ -37,7 +37,7 @@ export default function HeaderRow (props) {
     return (
         <tr>
         <th id="small">
-            4 cars found
+            {props.size} cars found
         </th>
         <th>
             8-10
