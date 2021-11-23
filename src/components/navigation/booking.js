@@ -4,6 +4,9 @@ import '../../index.css';
 import InputField from './inputField';
 import SelectBox from './selectBoxes';
 import { SelectCarGroup, SelectPaymentMethod } from './dropDowns';
+import { Popup, PopupTwoButtons} from './popup';
+import { useState } from 'react';
+import './popup.css'
 
 function BookingHeader() {
     return (
@@ -178,10 +181,17 @@ function PaymentMethod(props) {
 }
 
 function Buttons(props) {
+    const [buttonPopup, setButtonPopup] = useState(false);
     return (
-        <div>
-            buttons go here somewhere
+        <div className="buttons">
+            <button onClick={() => setButtonPopup(true)}>I'm a button</button>
+            <PopupTwoButtons className="popupRed" buttonOne="Click Me" buttonTwo="Go Back" trigger={buttonPopup} setTrigger={setButtonPopup}>
+                    <p>here's the icon</p>
+                    <h3>here's some text about what you just did</h3>
+                    <p>here's how to move on</p>
+            </PopupTwoButtons>
         </div>
+       
     )
 }
 
@@ -198,6 +208,7 @@ function Booking(props) {
             <HorizontalLine/>
             <PaymentMethod/>
             <Buttons/>
+
             </div>
     );
   }
