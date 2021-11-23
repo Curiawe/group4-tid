@@ -2,28 +2,36 @@ import './schedule.css';
 import { CARS } from '../../data/cars';
 import { StatusTile } from './StatusTile';
 
+// let's simulate the array returned by the data base
+// Note: When implementing the database, replace this manual constant with the result of the function call
+
+const carsArray = [
+        CARS.FC12345,
+        CARS.FC56789,
+        CARS.FM23456,
+        CARS.HM12345,
+        CARS.HM23456,
+        CARS.IH12345,
+        CARS.IH23456,
+        CARS.IH94302,
+        CARS.JB12789,
+        CARS.JF19386,
+        CARS.JF94837]
+
 
 // Full Table
 function ScheduleTable () {
     return (
         <table>
             <HeaderRow/>
-            <tr>
-                <ScheduleCarTile car = {CARS.JF19386}></ScheduleCarTile>
-                <RenderRow car = {CARS.JF19386}/>
-            </tr>
-            <tr>
-                <ScheduleCarTile car = {CARS.FM23456}/>
-                <RenderRow car = {CARS.FM23456}/>
-
-            </tr>
+            <RenderAllResults/>
         </table>
     )
 }
 
 
 // Car Info Tile (Working on generating the little image for the car)
-/* const image = CARS.JF19386.License */
+/* const image = CARS.JF19386.Image */
 
 function ScheduleCarImg (props) {
     return (
@@ -106,4 +114,18 @@ function RenderRow(props) {
     return row
 }
 
-// Tiles Car Availability
+// Tiles Car Availability Auto-Generate all
+
+function RenderAllResults (props) {
+    let rows = [];
+    for (var i=0; i<carsArray.length;i++) {
+        rows.push(
+            <tr>
+            <ScheduleCarTile car = {carsArray[i]}></ScheduleCarTile>
+            <RenderRow car = {carsArray[i]}/>
+        </tr>
+        )
+    }
+    return rows
+}
+
