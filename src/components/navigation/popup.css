@@ -40,13 +40,20 @@
   color: white;
 }
 
-.buttonOne {
+.buttonCenter {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translate(-50%, 0); /* Needed for it to be centered */
+}
+
+.buttonRight {
   position: absolute;
   bottom: 16px;
   right: 16px;
 }
 
-.buttonTwo {
+.buttonLeft {
   position: absolute;
   bottom: 16px;
   left: 16px;

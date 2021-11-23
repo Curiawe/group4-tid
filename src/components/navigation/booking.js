@@ -4,7 +4,7 @@ import '../../index.css';
 import InputField from './inputField';
 import SelectBox from './selectBoxes';
 import { SelectCarGroup, SelectPaymentMethod } from './dropDowns';
-import { Popup, PopupTwoButtons} from './popup';
+import { PopupOneButton, PopupTwoButtons} from './popup';
 import { useState } from 'react';
 import './popup.css'
 
@@ -185,11 +185,11 @@ function Buttons(props) {
     return (
         <div className="buttons">
             <button onClick={() => setButtonPopup(true)}>I'm a button</button>
-            <PopupTwoButtons className="popupRed" buttonOne="Click Me" buttonTwo="Go Back" trigger={buttonPopup} setTrigger={setButtonPopup}>
+            <PopupOneButton className="popupRed" buttonCenter="OK" trigger={buttonPopup} setTrigger={setButtonPopup}>
                     <p>here's the icon</p>
                     <h3>here's some text about what you just did</h3>
                     <p>here's how to move on</p>
-            </PopupTwoButtons>
+            </PopupOneButton>
         </div>
        
     )
