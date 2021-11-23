@@ -14,10 +14,10 @@ function PeriodCells(props) {
     console.log("max:" + max)
     let cells= []
     console.log("Cells Created")
-    for (var i = start; i<=max;i+=2){
-        cells.push(        
-        <th>{start}-{end}</th>
-        )
+    for (var i = start; i<(max+1);i+=2){
+        let string = {start} + "-" + {end}
+        console.log({string})
+        cells.push(<th key={string}>{string}</th>)
         console.log("pushed" + {start} + "-" + {end} )
         start += 2
         console.log("start:" + start)
@@ -27,6 +27,15 @@ function PeriodCells(props) {
     }
     return cells
 }
+
+/* for (var i=0; i<carsArray.length;i++) {
+    rows.push(
+        <tr key={carsArray[i].License}>
+        <ScheduleCarContainer car = {carsArray[i]}></ScheduleCarContainer>
+        <RenderRow car = {carsArray[i]}/>
+    </tr>
+    )
+} */
 
 /**
  * @param {props} String, give the length of the result array of the cars filter.  
