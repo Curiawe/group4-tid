@@ -4,7 +4,6 @@ import { StatusTile } from './StatusTile';
 
 // let's simulate the array returned by the data base
 // Note: When implementing the database, replace this manual constant with the result of the function call
-
 const carsArray = [
         CARS.FC12345,
         CARS.FC56789,
@@ -58,14 +57,6 @@ function ScheduleCarTile (props) {
 }
 
 export {ScheduleCarTile, ScheduleTable, ScheduleCarImg };
-
-// Empty Tile
-
-function EmptyScheduleTile(props){
-    return (
-        <td></td>
-    )
-}
 
 // Day Header
 
