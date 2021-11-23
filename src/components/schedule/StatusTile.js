@@ -12,7 +12,6 @@ const colorMap = {
 };
 
 export function StatusTile(props) {
-    console.log(props.car.Status);
     let bgColor;
     switch (props.car.Status) {
         case "Rented":
