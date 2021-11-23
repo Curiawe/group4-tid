@@ -2,7 +2,7 @@ import './schedule.css';
 import { CARS } from '../../data/cars';
 import { StatusTile } from './StatusTile';
 import Audi from '../../Images/audi-a6.jpg'
-import { HeaderRow } from './Headers';
+import HeaderRow from './Headers';
 
 // let's simulate the array returned by the data base
 // Note: When implementing the database, replace this manual constant with the result of the function call
