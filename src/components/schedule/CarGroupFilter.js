@@ -41,7 +41,7 @@ function createOptions(props) {
 function CarGroupFilter (props) {
     return (
     <form>
-    <label id="small">
+    <label>
     Car Group:
     </label>
     <div className="dropDown">

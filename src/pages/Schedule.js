@@ -1,14 +1,12 @@
 import {ScheduleTable} from "../components/schedule/ScheduleTiles"; 
-import CarGroupFilter from "../components/schedule/CarGroupFilter";
-import TimeFilter from "../components/schedule/TimeFilter";
+import Filters from "../components/schedule/FilterRow";
 
 function Schedule (props) {
     return (
         <div style={{marginLeft:"64px"}}>
 
             <h1>Schedule go BRRRRR~</h1>
-            <CarGroupFilter/>
-            <TimeFilter/>
+            <Filters />
             <ScheduleTable/>
         </div>
     )
