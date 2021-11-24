@@ -15,7 +15,7 @@ const locations = [
 
 function LocationFilter () {
     return (
-    <form>
+    <div>
     <label>
     Location:
     </label>
@@ -32,7 +32,7 @@ function LocationFilter () {
             <option value={locations[7][0]}>{locations[7][0]}</option>
         </select>
         </div>
-    </form>
+    </div>
     )
 }
 

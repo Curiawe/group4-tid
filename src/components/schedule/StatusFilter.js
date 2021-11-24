@@ -6,7 +6,7 @@ import './schedule.css'
 function StatusFilter () {
 
     return (
-        <div className="StatusCheckbox">
+        <div>
         <label>Show only cars that are...</label>
         <div>
             <input type="checkbox" id="Ready" name="Ready" value="Ready"/>

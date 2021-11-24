@@ -17,7 +17,7 @@ const groups = [
 
 function CarGroupFilter (props) {
     return (
-    <form>
+    <div>
     <label>
     Car Group:
     </label>
@@ -35,7 +35,7 @@ function CarGroupFilter (props) {
             <option value={groups[8]}>{groups[8]}</option>
         </select>
         </div>
-    </form>
+    </div>
     )
 }
 
