@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom';
 function Navigation () {
 
     return (
-        
         <header>
             <div className="Navtabs">
                 <Link to={Pages.Home} className ="Navtab-Logo"><img src={logo} alt="ScanCar Logo" height="40px"/></Link>
@@ -15,7 +14,6 @@ function Navigation () {
                 <Navtab title="Rental Management" link={Pages.RentalLandingPage}/>
                 <Navtab title="Group Management" link={Pages.GroupLandingPage}/>
             </div>
-
         </header>
     )
 }
