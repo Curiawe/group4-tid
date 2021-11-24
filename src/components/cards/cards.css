@@ -1,0 +1,240 @@
+/* Cards for CSS */
+@import url("https://fonts.googleapis.com/css?family=Raleway&display=swap");
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap");
+
+/* large cards used for overview */
+.card {
+  position: absolute;
+  width: 384px;
+  height: 512px;
+  left: 30px;
+  top: 100px;
+  border-radius: 10px;
+
+  background: #ffffff;
+  border: 1px solid #c4c4c4;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+.cardImg {
+  position: absolute;
+  height: 180px;
+  left: 16px;
+  right: 16px;
+  top: 16px;
+  background-color: black;
+}
+
+.h4Large {
+  position: absolute;
+  left: 16px;
+  margin-top: 212px;
+
+  font-family: IBM Plex Mono;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 31px;
+  text-transform: uppercase;
+  color: #31465f;
+}
+
+.p1Large {
+  position: absolute;
+  left: 16px;
+  margin-top: 240px;
+
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+
+  color: #5d5fef;
+}
+
+.p2 {
+  position: absolute;
+  left: 16px;
+  margin-top: 260px;
+
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+
+  color: #5d5fef;
+}
+
+.cardBodyLarge {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  top: 292px;
+  bottom: 16px;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: stretch;
+  align-items: stretch;
+}
+
+.iconRow {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+.iconBody {
+  height: 25.01px;
+  margin-top: 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+.iconBody2 {
+  height: 25.01px;
+  margin-top: 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+.mainIcons {
+  margin-left: 0px;
+  width: 23.07px;
+  height: 25.01px;
+}
+
+.colorIcon {
+  margin-left: 0px;
+  width: 23.07px;
+  height: 25.01px;
+  background-color: red;
+}
+
+.availabilityIcon {
+  margin-left: 0px;
+  width: 23.07px;
+  height: 25.01px;
+  background-color: green;
+}
+
+.mainDescription {
+  font-family: Raleway;
+  font-style: normal;
+  font-size: 16px;
+  color: #000000;
+}
+
+.cardButton {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+
+  background: #ffffff;
+  border: 3px solid #8882f4;
+  box-sizing: border-box;
+  width: 128px;
+  height: 24px;
+  border-radius: 128px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: 0.05em;
+  color: #8882f4;
+}
+
+/* small cards used for overview */
+
+.cardSmall {
+  position: absolute;
+  width: 293px;
+  height: 365px;
+  left: 30px;
+  top: 100px;
+  border-radius: 10px;
+
+  background: #ffffff;
+  border: 1px solid #c4c4c4;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+.cardImgSmall {
+  position: absolute;
+  height: 150px;
+  left: 16px;
+  right: 16px;
+  top: 16px;
+  background-color: black;
+}
+
+.h4Small {
+  position: absolute;
+  left: 16px;
+  margin-top: 182px;
+
+  font-family: IBM Plex Mono;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 31px;
+  text-transform: uppercase;
+  color: #31465f;
+}
+
+.p1Small {
+  position: absolute;
+  left: 16px;
+  margin-top: 210px;
+
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  color: #5d5fef;
+}
+
+.p2Small {
+  position: absolute;
+  left: 16px;
+  margin-top: 230px;
+
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  color: #5d5fef;
+}
+
+.cardBodySmall {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  top: 245px;
+  bottom: 40px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: stretch;
+  align-items: stretch;
+}
