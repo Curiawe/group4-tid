@@ -1,5 +1,7 @@
 import './tables.css'
 
+
+
 function WalkinTable (props) {
 
     return (
