@@ -1,31 +1,34 @@
 import './schedule.css'
-
+/**
+ * Building this as individual components did not work, fix if you are on a refactoring bender :D.
+ * @returns checkboxes for each possible car Status
+ */
 function StatusFilter () {
 
     return (
-        <form>
+        <div className="StatusCheckbox">
         <label>Show only cars that are...</label>
         <div>
             <input type="checkbox" id="Ready" name="Ready" value="Ready"/>
-            <label for="Ready" style={{fontSize:"16px", fontWeight:"normal"}}>Ready</label>
+            <label style={{fontSize:"16px", fontWeight:"normal"}}>Ready</label>
         </div>
         <div>
             <input type="checkbox" id="Rented" name="Rented" value="Rented"/>
-            <label for="Rented" style={{fontSize:"16px", fontWeight:"normal"}}>Rented</label>
+            <label style={{fontSize:"16px", fontWeight:"normal"}}>Rented</label>
         </div>
         <div>
             <input type="checkbox" id="Returned" name="Returned" value="Returned"/>
-            <label for="Returned" style={{fontSize:"16px", fontWeight:"normal"}}>Returned</label>
+            <label style={{fontSize:"16px", fontWeight:"normal"}}>Returned</label>
         </div>
         <div>
             <input type="checkbox" id="Transfer" name="Transfer" value="Transfer"/>
-            <label for="Transfer" style={{fontSize:"16px", fontWeight:"normal"}}>Transfer</label>
+            <label style={{fontSize:"16px", fontWeight:"normal"}}>Transfer</label>
         </div>
         <div>
             <input type="checkbox" id="Unavailable" name="Unavailable" value="Unavailable"/>
-            <label for="Unavailable" style={{fontSize:"16px", fontWeight:"normal"}}>Unavailable</label>
+            <label style={{fontSize:"16px", fontWeight:"normal"}}>Unavailable</label>
         </div>
-        </form>
+        </div>
     )
 }
 

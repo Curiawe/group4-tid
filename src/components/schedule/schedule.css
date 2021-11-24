@@ -54,9 +54,9 @@ ScheduleCarImg {
 }
 
 StatusFilter {
-    display:flex;
-    flex-direction: column;
-    flex-wrap:wrap;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 /*Format Container with image and license plate text here*/
@@ -65,10 +65,11 @@ ScheduleCarContainer {
     display:flex;
     flex-direction:column;
     flex-wrap: wrap;
-
     padding:0px;
     margin:0px;
 
 }
+
+
 
 

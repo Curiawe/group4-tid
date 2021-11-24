@@ -14,29 +14,6 @@ const groups = [
     CARGROUPS.I[0]  
 ]
 
-// this doesn't work yet
-function makeOption(props) {
-
-    return(
-        <option key={props.group} value={props.group}>{props.group}</option>
-    )
-}
-
-// This doesn't work yet
-function createOptions(props) {
-    let returnArray = []
-    let array = props.array
-    const length = array.length
-    for (var i = 0; i<{length}; i++ ) {
-        returnArray.push(<makeOption group={array[i]}/>)
-    }
-
-    return (
-        <select>
-            returnArray
-        </select>
-        )
-}
 
 function CarGroupFilter (props) {
     return (
