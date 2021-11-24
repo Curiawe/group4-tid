@@ -1,8 +1,6 @@
 import React from 'react';
 import { BookedCar } from './pickup.js';
-import './navigationButtons.css';
 import './booking.css';
-import '../../index.css';
 import './pickupAndReturn.css';
 import SelectBox from './selectBoxes.js';
 import InputField from './inputField.js';
@@ -93,7 +91,7 @@ function Buttons(props) {
     )
 }
 
-function Return(props) {
+function ReturnComponent(props) {
     return (
         <div className="pickup">
             <ReturnHeader/>
@@ -107,4 +105,4 @@ function Return(props) {
 }
 
 
-export default Return;
+export default ReturnComponent;

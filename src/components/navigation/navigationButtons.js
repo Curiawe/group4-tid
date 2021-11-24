@@ -1,20 +1,15 @@
 import React from 'react';
 import './navigationButtons.css';
-import '../../index.css';
+import { Link } from 'react-router-dom';
 
 const NavButtons = (props) => {
 
     return ( 
         <div className="navButtons">
-            <div className="button">
-                <h4> { props.navButtonOne } </h4>
-            </div>
-            <div className="button">
-                <h4> { props.navButtonTwo } </h4>
-            </div>
-            <div className="button">
-                <h4> { props.navButtonThree } </h4>
-            </div>
+            <Link to={props.linkButtonOne} className="button"><h4>{props.textButtonOne}</h4></Link>
+            <Link to={props.linkButtonTwo} className="button"><h4>{props.textButtonTwo}</h4></Link>
+            <Link to={props.linkButtonThree} className="button"><h4>{props.textButtonThree}</h4></Link>
+
         </div>
     )
 };

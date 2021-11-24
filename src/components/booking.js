@@ -1,13 +1,12 @@
 import React from 'react';
 import './booking.css';
-import '../../index.css';
 import InputField from './inputField';
 import SelectBox from './selectBoxes';
 import { SelectCarGroup, SelectPaymentMethod } from './dropDowns';
 import { PopupOneButton, PopupTwoButtons} from './popup';
 import { useState } from 'react';
 import './popup.css'
-import NavButtons from './navigationButtons';
+
 
 function BookingHeader() {
     return (

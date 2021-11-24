@@ -1,9 +1,8 @@
 import React from 'react';
 import './pickupAndReturn.css';
 import './booking.css';
-import '../../index.css';
 import InputField from './inputField';
-import SelectCarGroup from './carGroup';
+import { SelectCarGroup } from './dropDowns';
 
 function PickupHeader(props) {
     return (
@@ -117,7 +116,7 @@ function Buttons(props) {
     )
 }
 
-function Pickup(props) {
+function PickupComponent(props) {
     return (
         <div className="pickup">
             <PickupHeader/>
@@ -131,4 +130,4 @@ function Pickup(props) {
 }
 
 
-export default Pickup;
+export default PickupComponent;
