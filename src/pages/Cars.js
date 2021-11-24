@@ -1,6 +1,9 @@
+import Card from "../components/cards/cards"
+
+
 function Cars () {
     return (
-        <h1>Cars go Nyom~</h1>
+        <Card />
     )
 }
 
