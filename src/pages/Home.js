@@ -1,7 +1,6 @@
-import Card from "../cards"
 function Home () {
     return (
-        <Card/>
+        <h1>Welcome</h1>
     )
 }
 
