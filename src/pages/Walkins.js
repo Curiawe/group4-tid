@@ -1,6 +1,11 @@
+import WalkinTable from "../components/tables/WalkinTable"
+
 function Walkins () {
     return (
-        <h1>Sorry, we only accept private patients</h1>
+        <div>
+        <h1>Sorry, we only accept <br/>private patients</h1>
+        <WalkinTable/>
+        </div>
     )
 }
 
