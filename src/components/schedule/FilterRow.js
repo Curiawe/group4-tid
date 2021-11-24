@@ -7,7 +7,8 @@ function Filters (props) {
     return (
         <div className="filterRow">
             <CarGroupFilter/>
-            <TimeFilter/>
+            <TimeFilter title="Pickup Date"/>
+            <TimeFilter title="Return Date"/>
         </div>
     )
 }
