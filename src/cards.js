@@ -2,11 +2,24 @@
 import './cards.css';
 import {IconBody} from './IconBody';
 import ColorIcon from './AvailabilityIcon';
+import { Icon } from '@iconify/react';
 
+
+function CardSize(props) {
+    return (
+        <div className={props.className}></div>
+    )
+}
+
+function CardBody(props) {
+    return (
+    <CardSize className={props.size} ></CardSize> 
+    )
+}
 
 function Card() {
   return (
-    <div className = "card">
+    <CardBody size="card">
     <img className = "cardImg" href = "./Images/fiat-500.jpg" alt = "carpic"/>
     <div className = "h4Large"> VW PASSAT</div>
     <div className = "p1Large"> Car Group B</div>
@@ -15,7 +28,12 @@ function Card() {
         <div className = "iconRow">
             <IconBody title="2-4" icon="user" />
             <IconBody title="3-5" icon="briefcase" />
-            <IconBody title="5" icon="heart" />
+            <div className="iconBody">
+                <div className="mainIcons">
+                    <Icon icon="mdi:car-door" width="23.07px" height="25.01px" />
+                </div>
+                <div className="mainDescription">5</div>
+            </div>
         </div>
         <div className = "iconRow">
             <IconBody title="Diesel" icon="droplet" />
@@ -30,7 +48,7 @@ function Card() {
         </div>
     </div>
     <div className = "cardButton">Select car</div>
-</div> 
+</CardBody> 
   )
 }
 
