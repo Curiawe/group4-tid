@@ -1,0 +1,263 @@
+/* These are the buttons used in the prototype.
+The colours used are:
+
+Blue200: #9FBADB
+Blue600: #31465F
+
+Red300: #F95959
+OR
+Red400: #D32828 
+
+Purple400: #8882F4
+
+Gray200: #D1DAE0
+Gray/Light100: #EAEEF1
+
+*/
+@import url("https://fonts.googleapis.com/css?family=Raleway&display=swap");
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap");
+
+button {
+  border-radius: 128px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: "Raleway";
+  font-weight: bold;
+  font-size: 16px;
+  text-align: center;
+  letter-spacing: 0.05em;
+  height: fit-content;
+  padding: 12px;
+}
+
+.buttonLarge {
+  font-size: 20px;
+  padding: 16px;
+}
+
+.buttonSmall {
+  font-size: 12px;
+  padding: 4px;
+}
+
+/* 'Save', 'Save & Start', 'Confirm Booking', 'Billing' and 'Send Invoice' buttons */
+/* Selectable */
+.saveBtn1 {
+  background-color: #31465f;
+  width: 201px;
+  height: 60px;
+  font-size: 20px;
+  line-height: 55px;
+  color: #ffffff;
+}
+
+/* Unselectable save button*/
+.saveBtn2 {
+  background-color: #d1dae0;
+  width: 201px;
+  height: 60px;
+  line-height: 55px;
+  color: #ffffff;
+}
+
+/* Check if this is different from selectable */
+
+.bookingConfirmBtn {
+  background-color: #d1dae0;
+  width: 201px;
+  height: 60px;
+  font-size: 20px;
+  line-height: 55px;
+  color: #ffffff;
+}
+
+/* Add driver button */
+.addDriverBtn {
+  background-color: #d1dae0;
+  width: 128px;
+  height: 24px;
+  font-size: 12px;
+  line-height: 24px;
+  color: #eaeef1;
+}
+
+/* Delete and cancel booking */
+/* Delete booking */
+.bookingDeleteBtn {
+  background: #ffffff;
+  border: 3px solid #d1dae0;
+  box-sizing: border-box;
+  width: 128px;
+  height: 24px;
+  font-size: 12px;
+  line-height: 20px;
+  color: #d1dae0;
+}
+
+/* Cancel booking  - same as reserve walk-in */
+.bookingCancelBtn {
+  background: #ffffff;
+  border: 3px solid #8882f4;
+  box-sizing: border-box;
+  width: 128px;
+  height: 24px;
+  font-size: 12px;
+  line-height: 20px;
+  color: #8882f4;
+}
+
+/* Search button */
+.searchBtn {
+  background-color: #9fbadb;
+  width: 136px;
+  height: 49px;
+  font-size: 16px;
+  line-height: 49px;
+  color: #ffffff;
+}
+
+/* pop-up buttons */
+/* ok button from pop-up */
+
+.okBtn {
+  background-color: #9fbadb;
+  width: 130.86px;
+  height: 26.37px;
+  font-size: 12px;
+  line-height: 26.37px;
+  color: #ffffff;
+}
+
+/* 'Yes!' button from pop-up && 'Select' button for Calendar and Map */
+.yesBtn {
+  background: #31465f;
+  box-sizing: border-box;
+  width: 128px;
+  height: 24px;
+  font-size: 12px;
+  line-height: 24px;
+  color: #ffffff;
+}
+
+/* return pop-up */
+.returnBtn {
+  background: #ffffff;
+  border: 3px solid #31465f;
+  box-sizing: border-box;
+  width: 128px;
+  height: 24px;
+  font-size: 12px;
+  line-height: 20px;
+  color: #31465f;
+}
+
+/* Check and edit information button */
+/* Check information */
+.checkInfoBtn {
+  background-color: #6a62f2;
+  width: 192px;
+  height: 48px;
+  font-size: 16px;
+  line-height: 48px;
+  color: #ffffff;
+}
+
+/* Edit information */
+.editInfoBtn {
+  background-color: #ffffff;
+  width: 192px;
+  height: 48px;
+  border: 3px solid #8882f4;
+  font-size: 16px;
+  line-height: 48px;
+  color: #8882f4;
+}
+
+/* Save changes */
+/* Selectable 'only save changes' */
+.saveDataBtn1 {
+  background: #ffffff;
+  border: 2px solid #31465f;
+  box-sizing: border-box;
+  width: 192px;
+  height: 24px;
+  font-size: 12px;
+  line-height: 20px;
+  color: #31465f;
+}
+
+/* Unselectable 'only save changes' */
+.saveDataBtn2 {
+  background: #d1dae0;
+  box-sizing: border-box;
+  width: 128px;
+  height: 24px;
+  font-size: 12px;
+  line-height: 24px;
+  color: #eaeef1;
+}
+
+/* Transfers */
+.transfersBtn {
+  background: #31465f;
+  box-sizing: border-box;
+  width: 121px;
+  height: 24px;
+  font-size: 12px;
+  line-height: 24px;
+  color: #ffffff;
+}
+
+/* Booking buttons for car availability schedule */
+/* PIXELS DO NOT MAKE SENSE FOR THIS BUTTON */
+.bookingBtn {
+  background: #334646;
+  box-sizing: border-box;
+  width: 109;
+  height: 20px;
+  font-size: 12px;
+  line-height: 24px;
+  color: #ffffff;
+}
+
+/* 'Jump to Today' button for walk-in */
+.todayBtn {
+  background-color: #9fbadb;
+  width: 192px;
+  height: 48px;
+  font-size: 16px;
+  line-height: 48px;
+  color: #ffffff;
+}
+
+/* 'Add Car' in Car Transfer */
+.addCarBtn1 {
+  background-color: #9fbadb;
+  width: 128px;
+  height: 24px;
+  font-size: 12px;
+  line-height: 24px;
+  color: #eaeef1;
+}
+
+.addCarBtn2 {
+  background-color: #8882f4;
+  width: 128px;
+  height: 24px;
+  font-size: 12px;
+  line-height: 24px;
+  color: #eaeef1;
+}
+
+/* 'Send Request' button in Car Transfer */
+.requestBtn {
+  background-color: #31465f;
+  width: 192px;
+  height: 48px;
+  font-size: 16px;
+  line-height: 48px;
+  color: #ffffff;
+}
+
+/* 'Select' buttons */
+
+/* note to self: search for padding and margins */
