@@ -1,26 +1,15 @@
 // import logo from './logo.svg';
 import './cards.css';
-import {IconBody} from './IconBody';
+import { IconBody } from './IconBody'
 import ColorIcon from './AvailabilityIcon';
 import { Icon } from '@iconify/react';
+import honda from '../../Images/honda-crv.jpg';
 
-
-function CardSize(props) {
-    return (
-        <div className={props.className}></div>
-    )
-}
-
-function CardBody(props) {
-    return (
-    <CardSize className={props.size} ></CardSize> 
-    )
-}
 
 function Card() {
   return (
-    <CardBody size="card">
-    <img className = "cardImg" href = "./Images/fiat-500.jpg" alt = "carpic"/>
+<div className = "card">
+    <img className = "cardImg" src = {honda} alt = "carpic"/>
     <div className = "h4Large"> VW PASSAT</div>
     <div className = "p1Large"> Car Group B</div>
     <div className = "p2"> AA-00000</div>
@@ -48,7 +37,7 @@ function Card() {
         </div>
     </div>
     <div className = "cardButton">Select car</div>
-</CardBody> 
+</div> 
   )
 }
 

@@ -24,12 +24,7 @@
   right: 16px;
   top: 16px;
   background-color: black;
-  /* try this for inserting a photo:
-    background: url(.jpg), url(.jpg); */
 }
-/* background: url(../images/audi-a6.jpg); 
-} 
-*/
 
 .h4Large {
   position: absolute;

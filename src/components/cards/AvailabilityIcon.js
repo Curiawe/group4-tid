@@ -1,5 +1,5 @@
 import './cards.css';
-import { COLORS } from './values/colors'
+import { COLORS } from '../../values/colors'
 import { MainDescription } from './IconBody';
 
 const colorMap = {
