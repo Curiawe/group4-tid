@@ -1,6 +1,9 @@
+import PickupComponent from "../components/navigation/pickup"
+
 function Pickup () {
     return (
-        <h1>Pickup Your Car, Mate</h1>
+        <PickupComponent/>
+    
     )
 }
 

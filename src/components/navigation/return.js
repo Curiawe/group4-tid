@@ -93,7 +93,7 @@ function Buttons(props) {
     )
 }
 
-function Return(props) {
+function ReturnComponent(props) {
     return (
         <div className="pickup">
             <ReturnHeader/>
@@ -107,4 +107,4 @@ function Return(props) {
 }
 
 
-export default Return;
+export default ReturnComponent;
