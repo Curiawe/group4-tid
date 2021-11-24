@@ -1,35 +1,32 @@
 .SidebarContainer {
-    width:232px;
-    min-height:500px;
-    padding-top:16px;
-    padding-bottom:16px;
-    background-color: #20334B;
-    color:white;
-    overflow:auto;
+  width: 232px;
+  min-height: 500px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  background-color: #20334b;
+  color: white;
+  overflow: auto;
 }
 
 .SidebarLinks {
-    width: 100%;
-    display:flex;
-    flex-direction:column;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 a {
-    padding:10px 32px;
+  padding: 10px 32px;
 }
 
 .active-side-link {
-    color: #20334B;
-    background-color: #9FBADB;
-    font-weight: bolder;
-    padding:10px 32px;
+  color: #20334b;
+  font-weight: bolder;
+  padding: 10px 32px;
 }
-a:hover{
-    font-weight: bolder;
-}
-
-a:active{
-    color: #20334B;
-    background-color: #9FBADB;
+a:hover {
+  font-weight: bolder;
 }
 
+.Navtab-Logo:active {
+  background-color: #20334b;
+}
