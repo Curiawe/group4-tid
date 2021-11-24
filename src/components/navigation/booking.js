@@ -7,6 +7,7 @@ import { SelectCarGroup, SelectPaymentMethod } from './dropDowns';
 import { PopupOneButton, PopupTwoButtons} from './popup';
 import { useState } from 'react';
 import './popup.css'
+import NavButtons from './navigationButtons';
 
 function BookingHeader() {
     return (
@@ -198,6 +199,7 @@ function Buttons(props) {
 function Booking(props) {
     return (
         <div className = "booking">
+            
             <BookingHeader />
             <BookingLogistics />
             <HorizontalLine/>
