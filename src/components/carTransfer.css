@@ -1,0 +1,38 @@
+.carTransfer {
+  width: 40%;
+}
+
+.attribute3 {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 60%;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.locationAndTime {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: top;
+  align-items: flex-start;
+  height: 100px;
+  margin: 10px;
+}
+
+.comments textarea {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 2px;
+  width: 256px;
+  height: 128px;
+  left: 460px;
+  top: 275px;
+  background: #ffffff;
+  border: 1px solid #d1dae0;
+  box-sizing: border-box;
+  border-radius: 8px;
+  font-size: 16px;
+  font-style: italic;
+}

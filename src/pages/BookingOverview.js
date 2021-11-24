@@ -1,4 +1,4 @@
-import Booking from '../components/navigation/booking'
+import Booking from '../components/booking'
 function BookingOverview () {
     return (
         <Booking />

@@ -15,6 +15,9 @@
 
 
 const Pages = {
+    GroupLandingPage: "group-management",
+    RentalLandingPage: "rental-management",
+    BookingLandingPage: "booking-management",
     BookingOverview: "booking-overview",
     BookingSearch: "booking-search",
     CarGroups: "car-groups",

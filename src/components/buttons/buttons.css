@@ -1,0 +1,40 @@
+/* These are the buttons used in the prototype.
+The colours used are:
+
+Blue200: #9FBADB
+Blue600: #31465F
+
+Red300: #F95959
+OR
+Red400: #D32828 
+
+Purple400: #8882F4
+
+Gray200: #D1DAE0
+Gray/Light100: #EAEEF1
+
+*/
+@import url("https://fonts.googleapis.com/css?family=Raleway&display=swap");
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap");
+
+button {
+  border-radius: 128px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: "Raleway";
+  font-weight: bold;
+  font-size: 16px;
+  text-align: center;
+  letter-spacing: 0.05em;
+  height: fit-content;
+  padding: 12px;
+}
+
+.buttonLarge {
+  font-size: 20px;
+  padding: 16px;
+}
+
+.buttonSmall {
+  font-size: 12px;
+  padding: 4px;
+}

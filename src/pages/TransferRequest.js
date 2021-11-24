@@ -1,6 +1,8 @@
+import CarTransfer from "../components/carTransfer"
+
 function TransferRequest () {
     return (
-        <h1>Beam me up, Scotty</h1>
+        <CarTransfer/>
     )
 }
 
