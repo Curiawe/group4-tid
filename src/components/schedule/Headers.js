@@ -5,6 +5,7 @@ import './schedule.css'
 // Tiles Date Header
 // Table Row Hours Header
 
+// This doesn't work yet 
 function PeriodCells(props) {
     let start = props.start
     console.log("start:" + start)
@@ -35,28 +36,30 @@ function PeriodCells(props) {
 
 export default function HeaderRow (props) {
     return (
-        <tr>
-        <th id="small">
-            {props.size} cars found
-        </th>
-        <th>
-            8-10
-        </th>
-        <th>
-            10-12
-        </th>
-        <th>
-            12-14
-        </th>
-        <th>
-            14-16
-        </th>
-        <th>
-            16-18
-        </th>
-        <th>
-            18-20
-        </th>
-    </tr>
+        <thead>
+            <tr>
+            <th id="small">
+                {props.size} cars found
+            </th>
+            <th>
+                8-10
+            </th>
+            <th>
+                10-12
+            </th>
+            <th>
+                12-14
+            </th>
+            <th>
+                14-16
+            </th>
+            <th>
+                16-18
+            </th>
+            <th>
+                18-20
+            </th>
+        </tr>
+    </thead>
     )
 }

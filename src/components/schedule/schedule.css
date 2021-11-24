@@ -24,6 +24,7 @@ td {
 /* Filters */
 .dropDown select {
     margin-bottom:32px;
+    margin-inline-start: 4px;
 }
 
 
