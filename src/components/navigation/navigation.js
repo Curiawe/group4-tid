@@ -4,35 +4,6 @@ import Pages from '../../pages/Pages';
 import PageGroups from '../navigation/PageGroups';
 import Navtab from './Navtab'
 
-/* function compareURL (props){
-    const title = props.title.replace(" ","")
-    return (props.link === Pages[title])
-} */
-
-function getLinkList (props) {
-    let returnArray = []
-    returnArray = PageGroups[props.title]
-    return returnArray
-}
-
-/**
- * 
- * @param {title, link} props 
- * @returns boolean - is this a current page or not?
- */
-function conditionalRender(props) {
-    let current = false
-    const title = props.title.replace(" ","")
-    const pageList = getLinkList(title)
-    pageList.map( 
-        (p) => Pages[p] !== props.link ? false 
-        : current = true
-    )
-    return current
-}
-
-
-
 
 function Navigation () {
     return (

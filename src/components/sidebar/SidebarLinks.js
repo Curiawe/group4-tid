@@ -10,7 +10,6 @@ function checkActive(link) {
 }
 
 function InactiveLink (props) {
-    console.log (props.title + ". Currently active link: " + checkActive(props.link))
     return (
         <Link to={props.link} className="sidebar-link"
             style={{ textDecoration: 'none', color:'white'}}>
@@ -27,7 +26,6 @@ function SidebarLink (props) {
 }
 
 function ActiveLink (props) {
-    console.log ("This component is rendered as active: " + document.baseURI)
     return (
         <Link to={props.link} className = "active-side-link" 
             style={{ textDecoration: 'none', color:'white'}}>
