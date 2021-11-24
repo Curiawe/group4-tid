@@ -53,6 +53,12 @@ ScheduleCarImg {
     height:48px;
 }
 
+StatusFilter {
+    display:flex;
+    flex-direction: column;
+    flex-wrap:wrap;
+}
+
 /*Format Container with image and license plate text here*/
 ScheduleCarContainer {
 
