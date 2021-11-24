@@ -25,7 +25,8 @@ td {
 .dropDown select {
     margin-bottom:32px;
     margin-right:16px;
-    margin-inline-start: 4px;
+    padding-inline-start: 4px;
+    padding-inline-end: 8px;
     width: auto;
 }
 

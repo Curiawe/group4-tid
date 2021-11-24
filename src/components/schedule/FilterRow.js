@@ -6,12 +6,12 @@ import LocationFilter from './LocationFilter'
 function Filters (props) {
 
     return (
-        <div className="filterRow">
+        <form className="filterRow">
             <CarGroupFilter/>
             <TimeFilter title="Pickup Date"/>
             <TimeFilter title="Return Date"/>
             <LocationFilter />
-        </div>
+        </form>
     )
 }
 
