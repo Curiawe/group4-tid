@@ -1,6 +1,5 @@
 import React from 'react';
 import './navigationButtons.css';
-import '../../index.css';
 import { Link } from 'react-router-dom';
 
 const NavButtons = (props) => {

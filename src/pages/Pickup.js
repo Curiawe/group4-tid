@@ -1,4 +1,4 @@
-import PickupComponent from "../components/navigation/pickup"
+import PickupComponent from "../components/pickup"
 
 function Pickup () {
     return (

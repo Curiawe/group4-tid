@@ -1,4 +1,4 @@
-import ReturnComponent from "../components/navigation/return"
+import ReturnComponent from "../components/return"
 
 function Return () {
     return (

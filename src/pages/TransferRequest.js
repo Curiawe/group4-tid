@@ -1,4 +1,4 @@
-import CarTransfer from "../components/navigation/carTransfer"
+import CarTransfer from "../components/carTransfer"
 
 function TransferRequest () {
     return (

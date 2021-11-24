@@ -1,7 +1,6 @@
 import React from 'react';
 import './pickupAndReturn.css';
 import './booking.css';
-import '../../index.css';
 import InputField from './inputField';
 import { SelectCarGroup } from './dropDowns';
 

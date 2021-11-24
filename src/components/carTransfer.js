@@ -1,7 +1,6 @@
 import React from 'react';
 import './booking.css';
 import './carTransfer.css'
-import '../../index.css';
 import InputField from './inputField';
 import SelectBox from './selectBoxes';
 import { CarGroup } from './booking';
