@@ -3,7 +3,7 @@ import './booking.css';
 import InputField from './inputField';
 import SelectBox from './selectBoxes';
 import { SelectCarGroup, SelectPaymentMethod } from './dropDowns';
-import { PopupOneButton, PopupTwoButtons} from './popup';
+import { PopupOneButton } from './popup';
 import { useState } from 'react';
 import './popup.css'
 

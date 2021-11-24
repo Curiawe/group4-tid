@@ -3,6 +3,7 @@ import Pages from "./Pages"
 
 function BookingLanding () {
     return (
+       
         <NavButtons 
             linkButtonOne={Pages.BookingOverview}
             linkButtonTwo={Pages.Pickup}
@@ -11,6 +12,7 @@ function BookingLanding () {
             textButtonTwo="Pickup" 
             textButtonThree="Return"> 
         </NavButtons>
+
     )
 }
 
