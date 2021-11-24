@@ -21,7 +21,9 @@ function WalkinTable (props) {
             </thead>
             <tbody>
                 <tr>
-                    <td></td>
+                    <td>24.11.2021</td>
+                    <td>3</td>
+                    <td>5</td>
                 </tr>
             </tbody>
         </table>
