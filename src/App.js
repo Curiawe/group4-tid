@@ -47,7 +47,7 @@ function App() {
           <Route exact path={Pages.Schedule} element={<Schedule/>}/> {/**Giant Schedule, empty */}
           <Route exact path={Pages.TransferRequest} element={<TransferRequest/>}/> {/**Transfer Request Form, empty */}
           <Route exact path={Pages.Walkins} element={<Walkins/>}/> {/**Walkin Overview */}
-          <Route exact path="/" render= {<Home/>}/>
+          <Route exact path="/" element= {<Home/>}/>
    
         </Routes>
       </Router>
