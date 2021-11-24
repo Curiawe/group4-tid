@@ -14,21 +14,22 @@
     flex-direction:column;
 }
 
-.SidebarLink{
+a {
     padding:10px 32px;
 }
 
-.SidebarLink:hover{
+.active-side-link {
+    color: #20334B;
+    background-color: #9FBADB;
+    font-weight: bolder;
+    padding:10px 32px;
+}
+a:hover{
     font-weight: bolder;
 }
 
-.SidebarLink:active{
+a:active{
     color: #20334B;
     background-color: #9FBADB;
 }
 
-.ActiveSideLink {
-    color: #20334B;
-    background-color: #9FBADB;
-    font-weight: bolder;
-}

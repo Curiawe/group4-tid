@@ -1,0 +1,60 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popupBlue {
+  position: relative;
+  padding: 32px;
+  width: 320px;
+  height: 200px;
+  background-color: #20334b;
+  border-radius: 10px;
+  color: white;
+}
+
+.popupPurple {
+  position: relative;
+  padding: 32px;
+  width: 320px;
+  height: 200px;
+  background-color: #b1adf4;
+  border-radius: 10px;
+  color: white;
+}
+
+.popupRed {
+  position: relative;
+  padding: 32px;
+  width: 320px;
+  height: 200px;
+  background-color: #f95959;
+  border-radius: 10px;
+  color: white;
+}
+
+.buttonCenter {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translate(-50%, 0); /* Needed for it to be centered */
+}
+
+.buttonRight {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+}
+
+.buttonLeft {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+}

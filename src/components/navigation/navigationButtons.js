@@ -1,22 +1,27 @@
 import React from 'react';
 import './navigationButtons.css';
-import '../../index.css';
+import { Link } from 'react-router-dom';
 
+const NavButtons = (props) => {
 
-function NavigationButtons(props) {
-    return (
+    return ( 
         <div className="navButtons">
-            <div className="button">
-                <h4>Rental Operations</h4>
-            </div>
-            <div className="button">
-                <h4>Rental Management</h4>
-            </div>
-            <div className="button">
-                <h4>Group Management</h4>
-            </div>
+            <Link to={props.linkButtonOne} style={{textDecoration: 'none'}} className="button"><h4>{props.textButtonOne}</h4></Link>
+            <Link to={props.linkButtonTwo} style={{textDecoration: 'none'}} className="button"><h4>{props.textButtonTwo}</h4></Link>
+            <Link to={props.linkButtonThree} style={{textDecoration: 'none'}} className="button"><h4>{props.textButtonThree}</h4></Link>
+
         </div>
     )
-}
+};
 
-export default NavigationButtons;
+const TwoNavButtons = (props) => {
+
+    return ( 
+        <div className="navButtons">
+            <Link to={props.linkButtonOne} style={{textDecoration: 'none'}} className="button"><h4>{props.textButtonOne}</h4></Link>
+            <Link to={props.linkButtonTwo} style={{textDecoration: 'none'}} className="button"><h4>{props.textButtonTwo}</h4></Link>
+        </div>
+    )
+};
+
+export { NavButtons, TwoNavButtons }

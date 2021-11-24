@@ -1,6 +1,8 @@
+import ReturnComponent from "../components/return"
+
 function Return () {
     return (
-        <h1>Return Your Car, Mate</h1>
+        <ReturnComponent/>
     )
 }
 

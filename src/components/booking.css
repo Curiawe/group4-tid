@@ -2,13 +2,8 @@
   width: 60%;
 }
 
-.input-wrap.align-icon-right.has-icon {
-  right: auto;
-  left: 7px;
-}
-
 /* HEADING */
-.bookingHeader {
+.header {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -37,19 +32,21 @@ hr {
 }
 
 h5 {
-  display: block;
+  display: flex;
+  flex-wrap: wrap;
   width: 128px;
 }
 
 /* LOGISTICS */
-.pick-up,
-.return,
-.carGroup,
-.extraServices,
-.customerInfo,
-.paymentMethod {
+.rowLayout {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.columnLayout {
+  display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
 }
 
@@ -65,7 +62,7 @@ h5 {
 
 .dateAndTime {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
   height: 100px;

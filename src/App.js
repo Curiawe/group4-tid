@@ -20,8 +20,10 @@ import RentalOffices from './pages/RentalOffices';
 import Schedule from './pages/Schedule';
 import TransferRequest from './pages/TransferRequest';
 import Walkins from './pages/Walkins';
-
 import Pages from './pages/Pages';
+import BookingLanding from './pages/BookingLandingPage';
+import RentalLanding from './pages/RentalLandingPage';
+import GroupLanding from './pages/GroupLandingPage';
 
 
 function App() {
@@ -31,6 +33,9 @@ function App() {
       <Navigation /> {/* Navbar goes on top */}
       <Sidebar /> {/* Sidebar on the side */}
         <Routes>
+          <Route exact path={Pages.BookingLandingPage} element={<BookingLanding/>}/> {/**Booking Overview w/ cards */}
+          <Route exact path={Pages.RentalLandingPage} element={<RentalLanding/>}/> {/**Booking Overview w/ cards */}
+          <Route exact path={Pages.GroupLandingPage} element={<GroupLanding/>}/> {/**Booking Overview w/ cards */}
           <Route exact path={Pages.BookingOverview} element={<Bookings/>}/> {/**Booking Overview w/ cards */}
           <Route exact path={Pages.BookingSearch} element={<BookingSearch/>}/> {/**Booking Search - do we need this? */}
           <Route exact path={Pages.Cars} element={<Cars/>}/> {/** Car Overview with Cards */}
@@ -42,7 +47,8 @@ function App() {
           <Route exact path={Pages.Schedule} element={<Schedule/>}/> {/**Giant Schedule, empty */}
           <Route exact path={Pages.TransferRequest} element={<TransferRequest/>}/> {/**Transfer Request Form, empty */}
           <Route exact path={Pages.Walkins} element={<Walkins/>}/> {/**Walkin Overview */}
-          <Route exact path="/" render= {<Home/>}/>
+          <Route exact path="/" element= {<Home/>}/>
+   
         </Routes>
       </Router>
     </div>
