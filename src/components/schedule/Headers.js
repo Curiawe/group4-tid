@@ -5,6 +5,7 @@ import './schedule.css'
 // Tiles Date Header
 // Table Row Hours Header
 
+// This doesn't work yet 
 function PeriodCells(props) {
     let start = props.start
     console.log("start:" + start)
@@ -41,16 +42,33 @@ function PeriodCells(props) {
  * @param {props} String, give the length of the result array of the cars filter.  
  * @returns a table header row with 7 cells, containing the number of applicable cars and the bi-hourly 
  */
-export function HeaderRow(props) {
+
+export default function HeaderRow (props) {
     return (
         <thead>
-        <tr>
+            <tr>
             <th id="small">
                 {props.size} cars found
             </th>
-            <PeriodCells start="8" end="10" max="20"/>
+            <th>
+                8-10
+            </th>
+            <th>
+                10-12
+            </th>
+            <th>
+                12-14
+            </th>
+            <th>
+                14-16
+            </th>
+            <th>
+                16-18
+            </th>
+            <th>
+                18-20
+            </th>
         </tr>
-        </thead>
-
-    );
+    </thead>
+    )
 }

@@ -116,6 +116,7 @@ body {
 h1, h2, h3 {
     font-family: 'IBM Plex Mono', 'Courier New', 'Courier', 'monospace';
     color: #20334B; 
+    word-break:break-word;
 }
 
 h1 {
