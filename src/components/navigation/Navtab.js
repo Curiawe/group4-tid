@@ -4,7 +4,10 @@ import './navigation.css';
 
 function Navtab (props) {
     return (
-        <Link to={props.link} className="Navtab" style={{ textDecoration: 'none', color: "white" }}>{props.title}</Link>
+        <Link to={props.link} className="Navtab"
+            style={{ textDecoration: 'none', color: "white" }}>
+                {props.title}
+        </Link>
     )
 }
 

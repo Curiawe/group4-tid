@@ -1,6 +1,7 @@
 import './navigation.css';
 import logo from './logo.png';
 import Pages from '../../pages/Pages';
+import PageGroups from '../navigation/PageGroups';
 import Navtab from './Navtab'
 
 
@@ -12,8 +13,8 @@ function Navigation () {
                 <Navtab title="Booking Management" link={Pages.BookingLandingPage}/>
                 <Navtab title="Rental Management" link={Pages.RentalLandingPage}/>
                 <Navtab title="Group Management" link={Pages.GroupLandingPage}/>
+
             </div>
-            
         </header>
     )
 }

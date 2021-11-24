@@ -1,0 +1,75 @@
+table {
+    border-collapse: collapse;
+    margin:0px;
+}
+
+tr > th {
+    margin:0px;
+    padding: 10px 20px;
+    border:#A2B6C3 1px solid;
+}
+
+/*Format global values for all table rows in Schedule here*/
+tr {
+    height: auto;
+}
+
+/*Format global values for all generic table cells here*/
+td {
+    padding:4px;
+    border-radius: 1px;
+    border: #A2B6C3 1px solid;
+}
+
+/* Filters */
+.dropDown select {
+    margin-bottom:32px;
+    margin-right:16px;
+    padding-inline-start: 4px;
+    padding-inline-end: 8px;
+    width: auto;
+}
+
+/* This is the datepicker*/
+.sdp { 
+    --theme-color: #20334B !important;
+    margin-bottom: 20px;
+    margin-right: 20px;
+  }
+
+.filterRow {
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+}
+
+label {
+    font-size: 12px;
+    font-weight: bolder;
+}
+
+/* Format image in first column here*/
+ScheduleCarImg {
+    height:48px;
+}
+
+StatusFilter {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+/*Format Container with image and license plate text here*/
+ScheduleCarContainer {
+
+    display:flex;
+    flex-direction:column;
+    flex-wrap: wrap;
+    padding:0px;
+    margin:0px;
+
+}
+
+
+
+
