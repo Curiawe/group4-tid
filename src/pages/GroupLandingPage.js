@@ -1,16 +1,14 @@
-import NavButtons from "../components/navigation/navigationButtons"
+import { TwoNavButtons } from "../components/navigation/navigationButtons"
 import Pages from "./Pages"
 
 function GroupLanding () {
     return (
-        <NavButtons
+        <TwoNavButtons
             linkButtonOne={Pages.RentalOffices}
             linkButtonTwo={Pages.CarGroups}
-            linkButtonThree={Pages.Walkins}
             textButtonOne="Rental Offices" 
-            textButtonTwo="Car Groups"
-            textButtonThree="Third Button"/>
-
+            textButtonTwo="Car Groups"/>
+    
     )
 }
 
