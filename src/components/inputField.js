@@ -6,9 +6,8 @@ const InputField = (props) => {
     
     return ( 
         <div className={props.className}>
-            <form>
-                <input placeHolder={props.placeHolder}/>
-            </form>
+                <input type={props.type} name={props.placeHolder} required/> 
+                <label> {props.placeHolder} </label>
         </div>
     )
 
