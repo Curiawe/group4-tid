@@ -3,7 +3,7 @@ import { BookedCar } from './pickup.js';
 import './booking.css';
 import './pickupAndReturn.css';
 import SelectBox from './selectBoxes.js';
-import InputField from './inputField.js';
+import {InputField} from './inputField.js';
 
 function ReturnHeader(props) {
     return (

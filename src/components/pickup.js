@@ -1,7 +1,7 @@
 import React from 'react';
 import './pickupAndReturn.css';
 import './booking.css';
-import InputField from './inputField';
+import {InputField} from './inputField';
 import { SelectCarGroup } from './dropDowns';
 
 function PickupHeader(props) {
