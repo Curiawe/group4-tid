@@ -5,6 +5,8 @@ import ColorIcon from './AvailabilityIcon';
 import { Icon } from '@iconify/react';
 import honda from '../../Images/honda-crv.jpg';
 import ButtonStyled from '../buttons/ColorButton';
+import Pages from '../../pages/Pages';
+
 
 
 
@@ -39,7 +41,8 @@ function Card() {
         </div>
     </div>
     <div className="btnMargin">
-        <ButtonStyled color="PurpleBtn" primary="false" className="buttonSmall" title="Select car"/>
+        <ButtonStyled link = {Pages.Walkins} color="PurpleBtn" primary="false" 
+        className="buttonSmall" title="Select car"/>
     </div>
 </div> 
   )
