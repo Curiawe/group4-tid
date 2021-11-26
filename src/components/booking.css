@@ -33,8 +33,10 @@ hr {
 
 h5 {
   display: flex;
+  flex-direction: inherit;
+  justify-content: flex-start;
   flex-wrap: wrap;
-  width: 128px;
+  width: 180px;
 }
 
 /* LOGISTICS */
@@ -42,6 +44,7 @@ h5 {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  align-items: flex-start;
 }
 
 .columnLayout {
@@ -57,32 +60,63 @@ h5 {
   justify-content: top;
   align-items: flex-start;
   height: 100px;
-  margin: 10px;
 }
 
-.dateAndTime {
+.columnLayout {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
-  height: 100px;
-  margin: 10px;
+  height: fit-content;
+}
+
+.inputField {
+  position: relative;
+  margin-left: 10px;
 }
 
 .inputField input {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 2px;
+  margin-bottom: 20px;
   width: 256px;
   height: 48px;
   left: 460px;
   top: 275px;
-  background: #ffffff;
+  background-color: transparent;
   border: 1px solid #d1dae0;
   box-sizing: border-box;
+  box-shadow: none;
   border-radius: 8px;
   font-size: 16px;
-  font-style: italic;
+  outline: none;
+}
+
+.inputField label {
+  position: absolute;
+  top: 10px;
+  color: gray;
+  transition: 0.2s;
+  pointer-events: none;
+  padding: 5px;
+  font-size: 16px;
+  font-weight: lighter;
+}
+
+.inputField input[type="date"] ~ label,
+.inputField input[type="time"] ~ label {
+  top: -20px;
+  font-size: 12px;
+}
+
+.inputField input:focus ~ label,
+.inputField input:not(:focus):valid ~ label {
+  top: -20px;
+  font-size: 12px;
+}
+
+.radiobButton {
+  size: 2px;
 }
 
 .radioButton input {
@@ -99,17 +133,17 @@ h5 {
   background-color: transparent;
   font: inherit;
   border-radius: 0;
-
   display: left;
   width: 256px;
   height: 48px;
   left: 460px;
   top: 275px;
-  background: #ffffff;
+  background: transparent;
   border: 1px solid #d1dae0;
   box-sizing: border-box;
   border-radius: 8px;
   font-size: 16px;
+  margin-left: 10px;
 }
 
 .carGroupDropDown select::-ms-expand {
@@ -118,7 +152,6 @@ h5 {
 
 /* Extra Services */
 .extraServicesSelect,
-.customerInfoFields,
 .payment {
   display: flex;
   flex-direction: column;
@@ -135,9 +168,17 @@ h5 {
   margin-bottom: 20px;
 }
 
+.centeredInputField {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  background-color: red;
+}
+
 .selectBox,
 .infoType {
   margin-right: 100px;
+  margin-left: 10px;
 }
 
 .searchBox input {
@@ -154,4 +195,5 @@ h5 {
   border-radius: 8px;
   font-size: 16px;
   font-style: italic;
+  padding: 5px;
 }
