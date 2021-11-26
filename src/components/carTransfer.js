@@ -1,7 +1,7 @@
 import React from 'react';
 import './booking.css';
 import './carTransfer.css'
-import InputField from './inputField';
+import {InputField, TextArea} from './inputField';
 import SelectBox from './selectBoxes';
 import { CarGroup } from './booking';
 
@@ -47,12 +47,7 @@ function Comments() {
     return (
         <div className="rowLayout">
         <h5>Comments:</h5>
-        
-        <div className="comments">
-            <form>
-                <textarea placeholder="Write any comments about the car's state here"/>
-            </form>
-        </div>
+        <TextArea className="comments" placeHolder="Comments about the car state"/> 
         </div>
     )
 }

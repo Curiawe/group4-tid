@@ -70,7 +70,8 @@ h5 {
   height: fit-content;
 }
 
-.inputField {
+.inputField,
+.comments {
   position: relative;
   margin-left: 10px;
 }
@@ -92,7 +93,8 @@ h5 {
   outline: none;
 }
 
-.inputField label {
+.inputField label,
+.comments label {
   position: absolute;
   top: 10px;
   color: gray;
@@ -110,7 +112,9 @@ h5 {
 }
 
 .inputField input:focus ~ label,
-.inputField input:not(:focus):valid ~ label {
+.inputField input:not(:focus):valid ~ label,
+.comments textarea:focus ~ label,
+.comments textarea:not(:focus):valid ~ label {
   top: -20px;
   font-size: 12px;
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import './booking.css';
-import InputField from './inputField';
+import {InputField} from './inputField';
 import SelectBox from './selectBoxes';
 import { SelectCarGroup, SelectPaymentMethod } from './dropDowns';
 import { PopupOneButton } from './popup';
