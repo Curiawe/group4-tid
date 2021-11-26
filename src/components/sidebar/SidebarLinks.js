@@ -21,9 +21,7 @@ function InactiveLink (props) {
 function mapToSidebarLink (list) {
     return list.map((link) => {
         return <SidebarLink link={link.path} title={link.title} />
-
     })
-    
 }
 
 export { mapToSidebarLink }
