@@ -6,11 +6,22 @@ const InputField = (props) => {
     
     return ( 
         <div className={props.className}>
-                <input type={props.type} name={props.placeHolder} required/> 
-                <label> {props.placeHolder} </label>
+            <input type={props.type} name={props.placeHolder} required/> 
+            <label> {props.placeHolder} </label>
         </div>
     )
 
 }
 
-export default InputField;
+const TextArea = (props) => {
+    
+    return ( 
+        <div className={props.className}>
+            <textarea name={props.placeHolder} required/> 
+            <label> {props.placeHolder} </label>
+        </div>
+    )
+
+}
+
+export { InputField, TextArea };
