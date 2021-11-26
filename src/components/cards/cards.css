@@ -5,8 +5,8 @@
 /* large cards used for overview */
 .card {
   position: absolute;
-  width: 384px;
-  height: 512px;
+  width: 308px;
+  height: 454px;
   left: 30px;
   top: 100px;
   border-radius: 10px;
@@ -15,6 +15,12 @@
   border: 1px solid #c4c4c4;
   box-sizing: border-box;
   border-radius: 10px;
+}
+
+.btnMargin {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
 }
 
 .cardImg {
@@ -74,7 +80,6 @@
   right: 16px;
   top: 292px;
   bottom: 16px;
-
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -133,7 +138,7 @@
 .mainDescription {
   font-family: Raleway;
   font-style: normal;
-  font-size: 16px;
+  font-size: 12px;
   color: #000000;
 }
 

@@ -4,6 +4,8 @@ import { IconBody } from './IconBody'
 import ColorIcon from './AvailabilityIcon';
 import { Icon } from '@iconify/react';
 import honda from '../../Images/honda-crv.jpg';
+import ButtonStyled from '../buttons/ColorButton';
+
 
 
 function Card() {
@@ -24,19 +26,21 @@ function Card() {
                 <div className="mainDescription">5</div>
             </div>
         </div>
-        <div className = "iconRow">
+        <div className="iconRow">
             <IconBody title="Diesel" icon="droplet" />
             <IconBody title="Manual" icon="settings" />
             <ColorIcon title="RED" />
         </div>
-        <div className = "iconRow">
+        <div className="iconRow">
             <IconBody title="City Center" icon="map-pin" />
         </div>
-        <div className = "iconRow">
+        <div className="iconRow">
             <ColorIcon title="Available" />
         </div>
     </div>
-    <div className = "cardButton">Select car</div>
+    <div className="btnMargin">
+        <ButtonStyled color="PurpleBtn" primary="false" className="buttonSmall" title="Select car"/>
+    </div>
 </div> 
   )
 }
