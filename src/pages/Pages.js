@@ -12,7 +12,8 @@
  * 
  * */
 
-
+/* make lists for the different tabs in the header here 
+so we can call them with use params */
 
 const Pages = {
     GroupLandingPage: "/group-management",
@@ -29,7 +30,22 @@ const Pages = {
     Return: "/return",
     Schedule: "/schedule",
     TransferRequest: "/transfer",
-    Walkins: "/walkins"
+    Walkins: "/walkins",
+
+    BookingManagement: [
+        {path:"/booking-management/booking-overview", title:"Booking Overview"},
+        {path:"/booking-management/booking-search", title:"Booking Search"},
+        {path:"/booking-management/car-overview", title:"Car Overview"},
+        {path:"/booking-management/schedule", title:"Schedule"},],
+    
+    RentalManagement: [
+        {path:"/rental-management/daily-overview", title:"Daily Overview"},
+        {path:"/rental-management/transfers", title:"Transfers"},
+        {path:"/rental-management/walkins", title:"Walk-ins"},],
+    
+    GroupManagement: [
+        {path:"/group-management/car-groups", title:"Car Groups"},
+        {path:"/group-management/offices", title:"Rental Offices"}]
 }
 
 export default Pages
