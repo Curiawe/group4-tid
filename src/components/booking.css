@@ -10,16 +10,7 @@
   justify-content: space-between;
 }
 
-.title {
-  margin-left: 10px;
-}
-
-.bookingNumber {
-  margin-right: 10px;
-}
-
 /* GENERAL */
-
 hr {
   display: block;
   color: #d1dae0;
@@ -35,8 +26,10 @@ h5 {
   display: flex;
   flex-direction: inherit;
   justify-content: flex-start;
+  align-items: flex-start;
   flex-wrap: wrap;
   width: 180px;
+  margin-top: 0;
 }
 
 /* LOGISTICS */
@@ -51,6 +44,7 @@ h5 {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .location {
@@ -59,15 +53,20 @@ h5 {
   flex-wrap: wrap;
   justify-content: top;
   align-items: flex-start;
-  height: 100px;
 }
 
-.columnLayout {
+.driverInfo {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: flex-start;
   flex-wrap: wrap;
-  justify-content: center;
-  height: fit-content;
+  margin-left: 170px;
+}
+
+.searchExisting {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
 }
 
 .inputField,
