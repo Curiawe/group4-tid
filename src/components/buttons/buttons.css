@@ -38,3 +38,23 @@ button {
   font-size: 12px;
   padding: 4px;
 }
+
+/* Positioning of buttons depending on their role */
+
+.stackedBtns {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-width: fit-content;
+}
+
+.finishBtn {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.threeBtns {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
