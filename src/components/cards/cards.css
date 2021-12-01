@@ -15,6 +15,40 @@
   width: 350px;
 }
 
+.bookingCardMargin {
+  height: 460px;
+  width: 1065px;
+  margin-left: 260px;
+  margin-top: -370px;
+  display: flex;
+}
+
+.searchBarMargin {
+  height: 65px;
+  width: 500px;
+  margin-left: 25px;
+  margin-top: 60px;
+  display: flex;
+  align-items: baseline;
+}
+
+.bookingOvBtn1 {
+  height: 65px;
+  width: 350px;
+  margin-left: 230px;
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.bookingOvBtn2 {
+  height: 65px;
+  width: 170px;
+  margin-left: 480px;
+  margin-top: 30px;
+}
+
 /* large cards used for overview */
 .card {
   position: absolute;
@@ -26,6 +60,10 @@
   border: 1px solid #c4c4c4;
   box-sizing: border-box;
   border-radius: 10px;
+}
+
+.card:hover {
+  background-color: #9fbadb;
 }
 
 .cardBodyBooking {
