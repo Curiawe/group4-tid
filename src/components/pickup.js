@@ -120,5 +120,5 @@ function PickupComponent() {
     )
 }
 
-
-export default {BookedCar, PickupReturnButtons, PickupComponent}
+export { BookedCar, PickupReturnButtons }
+export default PickupComponent;

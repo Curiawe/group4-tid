@@ -1,5 +1,5 @@
 import React from 'react';
-import { BookedCar } from './pickup.js';
+import { BookedCar } from './pickup';
 import './booking.css';
 import './pickupAndReturn.css';
 import SelectBox from './selectBoxes.js';
@@ -7,7 +7,7 @@ import {InputField, TextArea} from './inputField.js';
 import { PickupReturnButtons } from './pickup.js';
 
 /* This is the page header */ 
-function ReturnHeader(props) {
+function ReturnHeader() {
     return (
         <div className="header">
             <div className="title">
@@ -21,7 +21,7 @@ function ReturnHeader(props) {
 }
 
 /* Here, the car state is selected */
-function CarState(props) {
+function CarState() {
     return (
         <div className="carState">
             <h5>Car State</h5>
@@ -41,7 +41,7 @@ function CarState(props) {
 }
 
 /* The time of the return is entered here */
-function ReturnTime(props) {
+function ReturnTime() {
     return (
         <div className="returnTime">
             <h5>Arrival Time</h5>
@@ -57,7 +57,7 @@ function ReturnTime(props) {
 }
 
 /* The values for fuel and mileage upon car return are noted here */
-function ReturnFuelAndMileage(props) {
+function ReturnFuelAndMileage() {
     return (
         <div className="returnLevel">
             <h5>Mileage</h5>
@@ -80,7 +80,7 @@ function ReturnFuelAndMileage(props) {
 }
 
 /* The return component */ 
-function ReturnComponent(props) {
+function ReturnComponent() {
     return (
         <div className="return">
             <ReturnHeader/>
