@@ -1,6 +1,5 @@
 import './sidebar.css';
 import SidebarLinks from './SidebarLinks'
-import Pages from '../../pages/Pages';
 
 function Sidebar () {
     return (
