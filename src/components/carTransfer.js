@@ -4,6 +4,8 @@ import './carTransfer.css'
 import {InputField, TextArea} from './inputField';
 import SelectBox from './selectBoxes';
 import { CarGroup } from './booking';
+import ButtonStyled from './buttons/ColorButton';
+import '../index.css';
 
 function PageHeader() {
     return (
@@ -52,6 +54,16 @@ function Comments() {
     )
 }
 
+function TransferButtons(props) {
+    return (
+        <div className="finishBtn">
+            <ButtonStyled title="Send Request" color="DarkBlueBtn" primary="true" className="buttonLarge"/>
+
+        </div>
+       
+    )
+}
+
 function CarTransfer() {
     return (
         <div className="transfer">
@@ -60,6 +72,7 @@ function CarTransfer() {
             <CarGroup/>
             <LocationAndDate/>
             <Comments/>
+            <TransferButtons/>
         </div>
     )
 }
