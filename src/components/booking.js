@@ -3,7 +3,7 @@ import './booking.css';
 import {InputField} from './inputField';
 import SelectBox from './selectBoxes';
 import { SelectCarGroup, SelectPaymentMethod } from './dropDowns';
-import { PopupOneButton } from './popup';
+import { PopupOneButton, PopupTwoButtons } from './popup';
 import { useState } from 'react';
 import './popup.css'
 import ButtonStyled from './buttons/ColorButton';
@@ -23,7 +23,7 @@ function BookingHeader() {
     )
 }
 
-function BookingLogistics(props) {
+function Pickup(props) {
     return (
         <div>
             <div className="rowLayout">
@@ -39,16 +39,25 @@ function BookingLogistics(props) {
                 </div>
             
             </div>
+        </div>
+    )
+}
+
+function Return(props) {
+    return (
+        <div>
             <div className="rowLayout">
                 <h5>Return</h5>
+             
                 <div className="location">
                     <InputField className="inputField" type="text" placeHolder="Select Location"/>
+                    
                 </div>
-                <div className="columnLayout">
+                <div className=".columnLayout">
                     <InputField className="inputField" type="date" placeHolder="Select Date"/>
                     <InputField className="inputField" type="time" placeHolder="Select Time"/>
                 </div>
-              
+            
             </div>
         </div>
     )
@@ -79,7 +88,7 @@ function ExtraServices(props) {
             <div className="extraServicesSelect">
                 <div className="extraDriverSelect">
                     <SelectBox className="selectBox" type="checkbox" buttonText="Extra Driver"/>
-                    <ButtonStyled title="Add Driver" className="buttonSmall"/>
+                    <ButtonStyled title="Add Extra Driver" color="LightBlueBtn" primary="true" className="buttonSmall"/>
                 </div>
                 <div className="extraMileageSelect">
                     <SelectBox className="selectBox" type="checkbox" buttonText="Extra Mileage"/>
@@ -94,20 +103,21 @@ function CustomerInformation(props) {
     return (
         <div className="rowLayout">
             <h5>Customer Information</h5>
-  
-            <div className="columnLayout">
-                        <InputField className="inputField" type="text" placeHolder="Search Existing Customers"/>
-                        <InputField className="inputField" type="text" placeHolder="Driver's Name"/>
-                        <InputField className="inputField" type="address" placeHolder="Driver's Address"/>
-                        <InputField className="inputField" type="tel" placeHolder="Driver's Phone Number"/>
-                        <InputField className="inputField" type="email" placeHolder="Driver's Email Address"/>
-                        <InputField className="inputField" type="date" placeHolder="Driver's Date of Birth"/>
-                        <InputField className="inputField" type="text" placeHolder="Driver's License ID"/>
-                        <InputField className="inputField" type="date" placeHolder="Licence Issue Date"/>
-                        <InputField className="inputField" type="date" placeHolder="License Expiration Date"/>
-              
+            <div className="searchExisting">
+            <ButtonStyled title="Search Existing" color="LightBlueBtn" primary="true" className="buttonSmall"/>
+            </div>
+            <div className="driverInfo">
+                <InputField className="inputField" type="text" placeHolder="Driver's Name"/>
+                <InputField className="inputField" type="address" placeHolder="Driver's Address"/>
+                <InputField className="inputField" type="tel" placeHolder="Driver's Phone Number"/>
+                <InputField className="inputField" type="email" placeHolder="Driver's Email Address"/>
+                <InputField className="inputField" type="date" placeHolder="Driver's Date of Birth"/>
+                <InputField className="inputField" type="text" placeHolder="Driver's License ID"/>
+                <InputField className="inputField" type="date" placeHolder="Licence Issue Date"/>
+                <InputField className="inputField" type="date" placeHolder="License Expiration Date"/>
             </div>
         </div>
+    
     )
 }
 
@@ -146,11 +156,15 @@ function PaymentMethod(props) {
 function BookingButtons(props) {
     const [buttonPopup, setButtonPopup] = useState(false);
     return (
-        <div>
-            <ButtonStyled title="Delete Booking" className="buttonSmall"/>
-            <ButtonStyled title="Cancel Booking" className="buttonSmall"/>
-            <ButtonStyled title="Confirm Booking" onClick={() => setButtonPopup(true)}/>
-            <PopupOneButton className="popupRed" buttonCenter="OK" trigger={buttonPopup} setTrigger={setButtonPopup}>
+        <div className="threeBtns">
+            <div className="stackedBtns">
+            <ButtonStyled title="Delete Booking" color="DarkRedBtn" primary="false" className="buttonSmall"/>
+            <ButtonStyled title="Cancel Booking" color="PurpleBtn" primary="false" className="buttonSmall"/>
+            </div>
+            <div className="finishBtn">
+            <ButtonStyled title="Confirm Booking" color="DarkBlueBtn" primary="true" className="buttonLarge" />
+            </div>
+            <PopupOneButton className="popupRed" buttonCenter="GO BACK" trigger={buttonPopup} setTrigger={setButtonPopup}>
                     <p>here's the icon</p>
                     <p>here's some text about what you just did</p>
                     <p>here's how to move on</p>
@@ -165,7 +179,8 @@ function Booking(props) {
         <div className = "booking">
             
             <BookingHeader />
-            <BookingLogistics />
+            <Pickup />
+            <Return/>
             <HorizontalLine/>
             <CarGroup/>
             <ExtraServices/>
