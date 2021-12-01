@@ -3,13 +3,17 @@ import { BookedCar } from './pickup.js';
 import './booking.css';
 import './pickupAndReturn.css';
 import SelectBox from './selectBoxes.js';
-import {InputField} from './inputField.js';
+import {InputField, TextArea} from './inputField.js';
+import { PickupReturnButtons } from './pickup.js';
 
 function ReturnHeader(props) {
     return (
-        <div className="returnHeader">
+        <div className="header">
             <div className="title">
-                <h1>Booking ID:</h1>
+                <h1>Return</h1>
+            </div>
+            <div className="bookingNumber">
+                <p>Booking ID:</p>
             </div>
         </div>
     )
@@ -18,9 +22,7 @@ function ReturnHeader(props) {
 function CarState(props) {
     return (
         <div className="carState">
-            <div className="attributeType">
-                Car State:
-            </div>
+            <h5>Car State</h5>
             <div className="attribute">
                 <div className="dropDown">
                     <select required>
@@ -39,13 +41,11 @@ function CarState(props) {
 function ReturnTime(props) {
     return (
         <div className="returnTime">
-            <div className="attributeType">
-                Arrival Time:
-            </div>
+            <h5>Arrival Time</h5>
             <div className="attribute3">
-                <SelectBox className="onTime" type="radio" buttonText="On Time"/>
+                <SelectBox type="checkbox" buttonText="On Time"/>
                 <div className="lateBy">
-                    <SelectBox type="radio" buttonText="Late by"/>
+                    <SelectBox className="btnWithBox" type="checkbox" buttonText="Late by"/>
                     <InputField className="inputFieldSmall" placeHolder="min"/>
                 </div>
             </div>
@@ -56,50 +56,34 @@ function ReturnTime(props) {
 function ReturnFuelAndMileage(props) {
     return (
         <div className="returnLevel">
-            <div className="attributeType">
-            Mileage:
-            </div>
+            <h5>Mileage</h5>
                 <div className="attribute4">
                     <InputField className="inputFieldSmall" placeHolder="km"/>
                     <SelectBox className="selectBox" type="checkbox" buttonText="Above Limit"/>
                 </div>
-            <div className="attributeType">
-            Fuel Level:
-            </div>
+            <h5>Fuel Level</h5>
+            
             <div className="attribute4">
                 <InputField className="inputFieldSmall" placeHolder="%"/>
                 <SelectBox className="selectBox" type="checkbox" buttonText="Below Limit"/>
             </div>
-            <div className="attributeType">
-            Comments:
-            </div>
-            <div className="attribute">
-                <form>
-                    <textarea placeholder="Write any comments about the car's state here"/>
-                </form>
-            </div>
+            <h5>Comments</h5>
+            <TextArea className="attribute" placeHolder="Comments about the car's state"/> 
+            
         </div>
 
-    )
-}
-
-function Buttons(props) {
-    return (
-        <div>
-            buttons go here somewhere
-        </div>
     )
 }
 
 function ReturnComponent(props) {
     return (
-        <div className="pickup">
+        <div className="return">
             <ReturnHeader/>
             <BookedCar/>
             <CarState/>
             <ReturnTime/>
             <ReturnFuelAndMileage/>
-            <Buttons/>
+            <PickupReturnButtons/>
         </div>
     )
 }

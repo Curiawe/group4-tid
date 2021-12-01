@@ -1,14 +1,20 @@
 import React from 'react';
 import './pickupAndReturn.css';
 import './booking.css';
-import {InputField} from './inputField';
+import './buttons/buttons.css';
+import {InputField, TextArea} from './inputField';
 import { SelectCarGroup } from './dropDowns';
+import ButtonStyled from './buttons/ColorButton';
+import FeatherIcon from 'feather-icons-react';
 
-function PickupHeader(props) {
+function PickupHeader() {
     return (
-        <div className="pickupHeader">
+        <div className="header">
             <div className="title">
-                <h1>Booking ID:</h1>
+                <h1>Pickup</h1>
+            </div>
+            <div className="bookingNumber">
+                <p>Booking ID:</p>
             </div>
         </div>
     )
@@ -17,11 +23,9 @@ function PickupHeader(props) {
 function CheckCustomerInfo(props) {
     return (
         <div className="info">
-            <div className="attributeType">
-            Customer Information:
-            </div>
+            <h5>Customer Information</h5>
             <div className="attribute">
-                BUTTON HERE
+                <ButtonStyled title="Check Information" color="PurpleBtn" primary="true" className="buttonLarge"/>
             </div>
         </div>
     )
@@ -31,30 +35,24 @@ function BookedCar(props) {
     return (
         <div className="carInfo">
             <div className="selectedCar">
-                <div className="attributeType">
-                Selected Car:
-                </div>
+                <h5>Selected Car</h5>
                 <div className="attribute">
                     <div className="attribute2">
                         Selected car will show up here
                     </div>
-                    <div className="icon">
-                    Icon here
-                    </div>
+                    
+                    <FeatherIcon icon="edit" className="icon"/> 
+                    
                 </div>
             </div>
             <div className="carGroup">
-                <div className="attributeType">
-                Car Group:
-                </div>
+            <h5>Car Group</h5>
                 <div className="attribute">
                     Car group shows up here when car is selected
                 </div>
             </div>
             <div className="fuelType">
-                <div className="attributeType">
-                Fuel Type:
-                </div>
+                <h5>Fuel Type</h5>
                 <div className="attribute">
                     Fuel type shows up here when car is selected
                 </div>
@@ -66,41 +64,10 @@ function BookedCar(props) {
 
 export { BookedCar }
 
-function StartingFuelAndMileage(props) {
-    return (
-        <div className="fuelAndMileageFields">
-            <div className="startingLevel">
-                <div className="attributeType">
-                Starting Mileage:
-                </div>
-                <InputField className="attribute" placeHolder="Starting Mileage Level in km"/>
-            </div>
-            <div className="startingLevel">
-                <div className="attributeType">
-                Starting Fuel:
-                </div>
-                <InputField className="attribute" placeHolder="Starting Fuel Level in %"/>
-            </div>
-            <div className="startingLevel">
-                <div className="attributeType">
-                Comments:
-                </div>
-                <div className="attribute">
-                    <form>
-                        <textarea placeholder="Write any comments about the car's state here"/>
-                    </form>
-                </div>
-            </div>
-        </div>
-    )
-}
-
 function BillCarAs(props) {
     return (
         <div className="carGroup">
-            <div className="attributeType">
-            Bill car as:
-            </div>
+            <h5>Bill car as</h5>
             <div className="attribute">
                 <SelectCarGroup/>
             </div>
@@ -108,13 +75,36 @@ function BillCarAs(props) {
     )
 }
 
-function Buttons(props) {
+function StartingFuelAndMileage(props) {
     return (
-        <div>
-            buttons go here somewhere
+        <div className="fuelAndMileageFields">
+            <div className="startingLevel">
+                <h5>Starting Mileage</h5>
+                <InputField className="attribute" placeHolder="Starting Mileage Level in km"/>
+            </div>
+            <div className="startingLevel">
+                <h5>Starting Fuel</h5>
+                <InputField className="attribute" placeHolder="Starting Fuel Level in %"/>
+            </div>
+            <div className="startingLevel">
+                <h5>Comments</h5>
+                <TextArea className="attribute" placeHolder="Comments about the car's state"/> 
+            </div>
         </div>
     )
 }
+
+
+function PickupReturnButtons(props) {
+    return (
+        <div className="pickupAndReturnButtons">
+            <ButtonStyled title="Cancel" color="PurpleBtn" primary="false" className="buttonSmall"/>
+            <ButtonStyled title="Save & Start" color="DarkBlueBtn" primary="true" className=""/>
+        </div>
+    )
+}
+
+export {PickupReturnButtons} 
 
 function PickupComponent(props) {
     return (
@@ -124,7 +114,7 @@ function PickupComponent(props) {
             <BookedCar/>
             <BillCarAs/>
             <StartingFuelAndMileage/>
-            <Buttons/>
+            <PickupReturnButtons/>
         </div>
     )
 }

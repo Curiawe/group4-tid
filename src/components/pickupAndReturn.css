@@ -8,7 +8,6 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
 }
 
 .info {
@@ -52,7 +51,6 @@
   flex-direction: row;
   flex-wrap: wrap;
   width: 60%;
-  justify-content: flex-start;
 }
 
 .attribute2 {
@@ -60,7 +58,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   width: 60%;
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 
 .attribute3 {
@@ -81,20 +79,36 @@
   align-items: center;
 }
 
+.attribute {
+  position: relative;
+}
+
 .attribute input {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 2px;
+  margin-bottom: 20px;
   width: 256px;
   height: 48px;
   left: 460px;
   top: 275px;
-  background: #ffffff;
+  background: transparent;
   border: 1px solid #d1dae0;
   box-sizing: border-box;
+  box-shadow: none;
   border-radius: 8px;
   font-size: 16px;
-  font-style: italic;
+  outline: none;
+}
+
+.attribute label {
+  position: absolute;
+  top: 10px;
+  color: gray;
+  transition: 0.2s;
+  pointer-events: none;
+  padding: 5px;
+  font-size: 16px;
+  font-weight: lighter;
 }
 
 .attribute textarea {
@@ -110,7 +124,15 @@
   box-sizing: border-box;
   border-radius: 8px;
   font-size: 16px;
-  font-style: italic;
+  outline: none;
+}
+
+.attribute input:focus ~ label,
+.attribute input:not(:focus):valid ~ label,
+.attribute textarea:focus ~ label,
+.attribute textarea:not(:focus):valid ~ label {
+  top: -20px;
+  font-size: 12px;
 }
 
 .inputFieldSmall {
@@ -119,6 +141,7 @@
   align-items: center;
   justify-content: flex-start;
   width: 100px;
+  margin-bottom: 20px;
 }
 
 .inputFieldSmall input {
@@ -135,10 +158,9 @@
   box-sizing: border-box;
   border-radius: 8px;
   font-size: 16px;
-  font-style: italic;
 }
 
-.ontime {
+.onTime {
   display: block;
   flex-direction: row;
   flex-wrap: wrap;
@@ -156,11 +178,10 @@
   width: 60%;
 }
 
-.onTime input,
-.lateBy input,
-.selectBox input,
-.onTime label,
-.lateBy label,
-.selectBox label {
+.btnWithBox {
   margin-right: 5px;
+}
+
+.icon {
+  margin-left: 10px;
 }
