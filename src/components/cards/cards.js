@@ -8,8 +8,6 @@ import ButtonStyled from '../buttons/ColorButton';
 import Pages from '../../pages/Pages';
 
 
-
-
 function Card() {
   return (
 <div className = "card">

@@ -12,13 +12,13 @@ const colorMap = {
     // this part is used for car colors
     RED: "red",
     BLK: "black",
-    SLV: "gray"
+    SLV: "gray",
+    BLU: "blue"
 }
 
 function colorPicker(props) {
     return colorMap[props]
 }
-
 
 function ColorIcon(props) {
     return (
