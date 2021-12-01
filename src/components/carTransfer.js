@@ -29,11 +29,9 @@ function SelectTransferType() {
     return (
         <div className="rowLayout">
             <h5>Select Action</h5>
-            <div className="attribute3">
-                <div className="attribute3">
-                    <input type="radio" value="Request" name="Transfer" onClick={handleChange}/> Request Car
-                    <input type="radio" value="Release" name="Transfer" onClick={handleChange}/> Release Car
-                </div>
+            <div className="selectBox">
+                <input type="radio" value="Request" name="Transfer" onClick={handleChange}/> Request Car 
+                <input type="radio" value="Release" name="Transfer" onClick={handleChange}/> Release Car
             </div>
         </div>
     )
