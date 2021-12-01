@@ -51,10 +51,18 @@ button {
 .finishBtn {
   display: flex;
   flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
 .threeBtns {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+}
+
+.pickupAndReturnButtons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
 }

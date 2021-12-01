@@ -6,6 +6,7 @@ import SelectBox from './selectBoxes.js';
 import {InputField, TextArea} from './inputField.js';
 import { PickupReturnButtons } from './pickup.js';
 
+/* This is the page header */ 
 function ReturnHeader(props) {
     return (
         <div className="header">
@@ -19,6 +20,7 @@ function ReturnHeader(props) {
     )
 }
 
+/* Here, the car state is selected */
 function CarState(props) {
     return (
         <div className="carState">
@@ -38,6 +40,7 @@ function CarState(props) {
     )
 }
 
+/* The time of the return is entered here */
 function ReturnTime(props) {
     return (
         <div className="returnTime">
@@ -53,6 +56,7 @@ function ReturnTime(props) {
     )
 }
 
+/* The values for fuel and mileage upon car return are noted here */
 function ReturnFuelAndMileage(props) {
     return (
         <div className="returnLevel">
@@ -75,6 +79,7 @@ function ReturnFuelAndMileage(props) {
     )
 }
 
+/* The return component */ 
 function ReturnComponent(props) {
     return (
         <div className="return">

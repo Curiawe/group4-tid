@@ -7,6 +7,7 @@ import { SelectCarGroup } from './dropDowns';
 import ButtonStyled from './buttons/ColorButton';
 import FeatherIcon from 'feather-icons-react';
 
+/* This is the page header */ 
 function PickupHeader() {
     return (
         <div className="header">
@@ -20,7 +21,8 @@ function PickupHeader() {
     )
 }
 
-function CheckCustomerInfo(props) {
+/* Here, the customer information is checked and assured */
+function CheckCustomerInfo() {
     return (
         <div className="info">
             <h5>Customer Information</h5>
@@ -31,7 +33,8 @@ function CheckCustomerInfo(props) {
     )
 }
 
-function BookedCar(props) {
+/* This is where the booked car shown once the customer info is entered */
+function BookedCar() {
     return (
         <div className="carInfo">
             <div className="selectedCar">
@@ -40,9 +43,7 @@ function BookedCar(props) {
                     <div className="attribute2">
                         Selected car will show up here
                     </div>
-                    
                     <FeatherIcon icon="edit" className="icon"/> 
-                    
                 </div>
             </div>
             <div className="carGroup">
@@ -62,9 +63,9 @@ function BookedCar(props) {
     )
 }
 
-export { BookedCar }
-
-function BillCarAs(props) {
+/* This is where the price of the car is selected. This is also where upgrades are handled,
+i.e. a car from a higher group can be billed as a car from a cheaper group */
+function BillCarAs() {
     return (
         <div className="carGroup">
             <h5>Bill car as</h5>
@@ -75,7 +76,8 @@ function BillCarAs(props) {
     )
 }
 
-function StartingFuelAndMileage(props) {
+/* The starting values for fuel and mileage is entered here */
+function StartingFuelAndMileage() {
     return (
         <div className="fuelAndMileageFields">
             <div className="startingLevel">
@@ -94,8 +96,8 @@ function StartingFuelAndMileage(props) {
     )
 }
 
-
-function PickupReturnButtons(props) {
+/* These are the buttons to either cancel or begin the rental */
+function PickupReturnButtons() {
     return (
         <div className="pickupAndReturnButtons">
             <ButtonStyled title="Cancel" color="PurpleBtn" primary="false" className="buttonSmall"/>
@@ -104,9 +106,8 @@ function PickupReturnButtons(props) {
     )
 }
 
-export {PickupReturnButtons} 
-
-function PickupComponent(props) {
+/* The pickup component */
+function PickupComponent() {
     return (
         <div className="pickup">
             <PickupHeader/>
@@ -120,4 +121,4 @@ function PickupComponent(props) {
 }
 
 
-export default PickupComponent;
+export default {BookedCar, PickupReturnButtons, PickupComponent}
