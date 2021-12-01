@@ -28,6 +28,15 @@
   border-radius: 10px;
 }
 
+.cardBodyBooking {
+  width: 270px;
+  height: 454px;
+  margin-left: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
 .btnMargin {
   position: absolute;
   right: -16px;
@@ -48,6 +57,16 @@
   left: 16px;
   margin-top: 212px;
 
+  font-family: IBM Plex Mono;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 31px;
+  text-transform: uppercase;
+  color: #31465f;
+}
+
+.h4Booking {
   font-family: IBM Plex Mono;
   font-style: normal;
   font-weight: normal;
@@ -80,9 +99,23 @@
   font-style: normal;
   font-weight: normal;
   font-size: 12px;
-  line-height: 19px;
-
   color: #5d5fef;
+}
+
+.p1Booking {
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  color: #5d5fef;
+}
+
+.p2Booking {
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  color: black;
 }
 
 .cardBodyLarge {
