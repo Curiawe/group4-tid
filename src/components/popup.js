@@ -1,5 +1,6 @@
 import React from "react";
 import './popup.css'
+import ButtonStyled from "./buttons/ColorButton";
 
 /* Popups. Set them by choosing a style, either popupBlue, popupPurple, 
 or popupRed when calling the function. Text is added to popup AND buttons on the 
@@ -11,7 +12,7 @@ function PopupOneButton(props) {
     return (props.trigger) ? (
         <div className="overlay">
             <div className={props.className}>
-                <button className="buttonCenter" onClick={() => props.setTrigger(false)}>{props.buttonCenter}</button>
+                <button className="buttonSmall" onClick={() => props.setTrigger(false)}>{props.buttonCenter}</button>
                 {props.children}
             </div>
         </div>
@@ -24,8 +25,12 @@ function PopupTwoButtons(props) {
     return (props.trigger) ? (
         <div className="overlay">
             <div className={props.className}>
-                <button className="buttonRight" onClick={() => props.setTrigger(false)}>{props.buttonRight}</button>
-                <button className="buttonLeft" onClick={() => props.setTrigger(false)}>{props.buttonLeft}</button>
+                <div className="buttonRight">
+                <ButtonStyled title={props.buttonRight} color="DarkBlueBtn" primary="true"className="buttonLarge" onClick={() => props.setTrigger(false)}/>
+                </div>
+                <div className="buttonLeft">
+                <ButtonStyled title={props.buttonLeft} color="DarkBlueBtn" primary="false"className="buttonSmall" onClick={() => props.setTrigger(false)}/>
+                </div>
                 {props.children}
             </div>
         </div>
