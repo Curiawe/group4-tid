@@ -1,6 +1,9 @@
+import BookingOverviewCont from '../components/cards/BookingOverview';
+
+
 function BookingSearch () {
     return (
-        <h1>Booking Search go WHOOP</h1>
+        <BookingOverviewCont />
     )
 }
 

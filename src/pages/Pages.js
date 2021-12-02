@@ -24,11 +24,13 @@ const Pages = {
     Cars: "/cars",
     DailyOverview: "/daily-overview",
     Home: "/",
+    ManageBooking: "/manage-booking",
     Pickup: "/pickup",
     RentalOffices: "/offices",
     Return: "/return",
     Schedule: "/schedule",
-    TransferRequest: "/transfer",
+    TransferOverview: "/transfers",
+    TransferRequest: "/transfer-request",
     Walkins: "/walkins"
 }
 
