@@ -13,6 +13,8 @@ header {
 
   font-size: 16px;
   font-weight: bolder;
+  position: sticky;
+  top: 0;
 }
 .Navtabs {
   /*  You will be tempted to use "padding:10px;". Don't. It messes with the justify-content and the align-self of the children.  */
