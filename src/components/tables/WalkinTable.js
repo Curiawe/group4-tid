@@ -1,30 +1,42 @@
 import './tables.css'
+import { WALKINS } from '../../data/walkins'
 
+function WalkinHeader () {
+    return (
+        <thead>
+        <tr>
+            <th>
+                Date
+            </th>
+            <th>
+                Estimate Walk-ins
+            </th>
+            <th>
+                Registered
+            </th>
+        </tr>
+    </thead>
+    )
+}
 
+function WalkinRow (props) {
+    return (
+    <tr>
+        <td>{WALKINS[1].Date}</td>
+        <td>{WALKINS[1].estimate} </td>
+        <td>{WALKINS[1].total}</td>
+    </tr>
+    )
+
+}
 
 function WalkinTable (props) {
 
     return (
         <table>
-            <thead>
-                <tr>
-                    <th>
-                        Date
-                    </th>
-                    <th>
-                        Estimate Walk-ins
-                    </th>
-                    <th>
-                        Registered
-                    </th>
-                </tr>
-            </thead>
+            <WalkinHeader />
             <tbody>
-                <tr>
-                    <td>24.11.2021</td>
-                    <td>3</td>
-                    <td>5</td>
-                </tr>
+                <WalkinRow />
             </tbody>
         </table>
     )
