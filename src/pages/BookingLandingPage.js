@@ -5,7 +5,7 @@ function BookingLanding () {
     return (
        
         <NavButtons 
-            linkButtonOne={Pages.BookingOverview}
+            linkButtonOne={Pages.ManageBooking}
             linkButtonTwo={Pages.Pickup}
             linkButtonThree={Pages.Return}
             textButtonOne="Create Booking" 

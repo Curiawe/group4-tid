@@ -27,16 +27,16 @@ function ButtonStyled(props) {
     let borderColor = ""
 
     switch (props.primary) {
-        case "true":
-            backColor = colorPicker(props.color);
-            fontColor = "white";
-            borderColor = colorPicker(props.color);
-            break;
-   
-        default:
+        case "false":
             backColor = "white";
             fontColor = colorPicker(props.color)
             borderColor = colorPicker(props.color)
+            break;
+   
+        default:
+            backColor = colorPicker(props.color);
+            fontColor = "white";
+            borderColor = colorPicker(props.color);
             break;
     }
     return (

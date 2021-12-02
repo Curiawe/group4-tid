@@ -1,10 +1,6 @@
 import './cards.css';
-import ButtonStyled from '../buttons/ColorButton';
 import { IconBody } from './IconBody';
-import Pages from '../../pages/Pages';
-import { Icon } from '@iconify/react';
 import '../booking.css';
-import InputField from '../inputField';
 
 /* Schema:
 000: {Name:"Per Son", Ref, Phone, PickupPlace, PickupTime, ReturnPlace, ReturnTime, CarGroup, ExtraService}

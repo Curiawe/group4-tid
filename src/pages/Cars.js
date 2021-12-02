@@ -2,7 +2,6 @@ import LargeCardBody from "../components/cards/CardsForOverview";
 import '../components/cards/cards.css';
 import audi from '../Images/audi-a6.jpg'
 import honda from '../Images/honda-crv.jpg'
-import fiat from '../Images/fiat-500.jpg'
 import renault from '../Images/renault-captur.jpg'
 
 

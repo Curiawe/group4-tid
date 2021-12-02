@@ -38,7 +38,7 @@ function RentalOperations () {
     return (
         <nav className = "SidebarLinks">
             <SidebarLink title="Booking Overview" link={Pages.BookingOverview}/>
-            <SidebarLink title="Booking Search" link={Pages.BookingSearch}/>
+            <SidebarLink title="Manage Booking" link={Pages.ManageBooking}/>
             <SidebarLink title="Car Overview"link={Pages.Cars}/>
             <SidebarLink title="Schedule"link={Pages.Schedule}/>
         </nav> 
@@ -49,7 +49,7 @@ function RentalManagement () {
     return (
         <nav className = "SidebarLinks">
         <SidebarLink title="Daily Overview" link={Pages.DailyOverview}/>
-        <SidebarLink title="Transfers"link={Pages.TransferRequest}/>
+        <SidebarLink title="Transfers"link={Pages.TransferOverview}/>
         <SidebarLink title="Walk-ins" link={Pages.Walkins}/>
     </nav> 
     )
