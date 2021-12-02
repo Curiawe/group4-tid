@@ -27,6 +27,7 @@ button {
   letter-spacing: 0.05em;
   height: fit-content;
   padding: 12px;
+  cursor: pointer;
 }
 
 .buttonLarge {
