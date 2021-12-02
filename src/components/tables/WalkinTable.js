@@ -1,4 +1,10 @@
 import './tables.css'
+import { useState } from 'react';
+
+//Date Picker
+import DatePicker from 'sassy-datepicker';
+
+//Data
 import { WALKINS } from '../../data/walkins'
 
 function WalkinHeader () {
@@ -20,9 +26,10 @@ function WalkinHeader () {
 }
 
 function WalkinRow (props) {
+    const rowDate = new Date (props.date).toLocaleDateString('da-DA', { year: 'numeric', month: '2-digit', day: '2-digit' })
     return (
     <tr>
-        <td>{WALKINS[1].Date}</td>
+        <td>{rowDate}</td>
         <td>{WALKINS[1].estimate} </td>
         <td>{WALKINS[1].total}</td>
     </tr>
@@ -30,15 +37,31 @@ function WalkinRow (props) {
 
 }
 
+/**
+ * 
+ * @param {Date} props defines the range of the table. 
+ * @returns a <table /> element with 11 rows, showing consecutive dates and their walk-in status,
+ * with the selected date as the middle element.
+ */
 function WalkinTable (props) {
+    const [date, setDate] = useState(new Date());
+
+    const onChange = newDate => {
+      console.log(`New date selected - ${newDate.toString()}`);
+      setDate(newDate);
+    };
+
 
     return (
+        <>
+        <DatePicker onChange={onChange} selected={date} />
         <table>
             <WalkinHeader />
             <tbody>
-                <WalkinRow />
+                <WalkinRow date={date}/>
             </tbody>
         </table>
+        </>
     )
 }
 
