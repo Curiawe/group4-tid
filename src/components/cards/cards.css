@@ -2,19 +2,83 @@
 @import url("https://fonts.googleapis.com/css?family=Raleway&display=swap");
 @import url("https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap");
 
+.cardPageMargin {
+  height: 460px;
+  width: 1065px;
+  margin-left: 260px;
+  margin-top: -510px;
+  display: flex;
+}
+
+.cardMargin {
+  height: 460px;
+  width: 350px;
+}
+
+.bookingCardMargin {
+  height: 460px;
+  width: 1065px;
+  margin-left: 260px;
+  margin-top: -370px;
+  display: flex;
+}
+
+.searchBarMargin {
+  height: 65px;
+  width: 500px;
+  margin-left: 25px;
+  margin-top: 60px;
+  display: flex;
+  align-items: baseline;
+}
+
+.bookingOvBtn1 {
+  height: 65px;
+  width: 350px;
+  margin-left: 230px;
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.bookingOvBtn2 {
+  height: 65px;
+  width: 170px;
+  margin-left: 480px;
+  margin-top: 30px;
+}
+
 /* large cards used for overview */
 .card {
   position: absolute;
-  width: 384px;
-  height: 512px;
-  left: 30px;
-  top: 100px;
+  width: 308px;
+  height: 454px;
   border-radius: 10px;
 
   background: #ffffff;
   border: 1px solid #c4c4c4;
   box-sizing: border-box;
   border-radius: 10px;
+}
+
+.card:hover {
+  background-color: #9fbadb;
+}
+
+.cardBodyBooking {
+  width: 270px;
+  height: 454px;
+  margin-left: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.btnMargin {
+  position: absolute;
+  right: -16px;
+  bottom: 16px;
 }
 
 .cardImg {
@@ -31,6 +95,16 @@
   left: 16px;
   margin-top: 212px;
 
+  font-family: IBM Plex Mono;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 31px;
+  text-transform: uppercase;
+  color: #31465f;
+}
+
+.h4Booking {
   font-family: IBM Plex Mono;
   font-style: normal;
   font-weight: normal;
@@ -62,10 +136,24 @@
   font-family: Raleway;
   font-style: normal;
   font-weight: normal;
-  font-size: 16px;
-  line-height: 19px;
-
+  font-size: 12px;
   color: #5d5fef;
+}
+
+.p1Booking {
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  color: #5d5fef;
+}
+
+.p2Booking {
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  color: black;
 }
 
 .cardBodyLarge {
@@ -74,7 +162,6 @@
   right: 16px;
   top: 292px;
   bottom: 16px;
-
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -133,7 +220,7 @@
 .mainDescription {
   font-family: Raleway;
   font-style: normal;
-  font-size: 16px;
+  font-size: 12px;
   color: #000000;
 }
 
