@@ -6,6 +6,7 @@ import {InputField, TextArea} from './inputField';
 import { CarGroup } from './booking';
 import ButtonStyled from './buttons/ColorButton';
 import '../index.css';
+import Pages from '../pages/Pages';
 
 /* This is the page header */ 
 function PageHeader() {
@@ -70,10 +71,10 @@ function Comments() {
 }
 
 /* Buttons to either save or cancel the transfer request */
-function TransferButtons(props) {
+function TransferButtons() {
     return (
         <div className="finishBtn">
-            <ButtonStyled title="Send Request" color="DarkBlueBtn" primary="true" className="buttonLarge"/>
+            <ButtonStyled link = {Pages.Schedule} title="Send Request" color="DarkBlueBtn" primary="true" className="buttonLarge"/>
         </div>
        
     )

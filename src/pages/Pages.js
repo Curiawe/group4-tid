@@ -37,7 +37,7 @@ const Pages = {
 
     BookingManagement: [
         {path:"/booking-management/booking-overview", title:"Booking Overview"},
-        {path:"/booking-management/booking-search", title:"Booking Search"},
+        {path:"/booking-management/manage-booking", title:"Manage Booking"},
         {path:"/booking-management/car-overview", title:"Car Overview"},
         {path:"/booking-management/schedule", title:"Schedule"},],
     

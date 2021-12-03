@@ -6,6 +6,7 @@ import {InputField, TextArea} from './inputField';
 import { SelectCarGroup } from './dropDowns';
 import ButtonStyled from './buttons/ColorButton';
 import FeatherIcon from 'feather-icons-react';
+import Pages from '../pages/Pages';
 
 /* This is the page header */ 
 function PickupHeader() {
@@ -27,7 +28,7 @@ function CheckCustomerInfo() {
         <div className="info">
             <h5>Customer Information</h5>
             <div className="attribute">
-                <ButtonStyled title="Check Information" color="PurpleBtn" primary="true" className="buttonLarge"/>
+                <ButtonStyled link = {Pages.Schedule}  title="Check Information" color="PurpleBtn" primary="true" className="buttonLarge"/>
             </div>
         </div>
     )
@@ -100,8 +101,8 @@ function StartingFuelAndMileage() {
 function PickupReturnButtons() {
     return (
         <div className="pickupAndReturnButtons">
-            <ButtonStyled title="Cancel" color="PurpleBtn" primary="false" className="buttonSmall"/>
-            <ButtonStyled title="Save & Start" color="DarkBlueBtn" primary="true" className=""/>
+            <ButtonStyled link = {Pages.BookingLandingPage} title="Cancel" color="PurpleBtn" primary="false" className="buttonSmall"/>
+            <ButtonStyled link = {Pages.Schedule} title="Save & Start" color="DarkBlueBtn" primary="true" className=""/>
         </div>
     )
 }

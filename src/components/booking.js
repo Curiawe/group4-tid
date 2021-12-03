@@ -7,6 +7,8 @@ import { PopupOneButton } from './popup';
 import { useState } from 'react';
 import './popup.css'
 import ButtonStyled from './buttons/ColorButton';
+import Pages from '../pages/Pages';
+import Popup from 'reactjs-popup';
 
 /* This is the page header */ 
 function BookingHeader() {
@@ -85,13 +87,16 @@ export {CarGroup}
 
 /* Here, the extra services is selected */
 function ExtraServices(props) {
+    const [buttonPopup, setButtonPopup] = useState(false);
+    
     return (
         <div className="rowLayout">
             <h5>Extra Services</h5>
             <div className="extraServicesSelect">
                 <div className="extraDriverSelect">
                     <SelectBox className="selectBox" type="checkbox" buttonText="Extra Driver"/>
-                    <ButtonStyled title="Add Extra Driver" color="LightBlueBtn" primary="true" className="buttonSmall"/>
+                    <ButtonStyled link = {Pages.Home} title="Add Extra Driver" color="LightBlueBtn" primary="true" className="buttonSmall"/>
+                    
                 </div>
                 <div className="extraMileageSelect">
                     <SelectBox className="selectBox" type="checkbox" buttonText="Extra Mileage"/>
@@ -103,12 +108,12 @@ function ExtraServices(props) {
 }
 
 /* This is where the information about the customer is registered */
-function CustomerInformation(props) {
+function CustomerInformation() {
     return (
         <div className="rowLayout">
             <h5>Customer Information</h5>
             <div className="searchExisting">
-            <ButtonStyled title="Search Existing" color="LightBlueBtn" primary="true" className="buttonSmall"/>
+            <ButtonStyled link = {Pages.Schedule} title="Search Existing" color="LightBlueBtn" primary="true" className="buttonSmall"/>
             </div>
             <div className="driverInfo">
                 <InputField className="inputField" type="text" placeHolder="Driver's Name"/>
@@ -126,7 +131,7 @@ function CustomerInformation(props) {
 }
 
 /* This is where the payment method is selected */
-function PaymentMethod(props) {
+function PaymentMethod() {
     return (
         <div className="rowLayout">
             <h5>Payment</h5>
@@ -142,7 +147,7 @@ function PaymentMethod(props) {
                         Deposit:
                         </div>
                         <div className="inputField">
-                            {props.deposit}
+                            deposit
                         </div>
                     </div>
                     <div className="info">
@@ -150,7 +155,7 @@ function PaymentMethod(props) {
                         Total:
                         </div>
                         <div className="inputField">
-                            {props.totalAmount}
+                            total
                         </div>
                     </div>
                 </div>
@@ -159,29 +164,24 @@ function PaymentMethod(props) {
 }
 
 /* These are the buttons to either cancel, delete or confirm the booking */
-function BookingButtons(props) {
-    const [buttonPopup, setButtonPopup] = useState(false);
+function BookingButtons() {
     return (
         <div className="threeBtns">
             <div className="stackedBtns">
-            <ButtonStyled title="Delete Booking" color="DarkRedBtn" primary="false" className="buttonSmall"/>
-            <ButtonStyled title="Cancel Booking" color="PurpleBtn" primary="false" className="buttonSmall"/>
+            <ButtonStyled link = {Pages.Schedule} title="Delete Booking" color="DarkRedBtn" primary="false" className="buttonSmall"/>
+            <ButtonStyled link = {Pages.BookingLandingPage} title="Cancel Booking" color="PurpleBtn" primary="false" className="buttonSmall"/>
             </div>
             <div className="finishBtn">
-            <ButtonStyled title="Confirm Booking" color="DarkBlueBtn" primary="true" className="buttonLarge" />
+            <ButtonStyled link = {Pages.Schedule} title="Confirm Booking" color="DarkBlueBtn" primary="true" className="buttonLarge" />
             </div>
-            <PopupOneButton className="popupRed" buttonCenter="GO BACK" trigger={buttonPopup} setTrigger={setButtonPopup}>
-                <p>here's the icon</p>
-                <p>here's some text about what you just did</p>
-                <p>here's how to move on</p>
-            </PopupOneButton>
+            
         </div>
        
     )
 }
 
 /* This is the final booking component */
-function Booking(props) {
+function Booking() {
     return (
         <div className = "booking">
             
