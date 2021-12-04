@@ -4,7 +4,7 @@ import './booking.css';
 import './buttons/buttons.css';
 import {InputField, TextArea} from './inputField';
 import { SelectCarGroup } from './dropDowns';
-import ButtonStyled from './buttons/ColorButton';
+import {ButtonStyled} from './buttons/ColorButton';
 import FeatherIcon from 'feather-icons-react';
 import Pages from '../pages/Pages';
 

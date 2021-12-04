@@ -6,9 +6,9 @@ import { SelectCarGroup, SelectPaymentMethod } from './dropDowns';
 import { PopupOneButton } from './popup';
 import { useState } from 'react';
 import './popup.css'
-import ButtonStyled from './buttons/ColorButton';
+import {ButtonStyled, ButtonNoLink} from './buttons/ColorButton';
 import Pages from '../pages/Pages';
-import Popup from 'reactjs-popup';
+
 
 /* This is the page header */ 
 function BookingHeader() {
@@ -87,7 +87,6 @@ export {CarGroup}
 
 /* Here, the extra services is selected */
 function ExtraServices(props) {
-    const [buttonPopup, setButtonPopup] = useState(false);
     
     return (
         <div className="rowLayout">
@@ -95,7 +94,7 @@ function ExtraServices(props) {
             <div className="extraServicesSelect">
                 <div className="extraDriverSelect">
                     <SelectBox className="selectBox" type="checkbox" buttonText="Extra Driver"/>
-                    <ButtonStyled link = {Pages.Home} title="Add Extra Driver" color="LightBlueBtn" primary="true" className="buttonSmall"/>
+                    <ButtonNoLink title="Add Extra Driver" color="LightBlueBtn" primary="true" className="buttonSmall"/> 
                     
                 </div>
                 <div className="extraMileageSelect">
@@ -113,7 +112,7 @@ function CustomerInformation() {
         <div className="rowLayout">
             <h5>Customer Information</h5>
             <div className="searchExisting">
-            <ButtonStyled link = {Pages.Schedule} title="Search Existing" color="LightBlueBtn" primary="true" className="buttonSmall"/>
+            <ButtonStyled link = {Pages.Home} title="Search Existing" color="LightBlueBtn" primary="true" className="buttonSmall"/>
             </div>
             <div className="driverInfo">
                 <InputField className="inputField" type="text" placeHolder="Driver's Name"/>

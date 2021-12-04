@@ -4,7 +4,7 @@ import './carTransfer.css';
 import './buttons/buttons.css';
 import {InputField, TextArea} from './inputField';
 import { CarGroup } from './booking';
-import ButtonStyled from './buttons/ColorButton';
+import {ButtonStyled} from './buttons/ColorButton';
 import '../index.css';
 import Pages from '../pages/Pages';
 

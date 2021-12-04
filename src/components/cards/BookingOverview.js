@@ -2,7 +2,7 @@ import './cards.css';
 import BookingCard from './CardsForBooking';
 import '../booking.css';
 import {InputField} from '../inputField';
-import ButtonStyled from '../buttons/ColorButton';
+import {ButtonStyled} from '../buttons/ColorButton';
 import Pages from '../../pages/Pages';
 
 function BookingOverviewCont () {
