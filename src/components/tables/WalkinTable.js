@@ -4,21 +4,28 @@ import { useState } from 'react';
 //Date Picker
 import DatePicker from 'sassy-datepicker';
 
-//Data
-import { WALKINS } from '../../data/walkins'
+function walkin (day, estimate, registered) {
+    const walkin = {estimateDay : day,
+        Estimate : estimate,
+        Registered : registered}
+
+    return (
+        walkin
+    )
+}
 
 let walkins = []
-walkins.push(WALKINS['16.12.2021'])
-walkins.push(WALKINS['17.12.2021'])
-walkins.push(WALKINS['18.12.2021'])
-walkins.push(WALKINS['19.12.2021'])
-walkins.push(WALKINS['20.12.2021'])
-walkins.push(WALKINS['21.12.2021'])
-walkins.push(WALKINS['22.12.2021'])
-walkins.push(WALKINS['23.12.2021'])
-walkins.push(WALKINS['24.12.2021'])
-walkins.push(WALKINS['25.12.2021'])
-walkins.push(WALKINS['26.12.2021'])
+walkins.push(walkin(Date(2021,12,2), 3,0))
+walkins.push(walkin(Date(2021,12,3), 4,4))
+walkins.push(walkin(Date(2021,12,4), 3,3))
+walkins.push(walkin(Date(2021,12,5), 2,5))
+walkins.push(walkin(Date(2021,12,6), 4,2))
+walkins.push(walkin(Date(2021,12,7), 3,1))
+walkins.push(walkin(Date(2021,12,8), 1,5))
+walkins.push(walkin(Date(2021,12,9), 0,0))
+walkins.push(walkin(Date(2021,12,10), 0,0))
+
+console.log(walkins)
 
 function WalkinHeader () {
     return (
@@ -39,27 +46,56 @@ function WalkinHeader () {
 }
 
 function WalkinRow (props) {
-    const rowDate = new Date (props.date).toLocaleDateString('da-DA', { year: 'numeric', month: '2-digit', day: '2-digit' })
-    //let bool = (walkins.find(rowDate))
-    console.log(walkins.find((el) => {
-        return (el.Date === props.date)
-    }))
-    if (!walkins.find((el) => {
-        return (el.Date === props.date)
-    })){// if the current date is not part of walkins, then
-        walkins.push({rowDate : {Date: props.date, estimate: 0, total: 0, changeable: true}}) 
+    let entryFoud = false
+    let inputDate = props.date
+
+    for (let i = 0; i > walkins.length; i++){
+        let currentDate = walkins[i].estimateDay.toLocaleDateString();
+        console.log("trying to access estimate date. Date: " + currentDate)
+
+    }
+
+    for (let i = 0; i < walkins.length; i++) {
+        console.log(walkins[i].estimateDay + " is the current data set");
+
+        let myDate = new Date(walkins[i].estimateDay).toLocaleDateString();
+        console.log ("date string from Date object" + myDate) // somewhere between the array and this string, it just... adds a date I guess?
+
+        myDate = new Date(walkins[i].estimateDay).toLocaleDateString()
+
+        if (new Date (walkins[i].estimateDay) === props.date){
+            console.log("The date was found:")
+            console.log(walkins[i].estimateDay)
+            entryFoud = true
+        } else {
+            console.log("not found: " + new Date (walkins[i].estimateDay).toLocaleDateString())
+        }
+    }
+    console.log("Date found? " + entryFoud)
+
+    if (!entryFoud) {
+
     }
 
     // find the element in the array, then return the estimate
-    let estimate = (!walkins.find((el) => {
-        if (el.Date === props.date) {
-            return (el.estimate)
+    // doesn't work yet :'D
+    let total
+    let estimate = (!walkins.find((each) => {
+        console.log("line 56")
+        let date = new Date(each.estimateDay).toLocaleDateString('da-DA', {year: 'numeric', month: '2-digit', day: '2-digit'})
+        console.log(date)
+        if (each.estimateDay === props.date) {
+            console.log("estimate: " + each.estimate)
+            total = each.total
+            return (each.estimate)
+        } else {
+            return 0
         }
     }))
-    let total = WALKINS[rowDate].total
+    let estiDate = props.date.toLocaleDateString()
     return (
     <tr>
-        <td>{rowDate}</td>
+        <td>{estiDate}</td>
         <td>{estimate} </td>
         <td>{total}</td>
     </tr>
@@ -73,7 +109,7 @@ function WalkinRow (props) {
  * @returns a <table /> element with 11 rows, showing consecutive dates and their walk-in status,
  * with the selected date as the middle element.
  */
-function WalkinTable (props) {
+function WalkinTable () {
     const [date, setDate] = useState(new Date());
 
     const onChange = newDate => {
