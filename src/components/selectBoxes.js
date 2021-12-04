@@ -8,7 +8,7 @@ that describes what the button does*/
 const SelectBox = (props) => {
     return (
         <div className={props.className}>
-            <input id={props.buttonText} type={props.type} value={props.buttonText} />
+            <input id={props.buttonText} type={props.type} onChange={props.onChange} value={props.buttonText} />
             {props.buttonText}
         </div>
     )

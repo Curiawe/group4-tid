@@ -6,7 +6,7 @@ const InputField = (props) => {
     
     return ( 
         <div className={props.className}>
-            <input type={props.type} name={props.placeHolder} required/> 
+            <input type={props.type} onChange={props.onChange} name={props.placeHolder} required/> 
             <label> {props.placeHolder} </label>
         </div>
     )
@@ -17,7 +17,7 @@ const TextArea = (props) => {
     
     return ( 
         <div className={props.className}>
-            <textarea name={props.placeHolder} required/> 
+            <textarea name={props.placeHolder}  required onChange={props.onChange}/> 
             <label> {props.placeHolder} </label>
         </div>
     )

@@ -3,14 +3,22 @@ import Parse from "parse";
 
 // Get a time and put in the right spot in the booking object
 
-const booking () = {
-
+function pickupTimes (date, time, location) {
+    const pickupTimes = {
+        PickupDate : date,
+        PickupTime : time,
+        PickupLocation: location
+    }
+    return (
+        pickupTimes
+    )
 }
 
 
 const booking = new Parse.Booking();
 const [pickupDate, setPickupDate] = useState();
 const [pickupTime, setPickupTime] = useState();
+const [pickupLocation, setPickupLocation] = useState();
 
 function handleSubmit (e) {
 
@@ -19,6 +27,7 @@ function handleSubmit (e) {
 
     console.log("Pickup Date: " + pickupDate);
     console.log("Pickup Time: " + pickupTime);
+    console.log("Pickup Location: " + pickupLocation);
 
     const user = new Parse.User();
     user.setPassword(password);

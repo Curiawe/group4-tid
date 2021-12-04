@@ -26,18 +26,54 @@ function BookingHeader() {
 
 /* Pickup information */
 function Pickup() {
+
+    // pickup object for submission:
+
+    function pickupTimes (date, time, location) {
+        const pickupTimes = {
+            PickupDate : date,
+            PickupTime : time,
+            PickupLocation: location
+        }
+        return (
+            pickupTimes
+        )
+    }
+
+    // pickup constants for state handling
+    const [pickupDate, setPickupDate] = useState();
+    const [pickupTime, setPickupTime] = useState();
+    const [pickupLocation, setPickupLocation] = useState();
+    let pickup;
+
+    function handleChange (e) {
+        e.preventDefault();
+        console.log(pickupLocation);
+        console.log("Pickup Date: " + pickupDate);
+        console.log("Pickup Time: " + pickupTime);
+        console.log("Pickup Location: " + pickupLocation);
+    
+        pickup = pickupTimes(pickupDate, pickupTime, pickupLocation);
+        console.log("current pickup: " + pickup.PickupDate + " at " + pickup.PickupTime + " at " + pickup.PickupLocation)
+        
+    }
+
     return (
         <div>
             <div className="rowLayout">
                 <h5>Pick-up</h5>
              
                 <div className="location">
-                    <InputField className="inputField" type="text" placeHolder="Select Location"/>
-                    <SelectBox className="selectBox" type="checkbox" buttonText="Walk-in"/>
+                    <InputField className="inputField" type="text" 
+                        onChange={(e) => setPickupLocation(e.target.value)} placeHolder="Select Location"/>
+                    <SelectBox className="selectBox" type="checkbox" 
+                        onChange={(e) => handleChange(e)} buttonText="Walk-in"/>
                 </div>
-                <div className=".columnLayout">
-                    <InputField className="inputField" type="date" placeHolder="Select Date"/>
-                    <InputField className="inputField" type="time" placeHolder="Select Time"/>
+                <div className="columnLayout">
+                    <InputField className="inputField" type="date" 
+                        onChange={(e) => setPickupDate(e.target.value)} placeHolder="Select Date"/>
+                    <InputField className="inputField" type="time" 
+                        onChange={(e) => setPickupTime(e.target.value)} placeHolder="Select Time"/>
                 </div>
             
             </div>
@@ -195,6 +231,7 @@ function Booking() {
             <HorizontalLine/>
             <PaymentMethod/>
             <BookingButtons/>
+            <ButtonStyled link = "" onClick = {console.log("Booking saved!")} title="Save Booing" color="DarkBlueBtn" primary="true" className="buttonLarge" />
 
             </div>
     );
