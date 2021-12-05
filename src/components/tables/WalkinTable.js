@@ -47,8 +47,8 @@ function WalkinHeader () {
 
 function WalkinRow (props) {
     let entryFound = false
-    let inputDate = props.date
     let outputDate = new Date(props.date).toLocaleDateString("da-DA");
+    console.log(outputDate + " is the output Date")
     let outputEstimate
     let outputRegistered
 
@@ -57,11 +57,12 @@ function WalkinRow (props) {
         console.log(currentWalkin);
         let currentDate = currentWalkin.estimateDay;
         console.log(currentDate);
-        let currentDateString = currentDate.toString();
+        let currentDateString = currentDate.toLocaleDateString();
         console.log("trying to access estimate date. Date: " + currentDateString)
-        if (inputDate === currentDate) {
+        if (outputDate === new Date (currentDate).toLocaleDateString("da-DA")) {
             console.log ("The date is a match!")
             entryFound = true
+            break;
         } else {
             console.log("entry not found.")
         }
