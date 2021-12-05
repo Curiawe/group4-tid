@@ -6,8 +6,8 @@ import DatePicker from 'sassy-datepicker';
 
 function walkin (day, estimate, registered) {
     const walkin = {estimateDay : day,
-        Estimate : estimate,
-        Registered : registered}
+        estimate : estimate,
+        registered : registered}
 
     return (
         walkin
@@ -15,15 +15,15 @@ function walkin (day, estimate, registered) {
 }
 
 let walkins = []
-walkins.push(walkin(Date(2021,12,2), 3,0))
-walkins.push(walkin(Date(2021,12,3), 4,4))
-walkins.push(walkin(Date(2021,12,4), 3,3))
-walkins.push(walkin(Date(2021,12,5), 2,5))
-walkins.push(walkin(Date(2021,12,6), 4,2))
-walkins.push(walkin(Date(2021,12,7), 3,1))
-walkins.push(walkin(Date(2021,12,8), 1,5))
-walkins.push(walkin(Date(2021,12,9), 0,0))
-walkins.push(walkin(Date(2021,12,10), 0,0))
+walkins.push(walkin(new Date(2021,11,2), 3,0))
+walkins.push(walkin(new Date(2021,11,3), 4,4))
+walkins.push(walkin(new Date(2021,11,4), 3,3))
+walkins.push(walkin(new Date(2021,11,5), 2,5))
+walkins.push(walkin(new Date(2021,11,6), 4,2))
+walkins.push(walkin(new Date(2021,11,7), 3,1))
+walkins.push(walkin(new Date(2021,11,8), 1,5))
+walkins.push(walkin(new Date(2021,11,9), 0,0))
+walkins.push(walkin(new Date(2021,11,10), 0,0))
 
 console.log(walkins)
 
@@ -46,58 +46,39 @@ function WalkinHeader () {
 }
 
 function WalkinRow (props) {
-    let entryFoud = false
+    let entryFound = false
     let inputDate = props.date
+    let outputDate = new Date(props.date).toLocaleDateString("da-DA");
+    let outputEstimate
+    let outputRegistered
 
-    for (let i = 0; i > walkins.length; i++){
-        let currentDate = walkins[i].estimateDay.toLocaleDateString();
-        console.log("trying to access estimate date. Date: " + currentDate)
-
-    }
-
-    for (let i = 0; i < walkins.length; i++) {
-        console.log(walkins[i].estimateDay + " is the current data set");
-
-        let myDate = new Date(walkins[i].estimateDay).toLocaleDateString();
-        console.log ("date string from Date object" + myDate) // somewhere between the array and this string, it just... adds a date I guess?
-
-        myDate = new Date(walkins[i].estimateDay).toLocaleDateString()
-
-        if (new Date (walkins[i].estimateDay) === props.date){
-            console.log("The date was found:")
-            console.log(walkins[i].estimateDay)
-            entryFoud = true
+    for (let i = 0; i < walkins.length; i++){
+        let currentWalkin = walkins[i];
+        console.log(currentWalkin);
+        let currentDate = currentWalkin.estimateDay;
+        console.log(currentDate);
+        let currentDateString = currentDate.toString();
+        console.log("trying to access estimate date. Date: " + currentDateString)
+        if (inputDate === currentDate) {
+            console.log ("The date is a match!")
+            entryFound = true
         } else {
-            console.log("not found: " + new Date (walkins[i].estimateDay).toLocaleDateString())
+            console.log("entry not found.")
         }
-    }
-    console.log("Date found? " + entryFoud)
-
-    if (!entryFoud) {
 
     }
 
-    // find the element in the array, then return the estimate
-    // doesn't work yet :'D
-    let total
-    let estimate = (!walkins.find((each) => {
-        console.log("line 56")
-        let date = new Date(each.estimateDay).toLocaleDateString('da-DA', {year: 'numeric', month: '2-digit', day: '2-digit'})
-        console.log(date)
-        if (each.estimateDay === props.date) {
-            console.log("estimate: " + each.estimate)
-            total = each.total
-            return (each.estimate)
-        } else {
-            return 0
-        }
-    }))
-    let estiDate = props.date.toLocaleDateString()
+    if (!entryFound) {
+
+    }
+
+
+
     return (
     <tr>
-        <td>{estiDate}</td>
-        <td>{estimate} </td>
-        <td>{total}</td>
+        <td>{outputDate}</td>
+        <td>{outputEstimate} </td>
+        <td>{outputRegistered}</td>
     </tr>
     )
 
