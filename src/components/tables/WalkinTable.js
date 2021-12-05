@@ -53,14 +53,19 @@ function WalkinRow (props) {
     let outputRegistered
 
     for (let i = 0; i < walkins.length; i++){
+        // setting up the comparing strings (It doesn't work anymore if you try to do it all in one :((
         let currentWalkin = walkins[i];
         console.log(currentWalkin);
         let currentDate = currentWalkin.estimateDay;
         console.log(currentDate);
-        let currentDateString = currentDate.toLocaleDateString();
+        let currentDateString = currentDate.toLocaleDateString()
+
         console.log("trying to access estimate date. Date: " + currentDateString)
         if (outputDate === new Date (currentDate).toLocaleDateString("da-DA")) {
             console.log ("The date is a match!")
+            outputEstimate = walkins[i].estimate
+            console.log(outputEstimate)
+            outputRegistered = walkins[i].registered
             entryFound = true
             break;
         } else {
@@ -72,6 +77,8 @@ function WalkinRow (props) {
     if (!entryFound) {
         walkins.push(walkin(props.date, 0,0))
         console.log("date has been pushed: " + props.date.toLocaleDateString())
+        outputEstimate = 0
+        outputRegistered = 0
     }
 
 
