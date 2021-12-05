@@ -70,9 +70,9 @@ function WalkinRow (props) {
     }
 
     if (!entryFound) {
-
+        walkins.push(walkin(props.date, 0,0))
+        console.log("date has been pushed: " + props.date.toLocaleDateString())
     }
-
 
 
     return (
