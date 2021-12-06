@@ -39,10 +39,6 @@ function setEstimate (walkin, input) {
     }
 }
 
-function editOnclick (props) {
-
-}
-
 //standin for walkin table. This is where the database connection and call goes to later.
 let walkins = []
 walkins.push(walkin(new Date(2021,11,2), 3,0))
