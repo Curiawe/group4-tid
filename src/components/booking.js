@@ -8,6 +8,7 @@ import { useState } from 'react';
 import './popup.css'
 import {ButtonStyled, ButtonNoLink} from './buttons/ColorButton';
 import Pages from '../pages/Pages';
+import PickupObject from './pickupObject';
 
 
 /* This is the page header */ 
@@ -56,6 +57,7 @@ function Pickup() {
         pickup = pickupTimes(pickupDate, pickupTime, pickupLocation);
         console.log("current pickup: " + pickup.PickupDate + " at " + pickup.PickupTime + " at " + pickup.PickupLocation)
         
+        console.log(PickupObject(pickupDate, pickupTime, pickupLocation))
     }
 
     return (
@@ -66,13 +68,12 @@ function Pickup() {
                 <div className="location">
                     <InputField className="inputField" type="text" 
                         onChange={(e) => setPickupLocation(e.target.value)} placeHolder="Select Location"/>
-                    <SelectBox className="selectBox" type="checkbox" 
-                        onChange={(e) => handleChange(e)} buttonText="Walk-in"/>
+                    <SelectBox className="selectBox" type="checkbox" buttonText="Walk-in"/>
                 </div>
                 <div className="columnLayout">
                     <InputField className="inputField" type="date" 
                         onChange={(e) => setPickupDate(e.target.value)} placeHolder="Select Date"/>
-                    <InputField className="inputField" type="time" 
+                    <InputField className="inputField" type="time" min="08:00" max="20:00"
                         onChange={(e) => setPickupTime(e.target.value)} placeHolder="Select Time"/>
                 </div>
             
@@ -217,6 +218,12 @@ function BookingButtons() {
 
 /* This is the final booking component */
 function Booking() {
+    const [pickup, setPickup] = useState();
+
+    const onPickupChange = newPickup => {
+        setPickup(newPickup);
+    };
+
     return (
         <div className = "booking">
             
