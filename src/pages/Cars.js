@@ -8,6 +8,12 @@ import renault from '../Images/renault-captur.jpg'
 
 function Cars () {
     return (
+        <>
+        <div className="header">
+                <div className="title">
+                    <h1>Car Overview</h1>
+                </div>
+        </div>
         <div className="cardPageMargin">
             <div className="cardMargin">
                 <LargeCardBody car="honda-crv" src={honda}/>
@@ -19,6 +25,7 @@ function Cars () {
                 <LargeCardBody car="audi-a6" src={audi}/>
             </div>
         </div>  
+        </>
     )
 }
 

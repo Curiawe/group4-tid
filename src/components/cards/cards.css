@@ -5,8 +5,8 @@
 .cardPageMargin {
   height: 460px;
   width: 1065px;
-  margin-left: 260px;
-  margin-top: -510px;
+  margin-left: 245px;
+  margin-top: -385px;
   display: flex;
 }
 
@@ -18,16 +18,16 @@
 .bookingCardMargin {
   height: 460px;
   width: 1065px;
-  margin-left: 260px;
-  margin-top: -370px;
+  margin-left: 245px;
+  margin-top: -310px;
   display: flex;
 }
 
 .searchBarMargin {
   height: 65px;
   width: 500px;
-  margin-left: 25px;
-  margin-top: 60px;
+  margin-left: 245px;
+  margin-top: -410px;
   display: flex;
   align-items: baseline;
 }

@@ -5,9 +5,15 @@ import InputField from '../inputField';
 import ButtonStyled from '../buttons/ColorButton';
 import Pages from '../../pages/Pages';
 
+
 function BookingOverviewCont () {
     return (
     <>
+        <div className="header">
+                <div className="title">
+                    <h1>Booking Overview</h1>
+                </div>
+        </div>
         <div className="searchBarMargin">
             <div className="searchBox">
                 <InputField className="inputField" placeHolder="Search for Booking"/>
@@ -32,5 +38,6 @@ function BookingOverviewCont () {
     </>
     )
 }
+
 
 export default BookingOverviewCont
