@@ -163,7 +163,7 @@ function WalkinTable () {
     return (
         <>
         <DatePicker onChange={onChange} selected={date} />
-        <table>
+        <table style={{marginTop:"16px", marginBottom:"16px"}}>
             <WalkinHeader />
                 <WalkinContent date={date} />             
         </table>
