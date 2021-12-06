@@ -26,6 +26,22 @@ function dateArray (date) {
 
 }
 
+function setEstimate (walkin, input) {
+    const reg = new RegExp('^[0-9]*$')
+    if (input === "") {
+        walkin.estimate = 0
+        console.log("the estimate for the date " + walkin.estimateDay + " is " + walkin.estimate)
+    } else if (reg.test(input)) {
+        walkin.estimate = input
+        console.log("the estimate for the date " + walkin.estimateDay + " is " + walkin.estimate)
+    } else {
+        alert("The estimate must be a number. For exampe \n 3")
+    }
+}
+
+function editOnclick (props) {
+
+}
 
 //standin for walkin table. This is where the database connection and call goes to later.
 let walkins = []
@@ -70,23 +86,20 @@ function WalkinRow (props) {
     console.log(outputDate + " is the output Date")
     let outputEstimate
     let outputRegistered
+    let outputWalkin
 
     for (let i = 0; i < walkins.length; i++){
         // setting up the comparing strings (It doesn't work anymore if you try to do it all in one :((
         let currentDate = walkins[i].estimateDay;
-        console.log(currentDate);
-        let currentDateString = new Date (walkins[i].estimateDay).toLocaleDateString("da-DA")
 
-        console.log("trying to access estimate date. Date: " + currentDateString)
         if (outputDate === new Date (currentDate).toLocaleDateString("da-DA")) {
-            console.log ("The date is a match!")
             outputEstimate = walkins[i].estimate
             console.log(outputEstimate)
             outputRegistered = walkins[i].registered
+            outputWalkin = i
             entryFound = true
             break;
         } else {
-            console.log("entry not found.")
         }
 
     }
@@ -102,7 +115,7 @@ function WalkinRow (props) {
     return (
     <tr>
         <td>{outputDate}</td>
-        <td>{outputEstimate} </td>
+        <td><input type = "text" name = "estimate" placeholder = {outputEstimate} onChange={(e) => {setEstimate(walkins[outputWalkin],e.target.value)} }/> </td>
         <td>{outputRegistered}</td>
     </tr>
     )
@@ -146,13 +159,6 @@ function WalkinTable () {
       console.log(`New date selected - ${newDate.toString()}`);
       setDate(newDate);
     };
-
-    let dateRows = []
-    let datesArray = dateArray(date)
-
-    for (let i = 0; i < 10; i++) {
-
-    }
 
     return (
         <>
