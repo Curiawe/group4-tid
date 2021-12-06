@@ -4,6 +4,7 @@ import { useState } from 'react';
 //Date Picker
 import DatePicker from 'sassy-datepicker';
 
+//create walkin objects
 function walkin (day, estimate, registered) {
     const walkin = {estimateDay : day,
         estimate : estimate,
@@ -14,6 +15,19 @@ function walkin (day, estimate, registered) {
     )
 }
 
+function dateArray (date) {
+    let dates = [date]
+    for (let i = 1; i < 10; i++) {
+        dates.push(new Date(date).setDate(date.getDate() + i))
+    }
+    return (
+        dates
+    )
+
+}
+
+
+//standin for walkin table. This is where the database connection and call goes to later.
 let walkins = []
 walkins.push(walkin(new Date(2021,11,2), 3,0))
 walkins.push(walkin(new Date(2021,11,3), 4,4))
@@ -24,8 +38,6 @@ walkins.push(walkin(new Date(2021,11,7), 3,1))
 walkins.push(walkin(new Date(2021,11,8), 1,5))
 walkins.push(walkin(new Date(2021,11,9), 0,0))
 walkins.push(walkin(new Date(2021,11,10), 0,0))
-
-console.log(walkins)
 
 function WalkinHeader () {
     return (
@@ -45,7 +57,14 @@ function WalkinHeader () {
     )
 }
 
+/**
+ * Table row function with automatic db addition of selected dates
+ * 
+ * @param {Date} props date  
+ * @returns a table row with three cells, containing selected date, corresponding walkin estimate and registrations
+ */
 function WalkinRow (props) {
+
     let entryFound = false
     let outputDate = new Date(props.date).toLocaleDateString("da-DA");
     console.log(outputDate + " is the output Date")
@@ -54,11 +73,9 @@ function WalkinRow (props) {
 
     for (let i = 0; i < walkins.length; i++){
         // setting up the comparing strings (It doesn't work anymore if you try to do it all in one :((
-        let currentWalkin = walkins[i];
-        console.log(currentWalkin);
-        let currentDate = currentWalkin.estimateDay;
+        let currentDate = walkins[i].estimateDay;
         console.log(currentDate);
-        let currentDateString = currentDate.toLocaleDateString()
+        let currentDateString = new Date (walkins[i].estimateDay).toLocaleDateString("da-DA")
 
         console.log("trying to access estimate date. Date: " + currentDateString)
         if (outputDate === new Date (currentDate).toLocaleDateString("da-DA")) {
@@ -76,7 +93,7 @@ function WalkinRow (props) {
 
     if (!entryFound) {
         walkins.push(walkin(props.date, 0,0))
-        console.log("date has been pushed: " + props.date.toLocaleDateString())
+        console.log("date has been pushed: " + new Date (props.date).toLocaleDateString())
         outputEstimate = 0
         outputRegistered = 0
     }
@@ -89,6 +106,30 @@ function WalkinRow (props) {
         <td>{outputRegistered}</td>
     </tr>
     )
+
+}
+
+function WalkinContent (props) {
+    const allDates = dateArray(props.date)
+    let allRows = [] //this will have the table rows
+
+    for (let i = 0; i < allDates.length; i++){ // for every element in allDates
+        let currentDate = new Date (props.date)
+        currentDate.setDate(props.date.getDate() + i)
+        allRows.push(<WalkinRow key = {currentDate} date={currentDate} />)
+        console.log(currentDate)
+    }
+
+    console.log(allRows)
+
+
+    return (
+        <tbody>
+         {allRows}
+        </tbody>
+        
+    )
+
 
 }
 
@@ -106,15 +147,19 @@ function WalkinTable () {
       setDate(newDate);
     };
 
+    let dateRows = []
+    let datesArray = dateArray(date)
+
+    for (let i = 0; i < 10; i++) {
+
+    }
 
     return (
         <>
         <DatePicker onChange={onChange} selected={date} />
         <table>
             <WalkinHeader />
-            <tbody>
-                <WalkinRow date={date}/>
-            </tbody>
+                <WalkinContent date={date} />             
         </table>
         </>
     )
