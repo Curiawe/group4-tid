@@ -1,19 +1,39 @@
 import { useState } from "react";
 import { CARGROUPS } from "../../data/carGroups";
+import { BOOKINGS } from "../../data/bookings"
 
-function TableRow () {
-    let row = []
-    CARGROUPS.map((item) => (row.push(<tr><td id={item[0]}>{item[0]}</td></tr>)))
-    return (   
-        <>
-        {row}
-        </>
+function littleRow (item, column) {
+    let avail = 0
+    let book = 0
+    let rel = 0
+    BOOKINGS.map((item, id) => {
+        if (item === id.carGroup) {
+            avail++;
+            book++;
+            rel++;
+            }
+        }
     )
+    let need = avail - book
+    column.push(
+        <tr>
+            <td id={item[0]}>{item[0]}</td>
+            <td>{avail}</td>
+            <td>{book}</td>
+            <td>{rel}</td>
+            <td>{need} <button>Transfer</button></td>
+        </tr>)
 }
 
+function TableRow () {
+    let column = []
+    CARGROUPS.map((item) => (littleRow(item,column)))
 
-function countBookings (date, carGroup) {
-    
+    return (   
+        <>
+        {column}
+        </>
+    )
 }
 
 export default function DailyOverviewTable (props) {
