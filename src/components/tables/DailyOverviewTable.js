@@ -7,7 +7,7 @@ export default function DailyOverviewTable (props) {
     return (
         <div>
             <p id="large">Current Date: { (new Date(date)).toLocaleDateString() }</p>
-            <div style={{display:"flex", flexDirection:"row"}}>
+            <div style={{display:"flex", flexDirection:"row", marginBottom:"16px"}}>
                 <form style={{marginRight:"32px"}}>
                     <input className = "inputField" type="date" onChange = {(e) => setDate(e.target.value)}></input>
                 </form>
@@ -15,7 +15,13 @@ export default function DailyOverviewTable (props) {
             </div>
             <table>
                 <thead>
-
+                    <tr>
+                        <th>Car Group</th>
+                        <th>Bookings</th>
+                        <th>Available</th>
+                        <th>Released</th>
+                        <th>Need</th>
+                    </tr>
                 </thead>
                 <tbody>
 
