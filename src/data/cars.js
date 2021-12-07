@@ -1,4 +1,4 @@
-import LOCATIONS from "location.js"
+import {LOCATIONS} from "./locations.js"
 /* Schema:
 license plate: {Model,carGroup,Color,fuelType,fuelStatus,Locatoin,Doors,Status,RelStatus,Image}
  */
