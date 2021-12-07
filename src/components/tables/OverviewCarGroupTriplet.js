@@ -1,9 +1,9 @@
-function OverviewTriplet(bookings, available, release) {
+function OverviewTriplet(b, a, r) {
     let triplet = {
-        bookings = bookings,
-        available = available,
-        release = release,
-        need = bookings - available
+        bookings: b,
+        available: a,
+        release: r,
+        need: b-a
     }
 
     return (
