@@ -1,6 +1,25 @@
 import { useState } from "react";
+import { CARGROUPS } from "../../data/carGroups";
+
+function TableRow () {
+    let row = []
+    CARGROUPS.map((item) => (row.push(<tr><td id={item[0]}>{item[0]}</td></tr>)))
+    return (   
+        <>
+        {row}
+        </>
+    )
+}
+
+
+function countBookings (date, carGroup) {
+    
+}
 
 export default function DailyOverviewTable (props) {
+
+
+    
 
     const [date, setDate] = useState(new Date());
 
@@ -24,7 +43,7 @@ export default function DailyOverviewTable (props) {
                     </tr>
                 </thead>
                 <tbody>
-
+                    <TableRow />
                 </tbody>
             </table>
         </div>
