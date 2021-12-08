@@ -51,8 +51,7 @@ h5 {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  justify-content: top;
-  align-items: flex-start;
+  justify-content: center;
 }
 
 .driverInfo {
@@ -73,7 +72,7 @@ h5 {
 .inputField,
 .comments {
   position: relative;
-  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .inputField input {
@@ -134,20 +133,20 @@ h5 {
   -moz-appearance: none;
   appearance: none;
   border: 0px;
-  background-color: transparent;
+  background-color: white;
   font: inherit;
   border-radius: 0;
+
   display: left;
-  width: 256px;
+  min-width: 256px;
   height: 48px;
   left: 460px;
   top: 275px;
-  background: transparent;
+  background: white;
   border: 1px solid #d1dae0;
   box-sizing: border-box;
   border-radius: 8px;
   font-size: 16px;
-  margin-left: 10px;
 }
 
 .carGroupDropDown select::-ms-expand {
@@ -181,8 +180,14 @@ h5 {
 
 .selectBox,
 .infoType {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   margin-right: 100px;
-  margin-left: 10px;
+}
+
+.selectBox input {
+  margin-right: 10px;
 }
 
 .searchBox input {

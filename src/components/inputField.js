@@ -17,7 +17,7 @@ const TextArea = (props) => {
     
     return ( 
         <div className={props.className}>
-            <textarea name={props.placeHolder}  required onChange={props.onChange}/> 
+            <textarea name={props.placeHolder} onChange={props.onChange} required /> 
             <label> {props.placeHolder} </label>
         </div>
     )

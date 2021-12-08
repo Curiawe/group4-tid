@@ -5,6 +5,7 @@ import './pickupAndReturn.css';
 import SelectBox from './selectBoxes.js';
 import {InputField, TextArea} from './inputField.js';
 import { PickupReturnButtons } from './pickup.js';
+import { CarState } from './dropDowns';
 
 /* This is the page header */ 
 function ReturnHeader() {
@@ -21,20 +22,12 @@ function ReturnHeader() {
 }
 
 /* Here, the car state is selected */
-function CarState() {
+function ReturnState() {
     return (
         <div className="carState">
             <h5>Car State</h5>
             <div className="attribute">
-                <div className="dropDown">
-                    <select required>
-                        <option value="Ready">Ready</option>
-                        <option value="Rented">Rented</option>
-                        <option value="Returned" selected>Returned</option>
-                        <option value="Transfer">Transfer</option>
-                        <option value="Unaivailable">Unaivailable</option>
-                    </select>
-                </div>
+                <CarState/>
             </div>
         </div>
     )
@@ -85,7 +78,7 @@ function ReturnComponent() {
         <div className="return">
             <ReturnHeader/>
             <BookedCar/>
-            <CarState/>
+            <ReturnState/>
             <ReturnTime/>
             <ReturnFuelAndMileage/>
             <PickupReturnButtons/>

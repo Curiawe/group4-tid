@@ -1,12 +1,11 @@
 import React from 'react';
 import './booking.css';
-import {InputField} from './inputField';
+import { InputField } from './inputField';
 import SelectBox from './selectBoxes';
-import { SelectCarGroup, SelectPaymentMethod } from './dropDowns';
-import { PopupOneButton } from './popup';
+import { SelectCarGroup, SelectPaymentMethod, SelectLocation } from './dropDowns';
 import { useState } from 'react';
 import './popup.css'
-import {ButtonStyled, ButtonNoLink} from './buttons/ColorButton';
+import { ButtonStyled, ButtonNoLink, ButtonPopupError } from './buttons/ColorButton';
 import Pages from '../pages/Pages';
 
 /* This is the page header */ 
@@ -25,24 +24,22 @@ function BookingHeader() {
 
 /* Pickup information */
 function Pickup(props) {
-
     return (
         <div>
             <div className="rowLayout">
                 <h5>Pick-up</h5>
-             
                 <div className="location">
-                    <InputField className="inputField" type="text" 
-                        onChange={(e) => props.onChangeLocation(e.target.value)} placeHolder="Select Location"/>
-                    <SelectBox className="selectBox" type="checkbox" checked={props.walkin}
-                    onChange={(e) => props.onChangeWalkin(e.target.checked)}
-                        buttonText="Walk-in"/>
+                    <SelectLocation onChange={(e) => props.onChangeLocation(e.target.value)}/>
+                    <SelectBox 
+                    className="selectBox" 
+                    type="checkbox" 
+                    checked={props.walkin} 
+                    onChange={(e) => props.onChangeWalkin(e.target.checked)} 
+                    buttonText="Walk-in"/>
                 </div>
                 <div className="columnLayout">
-                    <InputField className="inputField" type="date" 
-                        onChange={(e) => props.onChangeDate(e.target.value)} placeHolder="Select Date"/>
-                    <InputField className="inputField" type="time" 
-                        onChange={(e) => props.onChangeTime(e.target.value)} placeHolder="Select Time"/>
+                    <InputField className="inputField" type="date" onChange={(e) => props.onChangeDate(e.target.value)} placeHolder="Select Date"/>
+                    <InputField className="inputField" type="time" onChange={(e) => props.onChangeTime(e.target.value)} placeHolder="Select Time"/>
                 </div>
             
             </div>
@@ -51,21 +48,18 @@ function Pickup(props) {
 }
 
 /* Return information */
-function Return() {
+function Return(props) {
     return (
         <div>
             <div className="rowLayout">
                 <h5>Return</h5>
-             
                 <div className="location">
-                    <InputField className="inputField" type="text" placeHolder="Select Location"/>
-                    
+                    <SelectLocation onChange={(e) => props.onChangeLocation(e.target.value)}/>
                 </div>
                 <div className=".columnLayout">
-                    <InputField className="inputField" type="date" placeHolder="Select Date"/>
-                    <InputField className="inputField" type="time" placeHolder="Select Time"/>
+                    <InputField className="inputField" type="date" onChange={(e) => props.onChangeDate(e.target.value)} placeHolder="Select Date"/>
+                    <InputField className="inputField" type="time" onChange={(e) => props.onChangeTime(e.target.value)}  placeHolder="Select Time"/>
                 </div>
-            
             </div>
         </div>
     )
@@ -79,11 +73,11 @@ function HorizontalLine() {
 }
 
 /* This is where the car group is selected */
-function CarGroup() {
+function CarGroup(props) {
     return (
         <div className="rowLayout">
             <h5>Car Group</h5>
-            <SelectCarGroup/>
+            <SelectCarGroup onChange={(e) => props.onChangeCarGroup(e.target.value)}/>
         </div>
     )
 }
@@ -98,13 +92,23 @@ function ExtraServices(props) {
             <h5>Extra Services</h5>
             <div className="extraServicesSelect">
                 <div className="extraDriverSelect">
-                    <SelectBox className="selectBox" type="checkbox" buttonText="Extra Driver"/>
-                    <ButtonNoLink title="Add Extra Driver" color="LightBlueBtn" primary="true" className="buttonSmall"/> 
-                    
+                    <SelectBox 
+                    className="selectBox" 
+                    type="checkbox" 
+                    checked={props.extraDriver} 
+                    onChange={(e) => props.onChangeExtraDriver(e.target.checked)} 
+                    buttonText="Extra Driver"
+                    />
+                    <ButtonPopupError title="Add Extra Driver" className="buttonSmall" /> 
                 </div>
                 <div className="extraMileageSelect">
-                    <SelectBox className="selectBox" type="checkbox" buttonText="Extra Mileage"/>
-                    <InputField className="inputField" type="text" placeHolder="Enter Extra Mileage"/>
+                    <SelectBox 
+                    className="selectBox" 
+                    type="checkbox" 
+                    checked={props.extraMileage} 
+                    onChange={(e) => props.onChangeExtraMileage(e.target.checked)} 
+                    buttonText="Extra Mileage"/>
+                    <InputField className="inputField" type="text" onChange={(e) => props.onChangeMileage(e.target.value)} placeHolder="Enter Extra Mileage"/>
                 </div>
             </div>
         </div>
@@ -112,22 +116,22 @@ function ExtraServices(props) {
 }
 
 /* This is where the information about the customer is registered */
-function CustomerInformation() {
+function CustomerInformation(props) {
     return (
         <div className="rowLayout">
             <h5>Customer Information</h5>
             <div className="searchExisting">
-            <ButtonStyled link = {Pages.Home} title="Search Existing" color="LightBlueBtn" primary="true" className="buttonSmall"/>
+            <ButtonPopupError title="Search Existing" color="LightBlueBtn" primary="true" className="buttonSmall"></ButtonPopupError>
             </div>
             <div className="driverInfo">
-                <InputField className="inputField" type="text" placeHolder="Driver's Name"/>
-                <InputField className="inputField" type="address" placeHolder="Driver's Address"/>
-                <InputField className="inputField" type="tel" placeHolder="Driver's Phone Number"/>
-                <InputField className="inputField" type="email" placeHolder="Driver's Email Address"/>
-                <InputField className="inputField" type="date" placeHolder="Driver's Date of Birth"/>
-                <InputField className="inputField" type="text" placeHolder="Driver's License ID"/>
-                <InputField className="inputField" type="date" placeHolder="Licence Issue Date"/>
-                <InputField className="inputField" type="date" placeHolder="License Expiration Date"/>
+                <InputField className="inputField" type="text" onChange={(e) => props.onChangeName(e.target.value)} placeHolder="Driver's Name"/>
+                <InputField className="inputField" type="address" onChange={(e) => props.onChangeAddress(e.target.value)} placeHolder="Driver's Address"/>
+                <InputField className="inputField" type="tel" onChange={(e) => props.onChangePhone(e.target.value)} placeHolder="Driver's Phone Number"/>
+                <InputField className="inputField" type="email" onChange={(e) => props.onChangeEmail(e.target.value)} placeHolder="Driver's Email Address"/>
+                <InputField className="inputField" type="date" onChange={(e) => props.onChangeBirthday(e.target.value)} placeHolder="Driver's Date of Birth"/>
+                <InputField className="inputField" type="text" onChange={(e) => props.onChangeLicenseID(e.target.value)} placeHolder="Driver's License ID"/>
+                <InputField className="inputField" type="date" onChange={(e) => props.onChangeIssueDate(e.target.value)} placeHolder="Licence Issue Date"/>
+                <InputField className="inputField" type="date" onChange={(e) => props.onChangeExpirationDate(e.target.value)} placeHolder="License Expiration Date"/>
             </div>
         </div>
     
@@ -135,7 +139,7 @@ function CustomerInformation() {
 }
 
 /* This is where the payment method is selected */
-function PaymentMethod() {
+function Payment(props) {
     return (
         <div className="rowLayout">
             <h5>Payment</h5>
@@ -144,14 +148,14 @@ function PaymentMethod() {
                         <div className="infoType">
                         Payment Method:
                         </div>
-                        <SelectPaymentMethod/>
+                        <SelectPaymentMethod onChange={(e) => props.onChangePaymentMethod(e.target.value)}/>
                     </div>
                     <div className="info">
                         <div className="infoType">
                         Deposit:
                         </div>
                         <div className="inputField">
-                            deposit
+                            500 DKK
                         </div>
                     </div>
                     <div className="info">
@@ -172,11 +176,10 @@ function BookingButtons() {
     return (
         <div className="threeBtns">
             <div className="stackedBtns">
-            <ButtonStyled link = {Pages.Schedule} title="Delete Booking" color="DarkRedBtn" primary="false" className="buttonSmall"/>
+            <ButtonStyled link = "" title="Delete Booking" color="DarkRedBtn" primary="false" className="buttonSmall"/>
             <ButtonStyled link = {Pages.BookingLandingPage} title="Cancel Booking" color="PurpleBtn" primary="false" className="buttonSmall"/>
             </div>
             <div className="finishBtn">
-            <ButtonStyled link = {Pages.Schedule} title="Confirm Booking" color="DarkBlueBtn" primary="true" className="buttonLarge" />
             </div>
             
         </div>
@@ -190,11 +193,30 @@ function Booking() {
     const [pickupDate, setPickupDate] = useState();
     const [pickupTime, setPickupTime] = useState();
     const [pickupLocation, setPickupLocation] = useState();
-    const [walkin, setWalking] = useState(false);
+    const [walkin, setWalkin] = useState(false);
+    const [returnDate, setReturnDate] = useState();
+    const [returnTime, setReturnTime] = useState();
+    const [returnLocation, setReturnLocation] = useState();
+    const [carGroup, setCarGroup] = useState();
+    const [extraDriver, setExtraDriver] = useState(false);
+    const [extraMileage, setExtraMileage] = useState(false);
+    const [mileage, setMileage] = useState();
+    const [name, setName] = useState();
+    const [address, setAddress] = useState();
+    const [phone, setPhone] = useState();
+    const [email, setEmail] = useState();
+    const [birthday, setBirthday] = useState();
+    const [licenseID, setLicenseID] = useState();
+    const [licenseIssueDate, setIssueDate] = useState();
+    const [licenseExpirationDate, setExpirationDate] = useState();
+    const [paymentMethod, setPaymentMethod] = useState();
+
+    
+
 
     function onClickSave (e) {
         // create alert with missing parts
-
+    
         const missing = []
 
         if (!pickupDate) {
@@ -203,6 +225,14 @@ function Booking() {
             missing.push("Pickup Time")
         } if (!pickupLocation) {
             missing.push("Pickup Location")
+        } if (!returnDate) {
+            missing.push("Return Date")
+        } if (!returnTime) {
+            missing.push("Return Time")
+        } if (!returnLocation) {
+            missing.push("Return Location")
+        } if (!carGroup) {
+            missing.push("Car Group")
         }
 
         if (missing.length > 0) {
@@ -219,8 +249,15 @@ function Booking() {
             console.log("Pickup Time: " + pickupTime);
             console.log("Pickup Location: " + pickupLocation);
             console.log("Walkin? " + walkin)
-        
-            console.log("current pickup: " + pickupDate + " at " + pickupTime + " at " + pickupLocation)    
+            
+            console.log("current pickup: " + pickupDate + " at " + pickupTime + " at " + pickupLocation)
+            console.log("current return: " + returnDate + " at " + returnTime + " at " + returnLocation)    
+            console.log("car group: " + carGroup)
+            console.log("extra driver? " + extraDriver)
+            console.log("extra mileage? " + extraMileage + " how many? " + mileage)
+            console.log("name: " + name + " address: " + address + " phone number: " + phone + " email address: " + email
+            + " birthday: " + birthday + " license ID: " + licenseID + " license issue date: " + licenseIssueDate + " license expiration date: " + licenseExpirationDate)
+            console.log("payment method: " + paymentMethod)
         }
         
     }
@@ -234,19 +271,42 @@ function Booking() {
                 onChangeTime={(newTime)=>{setPickupTime(newTime)}}
                 onChangeDate={(newDate) => {setPickupDate(newDate)}}
                 onChangeLocation={(newLocation) => {setPickupLocation(newLocation)}}
-                onChangeWalkin = {(newBool) => {setWalking(newBool)}} />
-            <Return/>
+                onChangeWalkin = {(newBool) => {setWalkin(newBool)}} />
+            <Return
+                date = {returnDate} time = {returnTime} location = {returnLocation}
+                onChangeTime={(newTime)=>{setReturnTime(newTime)}}
+                onChangeDate={(newDate) => {setReturnDate(newDate)}}
+                onChangeLocation={(newLocation) => {setReturnLocation(newLocation)}} />
+            <HorizontalLine />
+            <CarGroup 
+                carGroup = {carGroup} 
+                onChangeCarGroup={(newCarGroup)=>{setCarGroup(newCarGroup)}} />
+            <ExtraServices
+                extraDriver = {extraDriver} extraMileage = {extraMileage} mileage = {mileage}
+                onChangeExtraDriver = {(newBool) => {setExtraDriver(newBool)}}
+                onChangeExtraMileage = {(newBool) => {setExtraMileage(newBool)}}
+                onChangeMileage = {(newMileage) => {setMileage(newMileage)}} /> 
             <HorizontalLine/>
-            <CarGroup/>
-            <ExtraServices/>
-            <HorizontalLine/>
-            <CustomerInformation/>
-            <HorizontalLine/>
-            <PaymentMethod/>
-            <BookingButtons/>
-            <button onClick = {(e) => onClickSave(e)} title="Save Booking" color="DarkBlueBtn" primary="true" className="buttonLarge">Save Booking</button>
+            <CustomerInformation
+                name = {name} address = {address} phone = {phone} email = {email} birthday = {birthday}
+                licenseID = {licenseID} licenseIssueDate = {licenseIssueDate} licenseExpirationDate = {licenseExpirationDate}
+                onChangeName={(newName)=>{setName(newName)}}
+                onChangeAddress={(newAddress)=>{setAddress(newAddress)}}
+                onChangePhone={(newPhone)=>{setPhone(newPhone)}}
+                onChangeEmail={(newEmail)=>{setEmail(newEmail)}}
+                onChangeBirthday={(newBirthday)=>{setBirthday(newBirthday)}}
+                onChangeLicenseID={(newLicenseID)=>{setLicenseID(newLicenseID)}}
+                onChangeIssueDate={(newIssueDate)=>{setIssueDate(newIssueDate)}}
+                onChangeExpirationDate={(newExpirationDate)=>{setExpirationDate(newExpirationDate)}} />
+            <HorizontalLine />
+            <Payment
+                paymentMethod = {paymentMethod}
+                onChangePaymentMethod={(newPaymentMethod) => {setPaymentMethod(newPaymentMethod)}}/>
+            <BookingButtons />
+            <ButtonNoLink onClick = {(e) => onClickSave(e)} title="Confirm Booking" color="DarkBlueBtn" primary="true" className="buttonLarge"  />
+           
 
-            </div>
+        </div>
     );
   }
 

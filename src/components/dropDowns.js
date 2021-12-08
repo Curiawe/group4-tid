@@ -1,29 +1,44 @@
 import React from 'react';
+import './booking.css';
+import { CARGROUPS } from '../data/carGroups'; 
+import { LOCATIONS } from '../data/locations';
 
-const SelectCarGroup = () => {
+const SelectCarGroup = (props) => {
+    const groups = [
+        CARGROUPS.A[0],
+        CARGROUPS.B[0],
+        CARGROUPS.C[0],
+        CARGROUPS.D[0],
+        CARGROUPS.E[0],
+        CARGROUPS.F[0],
+        CARGROUPS.G[0],
+        CARGROUPS.H[0],
+        CARGROUPS.I[0]  
+    ]
 
     return (
         <div className="dropDown">
-            <select>
-                <option value="A – Small">A – Small</option>
-                <option value="B – Medium">B – Medium</option>
-                <option value="C – Large">C – Large</option>
-                <option value="D – X-Large">D – X-Large</option>
-                <option value="E – Family">E – Family</option>
-                <option value="F – Business">F – Business</option>
-                <option value="G – Station">G – Station</option>
-                <option value="H – Automatic">H – Automatic</option>
-                <option value="I – Small Automatic">I – Small Automatic</option>
+            <select defaultValue={'Select Car Group'} onChange={props.onChange}>
+                <option value="Select Car Group" disabled>Select Car Group</option>
+                <option value={groups[0]}>{groups[0]}</option>
+                <option value={groups[1]}>{groups[1]}</option>
+                <option value={groups[2]}>{groups[2]}</option>
+                <option value={groups[3]}>{groups[3]}</option>
+                <option value={groups[4]}>{groups[4]}</option>
+                <option value={groups[5]}>{groups[5]}</option>
+                <option value={groups[6]}>{groups[6]}</option>
+                <option value={groups[7]}>{groups[7]}</option>
+                <option value={groups[8]}>{groups[8]}</option>
             </select>
         </div>
     )
 }
 
-const SelectPaymentMethod = () => {
+const SelectPaymentMethod = (props) => {
     return (
         <div className="dropDown">
-            <select>
-                <option value="Select Payment Method">Select Payment Method</option>
+            <select defaultValue={'Select Payment Method'} onChange={props.onChange}>
+                <option value="Select Payment Method" disabled>Select Payment Method</option>
                 <option value="Apple Pay">Apple Pay</option>
                 <option value="Credit Card">Credit Card</option>
                 <option value="Debit Card">Debit Card</option>
@@ -34,4 +49,50 @@ const SelectPaymentMethod = () => {
     )
 }
 
-export { SelectCarGroup, SelectPaymentMethod }
+const SelectLocation = (props) => {
+
+    const locations = [
+        LOCATIONS.AHA,
+        LOCATIONS.AHC,
+        LOCATIONS.AHN,
+        LOCATIONS.AHS,
+        LOCATIONS.CPA,
+        LOCATIONS.CPC,
+        LOCATIONS.FYN,
+        LOCATIONS.FYS,
+    ]
+
+    return (
+        <div className="dropDown">
+            <select defaultValue={'Select Location'} onChange={props.onChange}>
+                <option value="Select Location" disabled>Select Location</option>
+                <option value={locations[0][0]}>{locations[0][0]}</option>
+                <option value={locations[1][0]}>{locations[1][0]}</option>
+                <option value={locations[2][0]}>{locations[2][0]}</option>
+                <option value={locations[3][0]}>{locations[3][0]}</option>
+                <option value={locations[4][0]}>{locations[4][0]}</option>
+                <option value={locations[5][0]}>{locations[5][0]}</option>
+                <option value={locations[6][0]}>{locations[6][0]}</option>
+                <option value={locations[7][0]}>{locations[7][0]}</option>
+            </select>
+        </div>
+    )
+}
+
+const CarState = (props) => {
+
+    return (
+        <div className="dropDown">
+            <select defaultValue={'Select Car State'} onChange={props.onChange}>
+                <option value="Select Car State" disabled>Select Car State</option>
+                <option value="Ready">Ready</option>
+                <option value="Rented">Rented</option>
+                <option value="Returned">Returned</option>
+                <option value="Transfer">Transfer</option>
+                <option value="Unaivailable">Unaivailable</option>
+            </select>
+        </div>
+    )
+}
+
+export { SelectCarGroup, SelectPaymentMethod, SelectLocation, CarState }
