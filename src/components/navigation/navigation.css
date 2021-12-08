@@ -28,7 +28,7 @@ The nav tabs looked really, REALLY wide in 256.*/
 .Navtab {
   width: 192px; /*This together with the padding will give us 212 px width.*/
   height: auto;
-  padding: 20px; /*This ensures that the different tab descriptions don't touch each other. We don't need it all the way around, but this is easier to read.*/
+  padding: 26px; /*This ensures that the different tab descriptions don't touch each other. We don't need it all the way around, but this is easier to read.*/
   align-self: center; /* this is so it is centered on the y axis*/
   text-align: center; /* this is so that the font is centered on the x axis*/
 }
@@ -38,35 +38,21 @@ The nav tabs looked really, REALLY wide in 256.*/
 }
 
 .Navtab:active {
-  width: 192px;
-  height: auto;
-  padding: 20px;
   background-color: #f95959;
   color: #3f2222;
-  align-self: center;
-  text-align: center;
-}
-
-.Navtab:current {
-  width: 192px;
-  height: auto;
-  padding: 20px;
-  background-color: #f95959;
-  color: #3f2222;
-  align-self: center;
-  text-align: center;
 }
 
 .Navtab-Logo {
-  width: 200px;
+  width: 232px;
   align-self: center;
   justify-self: center;
   margin-top: 8px;
-  margin-bottom: 8px;
-  padding-left: 32px;
-  pointer-events: none;
+}
+
+.Navtab-Logo:active {
+  background-color: #20334b;
 }
 
 Link > a {
-  color:white;
+  color: white;
 }

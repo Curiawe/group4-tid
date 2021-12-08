@@ -1,8 +1,10 @@
-import Booking from '../components/booking'
-function BookingOverview () {
+import BookingOverviewCont from '../components/cards/BookingOverview';
+
+
+function BookingSearch () {
     return (
-        <Booking />
+        <BookingOverviewCont />
     )
 }
 
-export default BookingOverview
+export default BookingSearch

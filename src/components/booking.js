@@ -3,7 +3,7 @@ import './booking.css';
 import InputField from './inputField';
 import SelectBox from './selectBoxes';
 import { SelectCarGroup, SelectPaymentMethod } from './dropDowns';
-import { PopupOneButton, PopupTwoButtons} from './popup';
+import { PopupOneButton } from './popup';
 import { useState } from 'react';
 import './popup.css'
 
@@ -187,7 +187,7 @@ function Buttons(props) {
             <button onClick={() => setButtonPopup(true)}>I'm a button</button>
             <PopupOneButton className="popupRed" buttonCenter="OK" trigger={buttonPopup} setTrigger={setButtonPopup}>
                     <p>here's the icon</p>
-                    <h3>here's some text about what you just did</h3>
+                    <p>here's some text about what you just did</p>
                     <p>here's how to move on</p>
             </PopupOneButton>
         </div>

@@ -1,5 +1,6 @@
 import './buttons.css'
 import { COLORS } from '../../values/colors'
+import { Link } from 'react-router-dom';
 
 const BtnColors = {
     LightBlueBtn: COLORS.Blue200,
@@ -26,24 +27,29 @@ function ButtonStyled(props) {
     let borderColor = ""
 
     switch (props.primary) {
-        case "true":
-            backColor = colorPicker(props.color);
-            fontColor = "white";
-            borderColor = colorPicker(props.color);
-            break;
-   
-        default:
+        case "false":
             backColor = "white";
             fontColor = colorPicker(props.color)
             borderColor = colorPicker(props.color)
             break;
+   
+        default:
+            backColor = colorPicker(props.color);
+            fontColor = "white";
+            borderColor = colorPicker(props.color);
+            break;
     }
     return (
-    <button style={{backgroundColor: backColor, color: fontColor, borderColor: borderColor}} className={props.className}>  
-        <TextColorBtn title={props.title}></TextColorBtn>
-    </button>
-
+    <Link to = {props.link}>
+        <button style={{backgroundColor: backColor, color: fontColor, borderColor: borderColor}} 
+        className={props.className}> 
+        
+            <TextColorBtn title={props.title} />
+        </button>
+    </Link>
         )
     }
+
+
 
 export default ButtonStyled
