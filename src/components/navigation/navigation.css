@@ -15,6 +15,7 @@ header {
   font-weight: bolder;
   position: sticky;
   top: 0;
+  z-index: 9999; /*Navbar doesn't dissappear behind other components on scroll*/
 }
 .Navtabs {
   /*  You will be tempted to use "padding:10px;". Don't. It messes with the justify-content and the align-self of the children.  */
