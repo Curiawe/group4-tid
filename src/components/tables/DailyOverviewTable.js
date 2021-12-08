@@ -81,7 +81,7 @@ export default function DailyOverviewTable () {
         <div>
             <p id="large">Current Date: { (new Date(date)).toLocaleDateString() }</p>
             <div style={{display:"flex", flexDirection:"row", marginBottom:"16px", alignItems:"center"}}>
-                <form>
+                <form style={{marginRight:"16px"}} >
                     <InputField className="inputField" type="date" onChange={(e) => setDate(e.target.value)} placeHolder="Select Date"/>
                 </form>
                 <ButtonNoLink onClick={(e) => setDate(new Date ())} title="Jump to Today" primary="true" className="buttonMedium" color="DarkBlueBtn"/>
