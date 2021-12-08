@@ -8,6 +8,13 @@ import ColorIcon from './AvailabilityIcon';
 import { Icon } from '@iconify/react';
 
 
+function BookingToGroup(x) {
+    let group = x.carGroup;
+    return(
+        CARGROUPS[group]
+    )
+}
+
 function LargeCardBody(props) {
     let usedCar = ""
     let usedCarGroup = ""
@@ -16,32 +23,32 @@ function LargeCardBody(props) {
 
         case "ford-mondeo":
             usedCar = CARS.HM12345;
-            usedCarGroup = CARGROUPS.B;
+            usedCarGroup = BookingToGroup(usedCar);
             break;
 
         case "renault-captur":
             usedCar = CARS.IH94302;
-            usedCarGroup = CARGROUPS.C;
+            usedCarGroup = BookingToGroup(usedCar);
             break;
 
         case "vw-passat":
             usedCar = CARS.IH23456;
-            usedCarGroup = CARGROUPS.E;
+            usedCarGroup = BookingToGroup(usedCar);
             break;
 
         case "audi-a6":
             usedCar = CARS.FC56789;
-            usedCarGroup = CARGROUPS.F;
+            usedCarGroup = BookingToGroup(usedCar);
             break;
 
         case "honda-crv":
             usedCar = CARS.JB12789;
-            usedCarGroup = CARGROUPS.H;
+            usedCarGroup = BookingToGroup(usedCar);
             break;
 
         case "fiat-500":
             usedCar = CARS.JF19386;
-            usedCarGroup = CARGROUPS.I;
+            usedCarGroup = BookingToGroup(usedCar);
             break;
     }
 

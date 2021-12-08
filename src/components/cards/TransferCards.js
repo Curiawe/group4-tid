@@ -5,43 +5,72 @@ import Pages from '../../pages/Pages';
 import { CARS } from '../../data/cars';
 import { CARGROUPS } from '../../data/carGroups';
 import ColorIcon from './AvailabilityIcon';
-import { Icon } from '@iconify/react';
+import { Icon } from '@iconify/react'; 
+import { TRANSFERS } from '../../data/transfer';
 
+function BookingToGroup(x) {
+    let group = x.carGroup;
+    return(
+        CARGROUPS[group]
+    )
+}
+
+function CarToTransfer(x){
+    let y = ""
+    x = TRANSFERS[y].Car.License;
+    return (
+        y
+    )
+} 
 
 function TransferCardBody(props) {
     let usedCar = ""
     let usedCarGroup = ""
+    let outgoing = ""
+    let incoming = ""
 
     switch (props.car) {
 
         case "ford-mondeo":
             usedCar = CARS.HM12345;
-            usedCarGroup = CARGROUPS.B;
+            usedCarGroup = BookingToGroup(usedCar);
+            outgoing = TRANSFERS[4].Outgoing[0];
+            incoming = TRANSFERS[4].Incoming[0];
             break;
 
         case "renault-captur":
             usedCar = CARS.IH94302;
-            usedCarGroup = CARGROUPS.C;
+            usedCarGroup = BookingToGroup(usedCar);
+            outgoing = TRANSFERS[3].Outgoing[0];
+            incoming = TRANSFERS[3].Incoming[0];
             break;
 
         case "vw-passat":
             usedCar = CARS.IH23456;
-            usedCarGroup = CARGROUPS.E;
+            usedCarGroup = BookingToGroup(usedCar);
+            outgoing = TRANSFERS[7].Outgoing[0];
+            incoming = TRANSFERS[7].Incoming[0];
             break;
 
         case "audi-a6":
             usedCar = CARS.FC56789;
-            usedCarGroup = CARGROUPS.F;
+            usedCarGroup = BookingToGroup(usedCar);
+            outgoing = TRANSFERS[6].Outgoing[0];
+            incoming = TRANSFERS[6].Incoming[0];
             break;
 
         case "honda-crv":
             usedCar = CARS.JB12789;
-            usedCarGroup = CARGROUPS.H;
+            usedCarGroup = BookingToGroup(usedCar);
+            outgoing = TRANSFERS[0].Outgoing[0];
+            incoming = TRANSFERS[0].Incoming[0];
             break;
 
         case "fiat-500":
             usedCar = CARS.JF19386;
-            usedCarGroup = CARGROUPS.I;
+            usedCarGroup = BookingToGroup(usedCar);
+            outgoing = TRANSFERS[2].Outgoing[0];
+            incoming = TRANSFERS[2].Incoming[0];
             break;
     }
 
@@ -58,15 +87,15 @@ function TransferCardBody(props) {
                 <ColorIcon title= {usedCar.Color} />
             </div>
             <div className="iconRow">
-                <IconBody title={usedCar.Location[0]} icon="map-pin" />
+                <IconBody title={outgoing} icon="map-pin" />
                 <IconBody title="(Outgoing)" />
             </div>
             <div className="iconRow">
-                <IconBody title={usedCar.Location[0]} icon="map-pin" />
+                <IconBody title={incoming} icon="map-pin" />
                 <IconBody title="(Incoming)" />
             </div>
             <div className="iconRow">
-                <ColorIcon title={usedCar.Status} />
+                <ColorIcon title={usedCar.relStatus} />
             </div>
         </div>
         <div className="btnMargin">
