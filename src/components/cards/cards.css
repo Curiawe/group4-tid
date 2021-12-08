@@ -84,6 +84,7 @@
 .cardImg {
   position: absolute;
   height: 180px;
+  width: 272px;
   left: 16px;
   right: 16px;
   top: 16px;
