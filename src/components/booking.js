@@ -34,7 +34,8 @@ function Pickup(props) {
                 <div className="location">
                     <InputField className="inputField" type="text" 
                         onChange={(e) => props.onChangeLocation(e.target.value)} placeHolder="Select Location"/>
-                    <SelectBox className="selectBox" type="checkbox" 
+                    <SelectBox className="selectBox" type="checkbox" checked={props.walkin}
+                    onChange={(e) => props.onChangeWalkin(e.target.checked)}
                         buttonText="Walk-in"/>
                 </div>
                 <div className="columnLayout">
@@ -189,17 +190,38 @@ function Booking() {
     const [pickupDate, setPickupDate] = useState();
     const [pickupTime, setPickupTime] = useState();
     const [pickupLocation, setPickupLocation] = useState();
-
-    let pickup;
+    const [walkin, setWalking] = useState(false);
 
     function onClickSave (e) {
-        e.preventDefault();
-        console.log(pickupLocation);
-        console.log("Pickup Date: " + pickupDate);
-        console.log("Pickup Time: " + pickupTime);
-        console.log("Pickup Location: " + pickupLocation);
-    
-        console.log("current pickup: " + pickupDate + " at " + pickupTime + " at " + pickupLocation)
+        // create alert with missing parts
+
+        const missing = []
+
+        if (!pickupDate) {
+            missing.push("Pickup Date")
+        } if (!pickupTime) {
+            missing.push("Pickup Time")
+        } if (!pickupLocation) {
+            missing.push("Pickup Location")
+        }
+
+        if (missing.length > 0) {
+            let alertString = "Sorry, you can't save, yet. You are missing: "
+            for (let i = 0; i < missing.length; i++) {
+                alertString += (missing[i] + ", ")
+            }
+            alertString += " so please fill those out.";
+            alert(alertString);
+        } else {
+            e.preventDefault();
+            console.log(pickupLocation);
+            console.log("Pickup Date: " + pickupDate);
+            console.log("Pickup Time: " + pickupTime);
+            console.log("Pickup Location: " + pickupLocation);
+            console.log("Walkin? " + walkin)
+        
+            console.log("current pickup: " + pickupDate + " at " + pickupTime + " at " + pickupLocation)    
+        }
         
     }
 
@@ -208,10 +230,11 @@ function Booking() {
             
             <BookingHeader />
             <Pickup 
-                date = {pickupDate} time = {pickupTime} location = {pickupLocation} 
+                date = {pickupDate} time = {pickupTime} location = {pickupLocation} walkin = {walkin}
                 onChangeTime={(newTime)=>{setPickupTime(newTime)}}
                 onChangeDate={(newDate) => {setPickupDate(newDate)}}
-                onChangeLocation={(newLocation) => {setPickupLocation(newLocation)}}/>
+                onChangeLocation={(newLocation) => {setPickupLocation(newLocation)}}
+                onChangeWalkin = {(newBool) => {setWalking(newBool)}} />
             <Return/>
             <HorizontalLine/>
             <CarGroup/>
