@@ -3,6 +3,8 @@ import { useState } from 'react';
 
 //Date Picker
 import DatePicker from 'sassy-datepicker';
+import BOOKINGS from '../../data/bookings';
+import {WALKINS} from '../../data/walkins'
 
 //create walkin objects
 function walkin (day, estimate, registered) {
@@ -40,16 +42,17 @@ function setEstimate (walkin, input) {
 }
 
 //standin for walkin table. This is where the database connection and call goes to later.
-let walkins = []
-walkins.push(walkin(new Date(2021,11,2), 3,0))
-walkins.push(walkin(new Date(2021,11,3), 4,4))
-walkins.push(walkin(new Date(2021,11,4), 3,3))
-walkins.push(walkin(new Date(2021,11,5), 2,5))
-walkins.push(walkin(new Date(2021,11,6), 4,2))
-walkins.push(walkin(new Date(2021,11,7), 3,1))
-walkins.push(walkin(new Date(2021,11,8), 1,5))
-walkins.push(walkin(new Date(2021,11,9), 0,0))
-walkins.push(walkin(new Date(2021,11,10), 0,0))
+let walkins = WALKINS
+
+function getWalkins (date) {
+    let registered = 0;
+    BOOKINGS.map((booking) => {
+        if (booking.isWalkin) {
+            registered++
+        }
+    })
+    return registered
+}
 
 function WalkinHeader () {
     return (
@@ -91,7 +94,7 @@ function WalkinRow (props) {
         if (outputDate === new Date (currentDate).toLocaleDateString("da-DA")) {
             outputEstimate = walkins[i].estimate
             console.log(outputEstimate)
-            outputRegistered = walkins[i].registered
+            outputRegistered = getWalkins(props.date)
             outputWalkin = i
             entryFound = true
             break;
