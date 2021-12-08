@@ -9,7 +9,6 @@ import InputField from "../inputField";
 
 function littleRow (item, column, date) {
     const currDate = new Date(date).toLocaleDateString("da-DA")
-    console.log("current Date: " + currDate)
     let avail = 0
     let book = 0
     let rel = 0
@@ -34,11 +33,7 @@ function littleRow (item, column, date) {
 
     // check released cars
     TRANSFERS.map((transfer) => {
-        console.log("current transfer:")
-        console.log(transfer)
-        console.log(item)
         let transferDate = new Date(transfer.Date).toLocaleDateString("da-DA")
-        console.log("Transfer Date: " + transferDate)
         let car = transfer.Car
         if (transferDate === currDate && car.carGroup === item) {
             rel++
@@ -47,8 +42,8 @@ function littleRow (item, column, date) {
 
     let need = book - avail
     column.push(
-        <tr>
-            <td id={item[0]}>{item[0]}</td>
+        <tr key={item.toString()}>
+            <td>{item[0]}</td>
             <td>{book}</td>
             <td>{avail}</td>
             <td>{rel}</td>
@@ -63,8 +58,7 @@ function littleRow (item, column, date) {
 function TableRow (props) {
     let column = []
     let date = new Date(props.date)
-    console.log("starting render of rows")
-    CARGROUPS.map((item) => (littleRow(item, column, date)))
+    CARGROUPS.map((item, index) => (littleRow(item, column, date, index)))
 
     return (   
         <>
@@ -81,12 +75,10 @@ export default function DailyOverviewTable () {
         <div>
             <p id="large">Current Date: { (new Date(date)).toLocaleDateString() }</p>
             <div style={{display:"flex", flexDirection:"row", marginBottom:"16px", alignItems:"center"}}>
-                <form style={{marginRight:"16px"}} >
-                    <InputField className="inputField" type="date" onChange={(e) => setDate(e.target.value)} placeHolder="Select Date"/>
-                </form>
+                <InputField className="inputField" type="date" onChange={(e) => setDate(e.target.value)} placeholder={new Date(date)}/>
                 <ButtonNoLink onClick={(e) => setDate(new Date ())} title="Jump to Today" primary="true" className="buttonMedium" color="DarkBlueBtn"/>
             </div>
-            <table>
+            <table style={{marginBottom:"32px"}} >
                 <thead>
                     <tr>
                         <th>Car Group</th>
