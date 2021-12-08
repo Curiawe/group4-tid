@@ -8,11 +8,6 @@ import { useState } from 'react';
 import './popup.css'
 import {ButtonStyled, ButtonNoLink} from './buttons/ColorButton';
 import Pages from '../pages/Pages';
-//**The plan:
-// 1) Move state from Pickup to Booking
-// 2) create a function that sets all 3 states
-// 3) pass as callback function to  */
-
 
 /* This is the page header */ 
 function BookingHeader() {
