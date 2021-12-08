@@ -5,24 +5,27 @@ import ButtonStyled from "../buttons/ColorButton"
 import { ButtonNoLink } from "../buttons/ColorButton";
 import InputField from "../inputField";
 
-function littleRow (item, column) {
+function littleRow (item, column, date) {
+    const currDate = new Date(date).toLocaleDateString
     let avail = 0
     let book = 0
     let rel = 0
-    BOOKINGS.map((item, id) => {
-        if (id === item.carGroup) {
-            avail++;
+    BOOKINGS.map((booking) => { // item is the 
+        console.log("current Booking: ")
+        console.log(booking)
+        const bookingDate = new Date(booking.Pickup.time).toLocaleDateString
+        if ( bookingDate === currDate && booking.carGroup === item) {
             book++;
-            rel++;
+            console.log("increment booking")
             }
         }
     )
-    let need = avail - book
+    let need = book - avail
     column.push(
         <tr>
             <td id={item[0]}>{item[0]}</td>
-            <td>{avail}</td>
             <td>{book}</td>
+            <td>{avail}</td>
             <td>{rel}</td>
             <td>{need} <ButtonStyled link="/transfers" 
                             className="buttonSmall" 
@@ -34,7 +37,7 @@ function littleRow (item, column) {
 
 function TableRow () {
     let column = []
-    CARGROUPS.map((item) => (littleRow(item,column)))
+    CARGROUPS.map((item) => (littleRow(item, column)))
 
     return (   
         <>
