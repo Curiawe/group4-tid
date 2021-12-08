@@ -8,6 +8,10 @@ import { useState } from 'react';
 import './popup.css'
 import {ButtonStyled, ButtonNoLink} from './buttons/ColorButton';
 import Pages from '../pages/Pages';
+//**The plan:
+// 1) Move state from Pickup to Booking
+// 2) create a function that sets all 3 states
+// 3) pass as callback function to  */
 
 
 /* This is the page header */ 
@@ -25,38 +29,7 @@ function BookingHeader() {
 }
 
 /* Pickup information */
-function Pickup() {
-
-    // pickup object for submission:
-
-    function pickupTimes (date, time, location) {
-        const pickupTimes = {
-            PickupDate : date,
-            PickupTime : time,
-            PickupLocation: location
-        }
-        return (
-            pickupTimes
-        )
-    }
-
-    // pickup constants for state handling
-    const [pickupDate, setPickupDate] = useState();
-    const [pickupTime, setPickupTime] = useState();
-    const [pickupLocation, setPickupLocation] = useState();
-    let pickup;
-
-    function handleChange (e) {
-        e.preventDefault();
-        console.log(pickupLocation);
-        console.log("Pickup Date: " + pickupDate);
-        console.log("Pickup Time: " + pickupTime);
-        console.log("Pickup Location: " + pickupLocation);
-    
-        pickup = pickupTimes(pickupDate, pickupTime, pickupLocation);
-        console.log("current pickup: " + pickup.PickupDate + " at " + pickup.PickupTime + " at " + pickup.PickupLocation)
-        
-    }
+function Pickup(props) {
 
     return (
         <div>
@@ -65,15 +38,15 @@ function Pickup() {
              
                 <div className="location">
                     <InputField className="inputField" type="text" 
-                        onChange={(e) => setPickupLocation(e.target.value)} placeHolder="Select Location"/>
+                        onChange={(e) => props.onChangeLocation(e.target.value)} placeHolder="Select Location"/>
                     <SelectBox className="selectBox" type="checkbox" 
-                        onChange={(e) => handleChange(e)} buttonText="Walk-in"/>
+                        buttonText="Walk-in"/>
                 </div>
                 <div className="columnLayout">
                     <InputField className="inputField" type="date" 
-                        onChange={(e) => setPickupDate(e.target.value)} placeHolder="Select Date"/>
+                        onChange={(e) => props.onChangeDate(e.target.value)} placeHolder="Select Date"/>
                     <InputField className="inputField" type="time" 
-                        onChange={(e) => setPickupTime(e.target.value)} placeHolder="Select Time"/>
+                        onChange={(e) => props.onChangeTime(e.target.value)} placeHolder="Select Time"/>
                 </div>
             
             </div>
@@ -217,11 +190,33 @@ function BookingButtons() {
 
 /* This is the final booking component */
 function Booking() {
+
+    const [pickupDate, setPickupDate] = useState();
+    const [pickupTime, setPickupTime] = useState();
+    const [pickupLocation, setPickupLocation] = useState();
+
+    let pickup;
+
+    function onClickSave (e) {
+        e.preventDefault();
+        console.log(pickupLocation);
+        console.log("Pickup Date: " + pickupDate);
+        console.log("Pickup Time: " + pickupTime);
+        console.log("Pickup Location: " + pickupLocation);
+    
+        console.log("current pickup: " + pickupDate + " at " + pickupTime + " at " + pickupLocation)
+        
+    }
+
     return (
         <div className = "booking">
             
             <BookingHeader />
-            <Pickup />
+            <Pickup 
+                date = {pickupDate} time = {pickupTime} location = {pickupLocation} 
+                onChangeTime={(newTime)=>{setPickupTime(newTime)}}
+                onChangeDate={(newDate) => {setPickupDate(newDate)}}
+                onChangeLocation={(newLocation) => {setPickupLocation(newLocation)}}/>
             <Return/>
             <HorizontalLine/>
             <CarGroup/>
@@ -231,7 +226,7 @@ function Booking() {
             <HorizontalLine/>
             <PaymentMethod/>
             <BookingButtons/>
-            <ButtonStyled link = "" onClick = {console.log("Booking saved!")} title="Save Booing" color="DarkBlueBtn" primary="true" className="buttonLarge" />
+            <button onClick = {(e) => onClickSave(e)} title="Save Booking" color="DarkBlueBtn" primary="true" className="buttonLarge">Save Booking</button>
 
             </div>
     );
