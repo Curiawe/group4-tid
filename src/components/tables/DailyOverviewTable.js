@@ -1,13 +1,16 @@
 import { useState } from "react";
 import { CARGROUPS } from "../../data/carGroups";
 import { BOOKINGS } from "../../data/bookings"
+import ButtonStyled from "../buttons/ColorButton"
+import { ButtonNoLink } from "../buttons/ColorButton";
+import InputField from "../inputField";
 
 function littleRow (item, column) {
     let avail = 0
     let book = 0
     let rel = 0
     BOOKINGS.map((item, id) => {
-        if (item === id.carGroup) {
+        if (id === item.carGroup) {
             avail++;
             book++;
             rel++;
@@ -21,7 +24,11 @@ function littleRow (item, column) {
             <td>{avail}</td>
             <td>{book}</td>
             <td>{rel}</td>
-            <td>{need} <button>Transfer</button></td>
+            <td>{need} <ButtonStyled link="/transfers" 
+                            className="buttonSmall" 
+                            color="DarkBlueBtn" 
+                            title="Transfer"
+                            style={{padding:"0px"}} /></td>
         </tr>)
 }
 
@@ -46,11 +53,11 @@ export default function DailyOverviewTable (props) {
     return (
         <div>
             <p id="large">Current Date: { (new Date(date)).toLocaleDateString() }</p>
-            <div style={{display:"flex", flexDirection:"row", marginBottom:"16px"}}>
-                <form style={{marginRight:"32px"}}>
-                    <input className = "inputField" type="date" onChange = {(e) => setDate(e.target.value)}></input>
+            <div style={{display:"flex", flexDirection:"row", marginBottom:"16px", alignItems:"center"}}>
+                <form>
+                    <InputField className="inputField" type="date" onChange={(e) => setDate(e.target.value)} placeHolder="Select Date"/>
                 </form>
-                <button onClick={(e) => setDate(new Date ())}>Jump to today</button>
+                <ButtonNoLink onClick={(e) => setDate(new Date ())} title="Jump to Today" primary="true" className="buttonMedium" color="DarkBlueBtn"/>
             </div>
             <table>
                 <thead>
