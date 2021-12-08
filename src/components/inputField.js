@@ -7,7 +7,7 @@ const InputField = (props) => {
     return ( 
         <div className={props.className}>
             <form>
-                <input placeHolder={props.placeHolder}/>
+                <input placeHolder={props.placeHolder} type={props.type} onChange = {props.onChange} />
             </form>
         </div>
     )
