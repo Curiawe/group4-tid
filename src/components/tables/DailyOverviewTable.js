@@ -1,25 +1,44 @@
 import { useState } from "react";
 import { CARGROUPS } from "../../data/carGroups";
 import { BOOKINGS } from "../../data/bookings"
+import { CARS } from "../../data/cars";
 import ButtonStyled from "../buttons/ColorButton"
 import { ButtonNoLink } from "../buttons/ColorButton";
 import InputField from "../inputField";
 
 function littleRow (item, column, date) {
-    const currDate = new Date(date).toLocaleDateString
+    const currDate = new Date(date).toLocaleDateString("da-DA")
+    console.log("current Date: " + currDate)
     let avail = 0
     let book = 0
     let rel = 0
-    BOOKINGS.map((booking) => { // item is the 
+
+    // check bookings for today
+    BOOKINGS.map((booking) => {
         console.log("current Booking: ")
         console.log(booking)
-        const bookingDate = new Date(booking.Pickup.time).toLocaleDateString
+        const bookingDate = new Date(booking.Pickup.time).toLocaleDateString("da-DA")
+        console.log("booking Date: " + bookingDate)
         if ( bookingDate === currDate && booking.carGroup === item) {
             book++;
             console.log("increment booking")
             }
         }
     )
+
+
+    // check available cars
+    CARS.map((car) =>{
+        console.log("current car:")
+        console.log(car)
+        console.log(item)
+        if (car.carGroup === item && car.Status === "Available") {
+            avail++
+        }
+    } )
+
+    // check released cars
+
     let need = book - avail
     column.push(
         <tr>
@@ -35,9 +54,11 @@ function littleRow (item, column, date) {
         </tr>)
 }
 
-function TableRow () {
+function TableRow (props) {
     let column = []
-    CARGROUPS.map((item) => (littleRow(item, column)))
+    let date = new Date(props.date)
+    console.log("starting render of rows")
+    CARGROUPS.map((item) => (littleRow(item, column, date)))
 
     return (   
         <>
@@ -46,10 +67,7 @@ function TableRow () {
     )
 }
 
-export default function DailyOverviewTable (props) {
-
-
-    
+export default function DailyOverviewTable () {
 
     const [date, setDate] = useState(new Date());
 
@@ -73,7 +91,7 @@ export default function DailyOverviewTable (props) {
                     </tr>
                 </thead>
                 <tbody>
-                    <TableRow />
+                    <TableRow date={date}/>
                 </tbody>
             </table>
         </div>
