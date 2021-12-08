@@ -53,10 +53,10 @@ function ButtonStyled(props) {
         )
     }
 
-    function ButtonNoLink(props) {
-    let backColor = ""
-    let fontColor = ""
-    let borderColor = ""
+    function ButtonPopupError(props) {
+        let backColor = ""
+        let fontColor = ""
+        let borderColor = ""
 
     switch (props.primary) {
         case "false":
@@ -77,13 +77,51 @@ function ButtonStyled(props) {
     return (
     <>
         <button style={{backgroundColor: backColor, color: fontColor, borderColor: borderColor}} 
-        className={props.className} onClick={() => setButtonPopup(true)}> 
+        className={props.className} 
+        onClick={() => setButtonPopup(true)}> 
         <TextColorBtn title={props.title} />
-        </button>
-        <PopupOneButton className="popupRed" trigger={buttonPopup} setTrigger={setButtonPopup}><p>hello</p></PopupOneButton>
         
+        </button>
+
+        <PopupOneButton className="popupRed" title="Close" trigger={buttonPopup} setTrigger={setButtonPopup}>
+            <h5>Whoops</h5>
+            <p>This functionality has not been implemented yet.</p>
+        </PopupOneButton>
+        
+
     </>
         )
     }
 
-export { ButtonStyled, ButtonNoLink}
+    function ButtonNoLink(props) {
+        let backColor = ""
+        let fontColor = ""
+        let borderColor = ""
+
+    switch (props.primary) {
+        case "false":
+            backColor = "white";
+            fontColor = colorPicker(props.color)
+            borderColor = colorPicker(props.color)
+            break;
+
+        default:
+            backColor = colorPicker(props.color);
+            fontColor = "white";
+            borderColor = colorPicker(props.color);
+            break;
+    }
+
+    const [buttonPopup, setButtonPopup] = useState(false);
+
+    return (
+    <>
+        <button style={{backgroundColor: backColor, color: fontColor, borderColor: borderColor}} 
+        className={props.className} onClick={props.onClick} > 
+        <TextColorBtn title={props.title} />
+        </button>
+    </>
+        )
+    }
+
+export { ButtonStyled, ButtonPopupError, ButtonNoLink }
