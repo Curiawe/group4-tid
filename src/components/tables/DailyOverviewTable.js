@@ -2,6 +2,7 @@ import { useState } from "react";
 import { CARGROUPS } from "../../data/carGroups";
 import { BOOKINGS } from "../../data/bookings"
 import { CARS } from "../../data/cars";
+import { TRANSFERS } from "../../data/transfer";
 import ButtonStyled from "../buttons/ColorButton"
 import { ButtonNoLink } from "../buttons/ColorButton";
 import InputField from "../inputField";
@@ -15,29 +16,34 @@ function littleRow (item, column, date) {
 
     // check bookings for today
     BOOKINGS.map((booking) => {
-        console.log("current Booking: ")
-        console.log(booking)
         const bookingDate = new Date(booking.Pickup.time).toLocaleDateString("da-DA")
-        console.log("booking Date: " + bookingDate)
         if ( bookingDate === currDate && booking.carGroup === item) {
             book++;
-            console.log("increment booking")
             }
         }
     )
 
 
     // check available cars
+    // must also check for soon to be released cars!
     CARS.map((car) =>{
-        console.log("current car:")
-        console.log(car)
-        console.log(item)
         if (car.carGroup === item && car.Status === "Available") {
             avail++
         }
     } )
 
     // check released cars
+    TRANSFERS.map((transfer) => {
+        console.log("current transfer:")
+        console.log(transfer)
+        console.log(item)
+        let transferDate = new Date(transfer.Date).toLocaleDateString("da-DA")
+        console.log("Transfer Date: " + transferDate)
+        let car = transfer.Car
+        if (transferDate === currDate && car.carGroup === item) {
+            rel++
+        }
+    })
 
     let need = book - avail
     column.push(
