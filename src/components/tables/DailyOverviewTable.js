@@ -41,15 +41,16 @@ function littleRow (item, column, date) {
         }
     })
 
-    let need = book - avail
+    let need = book-avail
     let bgColor = ""
-    let transferString = "Release Car"
+    let transferString = ""
 
     if (need < 0) {
         bgColor = COLORS.Yellow200
-        transferString = "Request Car"
+        transferString = "Release Car"
     } else if (need > 0) {
-        bgColor = COLORS.Red300
+        bgColor = COLORS.Red200
+        transferString = "Request Car"
     } else {
         bgColor = COLORS.Green200
         transferString = "Transfer"
