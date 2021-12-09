@@ -26,17 +26,17 @@ function BookingOverviewCont () {
         </div>
         <div className="searchBarMargin">
                 <InputField className="inputField" placeHolder="Search for Booking"/>
-                <ButtonStyled link = {Pages.BookingOverview} color="LightBlueBtn" primary="true" className="buttonLarge" title="Search"/>
+                <ButtonStyled link = {Pages.BookingOverview} color="DarkBlueBtn" primary="true" className="buttonLarge" title="Search"/>
         </div>
         <div className="bookingCardMargin">
             {cards}
         </div>
         <div className="bookingOvBtn1">
             <ButtonStyled link = {Pages.Pickup} color="PurpleBtn" primary="true" className="buttonLarge" title="Pick-up"/>
-            <ButtonStyled link = {Pages.BookingLandingPage} color="LightBlueBtn" primary="true" className="buttonLarge" title="Return"/>
+            <ButtonStyled link = {Pages.BookingLandingPage} color="DarkBlueBtn" primary="true" className="buttonLarge" title="Return"/>
         </div>
         <div className="bookingOvBtn2">
-            <ButtonStyled link = {Pages.Schedule} color="LightBlueBtn" primary="true" className="buttonLarge" title="Schedule"/>
+            <ButtonStyled link = {Pages.Schedule} color="DarkBlueBtn" primary="true" className="buttonLarge" title="Schedule"/>
         </div>
     </div>
     )
