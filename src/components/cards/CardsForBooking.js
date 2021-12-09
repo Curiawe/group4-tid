@@ -1,47 +1,66 @@
 import './cards.css';
 import { IconBody } from './IconBody';
 import '../booking.css';
+import { BOOKINGS } from "../../data/bookings"
 
 /* Schema:
 000: {Name:"Per Son", Ref, Phone, PickupPlace, PickupTime, ReturnPlace, ReturnTime, CarGroup, ExtraService}
  */
 
-export let BOOKING = {
-    REF814: {Name: "Carl Bruun", Ref: "814", Phone: "+45 2222-2200", PickupPlace: "City Center", PickupTime: "12/11/2021, 12:30 PM", 
-    ReturnPlace: "City Center", ReturnTime: "15/11/2021, 6:00 PM", CarGroup: "Car Group C", ExtraService: "40 km extra mileage"},
-    REF815: {Name: "Alice Robertson", Ref: "815", Phone: "+45 8000-0008", PickupPlace: "City Center", PickupTime: "12/11/2021, 8:30 AM", 
-    ReturnPlace: "Copenhagen Airport", ReturnTime: "20/11/2021, 7:30 PM", CarGroup: "Car Group B", ExtraService: "1 Extra driver"}
-}
+let BOOKING = BOOKINGS
 
 function BookingCard(props) {
-    let booking = ""
+    let booking = BOOKINGS[0]
 
-    switch (props.booking) {
+    BOOKING.map((bkng) => {
+        if (bkng.Ref === props.booking) {
+            booking = bkng
+        }
+    })
 
-        case "814":
-            booking = BOOKING.REF814;
-            break;
-        
-        case "815":
-            booking = BOOKING.REF815;
-            break;
+    let pickupTime = new Date(booking.Pickup.time).toLocaleTimeString("en-US").replace("00:00", "00")
+    const pickupDate = new Date(booking.Pickup.time).toLocaleDateString("da-DA")
+    pickupTime = pickupDate + ", " + pickupTime
+
+    let returnTime = new Date(booking.Return.time).toLocaleTimeString("en-US").replace("00:00", "00")
+    const returnDate = new Date(booking.Return.time).toLocaleDateString("da-DA")
+    returnTime = returnDate + ", " + returnTime
+
+    let services
+    let serviceComp
+    
+    if (booking.Services.driver) {
+        services = "1 Extra Driver"
+    } else if (booking.Services.mileage) {
+        services = "Extra Mileage: " + booking.Services.mileage
     }
+
+    if (services) {
+        serviceComp =
+        <><div className="p2Booking">Extra Services</div>
+        <IconBody title={services} icon="user" /></>
+    } else {
+        serviceComp = <>
+            <div className="p2Booking" style= {{marginBottom:"16px"}}></div>
+            <IconBody title="" icon=""/></>
+    }
+
+
 
     return (
     <div className="card">
         <div className="cardBodyBooking">
             <div className="h4Booking"> BOOKING {booking.Ref} </div>
-            <div className="p1Booking"> {booking.Name}</div>
-            <div className="p1Booking"> {booking.Phone} </div>
+            <div className="p1Booking"> {booking.Customer.name}</div>
+            <div className="p1Booking"> {booking.Customer.phone} </div>
             <div className="p2Booking">Pickup</div>
-            <IconBody title={booking.PickupPlace} icon="map-pin" />
-            <IconBody title={booking.PickupTime} icon="calendar" />
+            <IconBody title={booking.Pickup.location[0]} icon="map-pin" />
+            <IconBody title={pickupTime} icon="calendar" />
             <div className="p2Booking">Return</div>
-            <IconBody title={booking.ReturnPlace} icon="map-pin" />
-            <IconBody title={booking.ReturnTime} icon="calendar" />
-            <div className="p1Booking">{booking.CarGroup}</div>
-            <div className="p2Booking">Extra Services</div>
-            <IconBody title={booking.ExtraService} icon="user" />
+            <IconBody title={booking.Return.location[0]} icon="map-pin" />
+            <IconBody title={returnTime} icon="calendar" />
+            <div className="p1Booking">{booking.carGroup[0]}</div>
+            {serviceComp}
         </div>
     </div>
     
