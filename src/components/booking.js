@@ -202,7 +202,7 @@ function Booking() {
     const [carGroup, setCarGroup] = useState();
     const [extraDriver, setExtraDriver] = useState(false);
     const [extraMileage, setExtraMileage] = useState(false);
-    const [mileage, setMileage] = useState();
+    const [mileage, setMileage] = useState(0);
     const [name, setName] = useState();
     const [address, setAddress] = useState();
     const [phone, setPhone] = useState();
@@ -213,7 +213,18 @@ function Booking() {
     const [licenseExpirationDate, setExpirationDate] = useState();
     const [paymentMethod, setPaymentMethod] = useState();
 
-    
+    function newRef () {
+        let length = BOOKINGS.length
+        let int = parseInt(BOOKINGS[length-1].Ref) + 1
+        return int
+    }
+
+    function addBooking() {
+        let ref = newRef()
+        BOOKINGS.push(
+            {Ref: ref, Status:"not begun", isWalkin: walkin, carGroup: carGroup, Customer: {name: name, address: address, phone: phone, email: email, born: birthday, license: {id: licenseID, issued: licenseIssueDate, expires: licenseExpirationDate, valid: true}, Car: null, Pickup: {time: pickupDate, location: pickupLocation}, Return: {time:returnTime, location: returnLocation}, Services: {driver: extraDriver, mileage: mileage}, Returned: {time:null, mileage: 0}, price: 1000}}
+        )
+    }
 
 
     function onClickSave (e) {
@@ -246,6 +257,9 @@ function Booking() {
             alert(alertString);
         } else {
             e.preventDefault();
+            console.log("pushing to Array... lenght: "+ BOOKINGS.length)
+            addBooking();
+            console.log("Pushed to Array: "+ BOOKINGS.length)
             console.log(pickupLocation);
             console.log("Pickup Date: " + pickupDate);
             console.log("Pickup Time: " + pickupTime);
