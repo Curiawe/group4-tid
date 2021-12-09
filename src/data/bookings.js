@@ -7,8 +7,26 @@ import {LOCATIONS} from "./locations.js"
  */
 
 export const BOOKINGS = [
-    {Status: "not begun",isWalkin: false,carGroup: CARGROUPS.A, Car: null, Pickup: {time: Date.UTC(2021,10,25,10), location: LOCATIONS.CPC}, Return: {time: Date.UTC(2021,11,26,10), location:LOCATIONS.CPC}, Services: {driver: true, mileage:0}, Returned: {time:null, mileage:0}, price:pricing(1)},
-    {Status: "not begun",isWalkin: true,carGroup: CARGROUPS.A, Car: CARS.FM23456, Pickup: {time: Date.UTC(2021,10,25,10), location: LOCATIONS.CPC}, Return: {time: Date.UTC(2021,11,25,10), location:LOCATIONS.CPA}, Services: {driver: false, mileage:0}, Returned: {time:null, mileage:0}, price:pricing(2)}
+    {Status: "not begun",isWalkin: false,carGroup: CARGROUPS[0], 
+    Car: null, Pickup: {time: Date.UTC(2021,11,8,10), location: LOCATIONS.CPC}, 
+    Return: {time: Date.UTC(2021,11,9,10), location:LOCATIONS.CPC}, 
+    Services: {driver: true, mileage:0}, Returned: {time:null, mileage:0}, 
+    price:pricing(1)},
+    {Status: "not begun",isWalkin: true,carGroup: CARGROUPS[0],
+    Car: CARS.FM23456, Pickup: {time: Date.UTC(2021,11,9,12), location: LOCATIONS.CPC},
+    Return: {time: Date.UTC(2021,11,25,10), location:LOCATIONS.CPA},
+    Services: {driver: false, mileage:0}, Returned: {time:null, mileage:0}, 
+    price:pricing(2)},
+    {Status: "not begun",isWalkin: false,carGroup: CARGROUPS[0], 
+    Car: null, Pickup: {time: Date.UTC(2021,11,8,10), location: LOCATIONS.CPC}, 
+    Return: {time: Date.UTC(2021,11,9,10), location:LOCATIONS.CPC}, 
+    Services: {driver: true, mileage:0}, Returned: {time:null, mileage:0}, 
+    price:pricing(1)},
+    {Status: "not begun",isWalkin: false,carGroup: CARGROUPS[0], 
+    Car: null, Pickup: {time: Date.UTC(2021,11,8,10), location: LOCATIONS.CPC}, 
+    Return: {time: Date.UTC(2021,11,9,10), location:LOCATIONS.CPC}, 
+    Services: {driver: true, mileage:0}, Returned: {time:null, mileage:0}, 
+    price:pricing(1)},
 ]
 
 function pricing(id){

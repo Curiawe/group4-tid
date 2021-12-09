@@ -1,19 +1,12 @@
 import './tables.css'
 import { useState } from 'react';
 
-//Date Picker
+// Date Picker
 import DatePicker from 'sassy-datepicker';
 
-//create walkin objects
-function walkin (day, estimate, registered) {
-    const walkin = {estimateDay : day,
-        estimate : estimate,
-        registered : registered}
-
-    return (
-        walkin
-    )
-}
+// 
+import BOOKINGS from '../../data/bookings';
+import {WALKINS} from '../../data/walkins'
 
 function dateArray (date) {
     let dates = [date]
@@ -30,26 +23,28 @@ function setEstimate (walkin, input) {
     const reg = new RegExp('^[0-9]*$')
     if (input === "") {
         walkin.estimate = 0
-        console.log("the estimate for the date " + walkin.estimateDay + " is " + walkin.estimate)
+        console.log("the estimate for the date " + walkin.date + " is " + walkin.estimate)
     } else if (reg.test(input)) {
         walkin.estimate = input
-        console.log("the estimate for the date " + walkin.estimateDay + " is " + walkin.estimate)
+        console.log("the estimate for the date " + walkin.date + " is " + walkin.estimate)
     } else {
         alert("The estimate must be a number. For exampe \n 3")
     }
 }
 
-//standin for walkin table. This is where the database connection and call goes to later.
-let walkins = []
-walkins.push(walkin(new Date(2021,11,2), 3,0))
-walkins.push(walkin(new Date(2021,11,3), 4,4))
-walkins.push(walkin(new Date(2021,11,4), 3,3))
-walkins.push(walkin(new Date(2021,11,5), 2,5))
-walkins.push(walkin(new Date(2021,11,6), 4,2))
-walkins.push(walkin(new Date(2021,11,7), 3,1))
-walkins.push(walkin(new Date(2021,11,8), 1,5))
-walkins.push(walkin(new Date(2021,11,9), 0,0))
-walkins.push(walkin(new Date(2021,11,10), 0,0))
+let walkins = WALKINS
+
+function getWalkins (date) {
+    let registered = 0;
+    let currDate = new Date(date).toLocaleDateString("da-DA")
+    BOOKINGS.map((booking) => {
+        const thisDate = new Date(booking.Pickup.time).toLocaleDateString("da-DA")
+        if (thisDate === currDate && booking.isWalkin) {
+            registered++
+        }
+    })
+    return registered
+}
 
 function WalkinHeader () {
     return (
@@ -86,12 +81,12 @@ function WalkinRow (props) {
 
     for (let i = 0; i < walkins.length; i++){
         // setting up the comparing strings (It doesn't work anymore if you try to do it all in one :((
-        let currentDate = walkins[i].estimateDay;
+        let currentDate = new Date(walkins[i].date).toLocaleDateString("da-DA");
 
-        if (outputDate === new Date (currentDate).toLocaleDateString("da-DA")) {
+        if (outputDate === currentDate) {
             outputEstimate = walkins[i].estimate
             console.log(outputEstimate)
-            outputRegistered = walkins[i].registered
+            outputRegistered = getWalkins(props.date)
             outputWalkin = i
             entryFound = true
             break;
@@ -101,7 +96,7 @@ function WalkinRow (props) {
     }
 
     if (!entryFound) {
-        walkins.push(walkin(props.date, 0,0))
+        walkins.push({date: new Date(props.date), estimate: 0, total: 0, changeable: true})
         console.log("date has been pushed: " + new Date (props.date).toLocaleDateString())
         outputEstimate = 0
         outputRegistered = 0
