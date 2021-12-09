@@ -1,5 +1,7 @@
 import React from 'react';
 import './booking.css';
+
+import {BOOKINGS} from '../data/bookings'
 import { InputField } from './inputField';
 import SelectBox from './selectBoxes';
 import { SelectCarGroup, SelectPaymentMethod, SelectLocation } from './dropDowns';
