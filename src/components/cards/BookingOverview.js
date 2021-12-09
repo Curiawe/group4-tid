@@ -37,7 +37,7 @@ function BookingOverviewCont () {
         </div>
         <div className="bookingOvBtn2">
             <ButtonStyled link = {Pages.Schedule} color="DarkBlueBtn" primary="true" className="buttonLarge" title="Schedule"/>
-        </div>
+        </div>      
     </div>
     )
 }
