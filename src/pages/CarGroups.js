@@ -1,7 +1,12 @@
+import CarGroupTable from "../components/tables/CarGroupTable";
+
 function CarGroups () {
     return (
-        
-        <h1>Car Groups go Vroom Vroom</h1>
+        <div style={{marginLeft:"32px"}}>
+            <h1>Car Groups</h1>
+            <CarGroupTable />            
+        </div>
+
     )
 }
 
