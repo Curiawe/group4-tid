@@ -5,8 +5,6 @@
 .cardPageMargin {
   height: 460px;
   width: 1065px;
-  margin-left: 245px;
-  margin-top: -385px;
   display: flex;
 }
 
@@ -16,26 +14,21 @@
 }
 
 .bookingCardMargin {
-  height: 460px;
-  width: 1065px;
-  margin-left: 245px;
-  margin-top: -310px;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .searchBarMargin {
   height: 65px;
   width: 500px;
-  margin-left: 245px;
-  margin-top: -410px;
+  margin-bottom: 32px;
   display: flex;
-  align-items: baseline;
+  align-items: center;
 }
 
 .bookingOvBtn1 {
   height: 65px;
   width: 350px;
-  margin-left: 230px;
   margin-top: 30px;
   display: flex;
   align-items: center;
@@ -45,7 +38,6 @@
 .bookingOvBtn2 {
   height: 65px;
   width: 170px;
-  margin-left: 480px;
   margin-top: 30px;
 }
 
