@@ -6,17 +6,6 @@ import DatePicker from 'sassy-datepicker';
 import BOOKINGS from '../../data/bookings';
 import {WALKINS} from '../../data/walkins'
 
-//create walkin objects
-function walkin (day, estimate, registered) {
-    const walkin = {estimateDay : day,
-        estimate : estimate,
-        registered : registered}
-
-    return (
-        walkin
-    )
-}
-
 function dateArray (date) {
     let dates = [date]
     for (let i = 1; i < 10; i++) {
@@ -32,10 +21,10 @@ function setEstimate (walkin, input) {
     const reg = new RegExp('^[0-9]*$')
     if (input === "") {
         walkin.estimate = 0
-        console.log("the estimate for the date " + walkin.estimateDay + " is " + walkin.estimate)
+        console.log("the estimate for the date " + walkin.date + " is " + walkin.estimate)
     } else if (reg.test(input)) {
         walkin.estimate = input
-        console.log("the estimate for the date " + walkin.estimateDay + " is " + walkin.estimate)
+        console.log("the estimate for the date " + walkin.date + " is " + walkin.estimate)
     } else {
         alert("The estimate must be a number. For exampe \n 3")
     }
@@ -90,9 +79,9 @@ function WalkinRow (props) {
 
     for (let i = 0; i < walkins.length; i++){
         // setting up the comparing strings (It doesn't work anymore if you try to do it all in one :((
-        let currentDate = walkins[i].estimateDay;
+        let currentDate = new Date(walkins[i].date).toLocaleDateString("da-DA");
 
-        if (outputDate === new Date (currentDate).toLocaleDateString("da-DA")) {
+        if (outputDate === currentDate) {
             outputEstimate = walkins[i].estimate
             console.log(outputEstimate)
             outputRegistered = getWalkins(props.date)
@@ -105,7 +94,7 @@ function WalkinRow (props) {
     }
 
     if (!entryFound) {
-        walkins.push(walkin(props.date, 0,0))
+        walkins.push({date: new Date(props.date), estimate: 0, total: 0, changeable: true})
         console.log("date has been pushed: " + new Date (props.date).toLocaleDateString())
         outputEstimate = 0
         outputRegistered = 0
