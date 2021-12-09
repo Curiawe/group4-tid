@@ -41,13 +41,14 @@ function setEstimate (walkin, input) {
     }
 }
 
-//standin for walkin table. This is where the database connection and call goes to later.
 let walkins = WALKINS
 
 function getWalkins (date) {
     let registered = 0;
+    let currDate = new Date(date).toLocaleDateString("da-DA")
     BOOKINGS.map((booking) => {
-        if (booking.isWalkin) {
+        const thisDate = new Date(booking.Pickup.time).toLocaleDateString("da-DA")
+        if (thisDate === currDate && booking.isWalkin) {
             registered++
         }
     })
