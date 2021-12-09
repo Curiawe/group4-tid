@@ -3,6 +3,7 @@ import { CARGROUPS } from "../../data/carGroups";
 import { BOOKINGS } from "../../data/bookings"
 import { CARS } from "../../data/cars";
 import { TRANSFERS } from "../../data/transfer";
+import { COLORS } from "../../values/colors";
 import ButtonStyled from "../buttons/ColorButton"
 import { ButtonNoLink } from "../buttons/ColorButton";
 import InputField from "../inputField";
@@ -41,16 +42,29 @@ function littleRow (item, column, date) {
     })
 
     let need = book - avail
+    let bgColor = ""
+    let transferString = "Release Car"
+
+    if (need < 0) {
+        bgColor = COLORS.Yellow200
+        transferString = "Request Car"
+    } else if (need > 0) {
+        bgColor = COLORS.Red300
+    } else {
+        bgColor = COLORS.Green200
+        transferString = "Transfer"
+    }
+
     column.push(
         <tr key={item.toString()}>
             <td>{item[0]}</td>
             <td>{book}</td>
             <td>{avail}</td>
             <td>{rel}</td>
-            <td>{need} <ButtonStyled link="/transfers" 
+            <td style={{backgroundColor:bgColor}}  >{need} <ButtonStyled link="/transfers" 
                             className="buttonSmall" 
                             color="DarkBlueBtn" 
-                            title="Transfer"
+                            title={transferString}
                             style={{padding:"0px"}} /></td>
         </tr>)
 }

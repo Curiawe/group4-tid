@@ -1,8 +1,10 @@
 import './tables.css'
 import { useState } from 'react';
 
-//Date Picker
+// Date Picker
 import DatePicker from 'sassy-datepicker';
+
+// 
 import BOOKINGS from '../../data/bookings';
 import {WALKINS} from '../../data/walkins'
 
