@@ -5,15 +5,15 @@ import { LOCATIONS } from '../data/locations';
 
 const SelectCarGroup = (props) => {
     const groups = [
-        CARGROUPS[0].Location,
-        CARGROUPS[1].Location,
-        CARGROUPS[2].Location,
-        CARGROUPS[3].Location,
-        CARGROUPS[4].Location,
-        CARGROUPS[5].Location,
-        CARGROUPS[6].Location,
-        CARGROUPS[7].Location,
-        CARGROUPS[8].Location  
+        CARGROUPS[0][0],
+        CARGROUPS[1][0],
+        CARGROUPS[2][0],
+        CARGROUPS[3][0],
+        CARGROUPS[4][0],
+        CARGROUPS[5][0],
+        CARGROUPS[6][0],
+        CARGROUPS[7][0],
+        CARGROUPS[8][0]  
     ]
 
     return (

@@ -7,12 +7,10 @@ import { BOOKINGS } from "../../data/bookings"
 000: {Name:"Per Son", Ref, Phone, PickupPlace, PickupTime, ReturnPlace, ReturnTime, CarGroup, ExtraService}
  */
 
-let BOOKING = BOOKINGS
-
 function BookingCard(props) {
     let booking = BOOKINGS[0]
 
-    BOOKING.map((bkng) => {
+    BOOKINGS.map((bkng) => {
         if (bkng.Ref === props.booking) {
             booking = bkng
         }
@@ -54,10 +52,10 @@ function BookingCard(props) {
             <div className="p1Booking"> {booking.Customer.name}</div>
             <div className="p1Booking"> {booking.Customer.phone} </div>
             <div className="p2Booking">Pickup</div>
-            <IconBody title={booking.Pickup.location[0]} icon="map-pin" />
+            <IconBody title={booking.Pickup.location.Location} icon="map-pin" />
             <IconBody title={pickupTime} icon="calendar" />
             <div className="p2Booking">Return</div>
-            <IconBody title={booking.Return.location[0]} icon="map-pin" />
+            <IconBody title={booking.Return.location.Location} icon="map-pin" />
             <IconBody title={returnTime} icon="calendar" />
             <div className="p1Booking">{booking.carGroup[0]}</div>
             {serviceComp}
