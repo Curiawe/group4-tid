@@ -6,18 +6,7 @@ import HeaderRow from './Headers';
 
 // let's simulate the array returned by the data base
 // Note: When implementing the database, replace this manual constant with the result of the function call
-const carsArray = [
-        CARS.FC12345,
-        CARS.FC56789,
-        CARS.FM23456,
-        CARS.HM12345,
-        CARS.HM23456,
-        CARS.IH12345,
-        CARS.IH23456,
-        CARS.IH94302,
-        CARS.JB12789,
-        CARS.JF19386,
-        CARS.JF94837]
+const carsArray = CARS
 
 // Full Table
 function ScheduleTable () {
