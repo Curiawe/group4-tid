@@ -15,6 +15,7 @@ function BookingOverviewCont () {
         cards.push(<div key={bkng.Ref} className="cardMargin">
         <BookingCard booking={bkng.Ref}/>
         </div>)
+        return null
     })
 
     return (

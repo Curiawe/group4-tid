@@ -192,12 +192,12 @@ function BookingButtons() {
 /* This is the final booking component */
 function Booking() {
 
-    const [pickupDate, setPickupDate] = useState();
-    const [pickupTime, setPickupTime] = useState();
+    const [pickupDate, setPickupDate] = useState(new Date());
+    const [pickupTime, setPickupTime] = useState("");
     const [pickupLocation, setPickupLocation] = useState();
     const [walkin, setWalkin] = useState(false);
     const [returnDate, setReturnDate] = useState();
-    const [returnTime, setReturnTime] = useState();
+    const [returnTime, setReturnTime] = useState("");
     const [returnLocation, setReturnLocation] = useState();
     const [carGroup, setCarGroup] = useState();
     const [extraDriver, setExtraDriver] = useState(false);
@@ -279,7 +279,7 @@ function Booking() {
     }
 
     return (
-        <div className = "booking">
+        <div className = "booking" style={{marginLeft:"32px"}}>
             
             <BookingHeader />
             <Pickup 

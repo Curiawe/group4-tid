@@ -1,6 +1,6 @@
 import React from "react";
 import './popup.css'
-import { ButtonStyled, ButtonNoLink } from "./buttons/ColorButton";
+import { ButtonNoLink } from "./buttons/ColorButton";
 
 /* Popups. Set them by choosing a style, either popupBlue, popupPurple, 
 or popupRed when calling the function. Text is added to popup AND buttons on the 

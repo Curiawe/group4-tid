@@ -3,9 +3,7 @@ import {ButtonStyled} from '../buttons/ColorButton';
 import { IconBody } from './IconBody';
 import Pages from '../../pages/Pages';
 import { CARS } from '../../data/cars';
-import { CARGROUPS } from '../../data/carGroups';
 import ColorIcon from './AvailabilityIcon';
-import { Icon } from '@iconify/react'; 
 import { TRANSFERS } from '../../data/transfer';
 
 
@@ -28,6 +26,7 @@ function TransferCardBody(props) {
         if (selCar.License === props.car) {
             car = selCar
         }
+        return null
     })
 
     let transfer = TRANSFERS[0]
@@ -35,6 +34,7 @@ function TransferCardBody(props) {
         if (trans.Car === props.car) {
             transfer = trans
         }
+        return null
     })
 
     let usedCarGroup = car.carGroup
