@@ -5,15 +5,15 @@ import { LOCATIONS } from '../data/locations';
 
 const SelectCarGroup = (props) => {
     const groups = [
-        CARGROUPS[0][0],
-        CARGROUPS[1][0],
-        CARGROUPS[2][0],
-        CARGROUPS[3][0],
-        CARGROUPS[4][0],
-        CARGROUPS[5][0],
-        CARGROUPS[6][0],
-        CARGROUPS[7][0],
-        CARGROUPS[8][0]  
+        CARGROUPS[0].Location,
+        CARGROUPS[1].Location,
+        CARGROUPS[2].Location,
+        CARGROUPS[3].Location,
+        CARGROUPS[4].Location,
+        CARGROUPS[5].Location,
+        CARGROUPS[6].Location,
+        CARGROUPS[7].Location,
+        CARGROUPS[8].Location  
     ]
 
     return (
@@ -51,29 +51,20 @@ const SelectPaymentMethod = (props) => {
 
 const SelectLocation = (props) => {
 
-    const locations = [
-        LOCATIONS.AHA,
-        LOCATIONS.AHC,
-        LOCATIONS.AHN,
-        LOCATIONS.AHS,
-        LOCATIONS.CPA,
-        LOCATIONS.CPC,
-        LOCATIONS.FYN,
-        LOCATIONS.FYS,
-    ]
+    const locations = LOCATIONS
 
     return (
         <div className="dropDown">
             <select defaultValue={'Select Location'} onChange={props.onChange}>
                 <option value="Select Location" disabled>Select Location</option>
-                <option value={locations[0][0]}>{locations[0][0]}</option>
-                <option value={locations[1][0]}>{locations[1][0]}</option>
-                <option value={locations[2][0]}>{locations[2][0]}</option>
-                <option value={locations[3][0]}>{locations[3][0]}</option>
-                <option value={locations[4][0]}>{locations[4][0]}</option>
-                <option value={locations[5][0]}>{locations[5][0]}</option>
-                <option value={locations[6][0]}>{locations[6][0]}</option>
-                <option value={locations[7][0]}>{locations[7][0]}</option>
+                <option value={locations[0].Location}>{locations[0].Location}</option>
+                <option value={locations[1].Location}>{locations[1].Location}</option>
+                <option value={locations[2].Location}>{locations[2].Location}</option>
+                <option value={locations[3].Location}>{locations[3].Location}</option>
+                <option value={locations[4].Location}>{locations[4].Location}</option>
+                <option value={locations[5].Location}>{locations[5].Location}</option>
+                <option value={locations[6].Location}>{locations[6].Location}</option>
+                <option value={locations[7].Location}>{locations[7].Location}</option>
             </select>
         </div>
     )

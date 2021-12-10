@@ -124,7 +124,7 @@ function ButtonStyled(props) {
         )
     }
     
-    export function ButtonOnChange(props) {
+ function ButtonOnChange(props) {
     let backColor = ""
     let fontColor = ""
     let borderColor = ""

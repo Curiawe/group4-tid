@@ -4,9 +4,9 @@ import { BOOKINGS } from "../../data/bookings"
 import { CARS } from "../../data/cars";
 import { TRANSFERS } from "../../data/transfer";
 import { COLORS } from "../../values/colors";
-import ButtonStyled from "../buttons/ColorButton"
-import { ButtonNoLink } from "../buttons/ColorButton";
-import InputField from "../inputField";
+import {ButtonStyled} from "../buttons/ColorButton"
+import { ButtonOnChange } from "../buttons/ColorButton";
+import {InputField} from "../inputField";
 
 function littleRow (item, column, date) {
     const currDate = new Date(date).toLocaleDateString("da-DA")
@@ -95,7 +95,7 @@ export default function DailyOverviewTable () {
             <p id="large">Current Date: { (new Date(date)).toLocaleDateString() }</p>
             <div style={{display:"flex", flexDirection:"row", marginBottom:"16px", alignItems:"center"}}>
                 <InputField className="inputField" type="date" onChange={(e) => setDate(e.target.value)} placeholder={new Date(date)}/>
-                <ButtonNoLink onClick={(e) => setDate(new Date ())} title="Jump to Today" primary="true" className="buttonMedium" color="DarkBlueBtn"/>
+                <ButtonOnChange onClick={(e) => setDate(new Date ())} title="Jump to Today" primary="true" className="buttonMedium" color="DarkBlueBtn"/>
             </div>
             <table style={{marginBottom:"32px"}} >
                 <thead>
