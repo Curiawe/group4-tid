@@ -15,6 +15,7 @@ function LocationsTable () {
                 </tr>
             )
             table.push(row)
+            return null
         })
 
 

@@ -42,6 +42,7 @@ function getWalkins (date) {
         if (thisDate === currDate && booking.isWalkin) {
             registered++
         }
+        return null
     })
     return registered
 }

@@ -1,4 +1,3 @@
-import { Tablet } from "react-feather";
 import { CARGROUPS } from "../../data/carGroups";
 import './tables.css';
 
@@ -14,6 +13,7 @@ function makeRows() {
             </tr>
         )
         rows.push(row)
+        return null
     })
 
     return rows

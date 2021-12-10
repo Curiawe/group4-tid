@@ -20,6 +20,7 @@ function littleRow (item, column, date) {
         if ( bookingDate === currDate && booking.carGroup === item) {
             book++;
             }
+        return null
         }
     )
 
@@ -30,6 +31,7 @@ function littleRow (item, column, date) {
         if (car.carGroup === item && car.Status === "Available") {
             avail++
         }
+        return null
     } )
 
     // check released cars
@@ -39,6 +41,7 @@ function littleRow (item, column, date) {
         if (transferDate === currDate && car.carGroup === item) {
             rel++
         }
+        return null
     })
 
     let need = book-avail
@@ -68,6 +71,7 @@ function littleRow (item, column, date) {
                             title={transferString}
                             style={{padding:"0px"}} /></td>
         </tr>)
+        return null
 }
 
 function TableRow (props) {
