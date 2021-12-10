@@ -5,6 +5,8 @@
 .cardPageMargin {
   height: 460px;
   width: 1065px;
+  margin-top: -380px;
+  margin-left: 250px;
   display: flex;
 }
 
@@ -38,7 +40,8 @@
 .bookingOvBtn2 {
   height: 65px;
   width: 170px;
-  margin-top: 30px;
+  margin-top: -62px;
+  margin-left: 1200px;
 }
 
 /* large cards used for overview */

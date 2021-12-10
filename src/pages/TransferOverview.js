@@ -16,13 +16,13 @@ function TransferOverview () {
         </div>
         <div className="cardPageMargin">
             <div className="cardMargin">
-                <TransferCardBody car="honda-crv" src={honda}/>
+                <TransferCardBody car="JB12789" src={honda}/>
             </div>
             <div className="cardMargin">
-                <TransferCardBody car="renault-captur" src={renault}/>
+                <TransferCardBody car="IH94302" src={renault}/>
             </div>
             <div className="cardMargin">
-                <TransferCardBody car="audi-a6" src={audi}/>
+                <TransferCardBody car="FC56789" src={audi}/>
             </div>
         </div>  
         </>
