@@ -65,8 +65,8 @@ function TransferCardBody(props) {
             </div>
         </div>
         <div className="btnMargin">
-        <ButtonStyled link = {Pages.Walkins} color="PurpleBtn" primary="false" 
-        className="buttonSmall" title="Select car"/>
+            <ButtonStyled link = {Pages.Walkins} color="PurpleBtn" primary="false" 
+            className="buttonSmall" title="Select car"/>
         </div>
     </div>
     )
