@@ -1,6 +1,12 @@
+import LocationsTable from "../components/tables/LocationsTable";
+
 function RentalOffices () {
     return (
-        <h1>Step into MY office</h1>
+        <div style={{marginLeft:"32px"}}>
+            <h1>Rental Offices</h1>
+            <LocationsTable />
+        </div>
+
     )
 }
 
