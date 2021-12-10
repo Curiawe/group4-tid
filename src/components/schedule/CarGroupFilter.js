@@ -11,7 +11,7 @@ const groups = [
     CARGROUPS[5][0],
     CARGROUPS[6][0],
     CARGROUPS[7][0],
-    CARGROUPS[8][0]  
+    CARGROUPS[8][0],  
 ]
 
 
