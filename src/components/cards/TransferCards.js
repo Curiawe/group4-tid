@@ -53,11 +53,11 @@ function TransferCardBody(props) {
                 <ColorIcon title= {car.Color} />
             </div>
             <div className="iconRow">
-                <IconBody title={transfer.Outgoing[0]} icon="map-pin" />
+                <IconBody title={transfer.Outgoing.Location} icon="map-pin" />
                 <IconBody title="(Outgoing)" />
             </div>
             <div className="iconRow">
-                <IconBody title={transfer.Incoming[0]} icon="map-pin" />
+                <IconBody title={transfer.Incoming.Location} icon="map-pin" />
                 <IconBody title="(Incoming)" />
             </div>
             <div className="iconRow">
