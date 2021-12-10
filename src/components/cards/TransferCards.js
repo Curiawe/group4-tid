@@ -5,11 +5,23 @@ import Pages from '../../pages/Pages';
 import { CARS } from '../../data/cars';
 import { CARGROUPS } from '../../data/carGroups';
 import ColorIcon from './AvailabilityIcon';
-import { Icon } from '@iconify/react';
+import { Icon } from '@iconify/react'; 
+import { TRANSFERS } from '../../data/transfer';
+
+
+function CarToTransfer(x){
+    let y = ""
+    x = TRANSFERS[y].Car.License;
+    return (
+        y
+    )
+} 
 
 let CAR = CARS
+let TRANSFER = TRANSFERS
 
-function LargeCardBody(props) {
+function TransferCardBody(props) {
+
     let car = CARS[0]
 
     CAR.map((selCar) => {
@@ -18,7 +30,15 @@ function LargeCardBody(props) {
         }
     })
 
+    let transfer = TRANSFERS[0]
+    TRANSFER.map((trans) => {
+        if (trans.Car === props.car) {
+            transfer = trans
+        }
+    })
+
     let usedCarGroup = car.carGroup
+
 
     return (
     <div className = "card">
@@ -28,26 +48,20 @@ function LargeCardBody(props) {
         <div className="p2"> {car.License} </div>
         <div className="cardBodyLarge">
             <div className="iconRow">
-                <IconBody title={usedCarGroup[1]} icon="user" />
-                <IconBody title={usedCarGroup[2]} icon="briefcase" />
-                <div className="iconBody">
-                    <div className="mainIcons">
-                        <Icon icon="mdi:car-door" width="23.07px" height="25.01px" />
-                    </div>
-                    <div className="mainDescription">5</div>
-                </div>
-            </div>
-
-            <div className="iconRow">
                 <IconBody title={car.fuelType} icon="droplet" />
                 <IconBody title="Manual" icon="settings" />
                 <ColorIcon title= {car.Color} />
             </div>
             <div className="iconRow">
-                <IconBody title={car.Location[0]} icon="map-pin" />
+                <IconBody title={transfer.Outgoing[0]} icon="map-pin" />
+                <IconBody title="(Outgoing)" />
             </div>
             <div className="iconRow">
-                <ColorIcon title={car.Status} />
+                <IconBody title={transfer.Incoming[0]} icon="map-pin" />
+                <IconBody title="(Incoming)" />
+            </div>
+            <div className="iconRow">
+                <ColorIcon title={car.relStatus} />
             </div>
         </div>
         <div className="btnMargin">
@@ -58,4 +72,4 @@ function LargeCardBody(props) {
     )
 }
 
-export default LargeCardBody
+export default TransferCardBody
