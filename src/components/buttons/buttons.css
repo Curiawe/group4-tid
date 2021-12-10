@@ -27,6 +27,7 @@ button {
   letter-spacing: 0.05em;
   height: fit-content;
   padding: 12px;
+  cursor: pointer;
 }
 
 .buttonLarge {
@@ -37,4 +38,32 @@ button {
 .buttonSmall {
   font-size: 12px;
   padding: 4px;
+}
+
+/* Positioning of buttons depending on their role */
+
+.stackedBtns {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-width: fit-content;
+}
+
+.finishBtn {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.threeBtns {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.pickupAndReturnButtons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
 }

@@ -1,6 +1,8 @@
 import './buttons.css'
 import { COLORS } from '../../values/colors'
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { PopupOneButton } from '../popup';
 
 const BtnColors = {
     LightBlueBtn: COLORS.Blue200,
@@ -51,7 +53,78 @@ function ButtonStyled(props) {
         )
     }
 
-export function ButtonNoLink(props) {
+
+    function ButtonPopupError(props) {
+        let backColor = ""
+        let fontColor = ""
+        let borderColor = ""
+
+    switch (props.primary) {
+        case "false":
+            backColor = "white";
+            fontColor = colorPicker(props.color)
+            borderColor = colorPicker(props.color)
+            break;
+
+        default:
+            backColor = colorPicker(props.color);
+            fontColor = "white";
+            borderColor = colorPicker(props.color);
+            break;
+    }
+
+    const [buttonPopup, setButtonPopup] = useState(false);
+
+    return (
+    <>
+        <button style={{backgroundColor: backColor, color: fontColor, borderColor: borderColor}} 
+        className={props.className} 
+        onClick={() => setButtonPopup(true)}> 
+        <TextColorBtn title={props.title} />
+        
+        </button>
+
+        <PopupOneButton className="popupRed" title="Close" trigger={buttonPopup} setTrigger={setButtonPopup}>
+            <h5>Whoops</h5>
+            <p>This functionality has not been implemented yet.</p>
+        </PopupOneButton>
+
+    </>
+        )
+    }
+
+    function ButtonNoLink(props) {
+        let backColor = ""
+        let fontColor = ""
+        let borderColor = ""
+
+    switch (props.primary) {
+        case "false":
+            backColor = "white";
+            fontColor = colorPicker(props.color)
+            borderColor = colorPicker(props.color)
+            break;
+
+        default:
+            backColor = colorPicker(props.color);
+            fontColor = "white";
+            borderColor = colorPicker(props.color);
+            break;
+    }
+
+    const [buttonPopup, setButtonPopup] = useState(false);
+
+    return (
+    <>
+        <button style={{backgroundColor: backColor, color: fontColor, borderColor: borderColor}} 
+        className={props.className} onClick={props.onClick} > 
+        <TextColorBtn title={props.title} />
+        </button>
+    </>
+        )
+    }
+    
+    export function ButtonOnChange(props) {
     let backColor = ""
     let fontColor = ""
     let borderColor = ""
@@ -79,5 +152,7 @@ export function ButtonNoLink(props) {
     </>
         )
     }
+    
+    
 
-export default ButtonStyled
+export { ButtonStyled, ButtonPopupError, ButtonNoLink, ButtonOnChange }

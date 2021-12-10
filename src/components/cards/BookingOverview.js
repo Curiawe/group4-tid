@@ -1,8 +1,8 @@
 import './cards.css';
 import BookingCard from './CardsForBooking';
 import '../booking.css';
-import InputField from '../inputField';
-import ButtonStyled from '../buttons/ColorButton';
+import {InputField} from '../inputField';
+import {ButtonStyled} from '../buttons/ColorButton';
 import Pages from '../../pages/Pages';
 import BOOKINGS from '../../data/bookings';
 

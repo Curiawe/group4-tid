@@ -1,10 +1,14 @@
 import React from 'react';
 import './booking.css';
-import './carTransfer.css'
-import InputField from './inputField';
-import SelectBox from './selectBoxes';
-import { CarGroup } from './booking';
+import './carTransfer.css';
+import './buttons/buttons.css';
+import {InputField, TextArea} from './inputField';
+import { CarGroup } from './booking.js';
+import {ButtonStyled} from './buttons/ColorButton';
+import '../index.css';
+import Pages from '../pages/Pages';
 
+/* This is the page header */ 
 function PageHeader() {
     return (
         <div className="header">
@@ -15,56 +19,78 @@ function PageHeader() {
     )
 }
 
+/* Select the type of transfer */ 
 function SelectTransferType() {
+    
+    const handleChange=(event)=> {
+        console.log(event.target.value);
+        
+      };
+ 
     return (
         <div className="rowLayout">
             <h5>Select Action</h5>
-            <div className="attribute3">
-                <SelectBox className="radioButton" type="radio" buttonText="Request Car"/>
-                <SelectBox className="radioButton" type="radio" buttonText="Release Car"/>
+            <div className="selectBox">
+                <input type="radio" value="Request" name="Transfer" onClick={handleChange}/> Request Car 
+                <input type="radio" value="Release" name="Transfer" onClick={handleChange}/> Release Car
             </div>
         </div>
     )
 }
 
-
-function LocationAndDate() {
+/* Transfer location selection */
+function Location() {
     return (
-        <div className="columnLayout">
-            <div className="rowLayout">
-                <h5>Location</h5>
-                <InputField className="inputField" placeHolder="Select Location"/>
-            </div>
-            <div className="rowLayout">
-                <h5>Date</h5>
-                <InputField className="inputField"  placeHolder="Select Date"/>
-            </div>
+        <div className="rowLayout">
+            <h5>Location</h5>
+            <InputField className="inputField" placeHolder="Select Location"/>
         </div>
+  
     )
 }
 
+/* Transfer date selection */
+function Date() {
+    return (
+        <div className="rowLayout">
+            <h5>Date</h5>
+            <InputField className="inputField"  placeHolder="Select Date"/>
+        </div>
+  
+    )
+}
+
+/* Comments area */
 function Comments() {
     return (
         <div className="rowLayout">
-        <h5>Comments:</h5>
-        
-        <div className="comments">
-            <form>
-                <textarea placeholder="Write any comments about the car's state here"/>
-            </form>
-        </div>
+        <h5>Comments</h5>
+        <TextArea className="comments" placeHolder="Comments about the car state"/> 
         </div>
     )
 }
 
+/* Buttons to either save or cancel the transfer request */
+function TransferButtons() {
+    return (
+        <div className="finishBtn">
+            <ButtonStyled link = {Pages.Schedule} title="Send Request" color="DarkBlueBtn" primary="true" className="buttonLarge"/>
+        </div>
+       
+    )
+}
+
+/* The transfer component */
 function CarTransfer() {
     return (
         <div className="transfer">
             <PageHeader/>
             <SelectTransferType/>
             <CarGroup/>
-            <LocationAndDate/>
+            <Location/>
+            <Date/>
             <Comments/>
+            <TransferButtons/>
         </div>
     )
 }

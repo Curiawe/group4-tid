@@ -1,51 +1,47 @@
 import React from 'react';
-import { BookedCar } from './pickup.js';
+import { BookedCar } from './pickup';
 import './booking.css';
 import './pickupAndReturn.css';
 import SelectBox from './selectBoxes.js';
-import InputField from './inputField.js';
+import {InputField, TextArea} from './inputField.js';
+import { PickupReturnButtons } from './pickup.js';
+import { CarState } from './dropDowns';
 
-function ReturnHeader(props) {
+/* This is the page header */ 
+function ReturnHeader() {
     return (
-        <div className="returnHeader">
+        <div className="header">
             <div className="title">
-                <h1>Booking ID:</h1>
+                <h1>Return</h1>
+            </div>
+            <div className="bookingNumber">
+                <p>Booking ID:</p>
             </div>
         </div>
     )
 }
 
-function CarState(props) {
+/* Here, the car state is selected */
+function ReturnState() {
     return (
         <div className="carState">
-            <div className="attributeType">
-                Car State:
-            </div>
+            <h5>Car State</h5>
             <div className="attribute">
-                <div className="dropDown">
-                    <select required>
-                        <option value="Ready">Ready</option>
-                        <option value="Rented">Rented</option>
-                        <option value="Returned" selected>Returned</option>
-                        <option value="Transfer">Transfer</option>
-                        <option value="Unaivailable">Unaivailable</option>
-                    </select>
-                </div>
+                <CarState/>
             </div>
         </div>
     )
 }
 
-function ReturnTime(props) {
+/* The time of the return is entered here */
+function ReturnTime() {
     return (
         <div className="returnTime">
-            <div className="attributeType">
-                Arrival Time:
-            </div>
+            <h5>Arrival Time</h5>
             <div className="attribute3">
-                <SelectBox className="onTime" type="radio" buttonText="On Time"/>
+                <SelectBox type="checkbox" buttonText="On Time"/>
                 <div className="lateBy">
-                    <SelectBox type="radio" buttonText="Late by"/>
+                    <SelectBox className="btnWithBox" type="checkbox" buttonText="Late by"/>
                     <InputField className="inputFieldSmall" placeHolder="min"/>
                 </div>
             </div>
@@ -53,53 +49,39 @@ function ReturnTime(props) {
     )
 }
 
-function ReturnFuelAndMileage(props) {
+/* The values for fuel and mileage upon car return are noted here */
+function ReturnFuelAndMileage() {
     return (
         <div className="returnLevel">
-            <div className="attributeType">
-            Mileage:
-            </div>
+            <h5>Mileage</h5>
                 <div className="attribute4">
                     <InputField className="inputFieldSmall" placeHolder="km"/>
                     <SelectBox className="selectBox" type="checkbox" buttonText="Above Limit"/>
                 </div>
-            <div className="attributeType">
-            Fuel Level:
-            </div>
+            <h5>Fuel Level</h5>
+            
             <div className="attribute4">
                 <InputField className="inputFieldSmall" placeHolder="%"/>
                 <SelectBox className="selectBox" type="checkbox" buttonText="Below Limit"/>
             </div>
-            <div className="attributeType">
-            Comments:
-            </div>
-            <div className="attribute">
-                <form>
-                    <textarea placeholder="Write any comments about the car's state here"/>
-                </form>
-            </div>
+            <h5>Comments</h5>
+            <TextArea className="attribute" placeHolder="Comments about the car's state"/> 
+            
         </div>
 
     )
 }
 
-function Buttons(props) {
+/* The return component */ 
+function ReturnComponent() {
     return (
-        <div>
-            buttons go here somewhere
-        </div>
-    )
-}
-
-function ReturnComponent(props) {
-    return (
-        <div className="pickup">
+        <div className="return">
             <ReturnHeader/>
             <BookedCar/>
-            <CarState/>
+            <ReturnState/>
             <ReturnTime/>
             <ReturnFuelAndMileage/>
-            <Buttons/>
+            <PickupReturnButtons/>
         </div>
     )
 }

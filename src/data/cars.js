@@ -18,4 +18,3 @@ export let CARS = [
     {License:"JF94837", Model:"Honda CR V",carGroup:CARGROUPS[6],Color: "SLV",fuelType:'P',fuelStatus: 100,Location: LOCATIONS[0],Doors:2,Status:"Transfer",relStatus: "Released", Image: "https://da.wikipedia.org/wiki/Fiat_Punto_(type_188)#/media/Fil:Fiat_Punto_II_front_20100509.jpg"},
     {License:"JF19386", Model:"Fiat 500",carGroup:CARGROUPS[7],Color: "RED",fuelType:'P',fuelStatus: 100,Location: LOCATIONS[0],Doors:2,Status:"Unavailable",relStatus: "Released", Image:"https://da.wikipedia.org/wiki/Fiat_Punto_(type_188)#/media/Fil:Fiat_Punto_II_front_20100509.jpg"}
 ]
-

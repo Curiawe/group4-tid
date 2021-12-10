@@ -29,10 +29,10 @@
   height: 128px;
   left: 460px;
   top: 275px;
-  background: #ffffff;
+  background: transparent;
   border: 1px solid #d1dae0;
   box-sizing: border-box;
   border-radius: 8px;
   font-size: 16px;
-  font-style: italic;
+  outline: none;
 }

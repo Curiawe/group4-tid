@@ -10,16 +10,7 @@
   justify-content: space-between;
 }
 
-.title {
-  margin-left: 10px;
-}
-
-.bookingNumber {
-  margin-right: 10px;
-}
-
 /* GENERAL */
-
 hr {
   display: block;
   color: #d1dae0;
@@ -33,8 +24,12 @@ hr {
 
 h5 {
   display: flex;
+  flex-direction: inherit;
+  justify-content: flex-start;
+  align-items: flex-start;
   flex-wrap: wrap;
-  width: 128px;
+  width: 180px;
+  margin-top: 0;
 }
 
 /* LOGISTICS */
@@ -42,47 +37,89 @@ h5 {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  align-items: flex-start;
 }
 
 .columnLayout {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .location {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  justify-content: top;
-  align-items: flex-start;
-  height: 100px;
-  margin: 10px;
+  justify-content: center;
 }
 
-.dateAndTime {
+.driverInfo {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: flex-start;
   flex-wrap: wrap;
-  justify-content: center;
-  height: 100px;
-  margin: 10px;
+  margin-left: 170px;
+  width: 600px;
+}
+
+.searchExisting {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.inputField,
+.comments {
+  position: relative;
+  margin-right: 10px;
 }
 
 .inputField input {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 2px;
+  margin-bottom: 20px;
   width: 256px;
   height: 48px;
   left: 460px;
   top: 275px;
-  background: #ffffff;
+  background-color: white;
   border: 1px solid #d1dae0;
   box-sizing: border-box;
+  box-shadow: none;
   border-radius: 8px;
   font-size: 16px;
-  font-style: italic;
+  outline: none;
+}
+
+.inputField label,
+.comments label {
+  position: absolute;
+  top: 10px;
+  color: gray;
+  transition: 0.2s;
+  pointer-events: none;
+  padding: 5px;
+  font-size: 16px;
+  font-weight: lighter;
+}
+
+.inputField input[type="date"] ~ label,
+.inputField input[type="time"] ~ label {
+  top: -20px;
+  font-size: 12px;
+}
+
+.inputField input:focus ~ label,
+.inputField input:not(:focus):valid ~ label,
+.comments textarea:focus ~ label,
+.comments textarea:not(:focus):valid ~ label {
+  top: -20px;
+  font-size: 12px;
+}
+
+.radiobButton {
+  size: 2px;
 }
 
 .radioButton input {
@@ -96,16 +133,16 @@ h5 {
   -moz-appearance: none;
   appearance: none;
   border: 0px;
-  background-color: transparent;
+  background-color: white;
   font: inherit;
   border-radius: 0;
 
   display: left;
-  width: 256px;
+  min-width: 256px;
   height: 48px;
   left: 460px;
   top: 275px;
-  background: #ffffff;
+  background: white;
   border: 1px solid #d1dae0;
   box-sizing: border-box;
   border-radius: 8px;
@@ -118,7 +155,6 @@ h5 {
 
 /* Extra Services */
 .extraServicesSelect,
-.customerInfoFields,
 .payment {
   display: flex;
   flex-direction: column;
@@ -135,9 +171,23 @@ h5 {
   margin-bottom: 20px;
 }
 
+.centeredInputField {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  background-color: red;
+}
+
 .selectBox,
 .infoType {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   margin-right: 100px;
+}
+
+.selectBox input {
+  margin-right: 10px;
 }
 
 .searchBox input {
@@ -154,4 +204,5 @@ h5 {
   border-radius: 8px;
   font-size: 16px;
   font-style: italic;
+  padding: 5px;
 }

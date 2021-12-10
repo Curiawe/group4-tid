@@ -18,6 +18,15 @@ function InactiveLink (props) {
     )
 }
 
+function mapToSidebarLink (list) {
+    return list.map((link) => {
+        return <SidebarLink link={link.path} title={link.title} />
+    })
+}
+
+export { mapToSidebarLink }
+
+
 function SidebarLink (props) {
     return (
         (checkActive(props.link)) ? <ActiveLink link={props.link} title={props.title}/>
