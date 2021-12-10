@@ -3,7 +3,7 @@
  * 
  */
 
- export let CARGROUPS = [
+export let CARGROUPS = [
     ["A – Small", "3-4", "2",100],
     ["B – Medium", "4", "2,25",120],
     ["C – Large", "4-5", "3,25",130],

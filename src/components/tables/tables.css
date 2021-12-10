@@ -1,0 +1,15 @@
+table {
+    border-collapse: collapse;
+    border: 1px solid #20334B;
+}
+th {
+    border: 1px solid #20334B;
+    background: #9FBADB;
+    padding: 4px 8px;
+}
+
+td {
+    border: 1px solid #20334B;
+    padding: 4px 8px;
+    text-align: end;
+}

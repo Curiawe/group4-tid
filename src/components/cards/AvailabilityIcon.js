@@ -9,6 +9,9 @@ const colorMap = {
     Rented: COLORS.Blue300,
     Transfer: COLORS.Purple300,
     Service: COLORS.Yellow400,
+    // this part is used for transfer status
+    Pending: COLORS.Red300,
+    Released: COLORS.Green200,
     // this part is used for car colors
     RED: "red",
     BLK: "black",

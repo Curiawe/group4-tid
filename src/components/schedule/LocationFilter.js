@@ -2,16 +2,7 @@ import './schedule.css'
 
 import { LOCATIONS } from '../../data/locations'
 
-const locations = [
-    LOCATIONS.AHA,
-    LOCATIONS.AHC,
-    LOCATIONS.AHN,
-    LOCATIONS.AHS,
-    LOCATIONS.CPA,
-    LOCATIONS.CPC,
-    LOCATIONS.FYN,
-    LOCATIONS.FYS,
-]
+const locations = LOCATIONS
 
 function LocationFilter () {
     return (
@@ -22,14 +13,14 @@ function LocationFilter () {
     <div className="dropDown">
         <select>
             <option value="Select Car Location">Select Car Location</option>
-            <option value={locations[0][0]}>{locations[0][0]}</option>
-            <option value={locations[1][0]}>{locations[1][0]}</option>
-            <option value={locations[2][0]}>{locations[2][0]}</option>
-            <option value={locations[3][0]}>{locations[3][0]}</option>
-            <option value={locations[4][0]}>{locations[4][0]}</option>
-            <option value={locations[5][0]}>{locations[5][0]}</option>
-            <option value={locations[6][0]}>{locations[6][0]}</option>
-            <option value={locations[7][0]}>{locations[7][0]}</option>
+            <option value={locations[0].Location}>{locations[0].Location}</option>
+            <option value={locations[1].Location}>{locations[1].Location}</option>
+            <option value={locations[2].Location}>{locations[2].Location}</option>
+            <option value={locations[3].Location}>{locations[3].Location}</option>
+            <option value={locations[4].Location}>{locations[4].Location}</option>
+            <option value={locations[5].Location}>{locations[5].Location}</option>
+            <option value={locations[6].Location}>{locations[6].Location}</option>
+            <option value={locations[7].Location}>{locations[7].Location}</option>
         </select>
         </div>
     </div>

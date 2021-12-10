@@ -10,7 +10,7 @@ const BtnColors = {
     DarkRedBtn: COLORS.Red400,
     PurpleBtn: COLORS.Purple400,
     GrayBtn: COLORS.Gray200,
-    LightBtn: COLORS.Light100,
+    LightBtn: COLORS.Gray100,
 }
 
 function colorPicker(props) {
@@ -53,6 +53,7 @@ function ButtonStyled(props) {
         )
     }
 
+
     function ButtonPopupError(props) {
         let backColor = ""
         let fontColor = ""
@@ -87,7 +88,6 @@ function ButtonStyled(props) {
             <h5>Whoops</h5>
             <p>This functionality has not been implemented yet.</p>
         </PopupOneButton>
-        
 
     </>
         )
@@ -123,5 +123,36 @@ function ButtonStyled(props) {
     </>
         )
     }
+    
+    export function ButtonOnChange(props) {
+    let backColor = ""
+    let fontColor = ""
+    let borderColor = ""
 
-export { ButtonStyled, ButtonPopupError, ButtonNoLink }
+    switch (props.primary) {
+        case "false":
+            backColor = "white";
+            fontColor = colorPicker(props.color)
+            borderColor = colorPicker(props.color)
+            break;
+
+        default:
+            backColor = colorPicker(props.color);
+            fontColor = "white";
+            borderColor = colorPicker(props.color);
+            break;
+    }
+
+    return (
+    <>
+        <button style={{backgroundColor: backColor, color: fontColor, borderColor: borderColor}} 
+        className={props.className} onClick={(e) => props.onClick(e.target)}> 
+        <TextColorBtn title={props.title} />
+        </button>        
+    </>
+        )
+    }
+    
+    
+
+export { ButtonStyled, ButtonPopupError, ButtonNoLink, ButtonOnChange }

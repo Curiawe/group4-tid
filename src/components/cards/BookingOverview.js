@@ -4,33 +4,43 @@ import '../booking.css';
 import {InputField} from '../inputField';
 import {ButtonStyled} from '../buttons/ColorButton';
 import Pages from '../../pages/Pages';
+import BOOKINGS from '../../data/bookings';
+
 
 function BookingOverviewCont () {
+
+    const cards = []
+
+    BOOKINGS.map((bkng) => {
+        cards.push(<div key={bkng.Ref} className="cardMargin">
+        <BookingCard booking={bkng.Ref}/>
+        </div>)
+    })
+
     return (
-    <>
+    <div style={{marginLeft:"32px"}} >
+        <div className="header">
+                <div className="title">
+                    <h1>Booking Overview</h1>
+                </div>
+        </div>
         <div className="searchBarMargin">
-            <div className="searchBox">
                 <InputField className="inputField" placeHolder="Search for Booking"/>
-            </div>
-                <ButtonStyled link = {Pages.BookingOverview} color="LightBlueBtn" primary="true" className="buttonLarge" title="Search"/>
+                <ButtonStyled link = {Pages.BookingOverview} color="DarkBlueBtn" primary="true" className="buttonLarge" title="Search"/>
         </div>
         <div className="bookingCardMargin">
-            <div className="cardMargin">
-                <BookingCard booking="814"/>
-            </div>
-            <div className="cardMargin">
-                <BookingCard booking="815"/>
-            </div>
+            {cards}
         </div>
         <div className="bookingOvBtn1">
             <ButtonStyled link = {Pages.Pickup} color="PurpleBtn" primary="true" className="buttonLarge" title="Pick-up"/>
-            <ButtonStyled link = {Pages.BookingLandingPage} color="LightBlueBtn" primary="true" className="buttonLarge" title="Return"/>
+            <ButtonStyled link = {Pages.BookingLandingPage} color="DarkBlueBtn" primary="true" className="buttonLarge" title="Return"/>
         </div>
         <div className="bookingOvBtn2">
-            <ButtonStyled link = {Pages.Schedule} color="LightBlueBtn" primary="true" className="buttonLarge" title="Schedule"/>
-        </div>
-    </>
+            <ButtonStyled link = {Pages.Schedule} color="DarkBlueBtn" primary="true" className="buttonLarge" title="Schedule"/>
+        </div>      
+    </div>
     )
 }
+
 
 export default BookingOverviewCont
