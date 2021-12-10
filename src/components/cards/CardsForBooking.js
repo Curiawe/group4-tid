@@ -14,13 +14,15 @@ function BookingCard(props) {
         if (bkng.Ref === props.booking) {
             booking = bkng
         }
+        return null
     })
 
-    let pickupTime = new Date(booking.Pickup.time).toLocaleTimeString("en-US").replace("00:00", "00")
+    let theDate = new Date (booking.Pickup.time)
+    let pickupTime = new Date(theDate).toLocaleTimeString("da-DA").replace("00:00", "00")
     const pickupDate = new Date(booking.Pickup.time).toLocaleDateString("da-DA")
     pickupTime = pickupDate + ", " + pickupTime
 
-    let returnTime = new Date(booking.Return.time).toLocaleTimeString("en-US").replace("00:00", "00")
+    let returnTime = new Date(booking.Return.time).toLocaleTimeString("da-DA").replace("00:00", "00")
     const returnDate = new Date(booking.Return.time).toLocaleDateString("da-DA")
     returnTime = returnDate + ", " + returnTime
 

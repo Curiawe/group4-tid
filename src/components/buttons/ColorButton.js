@@ -111,9 +111,7 @@ function ButtonStyled(props) {
             borderColor = colorPicker(props.color);
             break;
     }
-
-    const [buttonPopup, setButtonPopup] = useState(false);
-
+    
     return (
     <>
         <button style={{backgroundColor: backColor, color: fontColor, borderColor: borderColor}} 

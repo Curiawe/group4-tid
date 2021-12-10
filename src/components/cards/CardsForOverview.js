@@ -3,7 +3,6 @@ import {ButtonStyled} from '../buttons/ColorButton';
 import { IconBody } from './IconBody';
 import Pages from '../../pages/Pages';
 import { CARS } from '../../data/cars';
-import { CARGROUPS } from '../../data/carGroups';
 import ColorIcon from './AvailabilityIcon';
 import { Icon } from '@iconify/react';
 
@@ -16,6 +15,7 @@ function LargeCardBody(props) {
         if (selCar.License === props.car) {
             car = selCar
         }
+        return null
     })
 
     let usedCarGroup = car.carGroup
