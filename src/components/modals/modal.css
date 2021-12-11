@@ -1,0 +1,62 @@
+.overlay {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.7);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlayContent {
+  border: 1px solid #c4c4c4;
+  border-radius: 10px;
+  width: 512px;
+  height: fit-content;
+  background-color: white;
+}
+
+.overlayTitle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlayBody {
+  padding: 10px;
+  background-color: khaki;
+}
+
+.overlayFooter {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 10px;
+}
+
+.overlayContentRow {
+  display: flex;
+  justify-content: space-between;
+  min-height: 64px;
+}
+
+.rowTitle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 40%;
+  background-color: lavender;
+}
+
+.rowBody {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: lemonchiffon;
+
+  width: 60%;
+}
