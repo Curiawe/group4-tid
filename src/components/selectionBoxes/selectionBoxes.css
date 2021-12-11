@@ -1,0 +1,9 @@
+.checkBox {
+  display: flex;
+  flex-direction: row;
+}
+
+.checkBox input,
+.radioButton input {
+  margin-right: 5px;
+}
