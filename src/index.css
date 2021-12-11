@@ -119,6 +119,7 @@ h3 {
   font-family: "IBM Plex Mono", "Courier New", "Courier", "monospace";
   color: #20334b;
   word-break: break-word;
+  margin: 10px;
 }
 
 h1 {
@@ -184,12 +185,4 @@ a {
 a:visited {
   color: inherit;
   text-decoration: none;
-}
-
-/* ------------- Margin on all sites ------------- */
-.transfer,
-.return,
-.pickup,
-.booking {
-  margin: 10px;
 }
