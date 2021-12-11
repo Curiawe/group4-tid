@@ -69,90 +69,6 @@ h5 {
   flex-direction: row;
 }
 
-.inputField,
-.comments {
-  position: relative;
-  margin-right: 10px;
-}
-
-.inputField input {
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 20px;
-  width: 256px;
-  height: 48px;
-  left: 460px;
-  top: 275px;
-  background-color: white;
-  border: 1px solid #d1dae0;
-  box-sizing: border-box;
-  box-shadow: none;
-  border-radius: 8px;
-  font-size: 16px;
-  outline: none;
-}
-
-.inputField label,
-.comments label {
-  position: absolute;
-  top: 10px;
-  color: gray;
-  transition: 0.2s;
-  pointer-events: none;
-  padding: 5px;
-  font-size: 16px;
-  font-weight: lighter;
-}
-
-.inputField input[type="date"] ~ label,
-.inputField input[type="time"] ~ label {
-  top: -20px;
-  font-size: 12px;
-}
-
-.inputField input:focus ~ label,
-.inputField input:not(:focus):valid ~ label,
-.comments textarea:focus ~ label,
-.comments textarea:not(:focus):valid ~ label {
-  top: -20px;
-  font-size: 12px;
-}
-
-.radiobButton {
-  size: 2px;
-}
-
-.radioButton input {
-  margin: 10px;
-}
-
-/* CAR GROUP */
-/* firstly, we take away the custom select appearance, and then we add the custom */
-.dropDown select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  border: 0px;
-  background-color: white;
-  font: inherit;
-  border-radius: 0;
-
-  display: left;
-  min-width: 256px;
-  height: 48px;
-  left: 460px;
-  top: 275px;
-  background: white;
-  border: 1px solid #d1dae0;
-  box-sizing: border-box;
-  border-radius: 8px;
-  font-size: 16px;
-}
-
-.carGroupDropDown select::-ms-expand {
-  display: none;
-}
-
 /* Extra Services */
 .extraServicesSelect,
 .payment {
@@ -178,16 +94,11 @@ h5 {
   background-color: red;
 }
 
-.selectBox,
 .infoType {
   display: flex;
   flex-direction: row;
   align-items: center;
   margin-right: 100px;
-}
-
-.selectBox input {
-  margin-right: 10px;
 }
 
 .searchBox input {
