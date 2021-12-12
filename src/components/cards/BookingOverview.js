@@ -5,15 +5,18 @@ import {InputField} from '../inputField';
 import {ButtonStyled} from '../buttons/ColorButton';
 import Pages from '../../pages/Pages';
 import BOOKINGS from '../../data/bookings';
+import useLocalStorage from "../localStorage-actions/localStorage-add";
+
 
 
 function BookingOverviewCont () {
-
+    const [currentBooking, setCurrentBooking] = useLocalStorage("bookingRef", "")
+    let bookingReference =""
     const cards = []
 
     BOOKINGS.map((bkng) => {
         cards.push(<div key={bkng.Ref} className="cardMargin">
-        <BookingCard booking={bkng.Ref}/>
+        <BookingCard booking={bkng.Ref} onClick={(newRef) => setCurrentBooking(newRef)}/>
         </div>)
         return null
     })
@@ -29,7 +32,7 @@ function BookingOverviewCont () {
                 <InputField className="inputField" placeHolder="Search for Booking"/>
                 <ButtonStyled link = {Pages.BookingOverview} color="DarkBlueBtn" primary="true" className="buttonLarge" title="Search"/>
         </div>
-        <div className="bookingCardMargin">
+        <div className="bookingCardMargin" >
             {cards}
         </div>
         <div className="bookingOvBtn1">
