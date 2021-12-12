@@ -2,12 +2,18 @@ import "./cards.css";
 import { IconBody } from "./IconBody";
 import "../booking.css";
 import { BOOKINGS } from "../../data/bookings";
+import useLocalStorage from "../localStorage-actions/localStorage-add";
 
 /* Schema:
 000: {Name:"Per Son", Ref, Phone, PickupPlace, PickupTime, ReturnPlace, ReturnTime, CarGroup, ExtraService}
  */
 
+// https://www.geeksforgeeks.org/how-to-delete-specific-cache-data-in-reactjs/ 
+// https://www.geeksforgeeks.org/how-to-store-single-cache-data-in-reactjs/
+
 function BookingCard(props) {
+
+  const [currentBooking, setCurrentBooking] = useLocalStorage("bookingRef", "")
   let booking = BOOKINGS[0];
 
   BOOKINGS.map((bkng) => {
@@ -56,8 +62,10 @@ function BookingCard(props) {
     );
   }
 
+  let bookingReference = booking.Ref
+
   return (
-    <div className="card">
+    <div className="card" onClick={() => setCurrentBooking({bookingReference})}>
       <div className="cardBodyBooking">
         <div className="h4Booking"> BOOKING {booking.Ref} </div>
         <div className="p1Booking"> {booking.Customer.name}</div>
