@@ -1,6 +1,11 @@
 .checkBox {
   display: flex;
   flex-direction: row;
+  padding: 5px;
+}
+
+.radioButton {
+  padding: 5px;
 }
 
 .checkBox input,
