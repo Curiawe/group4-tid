@@ -2,12 +2,12 @@
 .inputFieldSmall,
 .inputText {
   position: relative;
-  margin: 5px;
+  margin-top: 5px;
 }
 .inputField input {
   display: flex;
   flex-wrap: wrap;
-  width: 256px;
+  min-width: 256px;
   height: 48px;
   left: 460px;
   top: 275px;
@@ -118,6 +118,6 @@ select {
   outline: none;
   font: inherit;
   cursor: pointer;
-  margin: 5px;
-  padding-left: 5px;
+  margin-top: 5px;
+  padding: 5px;
 }
