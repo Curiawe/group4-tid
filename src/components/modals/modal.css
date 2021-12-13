@@ -25,7 +25,7 @@
 .overlayFooter {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   padding: 10px;
 }
 
@@ -40,7 +40,8 @@
 
 .overlayContentRow {
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
+  justify-content: space-around;
   min-height: 64px;
 }
 
@@ -53,8 +54,7 @@
 
 .rowBody {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   width: 60%;
 }
@@ -105,4 +105,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+}
+
+/* Styling for customer info */
+.customerInfoContent {
+  border: 1px solid #c4c4c4;
+  border-radius: 10px;
+  width: 384px;
+  height: fit-content;
+  background-color: white;
 }
