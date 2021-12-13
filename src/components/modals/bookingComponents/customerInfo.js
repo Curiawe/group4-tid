@@ -9,37 +9,37 @@ function BookingCustomerInfo(props) {
         className="inputField"
         type="text"
         onChange={(e) => props.onChangeName(e.target.value)}
-        placeHolder="Driver's Name"
+        placeHolder="Name"
       />
       <InputField
         className="inputField"
         type="address"
         onChange={(e) => props.onChangeAddress(e.target.value)}
-        placeHolder="Driver's Address"
+        placeHolder="Address"
       />
       <InputField
         className="inputField"
         type="tel"
         onChange={(e) => props.onChangePhone(e.target.value)}
-        placeHolder="Driver's Phone Number"
+        placeHolder="Phone Number"
       />
       <InputField
         className="inputField"
         type="email"
         onChange={(e) => props.onChangeEmail(e.target.value)}
-        placeHolder="Driver's Email Address"
+        placeHolder="Email Address"
       />
       <InputField
         className="inputField"
         type="date"
         onChange={(e) => props.onChangeBirthday(e.target.value)}
-        placeHolder="Driver's Date of Birth"
+        placeHolder="Date of Birth"
       />
       <InputField
         className="inputField"
         type="text"
         onChange={(e) => props.onChangeLicenseID(e.target.value)}
-        placeHolder="Driver's License ID"
+        placeHolder="License ID"
       />
       <InputField
         className="inputField"
