@@ -56,7 +56,6 @@ function BookingOverviewCont() {
         <BookingModal
           showBookingModal={showBookingModal}
           onClose={() => setShowBookingModal(false)}
-          onConfirm={() => setShowBookingModal(false)}
         ></BookingModal>
       </div>
 

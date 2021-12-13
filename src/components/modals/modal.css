@@ -1,3 +1,4 @@
+/* For all modals */
 .overlay {
   position: fixed;
   left: 0;
@@ -11,14 +12,6 @@
   justify-content: center;
 }
 
-.overlayContent {
-  border: 1px solid #c4c4c4;
-  border-radius: 10px;
-  width: 512px;
-  height: fit-content;
-  background-color: white;
-}
-
 .overlayTitle {
   display: flex;
   flex-direction: column;
@@ -28,7 +21,6 @@
 
 .overlayBody {
   padding: 10px;
-  background-color: khaki;
 }
 
 .overlayFooter {
@@ -39,6 +31,14 @@
 }
 
 /* Styling for pickup, return, transfer */
+.overlayContent {
+  border: 1px solid #c4c4c4;
+  border-radius: 10px;
+  width: 512px;
+  height: fit-content;
+  background-color: white;
+}
+
 .overlayContentRow {
   display: flex;
   justify-content: space-between;
@@ -50,14 +50,13 @@
   flex-direction: column;
   justify-content: center;
   width: 40%;
-  background-color: lavender;
 }
 
 .rowBody {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  background-color: lemonchiffon;
+
   width: 60%;
 }
 
@@ -82,16 +81,14 @@
   flex-direction: column;
   flex-basis: 100%;
   flex: 1;
-  height: 100%;
+  height: inherit;
 }
 
 .blue-column {
-  background-color: blue;
   height: 100%;
 }
 
 .green-column {
-  background-color: green;
   height: 100%;
 }
 
@@ -100,7 +97,7 @@
   justify-content: flex-start;
   height: 30px;
   width: 100%;
-  background-color: ivory;
+
   padding-top: 10px;
 }
 
@@ -108,6 +105,5 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
-  background-color: lightcyan;
+  justify-content: space-between;
 }
