@@ -28,7 +28,7 @@
 .inputFieldSmall input {
   display: flex;
   flex-wrap: wrap;
-  width: 64px;
+  width: 80px;
   height: 48px;
   left: 460px;
   top: 275px;
