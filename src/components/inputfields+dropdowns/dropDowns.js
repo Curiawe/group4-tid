@@ -62,7 +62,7 @@ const SelectLocation = (props) => {
     <div className="dropDown">
       <select defaultValue={"Select Location"} onChange={props.onChange}>
         <option value="Select Location" disabled>
-          Select Location
+          {props.dropdownTitle}
         </option>
         <option value={locations[0].Location}>{locations[0].Location}</option>
         <option value={locations[1].Location}>{locations[1].Location}</option>
