@@ -19,17 +19,12 @@ import {
 import Pages from "../pages/Pages";
 import { LOCATIONS } from "../data/locations";
 import { CARGROUPS } from "../data/carGroups";
-
-function newRef() {
-  let length = BOOKINGS.length;
-  let int = parseInt(BOOKINGS[length - 1].Ref) + 1;
-  return int;
-}
+import getLocalStorage from "./localStorage-actions/localStorage-get";
 
 /* This is the page header */
 function BookingHeader() {
 
-  let ref = newRef();
+  const ref = getLocalStorage("bookingRef");
   return (
     <div className="header">
       <div className="title">
@@ -308,6 +303,12 @@ function Booking() {
   const [licenseExpirationDate, setExpirationDate] = useState(new Date());
   const [paymentMethod, setPaymentMethod] = useState("");
 
+  function newRef() {
+    let length = BOOKINGS.length;
+    let int = parseInt(BOOKINGS[length - 1].Ref) + 1;
+    return int;
+  }
+
   function addBooking() {
     let ref = newRef();
     BOOKINGS.push({
@@ -533,4 +534,4 @@ function Booking() {
   );
 }
 
-export default Booking;
+export default ExistingBooking;
