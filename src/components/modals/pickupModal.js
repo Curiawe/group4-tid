@@ -1,10 +1,12 @@
 import React from "react";
-import { ButtonOnChange } from "../buttons/ColorButton";
-import { InputField, TextArea } from "../inputfields+dropdowns/inputFields";
-import { SelectCarGroup } from "../inputfields+dropdowns/dropDowns";
-import OverlayContent from "./modalContent";
-import FeatherIcon from "feather-icons-react";
 import "./modal.css";
+import { ButtonOnChange } from "../buttons/ColorButton";
+import { BillCarAs } from "./pickupComponents/billCarAs";
+import { SelectedCar } from "./pickupComponents/car";
+import { CustomerInfo } from "./pickupComponents/customerInfo";
+import { StartingMileage } from "./pickupComponents/mileage";
+import { StartingFuel } from "./pickupComponents/fuelLevel";
+import { PickupComments } from "./pickupComponents/comments";
 
 const PickupModal = (props) => {
   if (!props.showPickupModal) {
@@ -19,22 +21,12 @@ const PickupModal = (props) => {
           <p>bookingID</p>
         </div>
         <div className="overlayBody">
-          <OverlayContent title="Customer Info">CONTENT</OverlayContent>
-          <OverlayContent title="Car">
-            <FeatherIcon icon="edit" className="icon" />
-          </OverlayContent>
-          <OverlayContent title="Bill Car As">
-            <SelectCarGroup />
-          </OverlayContent>
-          <OverlayContent title="Starting Mileage">
-            <InputField type="number" placeHolder="Starting Mileage in km" />
-          </OverlayContent>
-          <OverlayContent title="Starting Fuel">
-            <InputField type="number" placeHolder="Starting Fuel Level in %" />
-          </OverlayContent>
-          <OverlayContent title="Comments">
-            <TextArea placeHolder="Comments about the car's state" />
-          </OverlayContent>
+          <CustomerInfo />
+          <SelectedCar />
+          <BillCarAs />
+          <StartingMileage />
+          <StartingFuel />
+          <PickupComments />
         </div>
         <div className="overlayFooter">
           <ButtonOnChange
