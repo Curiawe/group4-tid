@@ -44,22 +44,7 @@ function BookingOverviewCont() {
             title="Search"
           />
         </div>
-        <div className="addBookingBtn">
-          <ButtonOnChange
-            color="DarkBlueBtn"
-            primary="true"
-            className="buttonLarge"
-            title="Add Booking"
-            onClick={() => setShowBookingModal(true)}
-          />
-        </div>
-        <BookingModal
-          showBookingModal={showBookingModal}
-          onClose={() => setShowBookingModal(false)}
-        ></BookingModal>
-      </div>
 
-      <div className="bookingOvButtons">
         <div className="bookingOvBtn1">
           <ButtonOnChange
             color="PurpleBtn"
@@ -74,7 +59,7 @@ function BookingOverviewCont() {
             onConfirm={() => setShowPickupModal(false)}
           ></PickupModal>
           <ButtonOnChange
-            color="DarkBlueBtn"
+            color="LightBlueBtn"
             primary="true"
             className="buttonMedium"
             title="Return"
@@ -88,15 +73,17 @@ function BookingOverviewCont() {
           <div className="clickableIcon">
             <FeatherIcon icon="edit" className="icon" />
           </div>
-        </div>
-        <div className="bookingOvBtn2">
-          <ButtonStyled
-            link={Pages.Schedule}
+          <ButtonOnChange
             color="DarkBlueBtn"
             primary="true"
             className="buttonMedium"
-            title="Schedule"
+            title="Add Booking"
+            onClick={() => setShowBookingModal(true)}
           />
+          <BookingModal
+            showBookingModal={showBookingModal}
+            onClose={() => setShowBookingModal(false)}
+          ></BookingModal>
         </div>
       </div>
       <div className="bookingCardMargin">{cards}</div>
