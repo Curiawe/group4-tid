@@ -1,8 +1,8 @@
 import React from "react";
 import "./modal.css";
 
-/* The content rows for the modal */
-const OverlayContent = (props) => {
+/* The content rows for the pickup, return and transfer modal */
+const Overlay = (props) => {
   return (
     <div className="overlayContentRow">
       <div className="rowTitle">
@@ -13,4 +13,4 @@ const OverlayContent = (props) => {
   );
 };
 
-export default OverlayContent;
+export { Overlay };
