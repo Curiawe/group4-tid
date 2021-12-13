@@ -38,6 +38,7 @@
   padding: 10px;
 }
 
+/* Styling for pickup, return, transfer */
 .overlayContentRow {
   display: flex;
   justify-content: space-between;
@@ -57,6 +58,56 @@
   flex-direction: row;
   justify-content: center;
   background-color: lemonchiffon;
-
   width: 60%;
+}
+
+/* Styling for booking */
+.bookingContent {
+  border: 1px solid #c4c4c4;
+  border-radius: 10px;
+  width: 640px;
+  height: fit-content;
+  background-color: white;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+  height: 100%;
+}
+
+.blue-column {
+  background-color: blue;
+  height: 100%;
+}
+
+.green-column {
+  background-color: green;
+  height: 100%;
+}
+
+.bookingTitles {
+  display: flex;
+  justify-content: flex-start;
+  height: 30px;
+  width: 100%;
+  background-color: ivory;
+  padding-top: 10px;
+}
+
+.bookingBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: lightcyan;
 }
