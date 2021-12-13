@@ -27,7 +27,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  height: 65px;
+  height: fit-content;
   margin-bottom: 32px;
 }
 
@@ -40,18 +40,15 @@
 .bookingOvButtons {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-
-  margin-bottom: 30px;
+  justify-content: center;
 }
 
 .bookingOvBtn1 {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-
-  height: 65px;
-  width: 350px;
+  height: fit-content;
+  width: 512px;
 }
 
 .clickableIcon {
@@ -61,7 +58,6 @@
 .bookingOvBtn2 {
   display: flex;
   align-items: center;
-
   height: 65px;
 }
 
