@@ -1,4 +1,3 @@
-import "../modal.css";
 import { Overlay } from "../pickupReturnTransferSkeleton";
 import { InputField } from "../../inputfields+dropdowns/inputFields";
 

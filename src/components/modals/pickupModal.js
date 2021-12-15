@@ -1,12 +1,12 @@
 import React from "react";
 import "./modal.css";
 import { ButtonOnChange } from "../buttons/ColorButton";
-import { BillCarAs } from "./pickupComponents/billCarAs";
-import { SelectedCar } from "./pickupComponents/car";
-import { CustomerInfo } from "./pickupComponents/customerInfo";
-import { StartingMileage } from "./pickupComponents/mileage";
-import { StartingFuel } from "./pickupComponents/fuelLevel";
-import { PickupComments } from "./pickupComponents/comments";
+import { BillCarAs } from "./pickupReturnTransferComponents/billCarAs";
+import { SelectedCar } from "./pickupReturnTransferComponents/car";
+import { CustomerInfo } from "./pickupReturnTransferComponents/customerInfo";
+import { StartingMileage } from "./pickupReturnTransferComponents/mileage";
+import { StartingFuel } from "./pickupReturnTransferComponents/fuelLevel";
+import { Comments } from "./pickupReturnTransferComponents/comments";
 
 const PickupModal = (props) => {
   if (!props.showPickupModal) {
@@ -26,7 +26,7 @@ const PickupModal = (props) => {
           <BillCarAs />
           <StartingMileage />
           <StartingFuel />
-          <PickupComments />
+          <Comments />
         </div>
         <div className="overlayFooter">
           <ButtonOnChange

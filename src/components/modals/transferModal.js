@@ -1,12 +1,12 @@
 import { React, useState } from "react";
 import "./modal.css";
 import { ButtonOnChange } from "../buttons/ColorButton";
-import { TransferType } from "./transferComponents/transferType";
-import { TransferCarGroup } from "./transferComponents/carGroup";
-import { TransferLocation } from "./transferComponents/transferLocation";
-import { TransferLocation } from "./transferComponents/transferLocation";
-import { TransferDate } from "./transferComponents/transferDate";
-import { TransferComments } from "./transferComponents/transferComments";
+import { TransferCarGroup } from "./pickupReturnTransferComponents/carGroup";
+import { TransferLocation } from "./pickupReturnTransferComponents/transferLocation";
+import { TransferLocation } from "./pickupReturnTransferComponents/transferLocation";
+import { TransferDate } from "./pickupReturnTransferComponents/transferDate";
+import { TransferComments } from "./pickupReturnTransferComponents/transferComments";
+import { TransferType } from "./pickupReturnTransferComponents/transferType";
 
 const TransferModal = (props) => {
   if (!props.showTransferModal) {

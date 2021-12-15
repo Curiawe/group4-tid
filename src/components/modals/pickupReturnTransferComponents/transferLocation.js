@@ -1,4 +1,3 @@
-import "../modal.css";
 import { SelectLocation } from "../../inputfields+dropdowns/dropDowns";
 import { Overlay } from "../pickupReturnTransferSkeleton";
 

@@ -1,4 +1,4 @@
-import { Overlay } from "../pickupReturnTransferSkeleton";
+import { Overlay } from "./pickupReturnTransferSkeleton";
 import FeatherIcon from "feather-icons-react";
 
 function SelectedCar(props) {

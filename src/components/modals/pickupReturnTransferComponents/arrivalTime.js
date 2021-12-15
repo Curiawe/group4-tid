@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Overlay } from "../pickupReturnTransferSkeleton";
+import { Overlay } from "./pickupReturnTransferSkeleton";
 import { TwoRadioButtons } from "../../selectionBoxes/selectionBoxes";
 
 function ReturnTime(props) {

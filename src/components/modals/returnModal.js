@@ -1,12 +1,12 @@
 import { React, useState } from "react";
 import "./modal.css";
 import { ButtonOnChange } from "../buttons/ColorButton";
-import { ReturnFuel } from "./returnComponents/fuelLevel";
-import { ReturnComments } from "./returnComponents/comments";
-import { ReturnTime } from "./returnComponents/arrivalTime";
-import { ReturnMileage } from "./returnComponents/mileage";
-import { ReturnCarState } from "./returnComponents/carState";
-import { ReturnCustomerInfo } from "./returnComponents/customerInfo";
+import { ReturnFuel } from "./pickupReturnTransferComponents/fuelLevel";
+import { Comments } from "./pickupReturnTransferComponents/comments";
+import { ReturnTime } from "./pickupReturnTransferComponents/arrivalTime";
+import { ReturnMileage } from "./pickupReturnTransferComponents/mileage";
+import { ReturnCarState } from "./pickupReturnTransferComponents/carState";
+import { CustomerInfo } from "./pickupReturnTransferComponents/customerInfo";
 
 const ReturnModal = (props) => {
   if (!props.showReturnModal) {
@@ -21,12 +21,12 @@ const ReturnModal = (props) => {
           <p>bookingID</p>
         </div>
         <div className="overlayBody">
-          <ReturnCustomerInfo />
+          <CustomerInfo />
           <ReturnCarState />
           <ReturnTime />
           <ReturnMileage />
           <ReturnFuel />
-          <ReturnComments />
+          <Comments />
         </div>
         <div className="overlayFooter">
           <ButtonOnChange

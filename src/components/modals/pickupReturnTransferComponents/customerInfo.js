@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { Overlay } from "../pickupReturnTransferSkeleton";
+import { Overlay } from "./pickupReturnTransferSkeleton";
 import CustomerInfoModal from "../customerInfoModal";
 import FeatherIcon from "feather-icons-react";
 
-function ReturnCustomerInfo(props) {
+function CustomerInfo(props) {
   const [showCustomerInfoModal, setShowCustomerInfoModal] = useState(false);
   return (
     <Overlay title="Customer Info">
@@ -23,4 +23,4 @@ function ReturnCustomerInfo(props) {
   );
 }
 
-export { ReturnCustomerInfo };
+export { CustomerInfo };

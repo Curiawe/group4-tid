@@ -1,5 +1,5 @@
 import React from "react";
-import "./modal.css";
+import "../modal.css";
 
 /* The content rows for the pickup, return and transfer modal */
 const Overlay = (props) => {
