@@ -17,8 +17,7 @@ function BookingCard(props) {
     return null;
   });
 
-  let theDate = new Date(booking.Pickup.time);
-  let pickupTime = new Date(theDate)
+  let pickupTime = booking.Pickup.time
     .toLocaleTimeString("da-DA")
     .replace("00:00", "00");
   const pickupDate = new Date(booking.Pickup.time).toLocaleDateString("da-DA");

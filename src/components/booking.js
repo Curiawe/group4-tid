@@ -4,11 +4,13 @@ import "./booking.css";
 import { BOOKINGS } from "../data/bookings";
 import { InputField } from "./inputfields+dropdowns/inputFields";
 import { CheckBox } from "./selectionBoxes/selectionBoxes";
+
 import {
   SelectCarGroup,
   SelectPaymentMethod,
   SelectLocation,
 } from "./inputfields+dropdowns/dropDowns";
+
 import { useState } from "react";
 import "./popup.css";
 import {
@@ -44,6 +46,7 @@ function Pickup(props) {
           />
           <CheckBox
             className="checkBox"
+
             type="checkbox"
             checked={props.walkin}
             onChange={(e) => props.onChangeWalkin(e.target.checked)}
@@ -127,6 +130,7 @@ function ExtraServices(props) {
         <div className="extraDriverSelect">
           <CheckBox
             className="checkBox"
+
             type="checkbox"
             checked={props.extraDriver}
             onChange={(e) => props.onChangeExtraDriver(e.target.checked)}
@@ -293,7 +297,7 @@ function Booking() {
   const [licenseIssueDate, setIssueDate] = useState();
   const [licenseExpirationDate, setExpirationDate] = useState();
   const [paymentMethod, setPaymentMethod] = useState();
-
+  
   function newRef() {
     let length = BOOKINGS.length;
     let int = parseInt(BOOKINGS[length - 1].Ref) + 1;
