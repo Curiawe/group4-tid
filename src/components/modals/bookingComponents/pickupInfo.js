@@ -27,6 +27,8 @@ function BookingPickup(props) {
       <InputField
         className="inputField"
         type="time"
+        min="8"
+        max="10"
         onChange={(e) => props.onChangeTime(e.target.value)}
         placeHolder="Pickup Time"
       />

@@ -38,29 +38,20 @@
 }
 
 /* Adjusting buttons to smaller screens */
-/* iPhones */
-@media (max-width: 360px) {
-  .navButtons {
-    flex-direction: column;
-  }
-}
-
-@media (max-width: 360px) {
-  .navButton {
-    height: 32px;
-  }
-}
-
 /* Tablets */
-@media (max-width: 768px) {
+@media (max-width: 960px) {
+  .navButtons {
+    align-items: flex-start;
+  }
   .navButton {
     flex-direction: column;
+    width: 80%;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 960px) {
   .navButton {
-    height: 64px;
+    height: 80px;
     margin: 2px;
   }
 }
