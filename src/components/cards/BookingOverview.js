@@ -2,14 +2,11 @@ import { useState } from "react";
 import "./cards.css";
 import "../booking.css";
 import BookingCard from "./CardsForBooking";
-import { InputField } from "../inputfields+dropdowns/inputFields";
-import { ButtonStyled, ButtonOnChange } from "../buttons/ColorButton";
-import Pages from "../../pages/Pages";
+import { ButtonOnChange } from "../buttons/ColorButton";
 import BOOKINGS from "../../data/bookings";
 import PickupModal from "../modals/pickupModal";
 import ReturnModal from "../modals/returnModal";
 import BookingModal from "../modals/bookingModal";
-import FeatherIcon from "feather-icons-react";
 import SearchBar from "../inputfields+dropdowns/searchBar";
 
 function BookingOverviewCont() {
@@ -67,9 +64,13 @@ function BookingOverviewCont() {
             onClose={() => setShowReturnModal(false)}
             onConfirm={() => setShowReturnModal(false)}
           ></ReturnModal>
-          <div className="clickableIcon">
-            <FeatherIcon icon="edit" className="icon" />
-          </div>
+          <ButtonOnChange
+            color="DarkBlueBtn"
+            primary="false"
+            className="buttonMedium"
+            title="Edit"
+            onClick={""}
+          />
           <ButtonOnChange
             color="DarkBlueBtn"
             primary="true"

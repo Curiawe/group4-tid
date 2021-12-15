@@ -2,7 +2,7 @@ import "./buttons.css";
 import { COLORS } from "../../values/colors";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { PopupOneButton } from "../popup";
+import { PopupOneButton } from "../popups/popup";
 
 const BtnColors = {
   LightBlueBtn: COLORS.Blue200,

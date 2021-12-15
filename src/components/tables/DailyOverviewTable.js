@@ -106,7 +106,7 @@ export default function DailyOverviewTable() {
           className="inputField"
           type="date"
           onChange={(e) => setDate(e.target.value)}
-          placeholder={new Date(date)}
+          placeHolder="Date" /*{new Date(date)}"*/
         />
         <ButtonOnChange
           onClick={(e) => setDate(new Date())}
