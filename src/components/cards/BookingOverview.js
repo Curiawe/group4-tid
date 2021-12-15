@@ -11,7 +11,6 @@ import useLocalStorage from "../localStorage-actions/localStorage-add";
 
 function BookingOverviewCont () {
     const [currentBooking, setCurrentBooking] = useLocalStorage("bookingRef", "")
-    let bookingReference =""
     const cards = []
 
     BOOKINGS.map((bkng) => {
