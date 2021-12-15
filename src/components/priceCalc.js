@@ -1,13 +1,14 @@
 export default function calcPrice(booking) {
    // time
-    const hourlyPrice
-    if (!booking.BillAs){
+    let hourlyPrice = 0;
+
+    if (!booking.BillAs) {
         hourlyPrice = booking.carGroup[3];
     } else {
         hourlyPrice = booking.BillAs[3]
     }
-
-    let timePeriod = new Date(booking.Return.time) - new Date (booking.Pickup.time) // (divided by two)
+    
+    let timePeriod = 6 // (divided by two)
     // this needs fixing!
 
     // extra Services
