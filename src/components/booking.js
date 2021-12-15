@@ -2,13 +2,15 @@ import React from "react";
 import "./booking.css";
 
 import { BOOKINGS } from "../data/bookings";
-import { InputField } from "./inputField";
-import SelectBox from "./selectBoxes";
+import { InputField } from "./inputfields+dropdowns/inputFields";
+import { CheckBox } from "./selectionBoxes/selectionBoxes";
+
 import {
   SelectCarGroup,
   SelectPaymentMethod,
   SelectLocation,
-} from "./dropDowns";
+} from "./inputfields+dropdowns/dropDowns";
+
 import { useState } from "react";
 import "./popup.css";
 import {
@@ -17,8 +19,6 @@ import {
   ButtonPopupError,
 } from "./buttons/ColorButton";
 import Pages from "../pages/Pages";
-import { LOCATIONS } from "../data/locations";
-import { CARGROUPS } from "../data/carGroups";
 
 /* This is the page header */
 function BookingHeader() {
@@ -44,8 +44,9 @@ function Pickup(props) {
           <SelectLocation
             onChange={(e) => props.onChangeLocation(e.target.value)}
           />
-          <SelectBox
-            className="selectBox"
+          <CheckBox
+            className="checkBox"
+
             type="checkbox"
             checked={props.walkin}
             onChange={(e) => props.onChangeWalkin(e.target.checked)}
@@ -127,8 +128,9 @@ function ExtraServices(props) {
       <h5>Extra Services</h5>
       <div className="extraServicesSelect">
         <div className="extraDriverSelect">
-          <SelectBox
-            className="selectBox"
+          <CheckBox
+            className="checkBox"
+
             type="checkbox"
             checked={props.extraDriver}
             onChange={(e) => props.onChangeExtraDriver(e.target.checked)}
@@ -137,8 +139,8 @@ function ExtraServices(props) {
           <ButtonPopupError title="Add Extra Driver" className="buttonSmall" />
         </div>
         <div className="extraMileageSelect">
-          <SelectBox
-            className="selectBox"
+          <CheckBox
+            className="checkBox"
             type="checkbox"
             checked={props.extraMileage}
             onChange={(e) => props.onChangeExtraMileage(e.target.checked)}
@@ -276,30 +278,26 @@ function BookingButtons() {
 /* This is the final booking component */
 function Booking() {
   const [pickupDate, setPickupDate] = useState(new Date());
-  const [pickupTime, setPickupTime] = useState(
-    new Date().toLocaleTimeString("da-DA")
-  );
-  const [pickupLocation, setPickupLocation] = useState(LOCATIONS[0]);
+  const [pickupTime, setPickupTime] = useState("");
+  const [pickupLocation, setPickupLocation] = useState();
   const [walkin, setWalkin] = useState(false);
-  const [returnDate, setReturnDate] = useState(new Date());
-  const [returnTime, setReturnTime] = useState(
-    new Date().toLocaleTimeString("da-DA")
-  );
-  const [returnLocation, setReturnLocation] = useState(LOCATIONS[0]);
-  const [carGroup, setCarGroup] = useState(CARGROUPS[0]);
+  const [returnDate, setReturnDate] = useState();
+  const [returnTime, setReturnTime] = useState("");
+  const [returnLocation, setReturnLocation] = useState();
+  const [carGroup, setCarGroup] = useState();
   const [extraDriver, setExtraDriver] = useState(false);
   const [extraMileage, setExtraMileage] = useState(false);
   const [mileage, setMileage] = useState(0);
-  const [name, setName] = useState("");
-  const [address, setAddress] = useState("");
-  const [phone, setPhone] = useState("");
-  const [email, setEmail] = useState("");
-  const [birthday, setBirthday] = useState(new Date());
-  const [licenseID, setLicenseID] = useState("");
-  const [licenseIssueDate, setIssueDate] = useState(new Date());
-  const [licenseExpirationDate, setExpirationDate] = useState(new Date());
-  const [paymentMethod, setPaymentMethod] = useState("");
-
+  const [name, setName] = useState();
+  const [address, setAddress] = useState();
+  const [phone, setPhone] = useState();
+  const [email, setEmail] = useState();
+  const [birthday, setBirthday] = useState();
+  const [licenseID, setLicenseID] = useState();
+  const [licenseIssueDate, setIssueDate] = useState();
+  const [licenseExpirationDate, setExpirationDate] = useState();
+  const [paymentMethod, setPaymentMethod] = useState();
+  
   function newRef() {
     let length = BOOKINGS.length;
     let int = parseInt(BOOKINGS[length - 1].Ref) + 1;
@@ -318,20 +316,20 @@ function Booking() {
         address: address,
         phone: phone,
         email: email,
-        born: new Date(birthday),
+        born: birthday,
         license: {
           id: licenseID,
-          issued: new Date(licenseIssueDate),
-          expires: new Date(licenseExpirationDate),
+          issued: licenseIssueDate,
+          expires: licenseExpirationDate,
           valid: true,
         },
+        Car: null,
+        Pickup: { time: pickupDate, location: pickupLocation },
+        Return: { time: returnTime, location: returnLocation },
+        Services: { driver: extraDriver, mileage: mileage },
+        Returned: { time: null, mileage: 0 },
+        price: 1000,
       },
-      Car: null,
-      Pickup: { time: new Date(pickupDate), location: pickupLocation },
-      Return: { time: new Date(returnTime), location: returnLocation },
-      Services: { driver: extraDriver, mileage: mileage },
-      Returned: { time: null, mileage: 0 },
-      price: 1000,
     });
   }
 
@@ -422,7 +420,7 @@ function Booking() {
   }
 
   return (
-    <div className="booking">
+    <div className="booking" style={{ marginLeft: "32px" }}>
       <BookingHeader />
       <Pickup
         date={pickupDate}

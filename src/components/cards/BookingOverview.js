@@ -1,47 +1,91 @@
-import './cards.css';
-import BookingCard from './CardsForBooking';
-import '../booking.css';
-import {InputField} from '../inputField';
-import {ButtonStyled} from '../buttons/ColorButton';
-import Pages from '../../pages/Pages';
-import BOOKINGS from '../../data/bookings';
+import { useState } from "react";
+import "./cards.css";
+import "../booking.css";
+import BookingCard from "./CardsForBooking";
+import { InputField } from "../inputfields+dropdowns/inputFields";
+import { ButtonStyled, ButtonOnChange } from "../buttons/ColorButton";
+import Pages from "../../pages/Pages";
+import BOOKINGS from "../../data/bookings";
+import PickupModal from "../modals/pickupModal";
+import ReturnModal from "../modals/returnModal";
+import BookingModal from "../modals/bookingModal";
+import FeatherIcon from "feather-icons-react";
+import SearchBar from "../inputfields+dropdowns/searchBar";
 
+function BookingOverviewCont() {
+  const cards = [];
+  const [showBookingModal, setShowBookingModal] = useState(false);
+  const [showPickupModal, setShowPickupModal] = useState(false);
+  const [showReturnModal, setShowReturnModal] = useState(false);
 
-function BookingOverviewCont () {
+  BOOKINGS.map((bkng) => {
+    cards.push(
+      <div key={bkng.Ref} className="cardMargin">
+        <BookingCard booking={bkng.Ref} />
+      </div>
+    );
+    return null;
+  });
 
-    const cards = []
-
-    BOOKINGS.map((bkng) => {
-        cards.push(<div key={bkng.Ref} className="cardMargin">
-        <BookingCard booking={bkng.Ref}/>
-        </div>)
-        return null
-    })
-
-    return (
-    <div style={{marginLeft:"32px"}} >
-        <div className="header">
-                <div className="title">
-                    <h1>Booking Overview</h1>
-                </div>
+  return (
+    <div style={{ marginLeft: "32px" }}>
+      <div className="header">
+        <div className="title">
+          <h1>Booking Overview</h1>
         </div>
-        <div className="searchBarMargin">
-                <InputField className="inputField" placeHolder="Search for Booking"/>
-                <ButtonStyled link = {Pages.BookingOverview} color="DarkBlueBtn" primary="true" className="buttonLarge" title="Search"/>
+      </div>
+      <div className="searchBarMargin">
+        <div className="searchElements">
+          <SearchBar
+            placeholder="Search bookings"
+            onChange={(e) => console.log(e.target.value)}
+          />
         </div>
-        <div className="bookingCardMargin">
-            {cards}
-        </div>
+
         <div className="bookingOvBtn1">
-            <ButtonStyled link = {Pages.Pickup} color="PurpleBtn" primary="true" className="buttonLarge" title="Pick-up"/>
-            <ButtonStyled link = {Pages.BookingLandingPage} color="DarkBlueBtn" primary="true" className="buttonLarge" title="Return"/>
+          <ButtonOnChange
+            color="PurpleBtn"
+            primary="true"
+            className="buttonMedium"
+            title="Pickup"
+            onClick={() => setShowPickupModal(true)}
+          />
+          <PickupModal
+            showPickupModal={showPickupModal}
+            onClose={() => setShowPickupModal(false)}
+            onConfirm={() => setShowPickupModal(false)}
+          ></PickupModal>
+          <ButtonOnChange
+            color="LightBlueBtn"
+            primary="true"
+            className="buttonMedium"
+            title="Return"
+            onClick={() => setShowReturnModal(true)}
+          />
+          <ReturnModal
+            showReturnModal={showReturnModal}
+            onClose={() => setShowReturnModal(false)}
+            onConfirm={() => setShowReturnModal(false)}
+          ></ReturnModal>
+          <div className="clickableIcon">
+            <FeatherIcon icon="edit" className="icon" />
+          </div>
+          <ButtonOnChange
+            color="DarkBlueBtn"
+            primary="true"
+            className="buttonMedium"
+            title="Add Booking"
+            onClick={() => setShowBookingModal(true)}
+          />
+          <BookingModal
+            showBookingModal={showBookingModal}
+            onClose={() => setShowBookingModal(false)}
+          ></BookingModal>
         </div>
-        <div className="bookingOvBtn2">
-            <ButtonStyled link = {Pages.Schedule} color="DarkBlueBtn" primary="true" className="buttonLarge" title="Schedule"/>
-        </div>      
+      </div>
+      <div className="bookingCardMargin">{cards}</div>
     </div>
-    )
+  );
 }
 
-
-export default BookingOverviewCont
+export default BookingOverviewCont;

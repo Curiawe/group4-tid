@@ -18,30 +18,47 @@
 .bookingCardMargin {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
 }
 
 .searchBarMargin {
-  height: 65px;
-  width: 500px;
-  margin-bottom: 32px;
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
+  height: fit-content;
+  margin-bottom: 32px;
+}
+
+.searchElements {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.bookingOvButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .bookingOvBtn1 {
-  height: 65px;
-  width: 350px;
-  margin-top: 30px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  height: fit-content;
+  width: 512px;
+}
+
+.clickableIcon {
+  cursor: pointer;
 }
 
 .bookingOvBtn2 {
+  display: flex;
+  align-items: center;
   height: 65px;
-  width: 170px;
-  margin-top: -62px;
-  margin-left: 1200px;
 }
 
 /* large cards used for overview */
@@ -50,15 +67,30 @@
   width: 308px;
   height: 454px;
   border-radius: 10px;
-
+  transition: 0.2s;
   background: #ffffff;
   border: 1px solid #c4c4c4;
   box-sizing: border-box;
   border-radius: 10px;
 }
 
+.cardActive {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.01s;
+  border-radius: 5px; /* 5px rounded corners */
+  margin-left: 70px;
+  margin-right: 70px;
+  margin-bottom: 5%;
+  background: #0c72c5 !important;
+  color: white !important;
+  cursor: pointer;
+}
+
 .card:hover {
   background-color: #9fbadb;
+  cursor: pointer;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
+  transform: scale(1.02);
 }
 
 .cardBodyBooking {

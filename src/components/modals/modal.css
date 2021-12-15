@@ -1,0 +1,123 @@
+/* For all modals */
+.overlay {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(240, 244, 249, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlayTitle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlayBody {
+  padding: 10px;
+}
+
+.overlayFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+/* Styling for pickup, return, transfer */
+.overlayContent {
+  border: 1px solid #c4c4c4;
+  border-radius: 10px;
+  width: 512px;
+  max-width: 100%;
+  height: fit-content;
+  background-color: white;
+  box-shadow: 5px 10px 18px #9fbadb;
+}
+
+.overlayContentRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  min-height: 64px;
+}
+
+.rowTitle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 40%;
+}
+
+.rowBody {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 60%;
+}
+
+/* Styling for booking */
+.bookingContent {
+  border: 1px solid #c4c4c4;
+  border-radius: 10px;
+  width: 640px;
+  max-width: 100%;
+  height: fit-content;
+  background-color: white;
+  box-shadow: 5px 10px 18px #9fbadb;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+  height: inherit;
+}
+
+.blue-column {
+  height: 100%;
+}
+
+.green-column {
+  height: 100%;
+}
+
+.bookingTitles {
+  display: flex;
+  justify-content: flex-start;
+  height: 30px;
+  width: 100%;
+
+  padding-top: 10px;
+}
+
+.bookingBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Styling for customer info */
+.customerInfoContent {
+  border: 1px solid #c4c4c4;
+  border-radius: 10px;
+  width: 384px;
+  max-width: 100%;
+  height: fit-content;
+  background-color: white;
+  box-shadow: 5px 10px 18px #9fbadb;
+}

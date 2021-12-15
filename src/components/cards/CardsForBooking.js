@@ -17,18 +17,16 @@ function BookingCard(props) {
     return null;
   });
 
-  let item = new Date(booking.Pickup.time);
-  let pickupTime = new Date(item)
+  let pickupTime = booking.Pickup.time
     .toLocaleTimeString("da-DA")
-    .replace("00.00", "00");
-  const pickupDate = new Date(item).toLocaleDateString("da-DA");
+    .replace("00:00", "00");
+  const pickupDate = new Date(booking.Pickup.time).toLocaleDateString("da-DA");
   pickupTime = pickupDate + ", " + pickupTime;
 
-  let secitem = booking.Return.time;
-  let returnTime = new Date(secitem)
+  let returnTime = new Date(booking.Return.time)
     .toLocaleTimeString("da-DA")
-    .replace("00.00", "00");
-  const returnDate = new Date(secitem).toLocaleDateString("da-DA");
+    .replace("00:00", "00");
+  const returnDate = new Date(booking.Return.time).toLocaleDateString("da-DA");
   returnTime = returnDate + ", " + returnTime;
 
   let services;
@@ -36,7 +34,7 @@ function BookingCard(props) {
 
   if (booking.Services.driver) {
     services = "1 Extra Driver";
-  } else if (booking.Services.driver) {
+  } else if (booking.Services.mileage) {
     services = "Extra Mileage: " + booking.Services.mileage;
   }
 
