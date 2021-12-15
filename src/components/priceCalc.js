@@ -7,7 +7,14 @@ export default function calcPrice(booking) {
     } else {
         hourlyPrice = booking.BillAs[3]
     }
-    
+
+    let returnDate = new Date (booking.Return.time)
+    let pickupDate = new Date (booking.Pickup.time)
+
+    const diffTime = Math.abs(returnDate - pickupDate);
+    const diffHours = Math.ceil(diffTime / (1000 * 60 * 60)); 
+    console.log(diffHours)
+
     let timePeriod = 6 // (divided by two)
     // this needs fixing!
 
