@@ -10,6 +10,7 @@ import PickupModal from "../modals/pickupModal";
 import ReturnModal from "../modals/returnModal";
 import BookingModal from "../modals/bookingModal";
 import FeatherIcon from "feather-icons-react";
+import SearchBar from "../inputfields+dropdowns/searchBar";
 
 function BookingOverviewCont() {
   const cards = [];
@@ -35,13 +36,9 @@ function BookingOverviewCont() {
       </div>
       <div className="searchBarMargin">
         <div className="searchElements">
-          <InputField className="inputField" placeHolder="Search for Booking" />
-          <ButtonStyled
-            link={Pages.BookingOverview}
-            color="DarkBlueBtn"
-            primary="true"
-            className="buttonLarge"
-            title="Search"
+          <SearchBar
+            placeholder="Search bookings"
+            onChange={(e) => console.log(e.target.value)}
           />
         </div>
 

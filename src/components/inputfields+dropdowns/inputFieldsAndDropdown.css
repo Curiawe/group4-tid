@@ -121,3 +121,18 @@ select {
   margin-top: 5px;
   padding: 5px;
 }
+
+/* Styling for the searchbar */
+.searchBar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.searchBar input {
+  padding: 10px;
+}
+
+.searchBar input::placeholder {
+  font-style: italic;
+}

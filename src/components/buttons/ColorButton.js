@@ -182,4 +182,46 @@ function ButtonOnChange(props) {
   );
 }
 
-export { ButtonStyled, ButtonPopupError, ButtonNoLink, ButtonOnChange };
+function SubmitButton(props) {
+  let backColor = "";
+  let fontColor = "";
+  let borderColor = "";
+
+  switch (props.primary) {
+    case "false":
+      backColor = "white";
+      fontColor = colorPicker(props.color);
+      borderColor = colorPicker(props.color);
+      break;
+
+    default:
+      backColor = colorPicker(props.color);
+      fontColor = "white";
+      borderColor = colorPicker(props.color);
+      break;
+  }
+
+  return (
+    <>
+      <button
+        style={{
+          backgroundColor: backColor,
+          color: fontColor,
+          borderColor: borderColor,
+        }}
+        className={props.className}
+        type="submit"
+      >
+        <TextColorBtn title={props.title} />
+      </button>
+    </>
+  );
+}
+
+export {
+  ButtonStyled,
+  ButtonPopupError,
+  ButtonNoLink,
+  ButtonOnChange,
+  SubmitButton,
+};

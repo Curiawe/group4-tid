@@ -9,6 +9,8 @@ const InputField = (props) => {
         type={props.type}
         onChange={props.onChange}
         name={props.placeHolder}
+        min={props.min}
+        max={props.max}
         required
       />
       <label> {props.placeHolder} </label>
