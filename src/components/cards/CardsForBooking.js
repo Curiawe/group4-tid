@@ -2,7 +2,6 @@ import "./cards.css";
 import { IconBody } from "./IconBody";
 import "../booking.css";
 import { BOOKINGS } from "../../data/bookings";
-import calcPrice from "../priceCalc";
 
 /* Schema:
 000: {Name:"Per Son", Ref, Phone, PickupPlace, PickupTime, ReturnPlace, ReturnTime, CarGroup, ExtraService}
@@ -17,9 +16,6 @@ function BookingCard(props) {
     }
     return null;
   });
-
-  const Price = calcPrice(booking);
-  console.log("This is the new price:" + Price)
 
   let item = new Date(booking.Pickup.time);
   let pickupTime = new Date(item)
