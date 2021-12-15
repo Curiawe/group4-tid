@@ -12,6 +12,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+  background-color: black;
 }
 
 nav > a {
@@ -29,4 +30,107 @@ a:hover {
 
 .Navtab-Logo:active {
   background-color: #20334b;
+}
+
+/* NEWWWWWW */
+.sidebarContainer {
+  height: 100%;
+  width: 232px;
+  color: white;
+  background-color: #20334b;
+}
+
+.logo {
+  padding-top: 20px;
+  padding-left: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.sidebarList,
+.sidebarListActive {
+  height: auto;
+  width: 100%;
+  padding: 0;
+}
+
+.sidebarList .sidebarRow,
+.sidebarListActive .sidebarRow {
+  width: 100%;
+  height: 32px;
+  list-style-type: none;
+  margin: 0%;
+  display: flex;
+  flex-direction: row;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0 10px 0px;
+}
+
+.sidebarList .sidebarRow:hover,
+.sidebarListActive .sidebarRow:hover {
+  display: flex;
+  cursor: pointer;
+  color: #9fbadb;
+}
+
+.sidebarList #active,
+.sidebarListActive #active {
+  display: flex;
+  background-color: #f95959;
+  color: white;
+  font-weight: bold;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
+}
+
+.menuIcon {
+  display: none;
+}
+
+@media (max-width: 960px) {
+  .sidebarContainer {
+    width: 100%;
+    height: 70px;
+    z-index: 1;
+    position: relative;
+  }
+
+  .sidebarList .sidebarRow,
+  .sidebarList #active {
+    display: none;
+  }
+
+  .logo {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .sidebarListActive {
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style-type: none;
+    background-color: #20334b;
+    transition: all 0.5s ease;
+  }
+
+  .sidebarContainer .menuIcon {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-100%, 60%);
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: white;
+  }
 }

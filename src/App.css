@@ -1,6 +1,7 @@
 .App {
+  width: 100vw;
+  height: 100vh;
   text-align: flex-start;
-  display:flex;
-  flex-direction:row;
-  flex-wrap:wrap;
+  display: flex;
+  flex-wrap: wrap;
 }

@@ -23,6 +23,7 @@ import RentalLanding from "./pages/RentalLandingPage";
 import GroupLanding from "./pages/GroupLandingPage";
 import ManageBooking from "./pages/ManageBooking";
 import TransferOverview from "./pages/TransferOverview";
+import Sidebar2 from "./components/sidebar/Sidebar2";
 
 function App() {
   return (
@@ -30,8 +31,7 @@ function App() {
       <Router>
         {" "}
         {/* Then the content on the right */}
-        <Navigation /> {/* Navbar goes on top */}
-        <Sidebar /> {/* Sidebar on the side */}
+        <Sidebar2 /> {/* Sidebar on the side */}
         <Routes>
           <Route
             exact
