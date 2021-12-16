@@ -2,26 +2,45 @@ import { useState } from "react";
 import "./cards.css";
 import "../booking.css";
 import BookingCard from "./CardsForBooking";
-import { InputField } from "../inputfields+dropdowns/inputFields";
-import { ButtonStyled, ButtonOnChange } from "../buttons/ColorButton";
-import Pages from "../../pages/Pages";
+import { ButtonOnChange } from "../buttons/ColorButton";
 import BOOKINGS from "../../data/bookings";
 import PickupModal from "../modals/pickupModal";
 import ReturnModal from "../modals/returnModal";
 import BookingModal from "../modals/bookingModal";
 import FeatherIcon from "feather-icons-react";
 import SearchBar from "../inputfields+dropdowns/searchBar";
+import PubSub from "../PubSub/PubSub";
 
 function BookingOverviewCont() {
   const cards = [];
+  const [selectedBooking, setSelectedBooking] = useState("");// here we track the currently selected booking for publishing to the PubSub
   const [showBookingModal, setShowBookingModal] = useState(false);
   const [showPickupModal, setShowPickupModal] = useState(false);
   const [showReturnModal, setShowReturnModal] = useState(false);
 
+  function handleSelect (e, ref) {
+    e.preventDefault();
+    console.log("selected booking is: " + selectedBooking);
+    console.log("current reference: " + ref)
+    if (selectedBooking === ref) { //if I want to set it to the same thing again
+      setSelectedBooking(""); // clear the selection instead
+    } else {
+      setSelectedBooking(ref);
+    }
+    PubSub.publish("selectedBooking", selectedBooking)
+    console.log("I just published another selected Booking: " + selectedBooking)
+  }
+
+  const currentlySelected = (bookingRef) => {
+      return (selectedBooking === bookingRef)
+  }
+
   BOOKINGS.map((bkng) => {
     cards.push(
       <div key={bkng.Ref} className="cardMargin">
-        <BookingCard booking={bkng.Ref} />
+        <BookingCard booking={bkng.Ref} 
+          onClick={(e, ref) => handleSelect(e, ref)} 
+          selected={currentlySelected(bkng.Ref)} />
       </div>
     );
     return null;
