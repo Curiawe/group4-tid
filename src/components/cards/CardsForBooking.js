@@ -3,7 +3,7 @@ import { IconBody } from "./IconBody";
 import "../booking.css";
 import { BOOKINGS } from "../../data/bookings";
 import { COLORS } from "../../values/colors";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 /* Schema:
 000: {Name:"Per Son", Ref, Phone, PickupPlace, PickupTime, ReturnPlace, ReturnTime, CarGroup, ExtraService}
  */
@@ -20,19 +20,6 @@ function BookingCard(props) {
     }
   }
 
-  useEffect(
-    () => {
-      console.log("useEffect called:")
-      if (active) {
-        bgColor = COLORS.Gray200
-        console.log("current bgColor is " + bgColor)
-      } else {
-        bgColor = COLORS.Gray100
-      }
-      console.log("current bgColor is " + bgColor)
-    }
-  )
-
   let booking = BOOKINGS[0];
 
   BOOKINGS.map((bkng) => {
@@ -44,13 +31,13 @@ function BookingCard(props) {
 
   let pickupTime = booking.Pickup.time
     .toLocaleTimeString("da-DA")
-    .replace("00:00", "00");
+    .replace("00.00", "00");
   const pickupDate = new Date(booking.Pickup.time).toLocaleDateString("da-DA");
   pickupTime = pickupDate + ", " + pickupTime;
 
   let returnTime = new Date(booking.Return.time)
     .toLocaleTimeString("da-DA")
-    .replace("00:00", "00");
+    .replace("00.00", "00");
   const returnDate = new Date(booking.Return.time).toLocaleDateString("da-DA");
   returnTime = returnDate + ", " + returnTime;
 
@@ -89,7 +76,7 @@ function BookingCard(props) {
 
 
   return (
-    <div className="card" style={{backgroundColor:bgColor}}>
+    <div className="card">
       <div className="cardBodyBooking" onClick={(e) => handleClick(e)} >
         <div className="h4Booking"> BOOKING {booking.Ref} </div>
         <div className="p1Booking"> {booking.Customer.name}</div>

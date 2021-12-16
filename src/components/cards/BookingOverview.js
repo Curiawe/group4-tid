@@ -31,16 +31,11 @@ function BookingOverviewCont() {
     console.log("I just published another selected Booking: " + selectedBooking)
   }
 
-  const currentlySelected = (bookingRef) => {
-      return (selectedBooking === bookingRef)
-  }
-
   BOOKINGS.map((bkng) => {
     cards.push(
       <div key={bkng.Ref} className="cardMargin">
         <BookingCard booking={bkng.Ref} 
-          onClick={(e, ref) => handleSelect(e, ref)} 
-          selected={currentlySelected(bkng.Ref)} />
+          onClick={(e, ref) => handleSelect(e, ref)}  />
       </div>
     );
     return null;
@@ -57,10 +52,9 @@ function BookingOverviewCont() {
         <div className="searchElements">
           <SearchBar
             placeholder="Search bookings"
-            onChange={(e) => console.log(e.target.value)}
+            onChange={(e) => console.log(e.target.value)} // To-Do: implement search
           />
         </div>
-
         <div className="bookingOvBtn1">
           <ButtonOnChange
             color="PurpleBtn"
@@ -102,6 +96,7 @@ function BookingOverviewCont() {
           ></BookingModal>
         </div>
       </div>
+      <span> Selected Booking: {selectedBooking}</span>
       <div className="bookingCardMargin">{cards}</div>
     </div>
   );
