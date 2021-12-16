@@ -1,7 +1,16 @@
-import BOOKINGS from "../data/bookings"
+import BOOKINGS from "../../data/bookings"
 
+/**
+ * This constant contains several functions that fetch specific elements from the Database and return them.
+ * 
+ */
 const FetchFunctions = {
 
+    /**
+     * 
+     * @param {*} ref the booking reference of a given booking
+     * @returns {BOOKINGS} matching Booking element from the database
+     */
     fetchBookingFromRef: (ref) => {
         let foundBooking
         BOOKINGS.find((bkng) => {
