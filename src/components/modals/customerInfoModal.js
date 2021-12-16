@@ -2,6 +2,7 @@ import "./modal.css";
 import { React, useState } from "react";
 import { ButtonOnChange, ButtonNoLink } from "../buttons/ColorButton";
 import { BookingCustomerInfo } from "./bookingComponents/customerInfo";
+import updateEntries from "../DB-functions/UpdateEntries";
 
 function CustomerInfoModal(props) {
   const [name, setName] = useState();
@@ -12,6 +13,13 @@ function CustomerInfoModal(props) {
   const [licenseID, setLicenseID] = useState();
   const [licenseIssueDate, setIssueDate] = useState();
   const [licenseExpirationDate, setExpirationDate] = useState();
+
+  function updateCustomer(){
+    updateEntries.updateCustomer(props.booking, name, address, phone, email, birthday, licenseID, licenseIssueDate, licenseExpirationDate ) 
+    console.log("Updated Customer " + name + ", Closing Overlay now")
+    props.onConfirm()
+  }
+
 
   if (!props.showCustomerInfoModal) {
     return null;
@@ -73,7 +81,7 @@ function CustomerInfoModal(props) {
             primary="true"
             className="buttonLarge"
             title="Save Customer"
-            onClick={props.onConfirm}
+            onClick={() => updateCustomer()}
           />
         </div>
       </div>

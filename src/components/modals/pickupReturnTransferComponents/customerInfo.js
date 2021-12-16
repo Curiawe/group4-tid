@@ -12,6 +12,7 @@ function CustomerInfo(props) {
       {customer.name}
         <ButtonNoLink className="buttonSmall" title="Check Info" primary="true" color="PurpleBtn" onClick={() => setShowCustomerInfoModal(true)}/>
       <CustomerInfoModal
+        booking={props.booking}
         showCustomerInfoModal={showCustomerInfoModal}
         onClose={() => setShowCustomerInfoModal(false)}
         onConfirm={() => setShowCustomerInfoModal(false)}
