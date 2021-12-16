@@ -8,12 +8,6 @@ import { StartingMileage } from "./pickupReturnTransferComponents/mileage";
 import { StartingFuel } from "./pickupReturnTransferComponents/fuelLevel";
 import { Comments } from "./pickupReturnTransferComponents/comments";
 
-function selectedCheck(show, selected, close){
-  if (show && !selected) {
-    close()
-    alert("Please select a booking by clicking on the booking card before proceeding with Pickup.")
-  }
-}
 
 const PickupModal = (props) => {
   if (!props.showPickupModal) {
