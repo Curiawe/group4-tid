@@ -1,19 +1,16 @@
 import { useState } from "react";
 import { Overlay } from "./pickupReturnTransferSkeleton";
 import CustomerInfoModal from "../customerInfoModal";
-import FeatherIcon from "feather-icons-react";
+import { ButtonNoLink, ButtonOnChange } from "../../buttons/ColorButton";
+import FetchFunctions from "../../FetchFunctions";
 
 function CustomerInfo(props) {
   const [showCustomerInfoModal, setShowCustomerInfoModal] = useState(false);
+  let customer = FetchFunctions.fetchCustomerFromBookingRef(props.booking)
   return (
     <Overlay title="Customer Info">
-      here's some info
-      <div
-        className="clickableIcon"
-        onClick={() => setShowCustomerInfoModal(true)}
-      >
-        <FeatherIcon icon="edit" className="icon" />
-      </div>
+      {customer.name}
+        <ButtonNoLink className="buttonSmall" title="Check Info" primary="true" color="PurpleBtn" onClick={() => setShowCustomerInfoModal(true)}/>
       <CustomerInfoModal
         showCustomerInfoModal={showCustomerInfoModal}
         onClose={() => setShowCustomerInfoModal(false)}

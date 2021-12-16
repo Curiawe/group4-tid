@@ -48,6 +48,7 @@ button:hover {
 .buttonSmall {
   font-size: 12px;
   padding: 4px;
+  margin:4px;
 }
 
 /* Positioning of buttons depending on their role */

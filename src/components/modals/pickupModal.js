@@ -7,6 +7,7 @@ import { CustomerInfo } from "./pickupReturnTransferComponents/customerInfo";
 import { StartingMileage } from "./pickupReturnTransferComponents/mileage";
 import { StartingFuel } from "./pickupReturnTransferComponents/fuelLevel";
 import { Comments } from "./pickupReturnTransferComponents/comments";
+import FetchFunctions from "../FetchFunctions";
 
 
 const PickupModal = (props) => {
@@ -39,7 +40,7 @@ const PickupModal = (props) => {
           <p>bookingID: {props.selectedBooking}</p>
         </div>
         <div className="overlayBody">
-          <CustomerInfo />
+          <CustomerInfo booking={props.selectedBooking}/>
           <SelectedCar />
           <BillCarAs />
           <StartingMileage />
