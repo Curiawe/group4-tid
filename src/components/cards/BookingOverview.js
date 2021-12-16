@@ -9,11 +9,10 @@ import ReturnModal from "../modals/returnModal";
 import BookingModal from "../modals/bookingModal";
 import FeatherIcon from "feather-icons-react";
 import SearchBar from "../inputfields+dropdowns/searchBar";
-import PubSub from "../PubSub/PubSub";
 
 function BookingOverviewCont() {
   const cards = [];
-  const [selectedBooking, setSelectedBooking] = useState("");// here we track the currently selected booking for publishing to the PubSub
+  const [selectedBooking, setSelectedBooking] = useState("");
   const [showBookingModal, setShowBookingModal] = useState(false);
   const [showPickupModal, setShowPickupModal] = useState(false);
   const [showReturnModal, setShowReturnModal] = useState(false);
@@ -27,8 +26,6 @@ function BookingOverviewCont() {
     } else {
       setSelectedBooking(ref);
     }
-    PubSub.publish("selectedBooking", selectedBooking)
-    console.log("I just published another selected Booking: " + selectedBooking)
   }
 
   BOOKINGS.map((bkng) => {
