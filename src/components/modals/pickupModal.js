@@ -8,9 +8,33 @@ import { StartingMileage } from "./pickupReturnTransferComponents/mileage";
 import { StartingFuel } from "./pickupReturnTransferComponents/fuelLevel";
 import { Comments } from "./pickupReturnTransferComponents/comments";
 
+function selectedCheck(show, selected, close){
+  if (show && !selected) {
+    close()
+    alert("Please select a booking by clicking on the booking card before proceeding with Pickup.")
+  }
+}
+
 const PickupModal = (props) => {
   if (!props.showPickupModal) {
     return null;
+  } else if (props.showPickupModal && !props.selectedBooking) {
+    return (
+      <div className="overlay" >
+        <div className="overlayContent">
+          <div className="overlayTitle" style={{padding:"16px"}}>
+            <div style={{marginBottom:"32px"}}>Please select a booking before proceeding with Pickup.</div>
+            <ButtonOnChange
+            color="DarkBlueBtn"
+            primary="true"
+            className="buttonLarge"
+            title="Go back"
+            onClick={props.onClose}/>
+            </div>
+        </div>
+      </div>
+
+      )
   }
 
   return (
@@ -18,7 +42,7 @@ const PickupModal = (props) => {
       <div className="overlayContent">
         <div className="overlayTitle">
           <h3>Pickup</h3>
-          <p>bookingID</p>
+          <p>bookingID: {props.selectedBooking}</p>
         </div>
         <div className="overlayBody">
           <CustomerInfo />

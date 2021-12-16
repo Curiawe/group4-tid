@@ -67,6 +67,7 @@ function BookingOverviewCont() {
             showPickupModal={showPickupModal}
             onClose={() => setShowPickupModal(false)}
             onConfirm={() => setShowPickupModal(false)}
+            selectedBooking={selectedBooking}
           ></PickupModal>
           <ButtonOnChange
             color="LightBlueBtn"
