@@ -6,12 +6,6 @@ import { CARS } from "../../data/cars";
 import ColorIcon from "./AvailabilityIcon";
 import { TRANSFERS } from "../../data/transfer";
 
-function CarToTransfer(x) {
-  let y = "";
-  x = TRANSFERS[y].Car.License;
-  return y;
-}
-
 let CAR = CARS;
 let TRANSFER = TRANSFERS;
 
@@ -37,7 +31,7 @@ function TransferCardBody(props) {
 
   return (
     <div className="card">
-      <img className="cardImg" src={props.src} alt="carpic" />
+      <img className="cardImg" src={car.Image} alt="carpic" />
       <div className="h4Large"> {car.Model} </div>
       <div className="p1Large"> {usedCarGroup[0]}</div>
       <div className="p2"> {car.License} </div>

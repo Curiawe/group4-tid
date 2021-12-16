@@ -22,7 +22,7 @@ function LargeCardBody(props) {
 
   return (
     <div className="card">
-      <img className="cardImg" src={props.src} alt="carpic" />
+      <img className="cardImg" src={car.Image} alt="carpic" />
       <div className="h4Large"> {car.Model} </div>
       <div className="p1Large"> {usedCarGroup[0]}</div>
       <div className="p2"> {car.License} </div>
