@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Overlay } from "./pickupReturnTransferSkeleton";
 import CustomerInfoModal from "../customerInfoModal";
-import { ButtonNoLink, ButtonOnChange } from "../../buttons/ColorButton";
-import FetchFunctions from "../../FetchFunctions";
+import { ButtonNoLink } from "../../buttons/ColorButton";
+import FetchFunctions from "../../DB-functions/FetchFunctions"; 
 
 function CustomerInfo(props) {
   const [showCustomerInfoModal, setShowCustomerInfoModal] = useState(false);
