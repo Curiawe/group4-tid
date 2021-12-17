@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { Overlay } from "../pickupReturnTransferSkeleton";
+import { Overlay } from "../pickupReturnTransferComponents/pickupReturnTransferSkeleton";
 import { TwoRadioButtons } from "../../selectionBoxes/selectionBoxes";
 
-function TransferType(props) {
+function TransferType() {
   const [transferType, setTransferType] = useState(false);
   return (
     <Overlay title="Transfer Type">

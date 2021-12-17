@@ -5,6 +5,8 @@ import { BookingPickup } from "./bookingComponents/pickupInfo";
 import { BookingReturn } from "./bookingComponents/returnInfo";
 import { BookingCarGroup } from "./bookingComponents/carGroup";
 import { BookingCustomerInfo } from "./bookingComponents/customerInfo";
+import { ExtraServices } from "./bookingComponents/extraServices";
+import { Price } from "./bookingComponents/price";
 import BOOKINGS from "../../data/bookings";
 
 function BookingModal(props) {
@@ -24,6 +26,7 @@ function BookingModal(props) {
   const [licenseID, setLicenseID] = useState();
   const [licenseIssueDate, setIssueDate] = useState();
   const [licenseExpirationDate, setExpirationDate] = useState();
+  const [extraDriver, setExtraDriver] = useState(false);
 
   if (!props.showBookingModal) {
     return null;
@@ -195,6 +198,12 @@ function BookingModal(props) {
                     setCarGroup(newCarGroup);
                   }}
                 />
+                <ExtraServices
+                  extraDriver={extraDriver}
+                  onChangeExtraDriver={(newExtraDriver) => {
+                    setExtraDriver(newExtraDriver);
+                  }}
+                />
               </div>
             </div>
             <div className="column">
@@ -233,6 +242,7 @@ function BookingModal(props) {
                     setExpirationDate(newExpirationDate);
                   }}
                 />
+                <Price />
               </div>
             </div>
           </div>

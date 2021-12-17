@@ -1,14 +1,7 @@
-import { SelectCarGroup } from "../../inputfields+dropdowns/dropDowns";
-import { Overlay } from "../pickupReturnTransferSkeleton";
+import { Overlay } from "./pickupReturnTransferSkeleton";
 
-function TransferCarGroup(props) {
-  return (
-    <Overlay title="Car Group">
-      <SelectCarGroup
-        onChange={(e) => props.onChangeCarGroup(e.target.value)}
-      />
-    </Overlay>
-  );
+function CarGroupPickup(props) {
+  return <Overlay title="Car Group">{props.carGroup}</Overlay>;
 }
 
-export { TransferCarGroup };
+export { CarGroupPickup };

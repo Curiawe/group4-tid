@@ -7,9 +7,14 @@ import {
 import { CheckBox } from "../../selectionBoxes/selectionBoxes";
 
 function StartingFuel(props) {
+  const [startingFuelLevel, setStartingFuelLevel] = useState("");
   return (
     <Overlay title="Starting Fuel">
-      <InputField type="number" placeHolder="Starting Fuel Level in %" />
+      <InputField
+        type="number"
+        placeHolder="Starting Fuel Level in %"
+        onChange={(e) => setStartingFuelLevel(e.target.value)}
+      />
     </Overlay>
   );
 }
