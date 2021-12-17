@@ -9,7 +9,7 @@ import Pages from "../../pages/Pages";
 
 function Card() {
   return (
-    <div className="card">
+    <div>
       <img className="cardImg" src={honda} alt="carpic" />
       <div className="h4Large"> VW PASSAT</div>
       <div className="p1Large"> Car Group B</div>

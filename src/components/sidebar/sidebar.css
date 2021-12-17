@@ -1,8 +1,10 @@
 .sidebarContainer {
-  height: 100%;
-  width: 232px;
-  color: white;
+  /* position: fixed; */
+  grid-area: sidebarContainer;
+  grid-column: 1 / 2;
+  grid-row: 1 / 4;
   background-color: #20334b;
+  color: white;
 }
 
 .logo {
@@ -16,7 +18,6 @@
 
 .sidebarList,
 .sidebarListActive {
-  height: auto;
   width: 100%;
   padding: 0;
 }
@@ -62,10 +63,11 @@
 
 @media (max-width: 960px) {
   .sidebarContainer {
+    grid-area: sidebarContainer;
+    grid-column: 1;
+    grid-row: 1 / 2;
     width: 100%;
-    height: 70px;
     z-index: 1;
-    position: relative;
   }
 
   .sidebarList .sidebarRow,
@@ -75,7 +77,6 @@
 
   .logo {
     padding-top: 10px;
-    padding-bottom: 10px;
     padding-left: 10px;
     display: flex;
     flex-direction: row;
@@ -104,15 +105,15 @@
     align-items: center;
     padding: 10px 0 10px 0px;
   }
-}
 
-.sidebarContainer .menuIcon {
-  display: block;
-  position: absolute;
-  top: 0;
-  right: 0;
-  transform: translate(-100%, 60%);
-  font-size: 1.8rem;
-  cursor: pointer;
-  color: white;
+  .sidebarContainer .menuIcon {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-100%, 60%);
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: white;
+  }
 }

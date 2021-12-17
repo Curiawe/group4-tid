@@ -7,6 +7,7 @@ const SidebarLinks = [
     title: "Daily Overview",
     link: "/daily-overview",
   },
+  { title: "Car Overview", link: "/cars" },
   {
     title: "Schedule",
     link: "/schedule",

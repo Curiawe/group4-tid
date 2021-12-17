@@ -41,7 +41,7 @@ function Sidebar() {
             <li
               key={key}
               className="sidebarRow"
-              id={window.location.pathname == val.link ? "active" : ""}
+              id={window.location.pathname === val.link ? "active" : ""}
               onClick={() => {
                 window.location.pathname = val.link;
               }}

@@ -3,11 +3,10 @@
 @import url("https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap");
 
 .cardPageMargin {
-  height: 460px;
-  width: 1065px;
-  margin-top: -380px;
-  margin-left: 250px;
   display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
 }
 
 .cardMargin {
@@ -22,25 +21,12 @@
   width: 100%;
 }
 
-.searchBarMargin {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  height: fit-content;
-  margin-bottom: 32px;
-}
-
-.searchElements {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
 .bookingOvButtons {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
+
+  width: 100%;
 }
 
 .bookingOvBtn1 {
@@ -48,17 +34,19 @@
   align-items: center;
   justify-content: space-evenly;
   height: fit-content;
-  width: 512px;
-}
-
-.clickableIcon {
-  cursor: pointer;
+  width: 30%;
 }
 
 .bookingOvBtn2 {
   display: flex;
   align-items: center;
-  height: 65px;
+  justify-content: space-evenly;
+  height: fit-content;
+  width: 30%;
+}
+
+.clickableIcon {
+  cursor: pointer;
 }
 
 /* large cards used for overview */
@@ -71,7 +59,6 @@
   background: #ffffff;
   border: 1px solid #c4c4c4;
   box-sizing: border-box;
-  border-radius: 10px;
 }
 
 .cardActive {

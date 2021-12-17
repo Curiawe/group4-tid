@@ -5,7 +5,6 @@ import Pages from "../../pages/Pages";
 import { CARS } from "../../data/cars";
 import ColorIcon from "./AvailabilityIcon";
 import { TRANSFERS } from "../../data/transfer";
-
 function CarToTransfer(x) {
   let y = "";
   x = TRANSFERS[y].Car.License;

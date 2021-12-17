@@ -92,44 +92,45 @@ export default function DailyOverviewTable() {
   const [date, setDate] = useState(new Date());
 
   return (
-    <div>
-      <p id="large">Current Date: {new Date(date).toLocaleDateString()}</p>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          marginBottom: "16px",
-          alignItems: "center",
-        }}
-      >
-        <InputField
-          className="inputField"
-          type="date"
-          onChange={(e) => setDate(e.target.value)}
-          placeHolder="Date" /*{new Date(date)}"*/
-        />
-        <ButtonOnChange
-          onClick={(e) => setDate(new Date())}
-          title="Jump to Today"
-          primary="true"
-          className="buttonMedium"
-          color="DarkBlueBtn"
-        />
+    <>
+      <div className="pageTitle">
+        <h1>Daily Overview</h1>
       </div>
-      <table style={{ marginBottom: "32px" }}>
-        <thead>
-          <tr>
-            <th>Car Group</th>
-            <th>Bookings</th>
-            <th>Available</th>
-            <th>Released</th>
-            <th>Need</th>
-          </tr>
-        </thead>
-        <tbody>
-          <TableRow date={date} />
-        </tbody>
-      </table>
-    </div>
+      <div className="pageFilters">
+        <p id="medium">Current Date: {new Date(date).toLocaleDateString()}</p>{" "}
+        <div className="searchBar">
+          <InputField
+            className="inputField"
+            type="date"
+            onChange={(e) => setDate(e.target.value)}
+            placeHolder="Date" /*{new Date(date)}"*/
+          />
+          <ButtonOnChange
+            onClick={(e) => setDate(new Date())}
+            title="Jump to Today"
+            primary="true"
+            className="buttonMedium"
+            color="DarkBlueBtn"
+          />
+        </div>
+      </div>
+
+      <div className="pageContent">
+        <table>
+          <thead>
+            <tr>
+              <th>Car Group</th>
+              <th>Bookings</th>
+              <th>Available</th>
+              <th>Released</th>
+              <th>Need</th>
+            </tr>
+          </thead>
+          <tbody>
+            <TableRow date={date} />
+          </tbody>
+        </table>
+      </div>
+    </>
   );
 }

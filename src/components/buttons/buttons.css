@@ -84,7 +84,8 @@ button:hover {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  width: 100%;
+  justify-content: center;
   margin-top: 10px;
 }
 
