@@ -3,11 +3,13 @@
 @import url("https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap");
 
 .cardPageMargin {
-  height: 460px;
-  width: 1065px;
-  margin-top: -380px;
-  margin-left: 250px;
   display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
+  row-gap: 20px;
+  margin-left: 270px;
+  margin-top: -400px;
 }
 
 .cardMargin {
