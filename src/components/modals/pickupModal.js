@@ -10,14 +10,23 @@ import { StartingMileage } from "./pickupReturnTransferComponents/mileage";
 import { StartingFuel } from "./pickupReturnTransferComponents/fuelLevel";
 import { Comments } from "./pickupReturnTransferComponents/comments";
 import FetchFunctions from "../DB-functions/FetchFunctions";
+import { CARGROUPS } from "../../data/carGroups";
 
 
 const PickupModal = (props) => {
 
-  const booking = FetchFunctions.fetchBookingFromRef(props.selectedBooking);
+  let selectedBooking = FetchFunctions.fetchBookingFromRef(props.selectedBooking)
+  
+  let selCarGroup = () => {
+    let group = CARGROUPS[0]
+    if (selectedBooking) {
+      group =  selectedBooking
+    }
+    return group
+  }
 
   const [car, setCar] = useState(null);
-  const [billAs, setBillAs] = useState(booking.carGroup);
+  const [billAs, setBillAs] = useState(selCarGroup);
   const [mileage, setMileage] = useState(0);
   const [fuel, setFuel] = useState(0);
   const [comment, setComment] = useState("");
