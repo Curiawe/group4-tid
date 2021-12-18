@@ -19,8 +19,6 @@ function BookingOverviewCont() {
 
   function handleSelect (e, ref) {
     e.preventDefault();
-    console.log("selected booking is: " + selectedBooking);
-    console.log("current reference: " + ref)
     if (selectedBooking === ref) { //if I want to set it to the same thing again
       setSelectedBooking(""); // clear the selection instead
     } else {
