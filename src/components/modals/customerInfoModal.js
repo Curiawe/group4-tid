@@ -8,6 +8,8 @@ import FetchFunctions from "../DB-functions/FetchFunctions";
 function CustomerInfoModal(props) {
   const customer = FetchFunctions.fetchBookingFromRef(props.booking).Customer
 
+  const [editData, setEditData] = useState(false);
+
   const [name, setName] = useState(customer.name);
   const [address, setAddress] = useState(customer.address);
   const [phone, setPhone] = useState(customer.phone);
@@ -25,6 +27,54 @@ function CustomerInfoModal(props) {
     props.onConfirm()
   }
 
+  function customerContent() { 
+    if (editData) {
+
+      return (
+        <div className="overlayBody">
+        <BookingCustomerInfo
+          name={name}
+          address={address}
+          phone={phone}
+          email={email}
+          birthday={birthday}
+          licenseID={licenseID}
+          licenseIssueDate={licenseIssueDate}
+          licenseExpirationDate={licenseExpirationDate}
+          onChangeName={(newName) => {
+            setName(newName);
+          }}
+          onChangeAddress={(newAddress) => {
+            setAddress(newAddress);
+          }}
+          onChangePhone={(newPhone) => {
+            setPhone(newPhone);
+          }}
+          onChangeEmail={(newEmail) => {
+            setEmail(newEmail);
+          }}
+          onChangeBirthday={(newBirthday) => {
+            setBirthday(newBirthday);
+          }}
+          onChangeLicenseID={(newLicenseID) => {
+            setLicenseID(newLicenseID);
+          }}
+          onChangeIssueDate={(newIssueDate) => {
+            setIssueDate(newIssueDate);
+          }}
+          onChangeExpirationDate={(newExpirationDate) => {
+            setExpirationDate(newExpirationDate);
+          }}
+        />
+      </div>
+      )
+    } else {
+      return (
+        <div className = "overlayBody">Hello</div>
+      )
+    }
+  }
+
 
   if (!props.showCustomerInfoModal) {
     return null;
@@ -36,43 +86,7 @@ function CustomerInfoModal(props) {
           <h3>Edit Customer</h3>
           <p>CustomerID</p>
         </div>
-
-        <div className="overlayBody">
-          <BookingCustomerInfo
-            name={name}
-            address={address}
-            phone={phone}
-            email={email}
-            birthday={birthday}
-            licenseID={licenseID}
-            licenseIssueDate={licenseIssueDate}
-            licenseExpirationDate={licenseExpirationDate}
-            onChangeName={(newName) => {
-              setName(newName);
-            }}
-            onChangeAddress={(newAddress) => {
-              setAddress(newAddress);
-            }}
-            onChangePhone={(newPhone) => {
-              setPhone(newPhone);
-            }}
-            onChangeEmail={(newEmail) => {
-              setEmail(newEmail);
-            }}
-            onChangeBirthday={(newBirthday) => {
-              setBirthday(newBirthday);
-            }}
-            onChangeLicenseID={(newLicenseID) => {
-              setLicenseID(newLicenseID);
-            }}
-            onChangeIssueDate={(newIssueDate) => {
-              setIssueDate(newIssueDate);
-            }}
-            onChangeExpirationDate={(newExpirationDate) => {
-              setExpirationDate(newExpirationDate);
-            }}
-          />
-        </div>
+        {customerContent}
         <div className="overlayFooter">
           <ButtonOnChange
             color="DarkBlueBtn"
