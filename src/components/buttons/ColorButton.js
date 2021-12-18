@@ -9,6 +9,7 @@ const BtnColors = {
   DarkBlueBtn: COLORS.Blue600,
   DarkRedBtn: COLORS.Red400,
   PurpleBtn: COLORS.Purple400,
+  GreenBtn: COLORS.Green400,
   GrayBtn: COLORS.Gray200,
   LightBtn: COLORS.Gray100,
 };

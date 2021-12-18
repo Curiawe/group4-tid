@@ -13,3 +13,7 @@ td {
     padding: 4px 8px;
     text-align: end;
 }
+
+td > b {
+    margin-left: 16px;
+}
