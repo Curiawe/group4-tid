@@ -59,8 +59,11 @@ const PickupModal = (props) => {
           <p>bookingID: {props.selectedBooking}</p>
         </div>
         <div className="overlayBody">
+          {/* Customer Info Works now */}
           <CustomerInfo booking={props.selectedBooking}/>
-          <SelectedCar />
+          {/*The SelectedCar here depends on Marìna's "Find Cars" function */}
+          <SelectedCar selected={car} onSelect={(newCar)=> setCar(newCar)}/>
+          {/*  */}
           <BillCarAs />
           <StartingMileage />
           <StartingFuel />
