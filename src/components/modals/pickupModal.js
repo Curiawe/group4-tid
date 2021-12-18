@@ -17,7 +17,7 @@ const PickupModal = (props) => {
 
   let selectedBooking = FetchFunctions.fetchBookingFromRef(props.selectedBooking)
   
-  let selCarGroup = () => {
+  function selCarGroup () {
     let group = CARGROUPS[0]
     if (selectedBooking) {
       group =  selectedBooking
@@ -26,7 +26,7 @@ const PickupModal = (props) => {
   }
 
   const [car, setCar] = useState(null);
-  const [billAs, setBillAs] = useState(selCarGroup);
+  const [billAs, setBillAs] = useState(selCarGroup());
   const [mileage, setMileage] = useState(0);
   const [fuel, setFuel] = useState(0);
   const [comment, setComment] = useState("");

@@ -15,7 +15,7 @@ const SelectCarGroup = (props) => {
   }
 
   return (
-    <select defaultValue={"Select Car Group"} onChange={props.onChange}>
+    <select defaultValue={"Select Car Group"} onChange={(e) => props.onChange(e.target.value)}>
       <option value="Select Car Group" disabled>
         Select Car Group
       </option>

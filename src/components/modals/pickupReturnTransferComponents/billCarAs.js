@@ -5,9 +5,9 @@ import { SelectCarGroup } from "../../inputfields+dropdowns/dropDowns";
 function BillCarAs(props) {
 
   function debugOnChange(input) {
-    console.log("old selected: " + props.selected[0])
+    console.log("old selected: " + props.selected.name)
     props.onChange(input)
-    console.log("new selected: " + props.selected[0])
+    console.log("new selected: " + props.selected.name)
   }
 
   return (
