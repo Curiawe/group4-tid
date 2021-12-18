@@ -9,12 +9,15 @@ import { CustomerInfo } from "./pickupReturnTransferComponents/customerInfo";
 import { StartingMileage } from "./pickupReturnTransferComponents/mileage";
 import { StartingFuel } from "./pickupReturnTransferComponents/fuelLevel";
 import { Comments } from "./pickupReturnTransferComponents/comments";
+import FetchFunctions from "../DB-functions/FetchFunctions";
 
 
 const PickupModal = (props) => {
 
+  const booking = FetchFunctions.fetchBookingFromRef(props.selectedBooking);
+
   const [car, setCar] = useState(null);
-  const [billAs, setBillAs] = useState(null);
+  const [billAs, setBillAs] = useState(booking.carGroup);
   const [mileage, setMileage] = useState(0);
   const [fuel, setFuel] = useState(0);
   const [comment, setComment] = useState("");
@@ -63,8 +66,8 @@ const PickupModal = (props) => {
           <CustomerInfo booking={props.selectedBooking}/>
           {/*The SelectedCar here depends on Marìna's "Find Cars" function */}
           <SelectedCar selected={car} onSelect={(newCar)=> setCar(newCar)}/>
-          {/*  */}
-          <BillCarAs />
+          {/* BillCarAs takes the the state and the change function */}
+          <BillCarAs selected={billAs} onChange={(newVal) => setBillAs(newVal)} />
           <StartingMileage />
           <StartingFuel />
           <Comments />
