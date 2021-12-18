@@ -1,4 +1,6 @@
 import React from "react";
+
+import { useState } from "react";
 import "./modal.css";
 import { ButtonOnChange } from "../buttons/ColorButton";
 import { BillCarAs } from "./pickupReturnTransferComponents/billCarAs";
@@ -10,8 +12,26 @@ import { Comments } from "./pickupReturnTransferComponents/comments";
 
 
 const PickupModal = (props) => {
+
+  const [car, setCar] = useState(null);
+  const [billAs, setBillAs] = useState(null);
+  const [mileage, setMileage] = useState(0);
+  const [fuel, setFuel] = useState(0);
+  const [comment, setComment] = useState("");
+
+//Logic:
+/**
+ * 1) if the car is selected, update all other states
+ * 2) Track other state changes
+ * 3) write to booking object
+ * 4) write to car object
+ * 4) change car status
+ * 5) re-direct to success/ do success alert, close modal
+ */
+
   if (!props.showPickupModal) {
     return null;
+
   } else if (props.showPickupModal && !props.selectedBooking) {
     return (
       <div className="overlay" >
