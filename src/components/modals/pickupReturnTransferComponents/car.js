@@ -1,7 +1,7 @@
 import { Overlay } from "./pickupReturnTransferSkeleton";
-import FeatherIcon from "feather-icons-react";
-// Props:
-// selected={car} onSelect={(newCar)=> setCar(newCar)}
+import { useState } from "react";
+import { ButtonNoLink } from "../../buttons/ColorButton";
+
 
 /**
  * 
@@ -9,6 +9,8 @@ import FeatherIcon from "feather-icons-react";
  * @returns View of the selected car and capabilities to select an available car
  */
 function SelectedCar(props) {
+
+  const [showCarModal, setShowCarModal] = useState(false);
 
   /**
    * Checks whether there is a car currently selected and returns the field text accordingly.
@@ -35,7 +37,10 @@ function SelectedCar(props) {
   return (
     <Overlay title="Car">
       {carText()}
-      <FeatherIcon icon="edit" className="icon" />
+      <ButtonNoLink className="buttonSmall" 
+        title="Select Car" primary="true" 
+        color="DarkBlueBtn" 
+        onClick={() => setShowCarModal(true)}/> {/**This should open the car modal we don't have, yet. */}
     </Overlay>
   );
 }
