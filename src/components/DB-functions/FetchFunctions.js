@@ -1,4 +1,5 @@
 import BOOKINGS from "../../data/bookings"
+import { CARS } from "../../data/cars"
 
 /**
  * This constant contains several functions that fetch specific elements from the Database and return them.
@@ -30,7 +31,18 @@ const FetchFunctions = {
         } catch (error) {
         return new Error(error)
         }
-    }
+    },
+
+    fetchCarFromLicense : (license) => {
+        let car = CARS.find((c) => {
+            if (c.License === license) {
+                return c
+                }
+            }
+        )
+        return car
+    },
+
 
 }
 

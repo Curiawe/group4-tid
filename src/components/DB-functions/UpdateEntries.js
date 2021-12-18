@@ -1,4 +1,3 @@
-import { CUSTOMERS } from "../../data/customers"
 import FetchFunctions from "./FetchFunctions"
 
 const updateEntries = {
@@ -15,7 +14,16 @@ const updateEntries = {
         customer.license.issued= issued;
         customer.license.expires=expires;
         customer.license.valid=(new Date() < expires)
+    },
+
+    udpateCarStatus : (license, status) => {
+        let car = FetchFunctions.fetchCarFromLicense(license) // now we have CAR
+        console.log("old status: " + car.Status)
+        car.Status = status
+        console.log("new status: " + car.Status)
     }
+
+
 }
 
 export default updateEntries

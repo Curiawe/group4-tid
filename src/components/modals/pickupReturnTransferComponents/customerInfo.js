@@ -16,7 +16,7 @@ function CustomerInfo(props) {
         showCustomerInfoModal={showCustomerInfoModal}
         onClose={() => setShowCustomerInfoModal(false)}
         onConfirm={() => setShowCustomerInfoModal(false)}
-      ></CustomerInfoModal>
+      ></CustomerInfoModal >
     </Overlay>
   );
 }
