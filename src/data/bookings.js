@@ -46,47 +46,8 @@ export const BOOKINGS = [
     Services: { driver: true, mileage: 0 },
     Returned: { time: null, mileage: 0 },
     price: pricing(1),
-  },
-  {
-    Ref: "817",
-    Status: "not begun",
-    isWalkin: false,
-    carGroup: CARGROUPS[0],
-    Customer: CUSTOMERS.ALICE,
-    Car: null,
-    Pickup: { time: new Date(2021, 11, 8, 10), location: LOCATIONS[0] },
-    Return: { time: new Date(2021, 11, 9, 10), location: LOCATIONS[0] },
-    Services: { driver: true, mileage: 0 },
-    Returned: { time: null, mileage: 0 },
-    price: pricing(1),
-  },
-  {
-    Ref: "818",
-    Status: "not begun",
-    isWalkin: false,
-    carGroup: CARGROUPS[0],
-    Customer: CUSTOMERS.ALICE,
-    Car: null,
-    Pickup: { time: new Date(2021, 11, 8, 10), location: LOCATIONS[0] },
-    Return: { time: new Date(2021, 11, 9, 10), location: LOCATIONS[0] },
-    Services: { driver: true, mileage: 0 },
-    Returned: { time: null, mileage: 0 },
-    price: pricing(1),
-  },
-  {
-    Ref: "819",
-    Status: "not begun",
-    isWalkin: false,
-    carGroup: CARGROUPS[0],
-    Customer: CUSTOMERS.ALICE,
-    Car: null,
-    Pickup: { time: new Date(2021, 11, 8, 10), location: LOCATIONS[0] },
-    Return: { time: new Date(2021, 11, 9, 10), location: LOCATIONS[0] },
-    Services: { driver: true, mileage: 0 },
-    Returned: { time: null, mileage: 0 },
-    price: pricing(1),
-  },
-];
+  }
+]
 
 function pricing(id) {
   let bookingPrice = id;

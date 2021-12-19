@@ -1,30 +1,30 @@
 import LargeCardBody from "../components/cards/CardsForOverview";
-import "../components/cards/cards.css";
-import audi from "../images/audi-a6.jpg";
-import honda from "../images/honda-crv.jpg";
-import renault from "../images/renault-captur.jpg";
+import { CARS } from "../data/cars";
+import '../components/cards/cards.css';
 
-function Cars() {
-  return (
-    <>
-      <div className="header">
-        <div className="title">
-          <h1>Car Overview</h1>
+
+function Cars () {
+    
+    const cards = []
+
+    CARS.map((selCar) => {
+        cards.push(<div key={selCar.License} className="cardMargin">
+        <LargeCardBody car={selCar.License}/>
+        </div>)
+    })
+    
+    return (
+        <>
+           <div className="header">
+                <div className="title">
+                    <h1>Car Overview</h1>
+                </div>
+            </div>
+        <div className="cardPageMargin">
+            {cards}
         </div>
-      </div>
-      <div className="cardPageMargin">
-        <div className="cardMargin">
-          <LargeCardBody car="JB12789" src={honda} />
-        </div>
-        <div className="cardMargin">
-          <LargeCardBody car="IH94302" src={renault} />
-        </div>
-        <div className="cardMargin">
-          <LargeCardBody car="FC56789" src={audi} />
-        </div>
-      </div>
-    </>
-  );
+        </>
+    )
 }
 
 export default Cars;

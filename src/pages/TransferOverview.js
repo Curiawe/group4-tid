@@ -1,16 +1,22 @@
 import { useState } from "react";
 import "../components/cards/cards.css";
-import audi from "../images/audi-a6.jpg";
-import honda from "../images/honda-crv.jpg";
-import renault from "../images/renault-captur.jpg";
 import TransferCardBody from "../components/cards/TransferCards";
 import { ButtonOnChange } from "../components/buttons/ColorButton";
 import { TransferModal } from "../components/modals/transferModal";
+import { CARS } from "../data/cars";
+
 
 function TransferOverview() {
   const [showRequestModal, setShowRequestModal] = useState(false);
   const [showReleaseModal, setShowReleaseModal] = useState(false);
-
+  
+  const cards = []
+    CARS.map((selCar) => {
+        cards.push(<div key={selCar.License} className="cardMargin">
+        <TransferCardBody car={selCar.License}/>
+        </div>)
+    })
+    
   return (
     <>
       <div className="pageTitle">
@@ -46,19 +52,11 @@ function TransferOverview() {
       </div>
       <div className="pageContent">
         <div className="cardPageMargin">
-          <div className="cardMargin">
-            <TransferCardBody car="JB12789" src={honda} />
-          </div>
-          <div className="cardMargin">
-            <TransferCardBody car="IH94302" src={renault} />
-          </div>
-          <div className="cardMargin">
-            <TransferCardBody car="FC56789" src={audi} />
-          </div>
+            {cards}
         </div>
       </div>
     </>
-  );
+    )
 }
 
 export default TransferOverview;
