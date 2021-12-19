@@ -16,12 +16,15 @@ import { CARGROUPS } from "../../data/carGroups";
 const PickupModal = (props) => {
 
   let selectedBooking = FetchFunctions.fetchBookingFromRef(props.selectedBooking)
+  console.log("selected Booking: " + props.selectedBooking)
   
   function selCarGroup () {
     let group = CARGROUPS[0]
     if (selectedBooking) {
       group =  selectedBooking
+      console.log("we have a car Group selected")
     }
+    console.log("The selected Car Group is: " + group.name)
     return group
   }
 

@@ -96,7 +96,7 @@ function CustomerInfoModal(props) {
         phone={phone}
         email={email}
         birthday={birthday}
-        licenseID={licenseID}
+        licenseID={customer.license.id}
         licenseIssueDate={licenseIssueDate}
         licenseExpirationDate={licenseExpirationDate}
         onChangeName={(newName) => {

@@ -16,7 +16,10 @@ const FetchFunctions = {
         let foundBooking = null
         BOOKINGS.find((bkng) => {
            if (ref === bkng.Ref) {
+               console.log(bkng)
+               console.log(bkng.Ref)
                foundBooking = bkng
+               console.log("Set Booking Ref:" + bkng.Ref)
            }
         })
         return foundBooking

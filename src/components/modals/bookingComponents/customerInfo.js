@@ -8,7 +8,7 @@ function BookingCustomerInfo(props) {
   let phoneString = "Phone Number: " + props.phone
   let emailString = "Email: " + props.email
   let bornString = "Date of Birth: " + new Date(props.birthday).toLocaleDateString("da-DA")
-  let licenseIDString = "License ID: " + props.licenseIDString
+  let licenseIDString = "License ID: " + props.licenseID
   let licenseIssueString = "License Issued: " + new Date(props.licenseIssueDate).toLocaleDateString("da-DA")
   let licenseExpireString = "License Expires: " + new Date(props.licenseExpirationDate).toLocaleDateString("da-DA")
   

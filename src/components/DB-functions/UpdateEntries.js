@@ -18,9 +18,7 @@ const updateEntries = {
 
     udpateCarStatus : (license, status) => {
         let car = FetchFunctions.fetchCarFromLicense(license) // now we have CAR
-        console.log("old status: " + car.Status)
         car.Status = status
-        console.log("new status: " + car.Status)
     }
 
 
