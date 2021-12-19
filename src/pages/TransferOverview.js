@@ -17,7 +17,7 @@ function TransferOverview() {
         <h1>Transfer Overview</h1>
       </div>
       <div className="pageFilters">
-        <div className="bookingOvBtn2">
+        <div className="bookingOvBtn1">
           <ButtonOnChange
             color="PurpleBtn"
             primary="true"

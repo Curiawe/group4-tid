@@ -9,7 +9,8 @@ function Schedule(props) {
       </div>
       <div className="pageFilters">
         <Filters />
-
+      </div>
+      <div className="pageContent">
         <ScheduleTable />
       </div>
     </>

@@ -37,26 +37,6 @@ function BookingOverviewCont() {
         <div className="bookingOvButtons">
           <div className="bookingOvBtn1">
             <ButtonOnChange
-              color="DarkBlueBtn"
-              primary="true"
-              className="buttonMedium"
-              title="Add Booking"
-              onClick={() => setShowBookingModal(true)}
-            />
-            <BookingModal
-              showBookingModal={showBookingModal}
-              onClose={() => setShowBookingModal(false)}
-            ></BookingModal>
-            <ButtonOnChange
-              color="DarkBlueBtn"
-              primary="false"
-              className="buttonMedium"
-              title="Edit"
-              onClick={""}
-            />
-          </div>
-          <div className="bookingOvBtn2">
-            <ButtonOnChange
               color="PurpleBtn"
               primary="true"
               className="buttonMedium"
@@ -80,6 +60,24 @@ function BookingOverviewCont() {
               onClose={() => setShowReturnModal(false)}
               onConfirm={() => setShowReturnModal(false)}
             ></ReturnModal>
+            <ButtonOnChange
+              color="DarkBlueBtn"
+              primary="false"
+              className="buttonMedium"
+              title="Edit"
+              onClick={""}
+            />
+            <ButtonOnChange
+              color="DarkBlueBtn"
+              primary="true"
+              className="buttonMedium"
+              title="Add Booking"
+              onClick={() => setShowBookingModal(true)}
+            />
+            <BookingModal
+              showBookingModal={showBookingModal}
+              onClose={() => setShowBookingModal(false)}
+            ></BookingModal>
           </div>
         </div>
       </div>

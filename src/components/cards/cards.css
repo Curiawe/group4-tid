@@ -24,15 +24,14 @@
 .bookingOvButtons {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-
+  justify-content: flex-end;
   width: 100%;
 }
 
 .bookingOvBtn1 {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   height: fit-content;
   width: 30%;
 }
