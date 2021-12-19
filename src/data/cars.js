@@ -1,4 +1,5 @@
 import { LOCATIONS } from "./locations";
+
 import Audi from '../Images/audi-a6.jpg'; 
 import Fiat500 from '../Images/fiat-500.jpg';
 import FiatBLK from '../Images/fiat-punto-blk.jpg';

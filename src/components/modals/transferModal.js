@@ -1,15 +1,14 @@
 import { React, useState } from "react";
 import "./modal.css";
 import { ButtonOnChange } from "../buttons/ColorButton";
-import { TransferCarGroup } from "./pickupReturnTransferComponents/carGroup";
-import { TransferLocation } from "./pickupReturnTransferComponents/transferLocation";
+import { TransferCar } from "./pickupReturnTransferComponents/car";
 import { TransferLocation } from "./pickupReturnTransferComponents/transferLocation";
 import { TransferDate } from "./pickupReturnTransferComponents/transferDate";
-import { TransferComments } from "./pickupReturnTransferComponents/transferComments";
+import { TransferComments } from "./pickupReturnTransferComponents/comments";
 import { TransferType } from "./pickupReturnTransferComponents/transferType";
 
 const TransferModal = (props) => {
-  if (!props.showTransferModal) {
+  if (!props.showRequestModal) {
     return null;
   }
 
@@ -22,7 +21,7 @@ const TransferModal = (props) => {
         </div>
         <div className="overlayBody">
           <TransferType />
-          <TransferCarGroup />
+          <TransferCar />
           <TransferLocation />
           <TransferDate />
           <TransferComments />
@@ -48,4 +47,4 @@ const TransferModal = (props) => {
   );
 };
 
-export default TransferModal;
+export { TransferModal };

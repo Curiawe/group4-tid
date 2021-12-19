@@ -25,6 +25,7 @@ save
 smile
 trash-2
 search
+x
 
 Use it as so:
 function Welcome(props) {

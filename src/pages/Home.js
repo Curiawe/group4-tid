@@ -1,17 +1,17 @@
+import { NavButtons } from "../components/buttons/navigationButtons";
+import Pages from "./Pages";
 
-import {NavButtons} from '../components/navigation/navigationButtons'
-import Pages from './Pages'
-
-function Home () {
-    return (
-        <NavButtons
-            linkButtonOne={Pages.BookingLandingPage}
-            linkButtonTwo={Pages.RentalLandingPage}
-            linkButtonThree={Pages.GroupLandingPage}
-            textButtonOne="Booking Management" 
-            textButtonTwo="Rental Management"
-            textButtonThree="Group Management"/>
-    )
+function Home() {
+  return (
+    <NavButtons
+      linkButtonOne={Pages.BookingOverview}
+      linkButtonTwo={Pages.Walkins}
+      linkButtonThree={Pages.TransferOverview}
+      textButtonOne="Add Booking"
+      textButtonTwo="Estimate Walkins"
+      textButtonThree="Transfers"
+    />
+  );
 }
 
-export default Home
+export default Home;

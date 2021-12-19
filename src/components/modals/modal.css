@@ -111,6 +111,14 @@
   justify-content: space-between;
 }
 
+.bookingBody .row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
 /* Styling for customer info */
 .customerInfoContent {
   border: 1px solid #c4c4c4;

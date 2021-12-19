@@ -15,19 +15,16 @@ function Cars () {
     
     return (
         <>
-        <div style={{ marginLeft: "32px" }}>
-             <div className="header">
+           <div className="header">
                 <div className="title">
                     <h1>Car Overview</h1>
                 </div>
-             </div>
-        </div>
+            </div>
         <div className="cardPageMargin">
             {cards}
         </div>
-            
         </>
     )
 }
 
-export default Cars
+export default Cars;

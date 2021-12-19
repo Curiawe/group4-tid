@@ -3,13 +3,13 @@ import "./cards.css";
 import { IconBody } from "./IconBody";
 import ColorIcon from "./AvailabilityIcon";
 import { Icon } from "@iconify/react";
-import honda from "../../Images/honda-crv.jpg";
+import honda from "../../images/honda-crv.jpg";
 import ButtonStyled from "../buttons/ColorButton";
 import Pages from "../../pages/Pages";
 
 function Card() {
   return (
-    <div className="card">
+    <div>
       <img className="cardImg" src={honda} alt="carpic" />
       <div className="h4Large"> VW PASSAT</div>
       <div className="p1Large"> Car Group B</div>

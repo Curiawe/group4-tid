@@ -1,13 +1,14 @@
 import CarGroupTable from "../components/tables/CarGroupTable";
 
-function CarGroups () {
-    return (
-        <div style={{marginLeft:"32px"}}>
-            <h1>Car Groups</h1>
-            <CarGroupTable />            
-        </div>
-
-    )
+function CarGroups() {
+  return (
+    <>
+      <div className="pageTitle">
+        <h1>Car Groups</h1>
+      </div>
+      <CarGroupTable />
+    </>
+  );
 }
 
-export default CarGroups
+export default CarGroups;

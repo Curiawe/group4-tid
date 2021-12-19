@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./modal.css";
 import { ButtonOnChange } from "../buttons/ColorButton";
 import { BillCarAs } from "./pickupReturnTransferComponents/billCarAs";
@@ -7,11 +7,16 @@ import { CustomerInfo } from "./pickupReturnTransferComponents/customerInfo";
 import { StartingMileage } from "./pickupReturnTransferComponents/mileage";
 import { StartingFuel } from "./pickupReturnTransferComponents/fuelLevel";
 import { Comments } from "./pickupReturnTransferComponents/comments";
+import { CarGroupPickup } from "./pickupReturnTransferComponents/carGroup";
 
-const PickupModal = (props) => {
+function PickupModal(props) {
+  const [billAs, setBillAs] = useState();
+
   if (!props.showPickupModal) {
     return null;
   }
+
+  console.log("car group: " + billAs);
 
   return (
     <div className="overlay">
@@ -22,8 +27,14 @@ const PickupModal = (props) => {
         </div>
         <div className="overlayBody">
           <CustomerInfo />
+          <CarGroupPickup carGroup="*CarGroup*" />
           <SelectedCar />
-          <BillCarAs />
+          <BillCarAs
+            billAs={billAs}
+            onChangeBillAs={(newBillAs) => {
+              setBillAs(newBillAs);
+            }}
+          />
           <StartingMileage />
           <StartingFuel />
           <Comments />
@@ -47,6 +58,6 @@ const PickupModal = (props) => {
       </div>
     </div>
   );
-};
+}
 
 export default PickupModal;

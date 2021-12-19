@@ -4,7 +4,10 @@ import { TextArea } from "../../inputfields+dropdowns/inputFields";
 function Comments(props) {
   return (
     <Overlay title="Comments">
-      <TextArea placeHolder="Comments about the car's state" />
+      <TextArea
+        placeHolder="Comments about the car's state"
+        onChange={(e) => props.onChangeComments(e.target.value)}
+      />
     </Overlay>
   );
 }
@@ -12,7 +15,10 @@ function Comments(props) {
 function TransferComments(props) {
   return (
     <Overlay title="Comments">
-      <TextArea placeHolder="Comments regarding the transfer" />
+      <TextArea
+        placeHolder="Comments regarding the transfer"
+        onChange={(e) => props.onChangeTransferComments(e.target.value)}
+      />
     </Overlay>
   );
 }

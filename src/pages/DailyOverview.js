@@ -1,13 +1,7 @@
 import DailyOverviewTable from "../components/tables/DailyOverviewTable";
 
-function DailyOverview () {
-    return (
-        <div style={{marginLeft:"32px"}}>
-            <h1>Daily Overview</h1>
-            <DailyOverviewTable />
-        </div>
-
-    )
+function DailyOverview() {
+  return <DailyOverviewTable />;
 }
 
-export default DailyOverview
+export default DailyOverview;
