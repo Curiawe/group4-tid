@@ -17,3 +17,7 @@ td {
 td > b {
     margin-left: 16px;
 }
+
+tr:hover, td:hover {
+    background-color:#D5D3F6;
+}
