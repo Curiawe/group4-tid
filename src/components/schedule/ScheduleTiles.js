@@ -1,7 +1,7 @@
 import "./schedule.css";
 import { CARS } from "../../data/cars";
 import { StatusTile } from "./StatusTile";
-import Audi from "../../images/audi-a6.jpg";
+import Audi from "../../Images/audi-a6.jpg";
 import HeaderRow from "./Headers";
 
 // let's simulate the array returned by the data base
