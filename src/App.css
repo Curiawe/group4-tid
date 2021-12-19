@@ -22,6 +22,7 @@
   grid-column: 2 / 3;
   grid-row: 2 / 3;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   align-items: flex-start;
 }
@@ -57,20 +58,17 @@
     grid-area: title;
     grid-column: 1;
     grid-row: 2 / 3;
-    background-color: blue;
   }
 
   .pageFilters {
     grid-area: header;
     grid-column: 1;
     grid-row: 3 / 4;
-    background-color: green;
   }
 
   .pageContent {
     grid-area: content;
     grid-column: 1;
     grid-row: 4 / 5;
-    background-color: tomato;
   }
 }
