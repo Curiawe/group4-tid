@@ -1,6 +1,5 @@
 import "./cards.css";
 import { IconBody } from "./IconBody";
-import "../booking.css";
 import { BOOKINGS } from "../../data/bookings";
 
 /* Schema:

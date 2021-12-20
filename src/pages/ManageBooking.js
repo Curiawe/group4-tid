@@ -1,4 +1,4 @@
-import Booking from "../components/booking";
+import Booking from "../components/manageBooking/manageBooking";
 function ManageBooking() {
   return (
     <>

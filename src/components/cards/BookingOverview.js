@@ -1,6 +1,5 @@
 import { useState } from "react";
 import "./cards.css";
-import "../booking.css";
 import BookingCard from "./CardsForBooking";
 import { ButtonOnChange } from "../buttons/ColorButton";
 import BOOKINGS from "../../data/bookings";

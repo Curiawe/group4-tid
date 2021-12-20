@@ -1,14 +1,13 @@
 import { React, useState } from "react";
-import { BookingReturn } from "./modals/bookingComponents/returnInfo";
-import { BookingPickup } from "./modals/bookingComponents/pickupInfo";
-import { Price } from "./modals/bookingComponents/price";
-import { BookingCustomerInfo } from "./modals/bookingComponents/customerInfo";
-import { BookingCarGroup } from "./modals/bookingComponents/carGroup";
-import { ExtraServices } from "./modals/bookingComponents/extraServices";
-import BOOKINGS from "../data/bookings";
-import { ButtonOnChange, ButtonNoLink } from "./buttons/ColorButton";
-import "../components/modals/modal.css";
-import { AlignCenter } from "react-feather";
+import { BookingReturn } from "../modals/bookingComponents/returnInfo";
+import { BookingPickup } from "../modals/bookingComponents/pickupInfo";
+import { Price } from "../modals/bookingComponents/price";
+import { BookingCustomerInfo } from "../modals/bookingComponents/customerInfo";
+import { BookingCarGroup } from "../modals/bookingComponents/carGroup";
+import { ExtraServices } from "../modals/bookingComponents/extraServices";
+import BOOKINGS from "../../data/bookings";
+import { ButtonOnChange, ButtonNoLink } from "../buttons/ColorButton";
+import "../modals/modal.css";
 
 /* This is the final booking component */
 function Booking(props) {
