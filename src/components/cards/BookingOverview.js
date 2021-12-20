@@ -10,14 +10,28 @@ import SearchBar from "../inputfields+dropdowns/searchBar";
 
 function BookingOverviewCont() {
   const cards = [];
+  const [selectedBooking, setSelectedBooking] = useState("");
   const [showBookingModal, setShowBookingModal] = useState(false);
   const [showPickupModal, setShowPickupModal] = useState(false);
   const [showReturnModal, setShowReturnModal] = useState(false);
 
+  function handleSelect(e, ref) {
+    e.preventDefault();
+    if (selectedBooking === ref) {
+      //if I want to set it to the same thing again
+      setSelectedBooking(""); // clear the selection instead
+    } else {
+      setSelectedBooking(ref);
+    }
+  }
+
   BOOKINGS.map((bkng) => {
     cards.push(
       <div key={bkng.Ref} className="cardMargin">
-        <BookingCard booking={bkng.Ref} />
+        <BookingCard
+          booking={bkng.Ref}
+          onClick={(e, ref) => handleSelect(e, ref)}
+        />
       </div>
     );
     return null;
@@ -31,8 +45,9 @@ function BookingOverviewCont() {
       <div className="pageFilters">
         <SearchBar
           placeholder="Search bookings"
-          onChange={(e) => console.log(e.target.value)}
+          onChange={(e) => console.log(e.target.value)} // To-Do: implement search
         />
+
         <div className="bookingOvButtons">
           <div className="bookingOvBtn1">
             <ButtonOnChange
@@ -46,6 +61,7 @@ function BookingOverviewCont() {
               showPickupModal={showPickupModal}
               onClose={() => setShowPickupModal(false)}
               onConfirm={() => setShowPickupModal(false)}
+              selectedBooking={selectedBooking}
             ></PickupModal>
             <ButtonOnChange
               color="LightBlueBtn"
@@ -59,28 +75,15 @@ function BookingOverviewCont() {
               onClose={() => setShowReturnModal(false)}
               onConfirm={() => setShowReturnModal(false)}
             ></ReturnModal>
-            <ButtonOnChange
-              color="DarkBlueBtn"
-              primary="false"
-              className="buttonMedium"
-              title="Edit"
-              onClick={""}
-            />
-            <ButtonOnChange
-              color="DarkBlueBtn"
-              primary="true"
-              className="buttonMedium"
-              title="Add Booking"
-              onClick={() => setShowBookingModal(true)}
-            />
-            <BookingModal
-              showBookingModal={showBookingModal}
-              onClose={() => setShowBookingModal(false)}
-            ></BookingModal>
+            <div className="clickableIcon">
+              <FeatherIcon icon="edit" className="icon" />
+            </div>
           </div>
         </div>
       </div>
-      <div className="pageContent"> {cards} </div>
+
+      <span> Selected Booking: {selectedBooking}</span>
+      <div className="pageContent">{cards}</div>
     </>
   );
 }

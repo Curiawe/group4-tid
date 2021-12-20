@@ -1,14 +1,15 @@
 import './schedule.css'
-import CarGroupFilter from './CarGroupFilter'
+import { SelectCarGroup } from '../inputfields+dropdowns/dropDowns'
 import TimeFilter from './TimeFilter'
 import LocationFilter from './LocationFilter'
 import StatusFilter from './StatusFilter'
+import { useState } from 'react'
 
 function Filters (props) {
-
+    const [carGroup, ChangeCarGroup] = useState("");
     return (
         <form className="filterRow">
-            <CarGroupFilter/>
+            <SelectCarGroup onChange={(input) => ChangeCarGroup(input)} />
             <TimeFilter title="Pickup Date"/>
             <TimeFilter title="Return Date"/>
             <LocationFilter />

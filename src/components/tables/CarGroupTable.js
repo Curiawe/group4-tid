@@ -5,11 +5,11 @@ function makeRows() {
     let rows = []
     CARGROUPS.map((group) => {
         let row = (
-            <tr key = {group[0]}>
-                <td>{group[0]}</td>
-                <td>{group[1]}</td>
-                <td>{group[2]}</td>
-                <td>{group[3]}</td>
+            <tr key = {group.name}>
+                <td>{group.name}</td>
+                <td>{group.Seats}</td>
+                <td>{group.Baggage}</td>
+                <td>{group.Price}</td>
             </tr>
         )
         rows.push(row)

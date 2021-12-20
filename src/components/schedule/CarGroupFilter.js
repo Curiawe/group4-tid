@@ -3,15 +3,15 @@ import './schedule.css';
 import { CARGROUPS } from '../../data/carGroups';
 
 const groups = [
-    CARGROUPS[0][0],
-    CARGROUPS[1][0],
-    CARGROUPS[2][0],
-    CARGROUPS[3][0],
-    CARGROUPS[4][0],
-    CARGROUPS[5][0],
-    CARGROUPS[6][0],
-    CARGROUPS[7][0],
-    CARGROUPS[8][0]  
+    CARGROUPS[0].name,
+    CARGROUPS[1].name,
+    CARGROUPS[2].name,
+    CARGROUPS[3].name,
+    CARGROUPS[4].name,
+    CARGROUPS[5].name,
+    CARGROUPS[6].name,
+    CARGROUPS[7].name,
+    CARGROUPS[8].name  
 ]
 
 

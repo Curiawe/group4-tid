@@ -61,7 +61,7 @@ function littleRow(item, column, date) {
 
   column.push(
     <tr key={item.toString()}>
-      <td>{item[0]}</td>
+      <td>{item.name}</td>
       <td>{book}</td>
       <td>{avail}</td>
       <td>{rel}</td>
