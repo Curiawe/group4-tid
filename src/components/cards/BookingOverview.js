@@ -75,9 +75,6 @@ function BookingOverviewCont() {
               onClose={() => setShowReturnModal(false)}
               onConfirm={() => setShowReturnModal(false)}
             ></ReturnModal>
-            <div className="clickableIcon">
-              <FeatherIcon icon="edit" className="icon" />
-            </div>
           </div>
         </div>
       </div>
