@@ -80,7 +80,7 @@ function BookingOverviewCont() {
           </div>
         </div>
       </div>
-      <div className="pageContent">{cards}</div>
+      <div className="pageContent"> {cards} </div>
     </>
   );
 }

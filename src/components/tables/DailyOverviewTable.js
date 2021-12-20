@@ -93,10 +93,9 @@ export default function DailyOverviewTable() {
 
   return (
     <>
-      <div className="pageTitle">
-        <h1>Daily Overview</h1>
-      </div>
-      <div className="pageFilters">
+      <div className="pageFilters"></div>
+
+      <div className="pageContent" style={{ flexDirection: "column" }}>
         <p id="medium">Current Date: {new Date(date).toLocaleDateString()}</p>{" "}
         <div className="searchBar">
           <InputField
@@ -113,9 +112,6 @@ export default function DailyOverviewTable() {
             color="DarkBlueBtn"
           />
         </div>
-      </div>
-
-      <div className="pageContent">
         <table>
           <thead>
             <tr>
