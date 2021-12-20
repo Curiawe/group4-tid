@@ -75,6 +75,17 @@ function BookingOverviewCont() {
               onClose={() => setShowReturnModal(false)}
               onConfirm={() => setShowReturnModal(false)}
             ></ReturnModal>
+            <ButtonOnChange
+              color="DarkBlueBtn"
+              primary="true"
+              className="buttonMedium"
+              title="Add Booking"
+              onClick={() => setShowBookingModal(true)}
+            />
+            <BookingModal
+              showBookingModal={showBookingModal}
+              onClose={() => setShowBookingModal(false)}
+            ></BookingModal>
           </div>
         </div>
       </div>
