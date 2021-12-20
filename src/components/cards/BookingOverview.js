@@ -77,6 +77,13 @@ function BookingOverviewCont() {
             ></ReturnModal>
             <ButtonOnChange
               color="DarkBlueBtn"
+              primary="false"
+              className="buttonMedium"
+              title="Edit"
+              onClick={""}
+            />
+            <ButtonOnChange
+              color="DarkBlueBtn"
               primary="true"
               className="buttonMedium"
               title="Add Booking"
