@@ -159,7 +159,7 @@ function BookingModal(props) {
         <div className="overlayBody">
           <div className="row">
             <div className="column">
-              <div className="blue-column">
+              <div className="firstColumn">
                 <BookingPickup
                   date={pickupDate}
                   time={pickupTime}
@@ -207,7 +207,7 @@ function BookingModal(props) {
               </div>
             </div>
             <div className="column">
-              <div className="green-column">
+              <div className="secondColumn">
                 <BookingCustomerInfo
                   name={name}
                   address={address}

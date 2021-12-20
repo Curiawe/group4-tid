@@ -19,7 +19,7 @@ license plate: {License:"e plate", Model,carGroup,Color,fuelType,fuelStatus,Loca
 export let CARS = [
   {
     License: "FC12345",
-    Model: "Fiat Puto",
+    Model: "Fiat Punto",
     carGroup: CARGROUPS[0],
     Color: "BLU",
     fuelType: "P",
@@ -32,7 +32,7 @@ export let CARS = [
   },
   {
     License: "FM23456",
-    Model: "Fiat Puto",
+    Model: "Fiat Punto",
     carGroup: CARGROUPS[0],
     Color: "BLK",
     fuelType: "P",

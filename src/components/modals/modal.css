@@ -87,11 +87,11 @@
   height: inherit;
 }
 
-.blue-column {
+.firstColumn {
   height: 100%;
 }
 
-.green-column {
+.secondColumn {
   height: 100%;
 }
 
@@ -128,4 +128,19 @@
   height: fit-content;
   background-color: white;
   box-shadow: 5px 10px 18px #9fbadb;
+}
+
+/* Styling for the booking confirmation page */
+.confirmationContainer {
+  width: 50%;
+}
+
+.bookingConfirmation {
+  flex-direction: "column";
+}
+
+.confirmButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
 }

@@ -16,6 +16,7 @@ import Schedule from "./pages/Schedule";
 import Walkins from "./pages/Walkins";
 import Pages from "./pages/Pages";
 import TransferOverview from "./pages/TransferOverview";
+import ManageBooking from "./pages/ManageBooking";
 
 function App() {
   return (
@@ -34,9 +35,10 @@ function App() {
           {/** Landing-page of the Management Area */}
           <Route
             exact
-            path={Pages.RentalOffices}
-            element={<RentalOffices />}
+            path={Pages.ManageBooking}
+            element={<ManageBooking />}
           />{" "}
+          <Route exact path={Pages.RentalOffices} element={<RentalOffices />} />{" "}
           {/** Rental Offices Overview - deprioritize, because not part of requirements */}
           <Route exact path={Pages.Schedule} element={<Schedule />} />{" "}
           {/**Giant Schedule, empty */}
