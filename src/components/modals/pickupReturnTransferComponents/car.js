@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Overlay } from "./pickupReturnTransferSkeleton";
 import { ButtonNoLink } from "../../buttons/ColorButton";
+import { SelectCar } from "../selectCarModal";
 
 /**
  *
@@ -8,7 +9,7 @@ import { ButtonNoLink } from "../../buttons/ColorButton";
  * @returns View of the selected car and capabilities to select an available car
  */
 function SelectedCar(props) {
-  const [showCarModal, setShowCarModal] = useState(false);
+  const [showSelectCarModal, setShowSelectCarModal] = useState(false);
 
   /**
    * Checks whether there is a car currently selected and returns the field text accordingly.
@@ -32,14 +33,20 @@ function SelectedCar(props) {
 
   return (
     <Overlay title="Car">
-      {carText()}
-      <ButtonNoLink
-        className="buttonSmall"
-        title="Select Car"
-        primary="true"
-        color="DarkBlueBtn"
-        onClick={() => setShowCarModal(true)}
-      />{" "}
+      <div className="rowButton">
+        {carText()}
+        <ButtonNoLink
+          className="buttonSmall"
+          title="Select Car"
+          primary="true"
+          color="DarkBlueBtn"
+          onClick={() => setShowSelectCarModal(true)}
+        />{" "}
+        <SelectCar
+          showSelectCarModal={showSelectCarModal}
+          onClose={() => setShowSelectCarModal(false)}
+        />
+      </div>
       {/**This should open the car modal we don't have, yet. */}
     </Overlay>
   );

@@ -10,6 +10,8 @@ import { Comments } from "./pickupReturnTransferComponents/comments";
 import { CarGroupPickup } from "./pickupReturnTransferComponents/carGroup";
 import FetchFunctions from "../DB-functions/FetchFunctions";
 import { CARGROUPS } from "../../data/carGroups";
+import FeatherIcon from "feather-icons-react";
+import { SelectCar } from "./selectCarModal";
 
 const PickupModal = (props) => {
   let selectedBooking = FetchFunctions.fetchBookingFromRef(
@@ -48,11 +50,14 @@ const PickupModal = (props) => {
   } else if (props.showPickupModal && !props.selectedBooking) {
     return (
       <div className="overlay">
-        <div className="overlayContent">
-          <div className="overlayTitle" style={{ padding: "16px" }}>
-            <div style={{ marginBottom: "32px" }}>
-              Please select a booking before proceeding with Pickup.
-            </div>
+        <div className="popupBlue">
+          <div className="overlayTitle">
+            <FeatherIcon icon="alert-triangle" />
+          </div>
+          <div className="overlayBody">
+            Please select a booking before proceeding with Pickup.
+          </div>
+          <div className="buttonCenter">
             <ButtonOnChange
               color="DarkBlueBtn"
               primary="true"
@@ -73,7 +78,7 @@ const PickupModal = (props) => {
       <div className="overlayContent">
         <div className="overlayTitle">
           <h3>Pickup</h3>
-          <p>bookingID: {props.selectedBooking}</p>
+          <p>Booking: {props.selectedBooking}</p>
         </div>
         <div className="overlayBody">
           {/* Customer Info Works now */}
@@ -85,6 +90,7 @@ const PickupModal = (props) => {
             selected={billAs}
             onChange={(newVal) => setBillAs(newVal)}
           />
+
           <StartingMileage />
           <StartingFuel />
           <Comments />

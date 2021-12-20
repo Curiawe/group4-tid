@@ -2,6 +2,8 @@ import "./modal.css";
 import { React, useState } from "react";
 import { ButtonOnChange, ButtonNoLink } from "../buttons/ColorButton";
 import { BookingCustomerInfo } from "./bookingComponents/customerInfo";
+import { CARS } from "../../data/cars";
+import LargeCardBody from "../cards/CardsForOverview";
 
 function SelectCar(props) {
   const [name, setName] = useState();
@@ -13,18 +15,29 @@ function SelectCar(props) {
   const [licenseIssueDate, setIssueDate] = useState();
   const [licenseExpirationDate, setExpirationDate] = useState();
 
+  const cards = [];
+
+  CARS.map((selCar) => {
+    cards.push(
+      <div key={selCar.License} className="cardMargin">
+        <LargeCardBody car={selCar.License} />
+      </div>
+    );
+  });
+
   if (!props.showSelectCarModal) {
     return null;
   }
   return (
     <div className="overlay">
-      <div className="customerInfoContent">
+      <div className="carContent">
         <div className="overlayTitle">
           <h3>Select a Car</h3>
-          <p>Booking ID</p>
         </div>
 
-        <div className="overlayBody">hello</div>
+        <div className="carBody">
+          <div className="cardContainer">{cards}</div>
+        </div>
         <div className="overlayFooter">
           <ButtonOnChange
             color="DarkBlueBtn"

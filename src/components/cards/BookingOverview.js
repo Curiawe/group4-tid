@@ -47,6 +47,7 @@ function BookingOverviewCont() {
           placeholder="Search bookings"
           onChange={(e) => console.log(e.target.value)} // To-Do: implement search
         />
+        <span> Selected Booking: {selectedBooking}</span>
 
         <div className="bookingOvButtons">
           <div className="bookingOvBtn1">
@@ -97,7 +98,6 @@ function BookingOverviewCont() {
         </div>
       </div>
 
-      <span> Selected Booking: {selectedBooking}</span>
       <div className="pageContent">{cards}</div>
     </>
   );

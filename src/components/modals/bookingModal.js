@@ -155,7 +155,6 @@ function BookingModal(props) {
           <h3>New Booking</h3>
           <p>bookingID</p>
         </div>
-
         <div className="overlayBody">
           <div className="row">
             <div className="column">

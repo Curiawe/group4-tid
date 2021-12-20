@@ -9,8 +9,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 1;
 }
-
 .overlayTitle {
   display: flex;
   flex-direction: column;
@@ -56,9 +56,15 @@
 
 .rowBody {
   display: flex;
-  justify-content: flex-start;
   align-items: center;
   width: 60%;
+}
+
+.rowButton {
+  display: flex;
+  width: 256px;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /* Styling for booking */
@@ -96,12 +102,10 @@
 }
 
 .bookingTitles {
-  display: flex;
+  display: inline-block;
   justify-content: flex-start;
   height: 30px;
   width: 100%;
-
-  padding-top: 10px;
 }
 
 .bookingBody {
@@ -143,4 +147,88 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+}
+
+/* Styling for popups */
+.popupBlue {
+  position: relative;
+  padding: 32px;
+  width: 320px;
+  height: 200px;
+  background-color: #20334b;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+}
+
+.popupPurple {
+  position: relative;
+  padding: 32px;
+  width: 320px;
+  height: 200px;
+  background-color: #b1adf4;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+}
+
+.popupRed {
+  position: relative;
+  padding: 32px;
+  width: 320px;
+  height: 200px;
+  background-color: #f95959;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+}
+
+.buttonCenter {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translate(-50%, 0); /* Needed for it to be centered */
+}
+
+.buttonRight {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+}
+
+.buttonLeft {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+}
+
+/* Styling for car selection modal */
+.carContent {
+  border: 1px solid #c4c4c4;
+  border-radius: 10px;
+  width: 768px;
+  max-width: 100%;
+  height: 768px;
+  background-color: white;
+  box-shadow: 5px 10px 18px #9fbadb;
+}
+
+.carBody {
+  padding: 10px;
+  height: 600px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow-y: scroll;
+  flex: 0 1 auto;
+}
+
+.cardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  position: sticky;
 }
