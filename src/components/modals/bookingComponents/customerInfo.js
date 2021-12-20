@@ -23,65 +23,57 @@ function BookingCustomerInfo(props) {
         type="text"
         onChange={(e) => props.onChangeName(e.target.value)}
         placeHolder="Name"
-      >
-        {nameString}
-      </InputField>
+        value={nameString}
+      />
       <InputField
         className="inputField"
         type="address"
         onChange={(e) => props.onChangeAddress(e.target.value)}
         placeHolder="Address"
-      >
-        {addressString}
-      </InputField>
+        value={addressString}
+      />
       <InputField
         className="inputField"
         type="tel"
         onChange={(e) => props.onChangePhone(e.target.value)}
         placeHolder="Phone Number"
-      >
-        {phoneString}
-      </InputField>
+        value={phoneString}
+      />
       <InputField
         className="inputField"
         type="email"
         onChange={(e) => props.onChangeEmail(e.target.value)}
         placeHolder="Email Address"
-      >
-        {emailString}
-      </InputField>
+        value={emailString}
+      />
       <InputField
         className="inputField"
         type="date"
         onChange={(e) => props.onChangeBirthday(e.target.value)}
         placeHolder="Date of Birth"
-      >
-        {bornString}
-      </InputField>
+        value={bornString}
+      />
       <InputField
         className="inputField"
         type="text"
         onChange={(e) => props.onChangeLicenseID(e.target.value)}
         placeHolder="License ID"
-      >
-        {licenseIDString}
-      </InputField>
+        value={licenseIDString}
+      />
       <InputField
         className="inputField"
         type="date"
         onChange={(e) => props.onChangeIssueDate(e.target.value)}
         placeHolder="License Issued"
-      >
-        {licenseIssueString}
-      </InputField>
+        value={licenseIssueString}
+      />
       <InputField
         className="inputField"
         type="date"
         onChange={(e) => props.onChangeExpirationDate(e.target.value)}
         placeHolder="License Expires"
-      >
-        {licenseExpireString}
-      </InputField>
+        value={licenseExpireString}
+      />
     </BookingComponent>
   );
 }

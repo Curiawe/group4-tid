@@ -12,8 +12,10 @@ const InputField = (props) => {
         min={props.min}
         max={props.max}
         required
+        value={props.value}
       />
-      <label> {props.placeHolder} </label>
+
+      <label> {props.placeHolder}</label>
     </div>
   );
 };
