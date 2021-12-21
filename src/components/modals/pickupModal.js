@@ -15,20 +15,8 @@ import { CARGROUPS } from "../../data/carGroups";
 
 const PickupModal = (props) => {
 
-  let selectedBooking = FetchFunctions.fetchBookingFromRef(props.selectedBooking)
-  
-  function selCarGroup () {
-    let group = CARGROUPS[0]
-    if (selectedBooking) {
-      group =  selectedBooking
-      console.log("we have a car Group selected")
-    }
-    console.log("The selected Car Group is: " + group.name)
-    return group
-  }
-
   const [car, setCar] = useState(null);
-  const [billAs, setBillAs] = useState(selCarGroup());
+  const [billAs, setBillAs] = useState();
   const [mileage, setMileage] = useState(0);
   const [fuel, setFuel] = useState(0);
   const [comment, setComment] = useState("");
@@ -78,7 +66,8 @@ const PickupModal = (props) => {
           {/*The SelectedCar here depends on Marìna's "Find Cars" function */}
           <SelectedCar selected={car} onSelect={(newCar)=> setCar(newCar)}/>
           {/* BillCarAs takes the the state and the change function */}
-          <BillCarAs selected={billAs} onChange={(newVal) => setBillAs(newVal)} />
+          <BillCarAs selected={billAs} onChange={(newGroup) => setBillAs(newGroup)} />
+          {billAs}
           <StartingMileage />
           <StartingFuel />
           <Comments />

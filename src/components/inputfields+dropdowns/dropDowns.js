@@ -9,13 +9,13 @@ const SelectCarGroup = (props) => {
   function makeOptions() {
     let myOptions = []
     CARGROUPS.map((group) => {
-      myOptions.push(<option value={group.name} key={group.name}>{group.name}</option>)
+      myOptions.push(<option value={group.name} key={group.name} onClick={(e) => props.onChange(e.target.value)}>{group.name}</option>)
     })
     return myOptions
   }
 
   return (
-    <select defaultValue={"Select Car Group"} onChange={(e) => props.onChange(e.target.value)}>
+    <select defaultValue={"Select Car Group"}>
       <option value="Select Car Group" disabled>
         Select Car Group
       </option>
@@ -26,7 +26,7 @@ const SelectCarGroup = (props) => {
 
 const SelectPaymentMethod = (props) => {
   return (
-    <select defaultValue={"Select Payment Method"} onChange={props.onChange}>
+    <select defaultValue={"Select Payment Method"} onChange={(e) => props.onChange(e.target.value)}>
       <option value="Select Payment Method" disabled>
         Select Payment Method
       </option>
