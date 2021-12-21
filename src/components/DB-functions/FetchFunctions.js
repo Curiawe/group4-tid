@@ -16,10 +16,7 @@ const FetchFunctions = {
         let foundBooking = null
         BOOKINGS.find((bkng) => {
            if (ref === bkng.Ref) {
-               console.log(bkng)
-               console.log(bkng.Ref)
                foundBooking = bkng
-               console.log("Set Booking Ref:" + bkng.Ref)
            }
         })
         return foundBooking
@@ -28,8 +25,6 @@ const FetchFunctions = {
     fetchCustomerFromBookingRef : (booking) => {
         try {
         let Bkng = FetchFunctions.fetchBookingFromRef(booking)
-        console.log("I found the booking " + Bkng.Ref)
-        console.log("Returning Customer: " + Bkng.Customer.name)
         return (Bkng.Customer)   
         } catch (error) {
         return new Error(error)

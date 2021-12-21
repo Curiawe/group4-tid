@@ -158,7 +158,6 @@ function CustomerInfoModal(props) {
 
   function updateCustomer(){
     updateEntries.updateCustomer(props.booking, name, address, phone, email, birthday, licenseID, licenseIssueDate, licenseExpirationDate ) 
-    console.log("Updated Customer " + name + ", Closing Overlay now")
     setEditData(!editData)
   }
 
@@ -185,7 +184,6 @@ function CustomerInfoModal(props) {
 
   function changeStatus () {
     setEditData(!editData);
-    console.log("State Changed: " + editData)
   }
 
   if (!props.showCustomerInfoModal) {
