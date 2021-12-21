@@ -1,4 +1,5 @@
 import BOOKINGS from "../../data/bookings"
+import { CARGROUPS } from "../../data/carGroups"
 import { CARS } from "../../data/cars"
 
 /**
@@ -40,6 +41,15 @@ const FetchFunctions = {
         )
         return car
     },
+
+    fetchGroupFromGroupNameString : (groupName) => {
+        let group = CARGROUPS.find((g) => {
+            if (g.name === groupName) {
+                return g
+            }
+        })
+        return group
+    }
 
 
 }

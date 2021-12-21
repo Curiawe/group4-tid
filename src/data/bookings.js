@@ -8,9 +8,9 @@ import { CUSTOMERS } from "./customers.js"
  */
 
 export const BOOKINGS = [
-    {Ref: "814", Status: "not begun",isWalkin: false,carGroup: CARGROUPS[0], Customer: CUSTOMERS[0], Car: null, Pickup: {time: new Date(2021,11,8,10), location: LOCATIONS[0], mileage:0}, BillAs:null, Return: {time: new Date(2021,11,9,10), location:LOCATIONS[0], mileage: 0}, Services: {driver: true, mileage:0}, Returned: {time:null, mileage:0}, price:pricing(1)},
-    {Ref: "815", Status: "not begun",isWalkin: true, carGroup: CARGROUPS[0], Customer: CUSTOMERS[2], Car: CARS[7], Pickup: {time: new Date(2021,11,9,12), location: LOCATIONS[0], mileage:CARS[7].Mileage}, BillAs:CARGROUPS[4], Return: {time: new Date(2021,11,25,10), location:LOCATIONS[1], mileage: CARS[7].Mileage,}, Services: {driver: false, mileage:0}, Returned: {time:null, mileage:0}, price:pricing(2)},
-    {Ref: "816", Status: "not begun",isWalkin: false,carGroup: CARGROUPS[0], Customer: CUSTOMERS[1], Car: null, Pickup: {time: new Date(2021,11,8,10), location: LOCATIONS[0]}, mileage:0, BillAs:null,  Return: {time: new Date(2021,11,9,10), location:LOCATIONS[0], mileage: 0,}, Services: {driver: true, mileage:0}, Returned: {time:null, mileage:0}, price:pricing(1)},
+    {Ref: "814", Status: "not begun",isWalkin: false,carGroup: CARGROUPS[0], Customer: CUSTOMERS[0], Car: null, Pickup: {time: new Date(2021,11,8,10), location: LOCATIONS[0], mileage:0}, BillAs:null, Return: {time: new Date(2021,11,9,10), location:LOCATIONS[0], mileage: 0}, Services: {driver: true, mileage:0}, Returned: {time:null, mileage:0}, price:pricing(1), Comment:""},
+    {Ref: "815", Status: "not begun",isWalkin: true, carGroup: CARGROUPS[0], Customer: CUSTOMERS[2], Car: CARS[7], Pickup: {time: new Date(2021,11,9,12), location: LOCATIONS[0], mileage:CARS[7].Mileage}, BillAs:CARGROUPS[4], Return: {time: new Date(2021,11,25,10), location:LOCATIONS[1], mileage: CARS[7].Mileage,}, Services: {driver: false, mileage:0}, Returned: {time:null, mileage:0}, price:pricing(2), Comment:""},
+    {Ref: "816", Status: "not begun",isWalkin: false,carGroup: CARGROUPS[0], Customer: CUSTOMERS[1], Car: null, Pickup: {time: new Date(2021,11,8,10), location: LOCATIONS[0]}, mileage:0, BillAs:null,  Return: {time: new Date(2021,11,9,10), location:LOCATIONS[0], mileage: 0,}, Services: {driver: true, mileage:0}, Returned: {time:null, mileage:0}, price:pricing(1), Comment:""},
 ]
 
 function pricing(id){

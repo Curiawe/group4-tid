@@ -10,8 +10,7 @@ import { StartingMileage } from "./pickupReturnTransferComponents/mileage";
 import { StartingFuel } from "./pickupReturnTransferComponents/fuelLevel";
 import { Comments } from "./pickupReturnTransferComponents/comments";
 import FetchFunctions from "../DB-functions/FetchFunctions";
-import { CARGROUPS } from "../../data/carGroups";
-
+import updateEntries from "../DB-functions/UpdateEntries";
 
 const PickupModal = (props) => {
 
@@ -21,6 +20,8 @@ const PickupModal = (props) => {
   const [fuel, setFuel] = useState(0);
   const [comment, setComment] = useState("");
 
+  
+  console.log(  FetchFunctions.fetchGroupFromGroupNameString(billAs))
 //Logic:
 /**
  * 1) if the car is selected, update all other states
@@ -65,9 +66,8 @@ const PickupModal = (props) => {
           <CustomerInfo booking={props.selectedBooking}/>
           {/*The SelectedCar here depends on Marìna's "Find Cars" function */}
           <SelectedCar selected={car} onSelect={(newCar)=> setCar(newCar)}/>
-          {/* BillCarAs takes the the state and the change function */}
+          {/* BillCarAs can now set the billAs state */}
           <BillCarAs selected={billAs} onChange={(newGroup) => setBillAs(newGroup)} />
-          {billAs}
           <StartingMileage />
           <StartingFuel />
           <Comments />
@@ -85,7 +85,7 @@ const PickupModal = (props) => {
             primary="true"
             className="buttonLarge"
             title="Save & Start"
-            onClick={props.onConfirm}
+            onClick={updateEntries.updateBookingForPickup(props.selectedBooking, car, billAs, mileage, fuel, comment)} // Check if everything else works
           />
         </div>
       </div>

@@ -19,6 +19,20 @@ const updateEntries = {
     udpateCarStatus : (license, status) => {
         let car = FetchFunctions.fetchCarFromLicense(license) // now we have CAR
         car.Status = status
+    },
+
+    updateBookingForPickup : (ref, car, billAs, mileage, fuel, comment) => {
+        let booking = FetchFunctions.fetchBookingFromRef(ref) // now we have BOOKING
+        booking.car = car
+        console.log(booking.car)
+        booking.BillAs = billAs
+        console.log(booking.BillAs)
+        booking.Pickup.mileage = mileage
+        console.log(booking.Pickup.mileage)
+/*         booking.Car.fuelStatus = fuel
+        console.log(booking.Car.fuelStatus) */
+        booking.Comment = comment
+        console.log(booking.Comment)
     }
 
 
