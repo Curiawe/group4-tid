@@ -24,7 +24,7 @@ function TransferOverview() {
       <div className="pageTitle">
         <h1>Transfer Overview</h1>
       </div>
-      <div className="pageFilters">
+      <div className="pageContent">
         <DailyOverviewTable />
         <div className="bookingOvBtn1">
           <ButtonOnChange
@@ -52,7 +52,9 @@ function TransferOverview() {
             onConfirm={() => setShowReleaseModal(false)}
           ></TransferModal>
         </div>
-        <div className="cardPageMargin">{cards}</div>
+        <div className="box">
+          <div className="cardPageMargin">{cards}</div>
+        </div>
       </div>
     </>
   );

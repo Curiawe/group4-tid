@@ -137,7 +137,12 @@ h3 {
   font-size: 32px;
 }
 
-h4,
+h4 {
+  font-family: "IBM Plex Mono", "Courier New", "Courier", "monospace";
+  color: #3f39af;
+  margin: 5px;
+}
+
 h5,
 h6 {
   font-family: "IBM Plex Mono", "Courier New", "Courier", "monospace";

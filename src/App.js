@@ -8,15 +8,14 @@ import "./App.css";
 //Pages
 import Bookings from "./pages/BookingOverview";
 import Cars from "./pages/Cars";
-import CarGroups from "./pages/CarGroups";
 import DailyOverview from "./pages/DailyOverview";
 import Home from "./pages/Home";
-import RentalOffices from "./pages/RentalOffices";
 import Schedule from "./pages/Schedule";
 import Walkins from "./pages/Walkins";
 import Pages from "./pages/Pages";
 import TransferOverview from "./pages/TransferOverview";
 import ManageBooking from "./pages/ManageBooking";
+import YourScanCar from "./pages/YourScanCar";
 
 function App() {
   return (
@@ -29,16 +28,18 @@ function App() {
           {/**Booking Overview w/ cards */}
           <Route exact path={Pages.Cars} element={<Cars />} />{" "}
           {/** Car Overview with Cards */}
-          <Route exact path={Pages.CarGroups} element={<CarGroups />} />{" "}
-          {/** Car Groups Overview - deprioritize, because not part of requirements */}
-          <Route exact path={Pages.DailyOverview} element={<DailyOverview />} />{" "}
+          <Route
+            exact
+            path={Pages.DailyOverview}
+            element={<DailyOverview />}
+          />{" "}
           {/** Landing-page of the Management Area */}
           <Route
             exact
             path={Pages.ManageBooking}
             element={<ManageBooking />}
           />{" "}
-          <Route exact path={Pages.RentalOffices} element={<RentalOffices />} />{" "}
+          <Route exact path={Pages.YourScanCar} element={<YourScanCar />} />{" "}
           {/** Rental Offices Overview - deprioritize, because not part of requirements */}
           <Route exact path={Pages.Schedule} element={<Schedule />} />{" "}
           {/**Giant Schedule, empty */}

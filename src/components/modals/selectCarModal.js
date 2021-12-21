@@ -4,6 +4,7 @@ import { ButtonOnChange, ButtonNoLink } from "../buttons/ColorButton";
 import { BookingCustomerInfo } from "./bookingComponents/customerInfo";
 import { CARS } from "../../data/cars";
 import LargeCardBody from "../cards/CardsForOverview";
+import FeatherIcon from "feather-icons-react";
 
 function SelectCar(props) {
   const cards = [];
@@ -34,6 +35,7 @@ function SelectCar(props) {
   if (!props.showSelectCarModal) {
     return null;
   }
+
   return (
     <div className="overlay">
       <div className="carContent">
@@ -53,7 +55,7 @@ function SelectCar(props) {
             title="Cancel"
             onClick={props.onClose}
           />
-          <ButtonNoLink
+          <ButtonOnChange
             color="DarkBlueBtn"
             primary="true"
             className="buttonLarge"

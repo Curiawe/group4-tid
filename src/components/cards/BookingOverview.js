@@ -97,8 +97,9 @@ function BookingOverviewCont() {
           </div>
         </div>
       </div>
-
-      <div className="pageContent">{cards}</div>
+      <div className="box">
+        <div className="pageContent">{cards}</div>
+      </div>
     </>
   );
 }

@@ -8,12 +8,19 @@
   flex-direction: row;
   justify-content: center;
   width: 100%;
+  background-color: seagreen;
 }
 
 .cardMargin {
   height: 460px;
   width: 308px;
   padding: 10px;
+}
+
+.box {
+  height: 544px;
+  overflow-y: scroll;
+  position: sticky;
 }
 
 .bookingCardMargin {
@@ -60,6 +67,10 @@
   transition: 0.2s;
   border: 1px solid #c4c4c4;
   box-sizing: border-box;
+}
+
+.card #active {
+  background-color: sandybrown;
 }
 
 .cardActive {
