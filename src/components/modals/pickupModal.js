@@ -72,6 +72,7 @@ const PickupModal = (props) => {
   }
 
   console.log("car group: " + billAs);
+  console.log(" HERE I AM: " + car);
 
   return (
     <div className="overlay">
@@ -84,7 +85,10 @@ const PickupModal = (props) => {
           {/* Customer Info Works now */}
           <CustomerInfo booking={props.selectedBooking} />
           {/*The SelectedCar here depends on Marìna's "Find Cars" function */}
-          <SelectedCar selected={car} onSelect={(newCar) => setCar(newCar)} />
+          <SelectedCar
+            selected={props.car}
+            onSelect={(newCar) => setCar(newCar)}
+          />
           {/* BillCarAs takes the the state and the change function */}
           <BillCarAs
             selected={billAs}

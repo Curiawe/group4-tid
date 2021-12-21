@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { Overlay } from "./pickupReturnTransferSkeleton";
-import { ButtonNoLink } from "../../buttons/ColorButton";
+import { ButtonNoLink, ButtonOnChange } from "../../buttons/ColorButton";
 import { SelectCar } from "../selectCarModal";
+import FetchFunctions from "../../DB-functions/FetchFunctions";
+import FeatherIcon from "feather-icons-react";
 
 /**
  *
@@ -17,8 +19,9 @@ function SelectedCar(props) {
    */
   function carText() {
     let returnString = "";
-    if (props.selected) {
-      returnString = props.selected.Model + " (" + props.selected.License + ")";
+    if (props.selectedCar) {
+      returnString =
+        props.selectedCar.Model + " (" + props.selectedCar.License + ")";
     } else {
       returnString = "Please select a car";
     }
@@ -27,6 +30,7 @@ function SelectedCar(props) {
 
   function setNewCar(car) {
     props.onSelect(car);
+    setShowSelectCarModal(false);
   }
 
   function carButton() {}
@@ -45,9 +49,9 @@ function SelectedCar(props) {
         <SelectCar
           showSelectCarModal={showSelectCarModal}
           onClose={() => setShowSelectCarModal(false)}
+          onConfirm={() => setNewCar(props.car)}
         />
       </div>
-      {/**This should open the car modal we don't have, yet. */}
     </Overlay>
   );
 }

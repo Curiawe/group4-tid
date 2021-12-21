@@ -5,18 +5,19 @@ import { BookingCustomerInfo } from "./bookingComponents/customerInfo";
 import { CARS } from "../../data/cars";
 import LargeCardBody from "../cards/CardsForOverview";
 import FeatherIcon from "feather-icons-react";
+import FetchFunctions from "../DB-functions/FetchFunctions";
 
 function SelectCar(props) {
   const cards = [];
-  const [selectedCar, setSelectedCar] = useState("");
+  const [car, setSelectedCarLicense] = useState("");
 
   function handleSelectCar(e, license) {
     e.preventDefault();
-    if (selectedCar === license) {
+    if (car === license) {
       //if I want to set it to the same thing again
-      setSelectedCar(""); // clear the selection instead
+      setSelectedCarLicense(""); // clear the selection instead
     } else {
-      setSelectedCar(license);
+      setSelectedCarLicense(license);
     }
   }
 
@@ -36,12 +37,14 @@ function SelectCar(props) {
     return null;
   }
 
+  console.log(car);
+
   return (
     <div className="overlay">
       <div className="carContent">
         <div className="overlayTitle">
           <h3>Select a Car</h3>
-          <span> Selected car: {selectedCar}</span>
+          <span> Selected car: {car}</span>
         </div>
 
         <div className="carBody">
@@ -61,6 +64,7 @@ function SelectCar(props) {
             className="buttonLarge"
             title="Select Car"
             onClick={props.onConfirm}
+            car={props.car}
           />
         </div>
       </div>
