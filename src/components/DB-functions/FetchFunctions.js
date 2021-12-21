@@ -14,13 +14,7 @@ const FetchFunctions = {
      * @returns {BOOKINGS} matching Booking element from the database
      */
     fetchBookingFromRef: (ref) => {
-        let foundBooking = null
-        BOOKINGS.find((bkng) => {
-           if (ref === bkng.Ref) {
-               foundBooking = bkng
-           }
-        })
-        return foundBooking
+        BOOKINGS.find((bkng) => (ref === bkng.Ref))
     },
 
     fetchCustomerFromBookingRef : (booking) => {
