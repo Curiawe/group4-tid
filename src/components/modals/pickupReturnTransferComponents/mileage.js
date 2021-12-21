@@ -9,7 +9,7 @@ import { CheckBox } from "../../selectionBoxes/selectionBoxes";
 function StartingMileage(props) {
   return (
     <Overlay title="Starting Mileage">
-      <InputField type="number" placeHolder="Starting Mileage in km" />
+      <InputField type="number" placeHolder="Starting Mileage in km" min={0} value={props.mileage} onChange={(e) => props.onChange(e.target.value)}/>
     </Overlay>
   );
 }

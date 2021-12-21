@@ -15,7 +15,7 @@ import updateEntries from "../DB-functions/UpdateEntries";
 const PickupModal = (props) => {
 
   const [car, setCar] = useState(null);
-  const [billAs, setBillAs] = useState();
+  const [billAs, setBillAs] = useState("");
   const [mileage, setMileage] = useState(0);
   const [fuel, setFuel] = useState(100);
   const [comment, setComment] = useState("");
@@ -66,9 +66,9 @@ const PickupModal = (props) => {
           <SelectedCar selected={car} onSelect={(newCar)=> setCar(newCar)}/> 
           {/* BillCarAs can now set the billAs state */}
           <BillCarAs selected={billAs} onChange={(newGroup) => setBillAs(newGroup)} />
-          <StartingMileage />
-          <StartingFuel />
-          <Comments />
+          <StartingMileage mileage={mileage} onChange={(miles) => setMileage(miles)} />
+          <StartingFuel fuel={fuel} onChange={(level) => setFuel(level)} />
+          <Comments comment={comment} onChange={(input) => setComment(input)} />
         </div>
         <div className="overlayFooter">
           <ButtonOnChange

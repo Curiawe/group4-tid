@@ -9,7 +9,7 @@ import { CheckBox } from "../../selectionBoxes/selectionBoxes";
 function StartingFuel(props) {
   return (
     <Overlay title="Starting Fuel">
-      <InputField type="number" placeHolder="Starting Fuel Level in %" />
+      <InputField type="number" placeHolder="Starting Fuel Level in %" max={100} min={0} value={props.fuel} onChange={(e) => props.onChange(e.target.value)}/>
     </Overlay>
   );
 }
