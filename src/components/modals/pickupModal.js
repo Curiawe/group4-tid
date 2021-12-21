@@ -83,7 +83,7 @@ const PickupModal = (props) => {
             primary="true"
             className="buttonLarge"
             title="Save & Start"
-            onClick={updateEntries.updateBookingForPickup(props.selectedBooking, car, FetchFunctions.fetchGroupFromGroupNameString(billAs), mileage, fuel, comment)} // Check if everything else works
+            onClick={() => updateEntries.updateBookingForPickup(props.selectedBooking, car, FetchFunctions.fetchGroupFromGroupNameString(billAs), mileage, fuel, comment)} // Check if everything else works
           />
         </div>
       </div>

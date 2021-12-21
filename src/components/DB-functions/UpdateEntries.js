@@ -24,15 +24,14 @@ const updateEntries = {
     updateBookingForPickup : (ref, car, billAs, mileage, fuel, comment) => {
         let booking = FetchFunctions.fetchBookingFromRef(ref) // now we have BOOKING
         booking.car = car
-        console.log(booking.car)
         booking.BillAs = billAs
-        console.log(booking.BillAs)
         booking.Pickup.mileage = mileage
-        console.log(booking.Pickup.mileage)
-/*         booking.Car.fuelStatus = fuel
-        console.log(booking.Car.fuelStatus) */
+
+        if (car) {
+            car.fuelStatus = fuel
+        }
+        booking.Car.fuelStatus = fuel
         booking.Comment = comment
-        console.log(booking.Comment)
     }
 
 
