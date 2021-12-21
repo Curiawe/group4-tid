@@ -17,12 +17,10 @@ const PickupModal = (props) => {
   const [car, setCar] = useState(null);
   const [billAs, setBillAs] = useState();
   const [mileage, setMileage] = useState(0);
-  const [fuel, setFuel] = useState(0);
+  const [fuel, setFuel] = useState(100);
   const [comment, setComment] = useState("");
 
-  
-  console.log(  FetchFunctions.fetchGroupFromGroupNameString(billAs))
-//Logic:
+  //Logic:
 /**
  * 1) if the car is selected, update all other states
  * 2) Track other state changes
@@ -65,7 +63,7 @@ const PickupModal = (props) => {
           {/* Customer Info Works now */}
           <CustomerInfo booking={props.selectedBooking}/>
           {/*The SelectedCar here depends on Marìna's "Find Cars" function */}
-          <SelectedCar selected={car} onSelect={(newCar)=> setCar(newCar)}/>
+          <SelectedCar selected={car} onSelect={(newCar)=> setCar(newCar)}/> 
           {/* BillCarAs can now set the billAs state */}
           <BillCarAs selected={billAs} onChange={(newGroup) => setBillAs(newGroup)} />
           <StartingMileage />
@@ -85,7 +83,7 @@ const PickupModal = (props) => {
             primary="true"
             className="buttonLarge"
             title="Save & Start"
-            onClick={updateEntries.updateBookingForPickup(props.selectedBooking, car, billAs, mileage, fuel, comment)} // Check if everything else works
+            onClick={updateEntries.updateBookingForPickup(props.selectedBooking, car, FetchFunctions.fetchGroupFromGroupNameString(billAs), mileage, fuel, comment)} // Check if everything else works
           />
         </div>
       </div>
