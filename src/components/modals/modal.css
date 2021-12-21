@@ -57,6 +57,7 @@
 .rowBody {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   width: 60%;
 }
 
@@ -215,7 +216,7 @@
 
 .carBody {
   padding: 10px;
-  height: 600px;
+  height: 592px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

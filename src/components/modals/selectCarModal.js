@@ -6,23 +6,29 @@ import { CARS } from "../../data/cars";
 import LargeCardBody from "../cards/CardsForOverview";
 
 function SelectCar(props) {
-  const [name, setName] = useState();
-  const [address, setAddress] = useState();
-  const [phone, setPhone] = useState();
-  const [email, setEmail] = useState();
-  const [birthday, setBirthday] = useState();
-  const [licenseID, setLicenseID] = useState();
-  const [licenseIssueDate, setIssueDate] = useState();
-  const [licenseExpirationDate, setExpirationDate] = useState();
-
   const cards = [];
+  const [selectedCar, setSelectedCar] = useState("");
+
+  function handleSelectCar(e, license) {
+    e.preventDefault();
+    if (selectedCar === license) {
+      //if I want to set it to the same thing again
+      setSelectedCar(""); // clear the selection instead
+    } else {
+      setSelectedCar(license);
+    }
+  }
 
   CARS.map((selCar) => {
     cards.push(
       <div key={selCar.License} className="cardMargin">
-        <LargeCardBody car={selCar.License} />
+        <LargeCardBody
+          car={selCar.License}
+          onClick={(e, license) => handleSelectCar(e, license)}
+        />
       </div>
     );
+    return null;
   });
 
   if (!props.showSelectCarModal) {
@@ -33,6 +39,7 @@ function SelectCar(props) {
       <div className="carContent">
         <div className="overlayTitle">
           <h3>Select a Car</h3>
+          <span> Selected car: {selectedCar}</span>
         </div>
 
         <div className="carBody">
@@ -50,7 +57,7 @@ function SelectCar(props) {
             color="DarkBlueBtn"
             primary="true"
             className="buttonLarge"
-            title="Save Customer"
+            title="Select Car"
             onClick={props.onConfirm}
           />
         </div>

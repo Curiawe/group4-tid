@@ -20,7 +20,7 @@ function SelectedCar(props) {
     if (props.selected) {
       returnString = props.selected.Model + " (" + props.selected.License + ")";
     } else {
-      returnString = "Please Select";
+      returnString = "Please select a car";
     }
     return returnString;
   }
