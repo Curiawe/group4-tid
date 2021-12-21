@@ -29,9 +29,6 @@ const PickupModal = (props) => {
     return group;
   }
 
-  function getCar() {
-    FetchFunctions.fetchCarFromLicense(carString)
-  }
 
   const [car, setCar] = useState(null);
   const [carString, setCarString] = useState("")
@@ -39,6 +36,16 @@ const PickupModal = (props) => {
   const [mileage, setMileage] = useState(0);
   const [fuel, setFuel] = useState(0);
   const [comment, setComment] = useState("");
+
+  function handleClose(){
+    setCar(null)
+    setCarString("")
+    setMileage(0)
+    setFuel(100)
+    setComment("")
+    props.onClose()
+  }
+
 
   //Logic:
   /**
@@ -112,7 +119,7 @@ const PickupModal = (props) => {
             primary="false"
             className="buttonLarge"
             title="Go Back"
-            onClick={props.onClose}
+            onClick={() => handleClose()}
           />
           <ButtonOnChange
             color="DarkBlueBtn"
