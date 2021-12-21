@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Overlay } from "./pickupReturnTransferSkeleton";
-import { ButtonNoLink, ButtonOnChange } from "../../buttons/ColorButton";
+import { ButtonNoLink } from "../../buttons/ColorButton";
 import { SelectCar } from "../selectCarModal";
 import FetchFunctions from "../../DB-functions/FetchFunctions";
-import FeatherIcon from "feather-icons-react";
+
 
 /**
  *
@@ -19,9 +19,9 @@ function SelectedCar(props) {
    */
   function carText() {
     let returnString = "";
-    if (props.selectedCar) {
+    if (props.car) {
       returnString =
-        props.selectedCar.Model + " (" + props.selectedCar.License + ")";
+        props.car.License + " (" + props.car.Model + ")";
     } else {
       returnString = "Please select a car";
     }
@@ -30,10 +30,37 @@ function SelectedCar(props) {
 
   function setNewCar(car) {
     props.onSelect(car);
-    setShowSelectCarModal(false);
   }
 
-  function carButton() {}
+  function onCloseResetCar() {
+    props.onSelect(null)
+    setShowSelectCarModal(false)
+  }
+
+  function handleConfirm(){
+    console.log("Handling Click")
+    console.log(props.selected)
+    props.onClickConfirm(FetchFunctions.fetchCarFromLicense(props.selected));
+    setShowSelectCarModal(false)
+
+  }
+
+  function colorString() {
+    if (props.car) {
+      return "GreenBtn"
+    } else {
+      return "DarkBlueBtn"
+    }
+  }
+
+  function buttonString() {
+    if (props.car) {
+      return "Selected"
+    } else {
+      return "Select Car"
+    }
+  }
+
 
   return (
     <Overlay title="Car">
@@ -41,15 +68,16 @@ function SelectedCar(props) {
         {carText()}
         <ButtonNoLink
           className="buttonSmall"
-          title="Select Car"
+          title={buttonString()}
           primary="true"
-          color="DarkBlueBtn"
+          color={colorString()}
           onClick={() => setShowSelectCarModal(true)}
         />{" "}
         <SelectCar
           showSelectCarModal={showSelectCarModal}
-          onClose={() => setShowSelectCarModal(false)}
-          onConfirm={() => setNewCar(props.car)}
+          onClose={() => onCloseResetCar()}
+          onConfirm={() => handleConfirm()}
+          onSelect= {(input) => setNewCar(input)}
         />
       </div>
     </Overlay>

@@ -2,7 +2,6 @@ import "./cards.css";
 import { React, useState } from "react";
 import { ButtonStyled } from "../buttons/ColorButton";
 import { IconBody } from "./IconBody";
-import Pages from "../../pages/Pages";
 import { CARS } from "../../data/cars";
 import ColorIcon from "./AvailabilityIcon";
 import { Icon } from "@iconify/react";

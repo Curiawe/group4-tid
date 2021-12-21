@@ -1,15 +1,15 @@
 import { LOCATIONS } from "./locations";
-import Audi from "../images/audi-a6.jpg";
-import Fiat500 from "../images/fiat-500.jpg";
-import FiatBLK from "../images/fiat-punto-blk.jpg";
-import FiatSLV from "../images/fiat-punto-slv.jpg";
-import Ford from "../images/ford-mondeo.jpg";
-import HondaRED from "../images/honda-crv-red.jpg";
-import HondaSLV from "../images/honda-crv-slv.jpg";
-import Renault from "../images/renault-captur.jpg";
-import SkodaRED from "../images/skoda-fabia-red.jpg";
-import SkodaSLV from "../images/skoda-fabia-slv.jpg";
-import VW from "../images/vw-passat.jpg";
+import Audi from "../Images/audi-a6.jpg";
+import Fiat500 from "../Images/fiat-500.jpg";
+import FiatBLK from "../Images/fiat-punto-blk.jpg";
+import FiatSLV from "../Images/fiat-punto-slv.jpg";
+import Ford from "../Images/ford-mondeo.jpg";
+import HondaRED from "../Images/honda-crv-red.jpg";
+import HondaSLV from "../Images/honda-crv-slv.jpg";
+import Renault from "../Images/renault-captur.jpg";
+import SkodaRED from "../Images/skoda-fabia-red.jpg";
+import SkodaSLV from "../Images/skoda-fabia-slv.jpg";
+import VW from "../Images/vw-passat.jpg";
 import { CARGROUPS } from "./carGroups";
 /* Schema:
 license plate: {License:"e plate", Model,carGroup,Color,fuelType,fuelStatus,Locatoin,Doors,Status,RelStatus,Image}

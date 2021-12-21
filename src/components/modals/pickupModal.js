@@ -29,7 +29,12 @@ const PickupModal = (props) => {
     return group;
   }
 
+  function getCar() {
+    FetchFunctions.fetchCarFromLicense(carString)
+  }
+
   const [car, setCar] = useState(null);
+  const [carString, setCarString] = useState("")
   const [billAs, setBillAs] = useState(selCarGroup());
   const [mileage, setMileage] = useState(0);
   const [fuel, setFuel] = useState(0);
@@ -86,8 +91,10 @@ const PickupModal = (props) => {
           <CustomerInfo booking={props.selectedBooking} />
           {/*The SelectedCar here depends on Marìna's "Find Cars" function */}
           <SelectedCar
-            selected={props.car}
-            onSelect={(newCar) => setCar(newCar)}
+            selected={carString}
+            onSelect={(newCar) => setCarString(newCar)}
+            onClickConfirm={(input) => setCar(input)}
+            car={car}
           />
           {/* BillCarAs takes the the state and the change function */}
           <BillCarAs

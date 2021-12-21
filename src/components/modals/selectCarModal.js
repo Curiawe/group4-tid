@@ -1,11 +1,8 @@
 import "./modal.css";
 import { React, useState } from "react";
-import { ButtonOnChange, ButtonNoLink } from "../buttons/ColorButton";
-import { BookingCustomerInfo } from "./bookingComponents/customerInfo";
+import { ButtonOnChange } from "../buttons/ColorButton";
 import { CARS } from "../../data/cars";
 import LargeCardBody from "../cards/CardsForOverview";
-import FeatherIcon from "feather-icons-react";
-import FetchFunctions from "../DB-functions/FetchFunctions";
 
 function SelectCar(props) {
   const cards = [];
@@ -16,8 +13,10 @@ function SelectCar(props) {
     if (car === license) {
       //if I want to set it to the same thing again
       setSelectedCarLicense(""); // clear the selection instead
+      props.onSelect(null)
     } else {
       setSelectedCarLicense(license);
+      props.onSelect(license)
     }
   }
 
