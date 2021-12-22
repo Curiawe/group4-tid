@@ -9,8 +9,29 @@ import { ReturnCarState } from "./pickupReturnTransferComponents/carState";
 import { CustomerInfo } from "./pickupReturnTransferComponents/customerInfo";
 
 const ReturnModal = (props) => {
+
+
+
+
   if (!props.showReturnModal) {
     return null;
+    
+  } else if (props.showReturnModal && !props.selectedBooking) {
+    return (
+      <div className="overlay" >
+        <div className="overlayContent">
+          <div className="overlayTitle" style={{padding:"16px"}}>
+            <div style={{marginBottom:"32px"}}>Please select a booking before proceeding with Return.</div>
+            <ButtonOnChange
+            color="DarkBlueBtn"
+            primary="true"
+            className="buttonLarge"
+            title="Go back"
+            onClick={props.onClose}/>
+            </div>
+        </div>
+      </div>
+      )
   }
 
   return (
@@ -21,7 +42,7 @@ const ReturnModal = (props) => {
           <p>bookingID</p>
         </div>
         <div className="overlayBody">
-          <CustomerInfo />
+          <CustomerInfo booking={props.selectedBooking}/>
           <ReturnCarState />
           <ReturnTime />
           <ReturnMileage />

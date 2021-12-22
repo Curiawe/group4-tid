@@ -48,7 +48,6 @@ const PickupModal = (props) => {
             </div>
         </div>
       </div>
-
       )
   }
 
