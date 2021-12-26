@@ -1,10 +1,10 @@
 import FetchFunctions from "./FetchFunctions"
+import { bookingStates } from "../../data/bookingStates";
 
 const updateEntries = {
 
     updateCustomer : (ref, name, address, phone, email, born, id, issued, expires) => {
         let customer = FetchFunctions.fetchBookingFromRef(ref).Customer;
-        console.log("Customer Found: " + customer.name)
         customer.name = name;
         customer.address = address;
         customer.phone = phone;
@@ -26,7 +26,7 @@ const updateEntries = {
         booking.car = car
         booking.BillAs = billAs
         booking.Pickup.mileage = mileage
-        booking.status = "Picked up"
+        booking.status = bookingStates.PICKEDUP
 
         if (car) {
             car.fuelStatus = fuel
