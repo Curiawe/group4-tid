@@ -1,10 +1,6 @@
 import { CARS } from "../../data/cars";
 import { BOOKINGS } from "../../data/bookings";
-import { Filter, X } from "react-feather";
 import { TRANSFERS } from "../../data/transfer";
-import { CARGROUPS } from "../../data/carGroups";
-// group, availability
-
 
 // find all cars with location and available status
 function FilterCar(location, status) {
@@ -14,6 +10,7 @@ function FilterCar(location, status) {
     )))
 }
 
+// find all available cars that are not being transfered during the booking period
 function FilterTransferCars(cars, pickupTime, returnTime) {
     
     let avCars = cars
@@ -25,15 +22,20 @@ function FilterTransferCars(cars, pickupTime, returnTime) {
     }})
 
     let finalCars = avCars.filter(c => !transferCars.includes(c))
-    let licenses = []
-    finalCars.map(c => licenses.push(c.License))
-
+    
     return(
-        licenses
+        finalCars
     )
 }
 
+// identify the requested car group
 
+function FilterGroups(group) {
+    return(
+        CARS.filter(car => car.carGroup === group).map(c => (
+            c))
+    )
+}
 
 
 function ShowAvailableCars(bookingRef) {
@@ -47,14 +49,31 @@ function ShowAvailableCars(bookingRef) {
         return null;
         });
 
+    // assign location, group, status for booking
     let pickupLocation = booking.Pickup.location.Location
     let carGroup = booking.carGroup
     let carStatus = "Available"
 
+    // filter cars based on location, status, availability during booking (= no transfers)
     let filteredCars = FilterCar(pickupLocation, carStatus)
     let cars = FilterTransferCars(filteredCars, booking.Pickup.time, booking.Return.time)
+    
+    // filter car groups - identify the requested group for booking
+    let avCarGroups = FilterGroups(carGroup)
+    let finalAvCars = cars.filter(c => avCarGroups.includes(c))
 
-    return (cars)
+    // return license - change later maybe
+    let allAvLicenses = []
+    cars.map(c => allAvLicenses.push(c.License))
+
+    let finalLicenses = []
+    finalAvCars.map(c => finalLicenses.push(c.License))
+
+    // return available car. If no car of requested group is available, show all available cars
+    if (finalLicenses.length < 1) {
+        return allAvLicenses
+    }
+    else return finalLicenses
 } 
 
 export default ShowAvailableCars 
