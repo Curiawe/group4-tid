@@ -26,6 +26,7 @@ const updateEntries = {
         booking.car = car
         booking.BillAs = billAs
         booking.Pickup.mileage = mileage
+        booking.status = "Picked up"
 
         if (car) {
             car.fuelStatus = fuel

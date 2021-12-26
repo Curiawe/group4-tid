@@ -20,6 +20,16 @@ const PickupModal = (props) => {
   const [fuel, setFuel] = useState(100);
   const [comment, setComment] = useState("");
 
+  function onClickSave () {
+    if (!car) {
+      alert("Please select a car for this pickup.")
+    } else {
+        updateEntries.updateBookingForPickup(props.selectedBooking, car, 
+          FetchFunctions.fetchGroupFromGroupNameString(billAs), mileage, fuel, comment)
+    }
+    props.onConfirm() 
+  }
+
   //Logic:
 /**
  * 1) if the car is selected, update all other states
@@ -82,7 +92,7 @@ const PickupModal = (props) => {
             primary="true"
             className="buttonLarge"
             title="Save & Start"
-            onClick={() => updateEntries.updateBookingForPickup(props.selectedBooking, car, FetchFunctions.fetchGroupFromGroupNameString(billAs), mileage, fuel, comment)} // Check if everything else works
+            onClick={() => onClickSave()} // Check if everything else works
           />
         </div>
       </div>
