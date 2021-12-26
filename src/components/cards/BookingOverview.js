@@ -86,7 +86,7 @@ function BookingOverviewCont() {
             onConfirm={() => setShowReturnModal(false)}
             selectedBooking={selectedBooking}
             bookingStatus={bookingState}
-            setBookingState={setBookingState}
+            setBookingState={(input) => setBookingState(input)}
           ></ReturnModal>
           <div className="clickableIcon">
             <FeatherIcon icon="edit" className="icon" />

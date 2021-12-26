@@ -1,6 +1,6 @@
 import { React, useState } from "react";
 import "./modal.css";
-import { ButtonOnChange } from "../buttons/ColorButton";
+import { ButtonOnChange, ButtonNoLink } from "../buttons/ColorButton";
 import { ReturnFuel } from "./pickupReturnTransferComponents/fuelLevel";
 import { Comments } from "./pickupReturnTransferComponents/comments";
 import { ReturnTime } from "./pickupReturnTransferComponents/arrivalTime";
@@ -14,8 +14,8 @@ const ReturnModal = (props) => {
 
   function onClickOverrideStatus (e) {
     e.preventDefault();
-    alert(`Opened Pickup for booking ${props.selectedBooking}. If you opened this view by accident, select 'Go Back'.`)
-    props.setBookingState("Booked")
+    alert(`Opening Return for booking ${props.selectedBooking}. If you opened this view by accident, select 'Cancel'.`)
+    props.setBookingState(bookingStates.PICKEDUP)
   }
 
 
@@ -39,38 +39,37 @@ const ReturnModal = (props) => {
       </div>
       )
   }
-  else {
-    let stat = FetchFunctions.fetchBookingFromRef(props.selectedBooking).Status
-    if (stat !== bookingStates.PICKEDUP) {
-
-      return (
-        <div className="overlay">
-          <div className="overlayContent" style={{display:"flex", justifyContent:"center", alignContent: "center", textAlign:"center", padding:"32px"}}>
-            <div className="overlayBody">
-              <h4>Can't return selected booking.</h4>
-              <p>This booking cannot be returned. It is currently <strong>"{stat}"</strong>. A booking should be "Picked up" for you to be able to return it.</p>
-              <div className="overlayFooter" style={{display:"flex", alignContent:"space-evenly"}}>
-                <ButtonOnChange
-                    color="DarkBlueBtn"
-                    primary="true"
-                    className="buttonLarge"
-                    title="Go Back"
-                    onClick={props.onClose}
-                  />
+  else if (props.showReturnModal && props.selectedBooking) {
+      if (props.bookingStatus !== bookingStates.PICKEDUP){
+        return (
+          <div className="overlay">
+            <div className="overlayContent" style={{display:"flex", justifyContent:"center", alignContent: "center", textAlign:"center", padding:"32px"}}>
+              <div className="overlayBody">
+                <h4>Can't return selected booking.</h4>
+                <p>This booking cannot be returned. It is currently <strong>"{props.bookingStatus}"</strong>. A booking should be "Picked up" for you to be able to return it.</p>
+                <div className="overlayFooter" style={{display:"flex", alignContent:"space-evenly"}}>
                   <ButtonOnChange
-                    color="DarkRedBtn"
-                    primary="true"
-                    className="buttonSmall"
-                    title="Return Anyway"
-                    onClick={() => alert("In a perfect world, this would work. But it doesn't, yet. Sorry.")}
-                  />
-
+                      color="DarkBlueBtn"
+                      primary="true"
+                      className="buttonLarge"
+                      title="Go Back"
+                      onClick={props.onClose}
+                    />
+                    <ButtonNoLink
+                      color="DarkRedBtn"
+                      primary="true"
+                      className="buttonSmall"
+                      title="Return Anyway"
+                      onClick={(e) => onClickOverrideStatus(e)}
+                    />
+  
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      )
-    } else {
+        )  
+      }
+    }
       return (
         <div className="overlay">
           <div className="overlayContent">
@@ -104,8 +103,6 @@ const ReturnModal = (props) => {
           </div>
         </div>
       );        
-    }
-  }
 };
 
 export default ReturnModal;
