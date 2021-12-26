@@ -3,7 +3,7 @@
  */
 
 export let LOCATIONS = [
-    {ID: "CPC", Location: "CPH City C enter", Address:"Frørupvej 18, 1154 Københaven", Email:"CPC@scancar.dk", Phone:"00 00 00 00", Region:"Hovedstaden"},
+    {ID: "CPC", Location: "CPH City Center", Address:"Frørupvej 18, 1154 Københaven", Email:"CPC@scancar.dk", Phone:"00 00 00 00", Region:"Hovedstaden"},
     {ID: "CPA", Location: "CPH Airport", Address: "Lufthavnsboulevarden 2, 2770 Kastrup",Email:"CPA@scancar.dk", Phone:"11 11 11 11", Region:"Hovedstaden"},
     {ID: "AHC", Location: "Aarhus Central", Address: "Bygholms Alle 10, 8260 Viby J",Email:"AHC@scancar.dk", Phone:"22 22 22 22",Region:"Midtjylland"},
     {ID: "AHN", Location: "Aarhus North", Address: "Paludan-Müllers Vej 82, 8200 Aarhus N", Email:"AHN@scancar.dk", Phone:"33 33 33 33",Region:"Midtjylland"},
