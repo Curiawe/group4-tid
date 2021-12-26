@@ -1,16 +1,24 @@
-import { React, useState } from "react";
+import { useState } from "react";
 import "./modal.css";
 import { ButtonOnChange, ButtonNoLink } from "../buttons/ColorButton";
 import { ReturnFuel } from "./pickupReturnTransferComponents/fuelLevel";
 import { Comments } from "./pickupReturnTransferComponents/comments";
 import { ReturnTime } from "./pickupReturnTransferComponents/arrivalTime";
 import { ReturnMileage } from "./pickupReturnTransferComponents/mileage";
+
 import { ReturnCarState } from "./pickupReturnTransferComponents/carState";
+import { SelectedCar } from "./pickupReturnTransferComponents/car";
+
 import { CustomerInfo } from "./pickupReturnTransferComponents/customerInfo";
-import FetchFunctions from "../DB-functions/FetchFunctions";
 import { bookingStates } from "../../data/bookingStates";
+import FetchFunctions from "../DB-functions/FetchFunctions";
 
 const ReturnModal = (props) => {
+
+  const [arrivalTime, setArrivalTime] = useState()
+  const [returnMileage, setMileage] = useState(0)
+  const [returnFuel, setFuel] = useState(100)
+  const [returnComment, setComment] = ("")
 
   function onClickOverrideStatus (e) {
     e.preventDefault();
@@ -39,6 +47,9 @@ const ReturnModal = (props) => {
       </div>
       )
   }
+
+
+
   else if (props.showReturnModal && props.selectedBooking) {
       if (props.bookingStatus !== bookingStates.PICKEDUP){
         return (
@@ -70,6 +81,9 @@ const ReturnModal = (props) => {
         )  
       }
     }
+
+    let car = FetchFunctions.fetchBookingFromRef(props.selectedBooking).Car
+
       return (
         <div className="overlay">
           <div className="overlayContent">
@@ -78,7 +92,8 @@ const ReturnModal = (props) => {
             </div>
             <div className="overlayBody">
               <CustomerInfo booking={props.selectedBooking}/>
-              <ReturnCarState />
+              {/* <ReturnCarState /> */}
+              <SelectedCar selected={car} onSelect={() => alert("No selection possible")}/> 
               <ReturnTime />
               <ReturnMileage />
               <ReturnFuel />
