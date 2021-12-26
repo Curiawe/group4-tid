@@ -33,6 +33,7 @@ const PickupModal = (props) => {
 
   function onClickOverrideStatus (e) {
     e.preventDefault();
+    alert(`Opened Pickup for booking ${props.selectedBooking}. If you opened this view by accident, select 'Go Back'.`)
     props.setBookingState("Booked")
   }
 
