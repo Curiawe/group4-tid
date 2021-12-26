@@ -68,7 +68,7 @@ function BookingCard(props) {
         <div className="p2Booking">Return</div>
         <IconBody title={booking.Return.location.Location} icon="map-pin" />
         <IconBody title={returnTime} icon="calendar" />
-        <div className="p1Booking">{booking.carGroup[0]}</div>
+        <div className="p1Booking">{booking.carGroup.name}</div>
         {serviceComp}
       </div>
     </div>

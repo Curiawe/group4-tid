@@ -9,20 +9,27 @@ import ReturnModal from "../modals/returnModal";
 import BookingModal from "../modals/bookingModal";
 import FeatherIcon from "feather-icons-react";
 import SearchBar from "../inputfields+dropdowns/searchBar";
+import FetchFunctions from "../DB-functions/FetchFunctions";
 
 function BookingOverviewCont() {
   const cards = [];
   const [selectedBooking, setSelectedBooking] = useState("");
+  const [bookingState, setBookingState] = useState("")
   const [showBookingModal, setShowBookingModal] = useState(false);
   const [showPickupModal, setShowPickupModal] = useState(false);
   const [showReturnModal, setShowReturnModal] = useState(false);
+
+  console.log("Booking and booking Status: " + selectedBooking + ": " + bookingState)
 
   function handleSelect (e, ref) {
     e.preventDefault();
     if (selectedBooking === ref) { //if I want to set it to the same thing again
       setSelectedBooking(""); // clear the selection instead
+      setBookingState("")
     } else {
       setSelectedBooking(ref);
+      setBookingState(FetchFunctions.fetchBookingFromRef(ref).Status)
+
     }
   }
 
@@ -63,6 +70,8 @@ function BookingOverviewCont() {
             onClose={() => setShowPickupModal(false)}
             onConfirm={() => setShowPickupModal(false)}
             selectedBooking={selectedBooking}
+            bookingStatus={bookingState}
+            setBookingState={(input) => setBookingState(input)}
           ></PickupModal>
           <ButtonOnChange
             color="LightBlueBtn"
@@ -76,6 +85,8 @@ function BookingOverviewCont() {
             onClose={() => setShowReturnModal(false)}
             onConfirm={() => setShowReturnModal(false)}
             selectedBooking={selectedBooking}
+            bookingStatus={bookingState}
+            setBookingState={setBookingState}
           ></ReturnModal>
           <div className="clickableIcon">
             <FeatherIcon icon="edit" className="icon" />
