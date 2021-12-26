@@ -13,19 +13,16 @@ function ReturnTime(props) {
 
   return (
     <Overlay title="Arrival Time">
-      <div>
+      <div style={{lineHeight:"1.8"}}>
       Planned: {props.time.toLocaleTimeString("da-DA").replace("00.00", "00")}<br/>
       Actual: {arrivalCleaned}
       </div>
       <TwoRadioButtons
         name="Arrival Time"
         buttonOne="On Time"
-        checkedOne={arrivalTime < props.time}
+        checkedOne={!late} //this is not fine. 
         buttonTwo="Late"
-        checkedTwo={arrivalTime > props.time}
-        onChange={(e) => {
-          setArrivalTime(e.target.value);
-        }}
+        checkedTwo={late} // this does not work, but I need to be able to note the time, anyway
       />
     </Overlay>
   );
