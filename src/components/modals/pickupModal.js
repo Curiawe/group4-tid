@@ -101,8 +101,7 @@ const PickupModal = (props) => {
         <div className="overlay">
           <div className="overlayContent">
             <div className="overlayTitle">
-              <h3>Pickup</h3>
-              <p>bookingID: {props.selectedBooking}</p>
+              <h3>Pickup Booking {props.selectedBooking}</h3>
             </div>
             <div className="overlayBody">
               {/* Customer Info Works now */}

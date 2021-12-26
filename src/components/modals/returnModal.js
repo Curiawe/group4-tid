@@ -12,7 +12,12 @@ import { bookingStates } from "../../data/bookingStates";
 
 const ReturnModal = (props) => {
 
-  const [Status, setStatus] = useState("")
+  function onClickOverrideStatus (e) {
+    e.preventDefault();
+    alert(`Opened Pickup for booking ${props.selectedBooking}. If you opened this view by accident, select 'Go Back'.`)
+    props.setBookingState("Booked")
+  }
+
 
   if (!props.showReturnModal) {
     return null;
@@ -70,8 +75,7 @@ const ReturnModal = (props) => {
         <div className="overlay">
           <div className="overlayContent">
             <div className="overlayTitle">
-              <h3>Return</h3>
-              <p>bookingID</p>
+              <h3>Return Booking {props.selectedBooking}</h3>
             </div>
             <div className="overlayBody">
               <CustomerInfo booking={props.selectedBooking}/>
