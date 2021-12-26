@@ -15,7 +15,7 @@ import FetchFunctions from "../DB-functions/FetchFunctions";
 
 const ReturnModal = (props) => {
 
-  const [arrivalTime, setArrivalTime] = useState()
+  const [arrivalTime, setArrivalTime] = useState(new Date(2021,11,26,8,45))
   const [returnMileage, setMileage] = useState(0)
   const [returnFuel, setFuel] = useState(100)
   const [returnComment, setComment] = ("")
@@ -82,7 +82,8 @@ const ReturnModal = (props) => {
       }
     }
 
-    let car = FetchFunctions.fetchBookingFromRef(props.selectedBooking).Car
+    let booking = FetchFunctions.fetchBookingFromRef(props.selectedBooking)
+    let car = booking.Car
 
       return (
         <div className="overlay">
@@ -93,8 +94,8 @@ const ReturnModal = (props) => {
             <div className="overlayBody">
               <CustomerInfo booking={props.selectedBooking}/>
               {/* <ReturnCarState /> */}
-              <SelectedCar selected={car} onSelect={() => alert("No selection possible")}/> 
-              <ReturnTime />
+              <SelectedCar selected={car}/> 
+              <ReturnTime time={booking.Return.time} returned={arrivalTime} setReturned = {(time) => setArrivalTime(time)}/>
               <ReturnMileage />
               <ReturnFuel />
               <Comments />
