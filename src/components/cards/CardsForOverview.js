@@ -44,7 +44,7 @@ function LargeCardBody(props) {
           <ColorIcon title={car.Color} />
         </div>
         <div className="iconRow">
-          <IconBody title={car.Location[0]} icon="map-pin" />
+          <IconBody title={car.Location.Location} icon="map-pin" />
         </div>
         <div className="iconRow">
           <ColorIcon title={car.Status} />
