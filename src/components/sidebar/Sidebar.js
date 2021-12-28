@@ -1,8 +1,8 @@
 import "./sidebar.css";
-import { SidebarLinks } from "./SidebarLinks";
+import { SidebarLinks } from "./sidebarLinks";
 import React, { useState, useEffect } from "react";
 import Pages from "../../pages/Pages";
-import logo from "../../Images/logo/logo.png";
+import logo from "../../images/logo/logo.png";
 import FeatherIcon from "feather-icons-react";
 
 function Sidebar() {

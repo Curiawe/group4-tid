@@ -2,7 +2,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 //Global Components
-import Sidebar from "./components/sidebar/Sidebar";
+import Sidebar from "./components/sidebar/sidebar";
 import "./App.css";
 
 //Pages
