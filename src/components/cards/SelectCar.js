@@ -62,18 +62,11 @@ function ShowAvailableCars(bookingRef) {
     let avCarGroups = FilterGroups(carGroup)
     let finalAvCars = cars.filter(c => avCarGroups.includes(c))
 
-    // return license - change later maybe
-    let allAvLicenses = []
-    cars.map(c => allAvLicenses.push(c.License))
-
-    let finalLicenses = []
-    finalAvCars.map(c => finalLicenses.push(c.License))
-
     // return available car. If no car of requested group is available, show all available cars
-    if (finalLicenses.length < 1) {
-        return allAvLicenses
+    if (finalAvCars.length < 1) {
+        return avCarGroups
     }
-    else return finalLicenses
+    else return finalAvCars
 } 
 
 export default ShowAvailableCars 
