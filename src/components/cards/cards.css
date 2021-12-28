@@ -6,7 +6,7 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
   width: 100%;
 }
 
@@ -27,7 +27,7 @@
 .bookingOvButtons {
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: space-between;
   width: 100%;
 }
 
@@ -42,7 +42,7 @@
 .bookingOvBtn2 {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: flex-end;
   height: fit-content;
   width: 30%;
 }
@@ -60,6 +60,7 @@
   transition: 0.2s;
   border: 1px solid #c4c4c4;
   box-sizing: border-box;
+  background-color: #f0f4f9;
 }
 
 .card #active {
@@ -78,10 +79,13 @@
 }
 
 .card:hover {
-  background-color: #9fbadb;
   cursor: pointer;
-  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
-  transform: scale(1.02);
+  box-shadow: 0px 10px 10px rgba(249, 89, 89, 0.1);
+  transform: scale(1.01);
+}
+
+.card:hover .h4Booking {
+  color: #f95959;
 }
 
 .cardBodyBooking {

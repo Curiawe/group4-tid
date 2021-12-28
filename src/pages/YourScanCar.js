@@ -7,7 +7,7 @@ function YourScanCar() {
       <div className="pageTitle">
         <h1>Your ScanCar</h1>
       </div>
-      <div className="pageFilters">
+      <div className="pageContent">
         <h4>Car Groups</h4>
         <CarGroupTable />
         <h4>ScanCar Offices</h4>
