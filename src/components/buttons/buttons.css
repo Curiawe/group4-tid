@@ -48,7 +48,7 @@ button:hover {
 .buttonSmall {
   font-size: 12px;
   padding: 4px;
-  margin:4px;
+  margin: 4px;
 }
 
 /* Positioning of buttons depending on their role */
@@ -112,13 +112,13 @@ button:hover {
 }
 
 .navButton:hover {
-  background-color: #f95959;
-  border: 0px;
-  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  box-shadow: 0px 10px 10px rgba(249, 89, 89, 0.1);
+  transform: scale(1.01);
 }
 
 .navButton:hover h4 {
-  color: white;
+  color: #f95959;
 }
 
 /* Adjusting buttons to smaller screens */
