@@ -3,19 +3,16 @@ import { BookingComponent } from "./skeleton";
 import { InputField } from "../../inputfields+dropdowns/inputFields";
 
 function BookingCustomerInfo(props) {
-  let nameString = props.name;
-  let addressString = props.address;
-  let phoneString = props.phone;
-  let emailString = props.email;
-  let bornString = new Date(props.birthday).toLocaleDateString("da-DA");
-  let licenseIDString = props.licenseID;
-  let licenseIssueString = new Date(props.licenseIssueDate).toLocaleDateString(
-    "da-DA"
-  );
-  let licenseExpireString = new Date(
-    props.licenseExpirationDate
-  ).toLocaleDateString("da-DA");
-
+  let NameString = "Name: " + props.name
+  let addressString = "Address: " + props.address
+  let phoneString = "Phone Number: " + props.phone
+  let emailString = "Email: " + props.email
+  let bornString = "Date of Birth: " + new Date(props.birthday).toLocaleDateString("da-DA")
+  let licenseIDString = "License ID: " + props.licenseID
+  let licenseIssueString = "License Issued: " + new Date(props.licenseIssueDate).toLocaleDateString("da-DA")
+  let licenseExpireString = "License Expires: " + new Date(props.licenseExpirationDate).toLocaleDateString("da-DA")
+  
+  
   return (
     <BookingComponent title="Customer Info">
       <InputField
@@ -23,7 +20,7 @@ function BookingCustomerInfo(props) {
         type="text"
         onChange={(e) => props.onChangeName(e.target.value)}
         placeHolder="Name"
-        value={nameString}
+        value={NameString}
       />
       <InputField
         className="inputField"

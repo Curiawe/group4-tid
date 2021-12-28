@@ -133,7 +133,7 @@ function CustomerInfoModal(props) {
       return (null)
     } else {
       return (
-        <buttonbox style={{display:"flex", flexDirection:"row"}}>
+        <div style={{display:"flex", flexDirection:"row"}}>
 
         <ButtonNoLink // toggle edit customer info
           color="DarkBlueBtn"
@@ -151,14 +151,13 @@ function CustomerInfoModal(props) {
           onClick={() => alert("You clicked 'Customer Unfit'.\n\nThis means the customer showed no valid driver's license, or was otherwise unfit to drive.\n\nIn the future, you can select between cancelling the booking for the customer and changing the Customer.\n\nFor now, either edit the customer information or cancel the booking by selecting the booking, clicking the Edit button and selecting 'Cancel Booking'.")}
           />
 
-      </buttonbox>
+      </div>
       )
     }
   }
 
   function updateCustomer(){
     updateEntries.updateCustomer(props.booking, name, address, phone, email, birthday, licenseID, licenseIssueDate, licenseExpirationDate ) 
-    console.log("Updated Customer " + name + ", Closing Overlay now")
     setEditData(!editData)
   }
 
@@ -185,7 +184,6 @@ function CustomerInfoModal(props) {
 
   function changeStatus () {
     setEditData(!editData);
-    console.log("State Changed: " + editData)
   }
 
   if (!props.showCustomerInfoModal) {

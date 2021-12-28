@@ -13,7 +13,6 @@ export default function calcPrice(booking) {
 
     const diffTime = Math.abs(returnDate - pickupDate);
     const diffHours = Math.ceil(diffTime / (1000 * 60 * 60)); 
-    console.log(diffHours)
 
     let timePeriod = 6 // (divided by two)
     // this needs fixing!

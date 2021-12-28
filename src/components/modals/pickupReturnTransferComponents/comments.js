@@ -4,10 +4,10 @@ import { TextArea } from "../../inputfields+dropdowns/inputFields";
 function Comments(props) {
   return (
     <Overlay title="Comments">
-      <TextArea
-        placeHolder="Comments about the car's state"
-        onChange={(e) => props.onChangeComments(e.target.value)}
-      />
+      <TextArea 
+        placeHolder="Comments about the car's state" 
+        value={props.comment} 
+        onChange={(e) => props.onChange(e.target.value)}/>
     </Overlay>
   );
 }
