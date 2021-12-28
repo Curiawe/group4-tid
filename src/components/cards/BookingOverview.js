@@ -123,6 +123,9 @@ function BookingOverviewCont() {
             ></BookingModal>
           </div>
         </div>
+        <span> Selected Booking: {selectedBooking}</span>
+        <div className="bookingCardMargin">{cards}</div>
+
       </div>
     </>
   );

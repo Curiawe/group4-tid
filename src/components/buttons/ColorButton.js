@@ -159,6 +159,7 @@ function SubmitButton(props) {
           backgroundColor: backColor,
           color: fontColor,
           borderColor: borderColor,
+          marginLeft:"16px"
         }}
         className={props.className}
         type="submit"
