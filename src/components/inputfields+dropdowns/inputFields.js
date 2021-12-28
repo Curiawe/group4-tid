@@ -20,7 +20,9 @@ const InputField = (props) => {
         step={step}
         min={min}
         max={max}
+        permitted={props.permitted}
         value={props.value}
+        list={props.list}
         required
       />
       <label> {props.placeHolder} </label>
@@ -29,12 +31,26 @@ const InputField = (props) => {
 };
 
 const InputFieldSmall = (props) => {
+  let step
+  let min = props.min
+  let max = props.max 
+  if (props.type === "time"){
+    step = 7200
+    min = "08:00"
+    max = "20:00"
+  }
   return (
     <div className="inputFieldSmall">
       <input
         type={props.type}
         onChange={props.onChange}
         name={props.placeHolder}
+        step={step}
+        min={min}
+        max={max}
+        permitted={props.permitted}
+        value={props.value}
+        list={props.list}
         required
       />
       <label> {props.placeHolder} </label>

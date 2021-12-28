@@ -2,20 +2,22 @@ import { useState } from "react";
 import { Overlay } from "./pickupReturnTransferSkeleton";
 import { TwoRadioButtons } from "../../selectionBoxes/selectionBoxes";
 import { InputFieldSmall } from "../../inputfields+dropdowns/inputFields";
+import dataSetBusinessHours from "../../../data/businessHours";
 
 function ReturnTime(props) {
-  const [arrivalTime, setArrivalTime] = useState(props.returned.toLocaleTimeString("da-DA").slice(0,2) + ".00");
+  const [arrivalTime, setArrivalTime] = useState(props.returned);
 
-  const arrivalCleaned = arrivalTime;
+  const permittedTimes = dataSetBusinessHours("Return")
+  const arrivalCleaned = arrivalTime.toLocaleTimeString("da-DA") // this part doesn't work
   let late = (arrivalTime > props.time)
   console.log("props.time: " + props.time)
-  console.log("arrivalTime: " + arrivalTime)
+  console.log("arrivalTime: " + arrivalCleaned)
 
   return (
     <Overlay title="Arrival Time">
       <div style={{lineHeight:"1.8"}}>
       Planned: {props.time.toLocaleTimeString("da-DA").replace("00.00", "00")}<br/>
-      Actual:  <InputFieldSmall type="time" value={arrivalCleaned} onChange={(input) => setArrivalTime(input)} name ="Actual"/>
+      Actual:  <InputFieldSmall type="time" onChange={(input) => setArrivalTime(input)} name ="Actual" list={permittedTimes}/>
       </div>
       <TwoRadioButtons
         name="Arrival Time"
