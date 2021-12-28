@@ -19,7 +19,7 @@ function Cars() {
         <h1>Car Overview</h1>
       </div>
       <div className="pageContent">
-        <div className="box">
+        <div>
           <div className="cardPageMargin">{cards}</div>
         </div>
       </div>
