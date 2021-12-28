@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { Overlay } from "./pickupReturnTransferSkeleton";
 import { TwoRadioButtons } from "../../selectionBoxes/selectionBoxes";
+import { InputFieldSmall } from "../../inputfields+dropdowns/inputFields";
 
 function ReturnTime(props) {
-  const [arrivalTime, setArrivalTime] = useState(props.returned);
+  const [arrivalTime, setArrivalTime] = useState(props.returned.toLocaleTimeString("da-DA").slice(0,2) + ".00");
 
-  let arrivalCleaned = arrivalTime.toLocaleTimeString("da-DA")
-  arrivalCleaned = arrivalCleaned.slice(0,2) + ".00"
+  const arrivalCleaned = arrivalTime;
   let late = (arrivalTime > props.time)
   console.log("props.time: " + props.time)
   console.log("arrivalTime: " + arrivalTime)
@@ -15,7 +15,7 @@ function ReturnTime(props) {
     <Overlay title="Arrival Time">
       <div style={{lineHeight:"1.8"}}>
       Planned: {props.time.toLocaleTimeString("da-DA").replace("00.00", "00")}<br/>
-      Actual: {arrivalCleaned}
+      Actual:  <InputFieldSmall type="time" value={arrivalCleaned} onChange={(input) => setArrivalTime(input)} name ="Actual"/>
       </div>
       <TwoRadioButtons
         name="Arrival Time"
