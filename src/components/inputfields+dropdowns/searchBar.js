@@ -5,13 +5,13 @@ const SearchBar = ({ onChange, placeholder }) => {
   return (
     <form method="get">
       <div className="searchBar">
-        <div className="inputField">
+        <div className="inputFieldSearch">
           <input type="text" placeholder={placeholder} onChange={onChange} />
         </div>
         <SubmitButton
           color="DarkBlueBtn"
           primary="true"
-          className="buttonLarge"
+          className="buttonMedium"
           title="Search"
         />
       </div>

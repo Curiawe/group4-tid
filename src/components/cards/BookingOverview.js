@@ -1,6 +1,5 @@
 import { useState } from "react";
 import "./cards.css";
-import "../booking.css";
 import BookingCard from "./CardsForBooking";
 import { ButtonOnChange } from "../buttons/ColorButton";
 import BOOKINGS from "../../data/bookings";
@@ -8,17 +7,33 @@ import PickupModal from "../modals/pickupModal";
 import ReturnModal from "../modals/returnModal";
 import BookingModal from "../modals/bookingModal";
 import SearchBar from "../inputfields+dropdowns/searchBar";
+import ManageBookingModal from "../modals/manageBookingModal";
 
 function BookingOverviewCont() {
   const cards = [];
+  const [selectedBooking, setSelectedBooking] = useState("");
   const [showBookingModal, setShowBookingModal] = useState(false);
   const [showPickupModal, setShowPickupModal] = useState(false);
   const [showReturnModal, setShowReturnModal] = useState(false);
+  const [showManageBookingModal, setShowManageBookingModal] = useState(false);
+
+  function handleSelect(e, ref) {
+    e.preventDefault();
+    if (selectedBooking === ref) {
+      //if I want to set it to the same thing again
+      setSelectedBooking(""); // clear the selection instead
+    } else {
+      setSelectedBooking(ref);
+    }
+  }
 
   BOOKINGS.map((bkng) => {
     cards.push(
       <div key={bkng.Ref} className="cardMargin">
-        <BookingCard booking={bkng.Ref} />
+        <BookingCard
+          booking={bkng.Ref}
+          onClick={(e, ref) => handleSelect(e, ref)}
+        />
       </div>
     );
     return null;
@@ -29,13 +44,15 @@ function BookingOverviewCont() {
       <div className="pageTitle">
         <h1>Booking Overview</h1>
       </div>
-      <div className="pageFilters">
-        <SearchBar
-          placeholder="Search bookings"
-          onChange={(e) => console.log(e.target.value)}
-        />
+      <div className="pageContent">
         <div className="bookingOvButtons">
           <div className="bookingOvBtn1">
+            <SearchBar
+              placeholder="Search bookings"
+              onChange={(e) => console.log(e.target.value)} // To-Do: implement search
+            />
+          </div>
+          <div className="bookingOvBtn2">
             <ButtonOnChange
               color="PurpleBtn"
               primary="true"
@@ -47,6 +64,7 @@ function BookingOverviewCont() {
               showPickupModal={showPickupModal}
               onClose={() => setShowPickupModal(false)}
               onConfirm={() => setShowPickupModal(false)}
+              selectedBooking={selectedBooking}
             ></PickupModal>
             <ButtonOnChange
               color="LightBlueBtn"
@@ -65,8 +83,12 @@ function BookingOverviewCont() {
               primary="false"
               className="buttonMedium"
               title="Edit"
-              onClick={""}
+              onClick={() => setShowManageBookingModal(true)}
             />
+            <ManageBookingModal
+              showManageBookingModal={showManageBookingModal}
+              onClose={() => setShowManageBookingModal(false)}
+            ></ManageBookingModal>
             <ButtonOnChange
               color="DarkBlueBtn"
               primary="true"
@@ -80,8 +102,9 @@ function BookingOverviewCont() {
             ></BookingModal>
           </div>
         </div>
+        <span> Selected Booking: {selectedBooking}</span>
+        <div className="cardPageMargin">{cards}</div>
       </div>
-      <div className="pageContent">{cards}</div>
     </>
   );
 }

@@ -9,7 +9,9 @@ function Sidebar() {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
 
-  const handleClick = () => setClick(!click);
+  const handleClick = () => {
+    return setClick(!click);
+  };
 
   const showButton = () => {
     if (window.innerWidth <= 960) {

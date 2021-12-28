@@ -19,7 +19,7 @@ license plate: {License:"e plate", Model,carGroup,Color,fuelType,fuelStatus,Loca
 export let CARS = [
   {
     License: "FC12345",
-    Model: "Fiat Puto",
+    Model: "Fiat Punto",
     carGroup: CARGROUPS[0],
     Color: "BLU",
     fuelType: "P",
@@ -32,7 +32,7 @@ export let CARS = [
   },
   {
     License: "FM23456",
-    Model: "Fiat Puto",
+    Model: "Fiat Punto",
     carGroup: CARGROUPS[0],
     Color: "BLK",
     fuelType: "P",
@@ -52,7 +52,7 @@ export let CARS = [
     fuelStatus: 100,
     Location: LOCATIONS[1],
     Doors: 2,
-    Status: "Rented",
+    Status: "Available",
     relStatus: "Released",
     Image: SkodaRED,
   },
@@ -65,7 +65,7 @@ export let CARS = [
     fuelStatus: 100,
     Location: LOCATIONS[1],
     Doors: 2,
-    Status: "Service",
+    Status: "Available",
     relStatus: "Released",
     Image: Ford,
   },
@@ -143,7 +143,7 @@ export let CARS = [
     fuelStatus: 100,
     Location: LOCATIONS[0],
     Doors: 2,
-    Status: "Transfer",
+    Status: "Unavailable",
     relStatus: "Released",
     Image: HondaSLV,
   },
@@ -159,5 +159,5 @@ export let CARS = [
     Status: "Unavailable",
     relStatus: "Released",
     Image: Fiat500,
-  },
+    }
 ];

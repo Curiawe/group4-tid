@@ -17,15 +17,14 @@ so we can call them with use params */
 
 const Pages = {
   BookingOverview: "/booking-overview",
-  CarGroups: "/car-groups",
   Cars: "/cars",
   DailyOverview: "/daily-overview",
   Home: "/",
   ManageBooking: "/manage-booking",
-  RentalOffices: "/offices",
   Schedule: "/schedule",
   TransferOverview: "/transfers",
   Walkins: "/walkins",
+  YourScanCar: "/your-scancar",
 };
 
 export default Pages;

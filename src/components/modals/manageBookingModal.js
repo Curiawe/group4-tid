@@ -9,7 +9,7 @@ import { ExtraServices } from "./bookingComponents/extraServices";
 import { Price } from "./bookingComponents/price";
 import BOOKINGS from "../../data/bookings";
 
-function BookingModal(props) {
+function ManageBookingModal(props) {
   const [pickupDate, setPickupDate] = useState(new Date());
   const [pickupTime, setPickupTime] = useState("");
   const [pickupLocation, setPickupLocation] = useState();
@@ -28,7 +28,7 @@ function BookingModal(props) {
   const [licenseExpirationDate, setExpirationDate] = useState();
   const [extraDriver, setExtraDriver] = useState(false);
 
-  if (!props.showBookingModal) {
+  if (!props.showManageBookingModal) {
     return null;
   }
 
@@ -152,7 +152,7 @@ function BookingModal(props) {
     <div className="overlay">
       <div className="bookingContent">
         <div className="overlayTitle">
-          <h3>New Booking</h3>
+          <h3>Manage Booking</h3>
           <p>bookingID</p>
         </div>
         <div className="overlayBody">
@@ -254,6 +254,7 @@ function BookingModal(props) {
             title="Cancel"
             onClick={props.onClose}
           />
+
           <ButtonNoLink
             color="DarkBlueBtn"
             primary="true"
@@ -267,4 +268,4 @@ function BookingModal(props) {
   );
 }
 
-export default BookingModal;
+export default ManageBookingModal;

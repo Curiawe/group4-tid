@@ -13,9 +13,10 @@ export const BOOKINGS = [
     Status: "not begun",
     isWalkin: false,
     carGroup: CARGROUPS[0],
-    Customer: CUSTOMERS.ALICE,
+    Customer: CUSTOMERS[0],
     Car: null,
     Pickup: { time: new Date(2021, 11, 8, 10), location: LOCATIONS[0] },
+    BillAs: null,
     Return: { time: new Date(2021, 11, 9, 10), location: LOCATIONS[0] },
     Services: { driver: true, mileage: 0 },
     Returned: { time: null, mileage: 0 },
@@ -25,10 +26,11 @@ export const BOOKINGS = [
     Ref: "815",
     Status: "not begun",
     isWalkin: true,
-    carGroup: CARGROUPS[0],
-    Customer: CUSTOMERS.CARLISLE,
-    Car: CARS.FM23456,
+    carGroup: CARGROUPS[2],
+    Customer: CUSTOMERS[2],
+    Car: null,
     Pickup: { time: new Date(2021, 11, 9, 12), location: LOCATIONS[0] },
+    BillAs: CARGROUPS[4],
     Return: { time: new Date(2021, 11, 25, 10), location: LOCATIONS[1] },
     Services: { driver: false, mileage: 0 },
     Returned: { time: null, mileage: 0 },
@@ -38,16 +40,17 @@ export const BOOKINGS = [
     Ref: "816",
     Status: "not begun",
     isWalkin: false,
-    carGroup: CARGROUPS[0],
-    Customer: CUSTOMERS.ALICE,
+    carGroup: CARGROUPS[6],
+    Customer: CUSTOMERS[1],
     Car: null,
     Pickup: { time: new Date(2021, 11, 8, 10), location: LOCATIONS[0] },
+    BillAs: null,
     Return: { time: new Date(2021, 11, 9, 10), location: LOCATIONS[0] },
     Services: { driver: true, mileage: 0 },
     Returned: { time: null, mileage: 0 },
     price: pricing(1),
-  }
-]
+  },
+];
 
 function pricing(id) {
   let bookingPrice = id;
