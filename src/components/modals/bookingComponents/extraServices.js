@@ -12,6 +12,12 @@ function ExtraServices(props) {
         onChange={(e) => props.onChangeExtraDriver(e.target.checked)}
         buttonText="Extra Driver"
       />
+      <CheckBox
+        name="Mileage"
+        buttonText="Extra Mileage"
+        checked={props.extraMileage}
+        onChange={(e) => props.onChangeExtraMileage(e.target.checked)}
+      />
     </BookingComponent>
   );
 }
