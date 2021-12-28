@@ -84,7 +84,8 @@
   transform: scale(1.01);
 }
 
-.card:hover .h4Booking {
+.card:hover .h4Booking,
+.cardMargin:hover .h4Large {
   color: #f95959;
 }
 
