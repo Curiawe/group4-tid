@@ -74,6 +74,7 @@ function SelectedCar(props) {
           onClick={() => setShowSelectCarModal(true)}
         />{" "}
         <SelectCar
+          booking = {props.booking}
           showSelectCarModal={showSelectCarModal}
           onClose={() => onCloseResetCar()}
           onConfirm={() => handleConfirm()}

@@ -11,7 +11,6 @@ import { CarGroupPickup } from "./pickupReturnTransferComponents/carGroup";
 import FetchFunctions from "../DB-functions/FetchFunctions";
 import { CARGROUPS } from "../../data/carGroups";
 import FeatherIcon from "feather-icons-react";
-import { SelectCar } from "./selectCarModal";
 
 const PickupModal = (props) => {
   let selectedBooking = FetchFunctions.fetchBookingFromRef(
@@ -98,6 +97,7 @@ const PickupModal = (props) => {
           <CustomerInfo booking={props.selectedBooking} />
           {/*The SelectedCar here depends on Marìna's "Find Cars" function */}
           <SelectedCar
+            booking={props.selectedBooking}
             selected={carString}
             onSelect={(newCar) => setCarString(newCar)}
             onClickConfirm={(input) => setCar(input)}

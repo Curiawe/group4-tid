@@ -8,7 +8,7 @@ function Cars() {
   CARS.map((selCar) => {
     cards.push(
       <div key={selCar.License} className="cardMargin">
-        <LargeCardBody car={selCar.License} />
+        <LargeCardBody car={selCar.License} onClick={(e, input) => {return null}}/>
       </div>
     );
   });

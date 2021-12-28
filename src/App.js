@@ -14,7 +14,6 @@ import Schedule from "./pages/Schedule";
 import Walkins from "./pages/Walkins";
 import Pages from "./pages/Pages";
 import TransferOverview from "./pages/TransferOverview";
-import ManageBooking from "./pages/ManageBooking";
 import YourScanCar from "./pages/YourScanCar";
 
 function App() {
@@ -32,12 +31,6 @@ function App() {
             exact
             path={Pages.DailyOverview}
             element={<DailyOverview />}
-          />{" "}
-          {/** Landing-page of the Management Area */}
-          <Route
-            exact
-            path={Pages.ManageBooking}
-            element={<ManageBooking />}
           />{" "}
           <Route exact path={Pages.YourScanCar} element={<YourScanCar />} />{" "}
           {/** Rental Offices Overview - deprioritize, because not part of requirements */}
