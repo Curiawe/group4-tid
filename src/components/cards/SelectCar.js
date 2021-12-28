@@ -59,14 +59,17 @@ function ShowAvailableCars(bookingRef) {
     let cars = FilterTransferCars(filteredCars, booking.Pickup.time, booking.Return.time)
     
     // filter car groups - identify the requested group for booking
-    let avCarGroups = FilterGroups(carGroup)
+    let avCarGroups = FilterGroups(carGroup) // available, right group
     let finalAvCars = cars.filter(c => avCarGroups.includes(c))
 
     // return available car. If no car of requested group is available, show all available cars
-    if (finalAvCars.length < 1) {
-        return avCarGroups
+    if (finalAvCars.length !== 0) {
+        return finalAvCars
+    } if (cars.length !== 0){
+    return cars
+    } else {
+        return null
     }
-    else return finalAvCars
 } 
 
 export default ShowAvailableCars 
