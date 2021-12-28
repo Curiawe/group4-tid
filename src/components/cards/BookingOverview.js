@@ -123,7 +123,7 @@ function BookingOverviewCont() {
             ></BookingModal>
           </div>
         </div>
-        <span> Selected Booking: {selectedBooking}</span>
+        <span style={{marginTop:"32px"}}> Selected Booking: {selectedBooking}</span>
         <div className="bookingCardMargin">{cards}</div>
 
       </div>
