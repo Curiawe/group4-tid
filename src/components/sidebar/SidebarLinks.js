@@ -1,13 +1,13 @@
 const SidebarLinks = [
   {
-    title: "Booking Overview",
+    title: "Bookings",
     link: "/booking-overview",
   },
   {
     title: "Daily Overview",
     link: "/daily-overview",
   },
-  { title: "Car Overview", link: "/cars" },
+  { title: "Cars", link: "/cars" },
   {
     title: "Schedule",
     link: "/schedule",
@@ -21,12 +21,8 @@ const SidebarLinks = [
     link: "/walkins",
   },
   {
-    title: "Car Groups",
-    link: "/car-groups",
-  },
-  {
-    title: "Offices",
-    link: "/offices",
+    title: "Your ScanCar",
+    link: "/your-scancar",
   },
 ];
 

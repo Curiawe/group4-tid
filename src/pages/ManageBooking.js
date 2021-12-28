@@ -1,8 +1,10 @@
-import Booking from '../components/booking'
-function ManageBooking () {
-    return (
-        <Booking />
-    )
+import Booking from "../components/manageBooking/manageBooking";
+function ManageBooking() {
+  return (
+    <>
+      <Booking />
+    </>
+  );
 }
 
-export default ManageBooking
+export default ManageBooking;

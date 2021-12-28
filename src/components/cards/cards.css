@@ -6,12 +6,14 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
+  justify-content: flex-start;
   width: 100%;
 }
 
 .cardMargin {
   height: 460px;
-  width: 350px;
+  width: 308px;
+  padding: 10px;
 }
 
 .bookingCardMargin {
@@ -19,12 +21,13 @@
   flex-wrap: wrap;
   flex-direction: row;
   width: 100%;
+  margin-top: 23px;
 }
 
 .bookingOvButtons {
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: space-between;
   width: 100%;
 }
 
@@ -39,7 +42,7 @@
 .bookingOvBtn2 {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: flex-end;
   height: fit-content;
   width: 30%;
 }
@@ -55,28 +58,35 @@
   height: 454px;
   border-radius: 10px;
   transition: 0.2s;
-  background: #ffffff;
   border: 1px solid #c4c4c4;
   box-sizing: border-box;
+  background-color: #f0f4f9;
+}
+
+.card #active {
+  background-color: sandybrown;
 }
 
 .cardActive {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  transition: 0.01s;
-  border-radius: 5px; /* 5px rounded corners */
-  margin-left: 70px;
-  margin-right: 70px;
-  margin-bottom: 5%;
-  background: #0c72c5 !important;
-  color: white !important;
-  cursor: pointer;
+  position: absolute;
+  width: 308px;
+  height: 454px;
+  border-radius: 10px;
+  transition: 0.2s;
+  border: 1px solid #c4c4c4;
+  box-sizing: border-box;
+  background-color: #f95959;
 }
 
 .card:hover {
-  background-color: #9fbadb;
   cursor: pointer;
-  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
-  transform: scale(1.02);
+  box-shadow: 0px 10px 10px rgba(249, 89, 89, 0.1);
+  transform: scale(1.01);
+}
+
+.card:hover .h4Booking,
+.cardMargin:hover .h4Large {
+  color: #f95959;
 }
 
 .cardBodyBooking {
