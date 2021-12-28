@@ -21,7 +21,7 @@ function SelectCar(props) {
     }
   }
 
-  if (cars) {
+  if (cars.length > 0) {
       cars.map((selCar) => {
     cards.push(
       <div key={selCar.License} className="cardMargin">
@@ -34,7 +34,7 @@ function SelectCar(props) {
     return null;
   });
   } else {
-    cards.push(<h3>No Cars Available today. Talk to Manager</h3>)
+    cards.push(<div><h3>No Cars Available today.</h3><p>Please inform your Manager.</p></div>)
   }
 
 

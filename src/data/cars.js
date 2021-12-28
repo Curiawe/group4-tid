@@ -143,7 +143,7 @@ export let CARS = [
     fuelStatus: 100,
     Location: LOCATIONS[0],
     Doors: 2,
-    Status: "Transfer",
+    Status: "Unavailable",
     relStatus: "Released",
     Image: HondaSLV,
   },
@@ -159,5 +159,5 @@ export let CARS = [
     Status: "Unavailable",
     relStatus: "Released",
     Image: Fiat500,
-  },
+    }
 ];

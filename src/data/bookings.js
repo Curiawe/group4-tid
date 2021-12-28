@@ -40,7 +40,7 @@ export const BOOKINGS = [
     Ref: "816",
     Status: "not begun",
     isWalkin: false,
-    carGroup: CARGROUPS[1],
+    carGroup: CARGROUPS[6],
     Customer: CUSTOMERS[1],
     Car: null,
     Pickup: { time: new Date(2021, 11, 8, 10), location: LOCATIONS[0] },
