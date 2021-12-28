@@ -7,6 +7,7 @@ import PickupModal from "../modals/pickupModal";
 import ReturnModal from "../modals/returnModal";
 import BookingModal from "../modals/bookingModal";
 import SearchBar from "../inputfields+dropdowns/searchBar";
+import ManageBookingModal from "../modals/manageBookingModal";
 
 function BookingOverviewCont() {
   const cards = [];
@@ -14,6 +15,7 @@ function BookingOverviewCont() {
   const [showBookingModal, setShowBookingModal] = useState(false);
   const [showPickupModal, setShowPickupModal] = useState(false);
   const [showReturnModal, setShowReturnModal] = useState(false);
+  const [showManageBookingModal, setShowManageBookingModal] = useState(false);
 
   function handleSelect(e, ref) {
     e.preventDefault();
@@ -42,15 +44,15 @@ function BookingOverviewCont() {
       <div className="pageTitle">
         <h1>Booking Overview</h1>
       </div>
-      <div className="pageFilters">
-        <SearchBar
-          placeholder="Search bookings"
-          onChange={(e) => console.log(e.target.value)} // To-Do: implement search
-        />
-        <span> Selected Booking: {selectedBooking}</span>
-
+      <div className="pageContent">
         <div className="bookingOvButtons">
           <div className="bookingOvBtn1">
+            <SearchBar
+              placeholder="Search bookings"
+              onChange={(e) => console.log(e.target.value)} // To-Do: implement search
+            />
+          </div>
+          <div className="bookingOvBtn2">
             <ButtonOnChange
               color="PurpleBtn"
               primary="true"
@@ -81,8 +83,12 @@ function BookingOverviewCont() {
               primary="false"
               className="buttonMedium"
               title="Edit"
-              onClick={""}
+              onClick={() => setShowManageBookingModal(true)}
             />
+            <ManageBookingModal
+              showManageBookingModal={showManageBookingModal}
+              onClose={() => setShowManageBookingModal(false)}
+            ></ManageBookingModal>
             <ButtonOnChange
               color="DarkBlueBtn"
               primary="true"
@@ -96,9 +102,8 @@ function BookingOverviewCont() {
             ></BookingModal>
           </div>
         </div>
-      </div>
-      <div className="box">
-        <div className="pageContent">{cards}</div>
+        <span> Selected Booking: {selectedBooking}</span>
+        <div className="cardPageMargin">{cards}</div>
       </div>
     </>
   );
