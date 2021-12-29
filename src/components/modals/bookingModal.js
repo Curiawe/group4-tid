@@ -59,7 +59,7 @@ function BookingModal(props) {
         },
         Car: null,
         Pickup: { time: pickupDate, location: pickupLocation },
-        Return: { time: returnTime, location: returnLocation },
+        Return: { time: returnDate, location: returnLocation },
       },
     });
   }

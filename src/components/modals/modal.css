@@ -34,6 +34,13 @@
   padding: 10px;
 }
 
+.overlayFooterOneBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
 /* Styling for pickup, return, transfer */
 .overlayContent {
   border: 1px solid #c4c4c4;
@@ -157,6 +164,8 @@
 
 /* Styling for popups */
 .popupBlue {
+  display: flex;
+  flex-direction: column;
   position: relative;
   padding: 32px;
   width: 320px;
@@ -187,6 +196,11 @@
   border-radius: 10px;
   color: white;
   text-align: center;
+}
+
+.popupBody {
+  padding: 10px;
+  padding-top: 30px;
 }
 
 .buttonCenter {
@@ -244,7 +258,7 @@
 .reviewContent {
   border: 1px solid #c4c4c4;
   border-radius: 10px;
-  width: 856px;
+  width: 848px;
   max-width: 100%;
   height: fit-content;
   background-color: white;

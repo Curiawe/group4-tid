@@ -28,23 +28,21 @@ const PickupModal = (props) => {
     return group;
   }
 
-
   const [car, setCar] = useState(null);
-  const [carString, setCarString] = useState("")
+  const [carString, setCarString] = useState("");
   const [billAs, setBillAs] = useState(selCarGroup());
   const [mileage, setMileage] = useState(0);
   const [fuel, setFuel] = useState(0);
   const [comment, setComment] = useState("");
 
-  function handleClose(){
-    setCar(null)
-    setCarString("")
-    setMileage(0)
-    setFuel(100)
-    setComment("")
-    props.onClose()
+  function handleClose() {
+    setCar(null);
+    setCarString("");
+    setMileage(0);
+    setFuel(100);
+    setComment("");
+    props.onClose();
   }
-
 
   //Logic:
   /**
@@ -65,7 +63,7 @@ const PickupModal = (props) => {
           <div className="overlayTitle">
             <FeatherIcon icon="alert-triangle" />
           </div>
-          <div className="overlayBody">
+          <div className="popupBody">
             Please select a booking before proceeding with Pickup.
           </div>
           <div className="buttonCenter">
