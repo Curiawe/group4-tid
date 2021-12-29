@@ -39,7 +39,7 @@ export let CARS = [
     fuelStatus: 100,
     Location: LOCATIONS[0],
     Doors: 2,
-    Status: "Transfer",
+    Status: "Available",
     relStatus: "Released",
     Image: FiatBLK,
   },
