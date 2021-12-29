@@ -39,9 +39,14 @@ function SelectedCar(props) {
 
   function handleConfirm(){
     console.log("Handling Click")
-    console.log(props.selected)
-    props.onClickConfirm(FetchFunctions.fetchCarFromLicense(props.selected));
-    setShowSelectCarModal(false)
+    if (props.selected) {
+      console.log(props.selected)
+      props.onSelect(FetchFunctions.fetchCarFromLicense(props.selected));
+      setShowSelectCarModal(false)
+    } else {
+      alert("No car to save.")
+      onCloseResetCar()
+    }
 
   }
 
