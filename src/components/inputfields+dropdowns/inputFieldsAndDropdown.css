@@ -4,6 +4,16 @@
   position: relative;
   margin-top: 5px;
 }
+
+.inputField input:focus,
+.inputFieldSmall input:focus,
+.inputText input:focus,
+.inputFieldSearch input:focus,
+select:focus {
+  border: 1px solid #7b61ff;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
 .inputField input {
   display: flex;
   flex-wrap: wrap;
