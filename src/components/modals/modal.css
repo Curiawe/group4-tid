@@ -102,6 +102,7 @@
   display: flex;
   flex-direction: column;
   flex-basis: 100%;
+  justify-content: flex-start;
   flex: 1;
   height: inherit;
 }
@@ -117,8 +118,12 @@
 .bookingTitles {
   display: inline-block;
   justify-content: flex-start;
-  height: 30px;
+  height: 24px;
   width: 100%;
+}
+
+.bookingTitles h5 {
+  margin-top: 16px;
 }
 
 .bookingBody {
@@ -252,15 +257,4 @@
   justify-content: center;
   width: 100%;
   position: sticky;
-}
-
-/* Styling for review modal */
-.reviewContent {
-  border: 1px solid #c4c4c4;
-  border-radius: 10px;
-  width: 848px;
-  max-width: 100%;
-  height: fit-content;
-  background-color: white;
-  box-shadow: 5px 10px 18px #9fbadb;
 }

@@ -68,7 +68,7 @@ const PickupModal = (props) => {
           </div>
           <div className="buttonCenter">
             <ButtonOnChange
-              color="DarkBlueBtn"
+              color="LightBlueBtn"
               primary="true"
               className="buttonLarge"
               title="Go back"

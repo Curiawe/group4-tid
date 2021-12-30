@@ -88,7 +88,6 @@ function BookingOverviewCont() {
             <ManageBookingModal
               showManageBookingModal={showManageBookingModal}
               onClose={() => setShowManageBookingModal(false)}
-              onConfirm={() => setShowManageBookingModal(false)}
               selectedBooking={selectedBooking}
             ></ManageBookingModal>
             <ButtonOnChange

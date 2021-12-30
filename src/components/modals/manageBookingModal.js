@@ -10,19 +10,13 @@ import { Price } from "./bookingComponents/price";
 import { BookingReturn } from "./bookingComponents/returnInfo";
 import "./modal.css";
 import FeatherIcon from "feather-icons-react";
+import EditBookingModal from "./editBookingModal";
 
 function ManageBookingModal(props) {
   let booking = FetchFunctions.fetchBookingFromRef(props.selectedBooking);
 
   const [editData, setEditData] = useState(false);
-
-  let buttonFunct = () => {
-    confirmUpdate();
-  };
-
-  let buttonText = "";
-  let services;
-  let serviceComp;
+  const [showEditBookingModal, setShowEditBookingModal] = useState(false);
 
   if (!props.showManageBookingModal) {
     return null;
@@ -34,11 +28,11 @@ function ManageBookingModal(props) {
             <FeatherIcon icon="alert-triangle" />
           </div>
           <div className="popupBody">
-            Please select a booking before editing.
+            Please select the booking you want to edit.
           </div>
           <div className="buttonCenter">
             <ButtonOnChange
-              color="DarkBlueBtn"
+              color="LightBlueBtn"
               primary="true"
               className="buttonLarge"
               title="Go back"
@@ -50,17 +44,13 @@ function ManageBookingModal(props) {
     );
   }
 
-  if (booking.Services.driver) {
-    services = "1 Extra Driver";
-  } else if (booking.Services.mileage) {
-    services = "Extra Mileage: " + booking.Services.mileage;
-  }
+  let buttonFunct = () => {
+    confirmUpdate();
+  };
 
-  if (services) {
-    serviceComp = <>{services}</>;
-  } else {
-    serviceComp = <>No extra services selected.</>;
-  }
+  let buttonText = "";
+  let services;
+  let serviceComp;
 
   /*
   function updateBooking() {
@@ -92,7 +82,7 @@ function ManageBookingModal(props) {
     if (editData) {
       buttonText = "Save Changes";
       buttonFunct = () => confirmUpdate();
-      return editBooking();
+      return <EditBookingModal booking={props.booking} />;
     }
     if (!editData) {
       buttonText = "Confirm Information";
@@ -106,9 +96,36 @@ function ManageBookingModal(props) {
     console.log("State Changed: " + editData);
   }
 
+  function setBookingInfo(booking) {
+    props.onSave(booking);
+  }
+
+  function onCloseResetBooking() {
+    props.onSave(null);
+    setShowEditBookingModal(false);
+  }
+
+  function handleConfirm() {
+    console.log("Handling Click");
+    console.log(props.selected);
+    props.onClickConfirm(props.selected);
+    setShowEditBookingModal(false);
+  }
+
   function displayBooking() {
+    if (booking.Services.driver) {
+      services = "1 Extra Driver";
+    } else if (booking.Services.mileage) {
+      services = "Extra Mileage: " + booking.Services.mileage;
+    }
+
+    if (services) {
+      serviceComp = <>{services}</>;
+    } else {
+      serviceComp = <>No extra services selected.</>;
+    }
     return (
-      <div className="reviewContent">
+      <div className="bookingContent">
         <div className="overlayTitle">
           <h3>Manage Booking</h3>
           <p>Booking ID: {booking.Ref}</p>
@@ -118,7 +135,14 @@ function ManageBookingModal(props) {
               primary="true"
               className="buttonSmall"
               title="Edit Booking"
-              onClick={() => changeStatus()}
+              onClick={() => setShowEditBookingModal(true)}
+            />
+            <EditBookingModal
+              selectedBooking={props.selectedBooking}
+              showEditBookingModal={showEditBookingModal}
+              onClose={() => setShowEditBookingModal(false)}
+              onConfirm={() => handleConfirm()}
+              onSave={(input) => setBookingInfo(input)}
             />
             <ButtonNoLink // delete booking
               color="DarkRedBtn"
@@ -281,51 +305,6 @@ function ManageBookingModal(props) {
             className="buttonLarge"
             title="Close"
             onClick={props.onClose}
-          />
-        </div>
-      </div>
-    );
-  }
-
-  function editBooking() {
-    return (
-      <div className="reviewContent">
-        <div className="overlayTitle">
-          <h3>Manage Booking</h3>
-          <p>Booking ID: {booking.Ref}</p>
-        </div>
-        <div className="overlayBody">
-          <div className="row">
-            <div className="column">
-              <div className="firstColumn">
-                <BookingPickup />
-                <BookingReturn />
-                <BookingCarGroup />
-                <ExtraServices />
-              </div>
-            </div>
-            <div className="column">
-              <div className="secondColumn">
-                <BookingCustomerInfo />
-                <Price />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="overlayFooter">
-          <ButtonOnChange
-            color="DarkBlueBtn"
-            primary="false"
-            className="buttonMedium"
-            title="Cancel"
-            onClick={() => onCloseModalReset()}
-          />
-          <ButtonNoLink
-            color="DarkBlueBtn"
-            primary="true"
-            className="buttonMedium"
-            title="Save Changes"
-            onClick={props.onConfirm}
           />
         </div>
       </div>
