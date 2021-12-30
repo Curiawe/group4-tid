@@ -5,17 +5,23 @@ import { LOCATIONS } from "../../data/locations";
 import { CARSTATES } from "../../data/carStates";
 
 const SelectCarGroup = (props) => {
-
   function makeOptions() {
-    let myOptions = []
+    let myOptions = [];
     CARGROUPS.map((group) => {
-      myOptions.push(<option value={group.name} key={group.name}>{group.name}</option>)
-    })
-    return myOptions
+      myOptions.push(
+        <option value={group.name} key={group.name}>
+          {group.name}
+        </option>
+      );
+    });
+    return myOptions;
   }
 
   return (
-    <select defaultValue={"Select Car Group"} onChange={(e) => props.onChange(e.target.value)}>
+    <select
+      defaultValue={props.defaultValue}
+      onChange={(e) => props.onChange(e.target.value)}
+    >
       <option value="Select Car Group" disabled>
         Select Car Group
       </option>
@@ -43,8 +49,8 @@ const SelectLocation = (props) => {
   const locations = LOCATIONS;
 
   return (
-    <select defaultValue={"Select Location"} onChange={props.onChange}>
-      <option value="Select Location" disabled>
+    <select defaultValue={props.defaultValue} onChange={props.onChange}>
+      <option value={props.dropdownTitle} disabled>
         {props.dropdownTitle}
       </option>
       <option value={locations[0].Location}>{locations[0].Location}</option>
