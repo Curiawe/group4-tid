@@ -37,9 +37,7 @@ function SelectedCar(props) {
   }
 
   function handleConfirm(){
-    console.log("Handling Click")
     if (currentLicense) {
-      console.log("Current License:" + currentLicense)
       props.onClickConfirm(FetchFunctions.fetchCarFromLicense(currentLicense));
       setShowSelectCarModal(false)
     } else {

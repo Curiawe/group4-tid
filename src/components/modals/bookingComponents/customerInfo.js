@@ -3,15 +3,22 @@ import { BookingComponent } from "./skeleton";
 import { InputField } from "../../inputfields+dropdowns/inputFields";
 
 function BookingCustomerInfo(props) {
-  let NameString = "Name: " + props.name
-  let addressString = "Address: " + props.address
-  let phoneString = "Phone Number: " + props.phone
-  let emailString = "Email: " + props.email
-  let bornString = "Date of Birth: " + new Date(props.birthday).toLocaleDateString("da-DA")
-  let licenseIDString = "License ID: " + props.licenseID
-  let licenseIssueString = "License Issued: " + new Date(props.licenseIssueDate).toLocaleDateString("da-DA")
-  let licenseExpireString = "License Expires: " + new Date(props.licenseExpirationDate).toLocaleDateString("da-DA")
+  let NameString = propsContained(props.name)
+  let addressString = propsContained(props.address)
+  let phoneString = propsContained(props.phone)
+  let emailString = propsContained(props.email)
+  let bornString = propsContained(new Date (props.birthday))
+  let licenseIDString = propsContained(props.licenseID)
+  let licenseIssueString = propsContained(props.licenseIssueDate)
+  let licenseExpireString = propsContained(props.licenseExpirationDate)
   
+  function propsContained(input) {
+    if (input) {
+      return input
+    } else {
+      return ""
+    }
+  }
   
   return (
     <BookingComponent title="Customer Info">
