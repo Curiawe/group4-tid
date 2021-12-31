@@ -10,14 +10,25 @@ import { Comments } from "./pickupReturnTransferComponents/comments";
 import FetchFunctions from "../DB-functions/FetchFunctions";
 import updateEntries from "../DB-functions/UpdateEntries";
 import { bookingStates } from "../../data/bookingStates";
+import FeatherIcon from 'feather-icons-react';
+
 
 const PickupModal = (props) => {
 
   const [car, setCar] = useState(null);
+
   const [billAs, setBillAs] = useState("");
   const [mileage, setMileage] = useState(0);
   const [fuel, setFuel] = useState(100);
   const [comment, setComment] = useState("");
+
+  function handleClose(){
+    setCar(null)
+    setMileage(0)
+    setFuel(100)
+    setComment("")
+    props.onClose()
+  } 
 
   function onClickSave () {
     if (!car) {
@@ -50,20 +61,26 @@ const PickupModal = (props) => {
 
   } else if (props.showPickupModal && !props.selectedBooking) {
     return (
-      <div className="overlay" >
-        <div className="overlayContent">
-          <div className="overlayTitle" style={{padding:"16px"}}>
-            <div style={{marginBottom:"32px"}}>Please select a booking before proceeding with Pickup.</div>
-            <ButtonNoLink
-            color="DarkBlueBtn"
-            primary="true"
-            className="buttonLarge"
-            title="Go back"
-            onClick={props.onClose}/>
-            </div>
+      <div className="overlay">
+        <div className="popupBlue">
+          <div className="overlayTitle">
+            <FeatherIcon icon="alert-triangle" />
+          </div>
+          <div className="overlayBody">
+            Please select a booking before proceeding with Pickup.
+          </div>
+          <div className="buttonCenter">
+            <ButtonOnChange
+              color="DarkBlueBtn"
+              primary="false"
+              className="buttonLarge"
+              title="Go back"
+              onClick={props.onClose}
+            />
+          </div>
         </div>
       </div>
-      )
+    );
   }
 
   else if (props.showPickupModal && props.selectedBooking) {
@@ -105,7 +122,11 @@ const PickupModal = (props) => {
               {/* Customer Info Works now */}
               <CustomerInfo booking={props.selectedBooking}/>
               {/*The SelectedCar here depends on Marìna's "Find Cars" function */}
-              <SelectedCar selected={car} onSelect={(newCar)=> setCar(newCar)}/> 
+              <SelectedCar
+                booking={props.selectedBooking}
+                onClickConfirm={(input) => setCar(input)}
+                car={car}
+              />              
               {/* BillCarAs can now set the billAs state */}
               <BillCarAs selected={billAs} onChange={(newGroup) => setBillAs(newGroup)} />
               <StartingMileage mileage={mileage} onChange={(miles) => setMileage(miles)} />
@@ -113,13 +134,13 @@ const PickupModal = (props) => {
               <Comments comment={comment} onChange={(input) => setComment(input)} />
             </div>
             <div className="overlayFooter">
-              <ButtonOnChange
-                color="DarkBlueBtn"
-                primary="false"
-                className="buttonLarge"
-                title="Go Back"
-                onClick={props.onClose}
-              />
+            <ButtonOnChange
+            color="DarkBlueBtn"
+            primary="false"
+            className="buttonLarge"
+            title="Go Back"
+            onClick={() => handleClose()}
+          />
               <ButtonOnChange
                 color="DarkBlueBtn"
                 primary="true"
