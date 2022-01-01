@@ -36,8 +36,6 @@ const PickupModal = (props) => {
     } else {
         updateEntries.updateBookingForPickup(props.selectedBooking, car, 
           FetchFunctions.fetchGroupFromGroupNameString(billAs), mileage, fuel, comment);
-        console.log("updated: ")
-        console.log(FetchFunctions.fetchBookingFromRef(props.selectedBooking))
     }
     props.onConfirm() 
   }
