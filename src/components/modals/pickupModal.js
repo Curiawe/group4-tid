@@ -35,7 +35,9 @@ const PickupModal = (props) => {
       alert("Please select a car for this pickup.")
     } else {
         updateEntries.updateBookingForPickup(props.selectedBooking, car, 
-          FetchFunctions.fetchGroupFromGroupNameString(billAs), mileage, fuel, comment)
+          FetchFunctions.fetchGroupFromGroupNameString(billAs), mileage, fuel, comment);
+        console.log("updated: ")
+        console.log(FetchFunctions.fetchBookingFromRef(props.selectedBooking))
     }
     props.onConfirm() 
   }
@@ -119,9 +121,7 @@ const PickupModal = (props) => {
               <h3>Pickup Booking {props.selectedBooking}</h3>
             </div>
             <div className="overlayBody">
-              {/* Customer Info Works now */}
               <CustomerInfo booking={props.selectedBooking}/>
-              {/*The SelectedCar here depends on Marìna's "Find Cars" function */}
               <SelectedCar
                 booking={props.selectedBooking}
                 onClickConfirm={(input) => setCar(input)}

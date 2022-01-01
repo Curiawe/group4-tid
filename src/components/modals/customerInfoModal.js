@@ -17,7 +17,7 @@ function CustomerInfoModal(props) {
   const [email, setEmail] = useState(customer.email);
   const [birthday, setBirthday] = useState(customer.born);
   const [licenseID, setLicenseID] = useState(customer.license.id);
-  const [licenseIssueDate, setIssueDate] = useState(new Date(customer.license.issued));
+  const [licenseIssueDate, setIssueDate] = useState(customer.license.issued);
   const [licenseExpirationDate, setExpirationDate] = useState(new Date (customer.license.expires));
 
   let buttonFunct = () => {
@@ -58,7 +58,7 @@ function CustomerInfoModal(props) {
 
           <tr>
             <td><b>License ID:</b></td>
-            <td>{customer.license.id}</td>
+            <td>{licenseID}</td>
           </tr>
 
           <tr>
@@ -96,7 +96,7 @@ function CustomerInfoModal(props) {
         phone={phone}
         email={email}
         birthday={birthday}
-        licenseID={customer.license.id}
+        licenseID={licenseID}
         licenseIssueDate={licenseIssueDate}
         licenseExpirationDate={licenseExpirationDate}
         onChangeName={(newName) => {
@@ -194,7 +194,7 @@ function CustomerInfoModal(props) {
       <div className="customerInfoContent">
         <div className="overlayTitle">
           <h3>Review Customer</h3>
-          <p>CustomerID: {customer.license.id}</p>
+          <p>CustomerID: {licenseID}</p>
           {editButton()}
         </div>
         {customerContent()}

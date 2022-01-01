@@ -7,10 +7,10 @@ function BookingCustomerInfo(props) {
   let addressString = propsContained(props.address)
   let phoneString = propsContained(props.phone)
   let emailString = propsContained(props.email)
-  let bornString = propsContained(new Date (props.birthday))
+  let bornString = propsContained(new Date (props.birthday).toLocaleDateString("fr-CA"))
   let licenseIDString = propsContained(props.licenseID)
-  let licenseIssueString = propsContained(props.licenseIssueDate)
-  let licenseExpireString = propsContained(props.licenseExpirationDate)
+  let licenseIssueString = propsContained(new Date(props.licenseIssueDate).toLocaleDateString("fr-CA"))
+  let licenseExpireString = propsContained(new Date(props.licenseExpirationDate).toLocaleDateString("fr-CA"))
   
   function propsContained(input) {
     if (input) {
@@ -53,7 +53,7 @@ function BookingCustomerInfo(props) {
       <InputField
         className="inputField"
         type="date"
-        onChange={(e) => props.onChangeBirthday(e.target.value)}
+        onChange={(e) => props.onChangeDate(e.target.value)}
         placeHolder="Date of Birth"
         value={bornString}
       />
