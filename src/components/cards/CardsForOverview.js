@@ -27,7 +27,7 @@ function LargeCardBody(props) {
   }
 
   return (
-    <div className="card" onClick={(e) => handleClick(e)}>
+    <div className={props.className} onClick={(e) => handleClick(e)}>
       <img className="cardImg" src={car.Image} alt="carpic" />
       <div className="h4Large"> {car.Model} </div>
       <div className="p1Large"> {usedCarGroup.name}</div>
