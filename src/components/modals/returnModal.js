@@ -1,6 +1,8 @@
 import { useState } from "react";
 import "./modal.css";
 import { ButtonOnChange, ButtonNoLink } from "../buttons/ColorButton";
+import { Overlay } from "../modals/pickupReturnTransferComponents/pickupReturnTransferSkeleton";
+
 import { ReturnFuel } from "./pickupReturnTransferComponents/fuelLevel";
 import { Comments } from "./pickupReturnTransferComponents/comments";
 import { ReturnTime } from "./pickupReturnTransferComponents/arrivalTime";
@@ -20,10 +22,23 @@ const ReturnModal = (props) => {
   const [returnFuel, setFuel] = useState(100)
   const [returnComment, setComment] = ("")
 
+  let selectedCar = FetchFunctions.fetchBookingFromRef(props.selectedBooking).Car
+
   function onClickOverrideStatus (e) {
     e.preventDefault();
     alert(`Opening Return for booking ${props.selectedBooking}. If you opened this view by accident, select 'Cancel'.`)
     props.setBookingState(bookingStates.PICKEDUP)
+  }
+
+  function carText() {
+    let returnString = "";
+    if (selectedCar) {
+      returnString =
+      selectedCar.License + " (" + selectedCar.Model + ")";
+    } else {
+      returnString = `Please select a car under "Pickup" or "Manage Booking."`;
+    }
+    return returnString;
   }
 
 
@@ -92,9 +107,13 @@ const ReturnModal = (props) => {
               <h3>Return Booking {props.selectedBooking}</h3>
             </div>
             <div className="overlayBody">
-              <CustomerInfo booking={props.selectedBooking}/>
-              {/* <ReturnCarState /> */}
-              <SelectedCar selected={car}/> 
+              {/* <CustomerInfo booking={props.selectedBooking}/>  Not required for this*/}
+              {/* <ReturnCarState /> Should automatically update*/}
+            <Overlay title="Car">
+              <div className="rowButton">
+              {carText()}
+              </div>
+            </Overlay>
               <ReturnTime time={booking.Return.time} returned={arrivalTime} setReturned = {(time) => setArrivalTime(time)}/>
               <ReturnMileage />
               <ReturnFuel />
