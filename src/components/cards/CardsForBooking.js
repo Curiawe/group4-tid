@@ -11,7 +11,7 @@ function BookingCard(props) {
 
   let booking = FetchFunctions.fetchBookingFromRef(props.booking);
 
-  let pickupTime = booking.Pickup.time
+  let pickupTime = new Date(booking.Pickup.time)
     .toLocaleTimeString("da-DA")
     .replace("00.00", "00");
   const pickupDate = new Date(booking.Pickup.time).toLocaleDateString("da-DA");
