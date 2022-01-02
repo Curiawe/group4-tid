@@ -17,11 +17,23 @@ function BookingOverviewCont() {
   const [showReturnModal, setShowReturnModal] = useState(false);
   const [showManageBookingModal, setShowManageBookingModal] = useState(false);
 
+  // Closing the modals on escape
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      setShowPickupModal(false);
+      setShowReturnModal(false);
+      setShowBookingModal(false);
+      setShowManageBookingModal(false);
+    }
+  });
+
   function handleSelect(e, ref) {
     e.preventDefault();
     if (selectedBooking === ref) {
       //if I want to set it to the same thing again
-      setSelectedBooking(""); // clear the selection instead
+
+      setSelectedBooking("");
+      // clear the selection instead
     } else {
       setSelectedBooking(ref);
     }
@@ -33,6 +45,7 @@ function BookingOverviewCont() {
         <BookingCard
           booking={bkng.Ref}
           onClick={(e, ref) => handleSelect(e, ref)}
+          className={selectedBooking === bkng.Ref ? "cardActive" : "card"}
         />
       </div>
     );
