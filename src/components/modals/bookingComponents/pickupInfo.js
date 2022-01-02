@@ -55,7 +55,7 @@ function EditBookingPickup(props) {
       <InputField
         className="inputField"
         type="date"
-        onChange={(e) => props.onChangeDate(e.target.value)}
+        onChange={(e) => props.onChangeDate(new Date(e.target.value))}
         placeHolder="Pickup Date"
       />
       <InputField

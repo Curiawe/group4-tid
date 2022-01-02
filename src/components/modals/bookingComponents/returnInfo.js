@@ -38,7 +38,7 @@ function EditBookingReturn(props) {
       <InputField
         className="inputField"
         type="date"
-        onChange={(e) => props.onChangeDate(e.target.value)}
+        onChange={(e) => props.onChangeDate(new Date(e.target.value))}
         placeHolder="Select Date"
       />
       <InputField
