@@ -8,6 +8,7 @@ import { BookingCustomerInfo } from "./bookingComponents/customerInfo";
 import { ExtraServices } from "./bookingComponents/extraServices";
 import { Price } from "./bookingComponents/price";
 import BOOKINGS from "../../data/bookings";
+import addEntries from "../DB-functions/AddEntries";
 
 function BookingModal(props) {
   const [pickupDate, setPickupDate] = useState(new Date());
@@ -27,6 +28,7 @@ function BookingModal(props) {
   const [licenseIssueDate, setIssueDate] = useState();
   const [licenseExpirationDate, setExpirationDate] = useState();
   const [extraDriver, setExtraDriver] = useState(false);
+  const [extraMileage, setExtraMileage] = useState(0);
 
   if (!props.showBookingModal) {
     return null;
@@ -35,33 +37,7 @@ function BookingModal(props) {
   function newRef() {
     let length = BOOKINGS.length;
     let int = parseInt(BOOKINGS[length - 1].Ref) + 1;
-    return int;
-  }
-
-  function addBooking() {
-    let ref = newRef();
-    BOOKINGS.push({
-      Ref: ref,
-      Status: "not begun",
-      isWalkin: walkin,
-      carGroup: carGroup,
-      Customer: {
-        name: name,
-        address: address,
-        phone: phone,
-        email: email,
-        born: birthday,
-        license: {
-          id: licenseID,
-          issued: licenseIssueDate,
-          expires: licenseExpirationDate,
-          valid: true,
-        },
-        Car: null,
-        Pickup: { time: pickupDate, location: pickupLocation },
-        Return: { time: returnTime, location: returnLocation },
-      },
-    });
+    return int.toString();
   }
 
   function onClickSave(e) {
@@ -100,51 +76,13 @@ function BookingModal(props) {
       alert(alertString);
     } else {
       e.preventDefault();
-
-      console.log("pushing to Array... lenght: " + BOOKINGS.length);
-      addBooking();
-      console.log("Pushed to Array: " + BOOKINGS.length);
-      console.log(pickupLocation);
-      console.log("Pickup Date: " + pickupDate);
-      console.log("Pickup Time: " + pickupTime);
-      console.log("Pickup Location: " + pickupLocation);
-      console.log("Walkin? " + walkin);
-
-      console.log(
-        "current pickup: " +
-          pickupDate +
-          " at " +
-          pickupTime +
-          " at " +
-          pickupLocation
-      );
-      console.log(
-        "current return: " +
-          returnDate +
-          " at " +
-          returnTime +
-          " at " +
-          returnLocation
-      );
-      console.log("car group: " + carGroup);
-      console.log(
-        "name: " +
-          name +
-          " address: " +
-          address +
-          " phone number: " +
-          phone +
-          " email address: " +
-          email +
-          " birthday: " +
-          birthday +
-          " license ID: " +
-          licenseID +
-          " license issue date: " +
-          licenseIssueDate +
-          " license expiration date: " +
-          licenseExpirationDate
-      );
+      addEntries.addBooking(
+        newRef(), walkin, carGroup, 
+        name, address, phone, email, birthday, 
+        licenseID, licenseIssueDate, licenseExpirationDate, 
+        pickupDate, pickupLocation,
+        returnDate, returnLocation, 
+        extraDriver, extraMileage)
     }
   }
 

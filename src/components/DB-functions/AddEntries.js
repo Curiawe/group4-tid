@@ -10,7 +10,7 @@ const addEntries = {
      * 
      * @param {String} ref 
      * @param {boolean} walkin 
-     * @param {carGroup} carGroup 
+     * @param {carGroup} carGroupN ame 
      * @param {String} customerName 
      * @param {String} customerAddress 
      * @param {String} customerPhone 
@@ -24,7 +24,7 @@ const addEntries = {
      * @param {Date} returnTime 
      * @param {Location} returnLocation 
      */
-    addBooking : (ref, walkin, carGroup, 
+    addBooking : (ref, walkin, carGroupName, 
                     customerName, customerAddress, customerPhone, 
                     customerEmail, customerBirthday,
                     licenseID, licenseIssued, licenseExpires, 
@@ -36,7 +36,7 @@ const addEntries = {
             Ref: ref,
             Status: bookingStates.BOOKED,
             isWalkin: walkin,
-            carGroup: carGroup,
+            carGroup: FetchFunctions.fetchGroupFromGroupNameString(carGroupName),
             Customer: {
               name: customerName,
               address: customerAddress,
@@ -63,7 +63,7 @@ const addEntries = {
         )
         console.log( "AddEntries.js - Booking Added: " )
         console.log(FetchFunctions.fetchBookingFromRef(ref))
-        FetchFunctions.fetchBookingFromRef(ref).price = calcPrice(ref) // then calculate the price
+        FetchFunctions.fetchBookingFromRef(ref).price = calcPrice(FetchFunctions.fetchBookingFromRef(ref)) // then calculate the price
     }
 }
 export default addEntries
