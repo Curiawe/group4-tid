@@ -9,6 +9,7 @@
 .inputFieldSmall input:focus,
 .inputText input:focus,
 .inputFieldSearch input:focus,
+.inputText textarea:focus,
 select:focus {
   border: 1px solid #7b61ff;
   box-sizing: border-box;
