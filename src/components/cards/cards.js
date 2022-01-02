@@ -34,7 +34,7 @@ function Card() {
           <IconBody title="City Center" icon="map-pin" />
         </div>
         <div className="iconRow">
-          <ColorIcon title="Available" />
+          <ColorIcon title="Ready" />
         </div>
       </div>
       <div className="btnMargin">

@@ -43,6 +43,12 @@ function BookingOverviewCont() {
     }
   }
 
+  function handlePickupSelect () {
+    setSelectedBooking("");
+    setShowPickupModal(false);
+
+  }
+
   BOOKINGS.map((bkng) => {
     cards.push(
       <div key={bkng.Ref} className="cardMargin">
@@ -79,7 +85,7 @@ function BookingOverviewCont() {
           <PickupModal
             showPickupModal={showPickupModal}
             onClose={() => setShowPickupModal(false)}
-            onConfirm={() => setShowPickupModal(false)}
+            onConfirm={() => handlePickupSelect()}
             selectedBooking={selectedBooking}
             bookingStatus={bookingState}
             setBookingState={(input) => setBookingState(input)}

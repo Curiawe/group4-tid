@@ -52,7 +52,7 @@ function ShowAvailableCars(bookingRef) {
     // assign location, group, status for booking
     let pickupLocation = booking.Pickup.location.Location
     let carGroup = booking.carGroup
-    let carStatus = "Available"
+    let carStatus = "Ready"
 
     // filter cars based on location, status, availability during booking (= no transfers)
     let filteredCars = FilterCar(pickupLocation, carStatus)

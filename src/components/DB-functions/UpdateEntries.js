@@ -36,7 +36,10 @@ const updateEntries = {
      */
     updateBookingForPickup : (ref, car, billAs, mileage, fuel, comment) => {
         let booking = FetchFunctions.fetchBookingFromRef(ref) // now we have BOOKING
-        booking.car = car
+        if (booking.Car) {
+            updateEntries.udpateCarStatus(car.License, CARSTATES.READY) // if there was already a car selected for some reason, reset it to "ready"
+        }
+        booking.Car = car
         booking.BillAs = billAs
         booking.Pickup.mileage = mileage
         booking.Status = bookingStates.PICKEDUP
@@ -45,9 +48,9 @@ const updateEntries = {
         }
         booking.Comment = comment
         updateEntries.udpateCarStatus(car.License, CARSTATES.RENTED)
-        alert("Car Pickup for " + car.License + " registered. Booking " + ref + " now picked up.")
+        alert("Car Pickup for " + booking.Car.License + " registered. Booking " + ref + " now picked up.")
 
-    }
+    },
 
 
 }
