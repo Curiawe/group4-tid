@@ -53,7 +53,7 @@ function BookingCustomerInfo(props) {
       <InputField
         className="inputField"
         type="date"
-        onChange={(e) => props.onChangeDate(e.target.value)}
+        onChange={(e) => props.onChangeBirthday(e.target.value)}
         placeHolder="Date of Birth"
         value={bornString}
       />
