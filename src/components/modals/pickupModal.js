@@ -88,7 +88,7 @@ const PickupModal = (props) => {
       <div className="overlayContent">
         <div className="overlayTitle">
           <h3>Pickup</h3>
-          <p>Booking: {props.selectedBooking}</p>
+          Booking: {props.selectedBooking}
         </div>
         <div className="overlayBody">
           {/* Customer Info Works now */}
@@ -115,14 +115,14 @@ const PickupModal = (props) => {
           <ButtonOnChange
             color="DarkBlueBtn"
             primary="false"
-            className="buttonLarge"
+            className="buttonMedium"
             title="Go Back"
             onClick={() => handleClose()}
           />
           <ButtonOnChange
             color="DarkBlueBtn"
             primary="true"
-            className="buttonLarge"
+            className="buttonMedium"
             title="Save & Start"
             onClick={props.onConfirm}
           />
