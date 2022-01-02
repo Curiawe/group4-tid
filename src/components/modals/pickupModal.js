@@ -36,8 +36,8 @@ const PickupModal = (props) => {
     } else {
         updateEntries.updateBookingForPickup(props.selectedBooking, car, 
           FetchFunctions.fetchGroupFromGroupNameString(billAs), mileage, fuel, comment);
+          props.onConfirm()
     }
-    props.onConfirm() 
   }
 
   function onClickOverrideStatus (e) {
