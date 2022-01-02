@@ -15,8 +15,13 @@ import Walkins from "./pages/Walkins";
 import Pages from "./pages/Pages";
 import TransferOverview from "./pages/TransferOverview";
 import YourScanCar from "./pages/YourScanCar";
+import parse from "parse";
 
 function App() {
+  var Parse = require("parse/node");
+  Parse.initialize(process.env.REACT_APP_APP_KEY, process.env.REACT_APP_JS_KEY);
+  Parse.serverURL = "https://parseapi.back4app.com/";
+
   return (
     <div className="App">
       <Router>
