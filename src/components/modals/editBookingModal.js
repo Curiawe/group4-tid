@@ -9,32 +9,33 @@ import { EditBookingPickup } from "./bookingComponents/pickupInfo";
 import { Price } from "./bookingComponents/price";
 import { EditBookingReturn } from "./bookingComponents/returnInfo";
 import "./modal.css";
+import calcPrice from "../priceCalc";
+import updateDate from "../dataHandling/updateDate";
 
 function EditBookingModal(props) {
   let updatedBooking = FetchFunctions.fetchBookingFromRef(
     props.selectedBooking
   );
 
-  let bookingPickupTime =
-    updatedBooking.Pickup.time.toLocaleTimeString("da-DA");
-  const bookingPickupDate = new Date(
+  let bookingPickupTime = new Date(
     updatedBooking.Pickup.time
-  ).toLocaleDateString("da-DA");
+  ).toLocaleTimeString("da-DA");
 
   let bookingReturnTime = new Date(
     updatedBooking.Return.time
   ).toLocaleTimeString("da-DA");
-  const bookingReturnDate = new Date(
-    updatedBooking.Return.time
-  ).toLocaleDateString("da-DA");
 
-  const [pickupDate, setPickupDate] = useState(bookingPickupDate);
+  const [pickupDate, setPickupDate] = useState(
+    new Date(updatedBooking.Pickup.time)
+  );
   const [pickupTime, setPickupTime] = useState(bookingPickupTime);
   const [pickupLocation, setPickupLocation] = useState(
     updatedBooking.Pickup.location
   );
   const [walkin, setWalkin] = useState(updatedBooking.isWalkin);
-  const [returnDate, setReturnDate] = useState(bookingReturnDate);
+  const [returnDate, setReturnDate] = useState(
+    new Date(updatedBooking.Return.time)
+  );
   const [returnTime, setReturnTime] = useState(bookingReturnTime);
   const [returnLocation, setReturnLocation] = useState(
     updatedBooking.Return.location
@@ -61,6 +62,41 @@ function EditBookingModal(props) {
     updatedBooking.Services.mileage
   );
 
+  function handleUpdate() {
+    updateEntries.updateBooking(
+      props.selectedBooking,
+      updatedBooking.Status,
+      walkin,
+      carGroup,
+      name,
+      address,
+      phone,
+      email,
+      birthday,
+      licenseID,
+      licenseIssueDate,
+      licenseExpirationDate,
+      licenseExpirationDate > new Date(),
+      updatedBooking.Car,
+      updateDate(pickupDate, pickupTime),
+      pickupLocation,
+      updatedBooking.Pickup.fuel,
+      updatedBooking.Pickup.mileage,
+      updatedBooking.Pickup.comment,
+      updateDate(returnDate, returnTime),
+      returnLocation,
+      updatedBooking.Return.fuel,
+      updatedBooking.Return.mileage,
+      updatedBooking.Return.comment,
+      extraDriver,
+      extraMileage,
+      updatedBooking.Returned.time,
+      updatedBooking.Returned.mileage,
+      calcPrice(updatedBooking)
+    );
+    props.onConfirm();
+  }
+
   if (!props.showEditBookingModal) {
     return null;
   }
@@ -70,7 +106,7 @@ function EditBookingModal(props) {
       <div className="bookingContent">
         <div className="overlayTitle">
           <h3>Manage Booking</h3>
-          <p>Booking ID: {updatedBooking.Ref}</p>
+          Booking ID: {updatedBooking.Ref}
         </div>
         <div className="overlayBody">
           <div className="row">
@@ -85,7 +121,7 @@ function EditBookingModal(props) {
                     setPickupTime(newTime);
                   }}
                   onChangeDate={(newDate) => {
-                    setPickupDate(newDate);
+                    setPickupDate(new Date(newDate));
                   }}
                   onChangeLocation={(newLocation) => {
                     setPickupLocation(newLocation);
@@ -102,7 +138,7 @@ function EditBookingModal(props) {
                     setReturnTime(newTime);
                   }}
                   onChangeDate={(newDate) => {
-                    setReturnDate(newDate);
+                    setReturnDate(new Date(newDate));
                   }}
                   onChangeLocation={(newLocation) => {
                     setReturnLocation(newLocation);
@@ -167,16 +203,16 @@ function EditBookingModal(props) {
           <ButtonOnChange
             color="DarkBlueBtn"
             primary="false"
-            className="buttonLarge"
+            className="buttonMedium"
             title="Cancel"
             onClick={props.onClose}
           />
           <ButtonOnChange
             color="DarkBlueBtn"
             primary="true"
-            className="buttonLarge"
+            className="buttonMedium"
             title="Save Changes"
-            onClick={props.onConfirm}
+            onClick={() => handleUpdate()}
             booking={props.updatedBooking}
           />
         </div>

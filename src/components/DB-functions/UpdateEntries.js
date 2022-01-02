@@ -47,11 +47,21 @@ const updateEntries = {
     car,
     pickupDate,
     pickupLocation,
+    pickupFuel,
+    pickupMileage,
+    pickupComment,
     returnDate,
-    returnLocation
+    returnLocation,
+    returnFuel,
+    returnMileage,
+    returnComment,
+    extraDriver,
+    extraMileage,
+    returnedTime,
+    returnedMileage,
+    price
   ) => {
     let booking = FetchFunctions.fetchBookingFromRef(ref);
-    booking.Ref = ref;
     booking.Status = status;
     booking.isWalkin = walkin;
     booking.carGroup = carGroup;
@@ -65,10 +75,21 @@ const updateEntries = {
     booking.Customer.license.expires = licenseExpirationDate;
     booking.Customer.license.valid = isValid;
     booking.Car = car;
-    booking.Pickup.time = pickupDate;
+    booking.Pickup.time = new Date(pickupDate);
     booking.Pickup.Location = pickupLocation;
-    booking.Return.time = returnDate;
+    booking.Pickup.fuel = pickupFuel;
+    booking.Pickup.mileage = pickupMileage;
+    booking.Pickup.comment = pickupComment;
+    booking.Return.time = new Date(returnDate);
     booking.Return.Location = returnLocation;
+    booking.Return.fuel = returnFuel;
+    booking.Return.mileage = returnMileage;
+    booking.Return.comment = returnComment;
+    booking.Services.driver = extraDriver;
+    booking.Services.mileage = extraMileage;
+    booking.Returned.time = new Date(returnedTime);
+    booking.Returned.mileage = returnedMileage;
+    booking.price = price;
   },
 };
 

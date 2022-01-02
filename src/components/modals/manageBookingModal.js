@@ -93,7 +93,7 @@ function ManageBookingModal(props) {
 
   function changeStatus() {
     setEditData(!editData);
-    console.log("State Changed: " + editData);
+    /*console.log("State Changed: " + editData);*/
   }
 
   function setBookingInfo(booking) {
@@ -106,9 +106,8 @@ function ManageBookingModal(props) {
   }
 
   function handleConfirm() {
-    console.log("Handling Click");
-    console.log(props.selected);
-    props.onClickConfirm(props.selected);
+    /*console.log("Handling Click");
+    console.log(props.selected);*/
     setShowEditBookingModal(false);
   }
 
@@ -128,8 +127,14 @@ function ManageBookingModal(props) {
       <div className="bookingContent">
         <div className="overlayTitle">
           <h3>Manage Booking</h3>
-          <p>Booking ID: {booking.Ref}</p>
-          <buttonbox style={{ display: "flex", flexDirection: "row" }}>
+          Booking ID: {booking.Ref}
+          <buttonbox
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              padding: "4px",
+            }}
+          >
             <ButtonNoLink // edit booking info
               color="DarkBlueBtn"
               primary="true"
@@ -302,7 +307,7 @@ function ManageBookingModal(props) {
           <ButtonOnChange
             color="DarkBlueBtn"
             primary="true"
-            className="buttonLarge"
+            className="buttonMedium"
             title="Close"
             onClick={props.onClose}
           />
