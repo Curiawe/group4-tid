@@ -1,6 +1,7 @@
 import BOOKINGS from "../../data/bookings"
 import { CARGROUPS } from "../../data/carGroups"
 import { CARS } from "../../data/cars"
+import { LOCATIONS } from "../../data/locations"
 
 /**
  * This constant contains several functions that fetch specific elements from the Database and return them.
@@ -49,9 +50,17 @@ const FetchFunctions = {
             }
         })
         return group
+    },
+
+    fetchLocationFromName : (locationName) => {
+        let location = LOCATIONS.find((l) => {
+            if (l.Location === locationName) {
+                return l
+            }
+        }
+        )
+        return location
     }
-
-
 }
 
 export default FetchFunctions

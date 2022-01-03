@@ -50,8 +50,8 @@ const addEntries = {
                 valid: (licenseExpires > new Date()),
               }},
             Car: null,
-            Pickup: { time: pickupTime, location: pickupLocation, fuel: 100, mileage: 0 , comment: ""},
-            Return: { time: returnTime, location: returnLocation, fuel:100, mileage: 0, comment: ""},
+            Pickup: { time: pickupTime, location: FetchFunctions.fetchLocationFromName(pickupLocation), fuel: 100, mileage: 0 , comment: ""},
+            Return: { time: returnTime, location: FetchFunctions.fetchLocationFromName(returnLocation), fuel:100, mileage: 0, comment: ""},
             BillAs: null,
             Services : {
                 driver: extraDriver,
