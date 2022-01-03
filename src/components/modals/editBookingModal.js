@@ -9,7 +9,7 @@ import { EditBookingPickup } from "./bookingComponents/pickupInfo";
 import { Price } from "./bookingComponents/price";
 import { EditBookingReturn } from "./bookingComponents/returnInfo";
 import "./modal.css";
-import calcPrice from "../priceCalc";
+import { calcPrice } from "../priceCalc";
 import updateDate from "../dataHandling/updateDate";
 
 function EditBookingModal(props) {

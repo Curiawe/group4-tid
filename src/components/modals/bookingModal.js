@@ -7,7 +7,7 @@ import { BookingCarGroup } from "./bookingComponents/carGroup";
 import { BookingCustomerInfo } from "./bookingComponents/customerInfo";
 import { ExtraServices } from "./bookingComponents/extraServices";
 import { Price } from "./bookingComponents/price";
-import {BOOKINGS} from "../../data/bookings";
+import { BOOKINGS } from "../../data/bookings";
 import addEntries from "../DB-functions/AddEntries";
 
 function BookingModal(props) {
@@ -77,12 +77,28 @@ function BookingModal(props) {
     } else {
       e.preventDefault();
       addEntries.addBooking(
-        newRef(), walkin, carGroup, 
-        name, address, phone, email, birthday, 
-        licenseID, licenseIssueDate, licenseExpirationDate, 
-        pickupDate, pickupLocation,
-        returnDate, returnLocation, 
-        extraDriver, extraMileage)
+        newRef(),
+        walkin,
+        carGroup,
+        name,
+        address,
+        phone,
+        email,
+        birthday,
+        licenseID,
+        licenseIssueDate,
+        licenseExpirationDate,
+        pickupDate,
+        pickupLocation,
+        returnDate,
+        returnLocation,
+        extraDriver,
+        extraMileage
+      );
+    }
+
+    if (pickupDate > returnDate) {
+      alert("The date of the return must be AFTER the pickup date.");
     }
   }
 
@@ -179,7 +195,13 @@ function BookingModal(props) {
                     setExpirationDate(newExpirationDate);
                   }}
                 />
-                <Price />
+                <Price
+                  returnDate={returnDate}
+                  pickupDate={pickupDate}
+                  carGroup={carGroup}
+                  extraDriver={extraDriver}
+                  extraMileage={extraMileage}
+                />
               </div>
             </div>
           </div>
