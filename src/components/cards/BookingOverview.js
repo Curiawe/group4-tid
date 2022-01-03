@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./cards.css";
 import BookingCard from "./CardsForBooking";
 import { ButtonOnChange } from "../buttons/ColorButton";
-import {BOOKINGS} from "../../data/bookings";
+import { BOOKINGS } from "../../data/bookings";
 import PickupModal from "../modals/pickupModal";
 import ReturnModal from "../modals/returnModal";
 import BookingModal from "../modals/bookingModal";
@@ -13,7 +13,7 @@ import FetchFunctions from "../DB-functions/FetchFunctions";
 function BookingOverviewCont() {
   const cards = [];
   const [selectedBooking, setSelectedBooking] = useState("");
-  const [bookingState, setBookingState] = useState("")
+  const [bookingState, setBookingState] = useState("");
   const [showBookingModal, setShowBookingModal] = useState(false);
   const [showPickupModal, setShowPickupModal] = useState(false);
   const [showReturnModal, setShowReturnModal] = useState(false);
@@ -41,24 +41,25 @@ function BookingOverviewCont() {
     }
   }
 
-  console.log("Booking and booking Status: " + selectedBooking + ": " + bookingState)
+  console.log(
+    "Booking and booking Status: " + selectedBooking + ": " + bookingState
+  );
 
-  function handleSelect (e, ref) {
+  function handleSelect(e, ref) {
     e.preventDefault();
-    if (selectedBooking === ref) { //if I want to set it to the same thing again
+    if (selectedBooking === ref) {
+      //if I want to set it to the same thing again
       setSelectedBooking(""); // clear the selection instead
-      setBookingState("")
+      setBookingState("");
     } else {
       setSelectedBooking(ref);
-      setBookingState(FetchFunctions.fetchBookingFromRef(ref).Status)
-
+      setBookingState(FetchFunctions.fetchBookingFromRef(ref).Status);
     }
   }
 
-  function handlePickupSelect () {
+  function handlePickupSelect() {
     setSelectedBooking("");
     setShowPickupModal(false);
-
   }
 
   BOOKINGS.map((bkng) => {
@@ -95,14 +96,14 @@ function BookingOverviewCont() {
               title="Pickup"
               onClick={() => setShowPickupModal(true)}
             />
-          <PickupModal
-            showPickupModal={showPickupModal}
-            onClose={() => setShowPickupModal(false)}
-            onConfirm={() => handlePickupSelect()}
-            selectedBooking={selectedBooking}
-            bookingStatus={bookingState}
-            setBookingState={(input) => setBookingState(input)}
-          ></PickupModal>
+            <PickupModal
+              showPickupModal={showPickupModal}
+              onClose={() => setShowPickupModal(false)}
+              onConfirm={() => handlePickupSelect()}
+              selectedBooking={selectedBooking}
+              bookingStatus={bookingState}
+              setBookingState={(input) => setBookingState(input)}
+            ></PickupModal>
             <ButtonOnChange
               color="LightBlueBtn"
               primary="true"
@@ -110,14 +111,14 @@ function BookingOverviewCont() {
               title="Return"
               onClick={() => setShowReturnModal(true)}
             />
-          <ReturnModal
-            showReturnModal={showReturnModal}
-            onClose={() => setShowReturnModal(false)}
-            onConfirm={() => setShowReturnModal(false)}
-            selectedBooking={selectedBooking}
-            bookingStatus={bookingState}
-            setBookingState={(input) => setBookingState(input)}
-          ></ReturnModal>
+            <ReturnModal
+              showReturnModal={showReturnModal}
+              onClose={() => setShowReturnModal(false)}
+              onConfirm={() => setShowReturnModal(false)}
+              selectedBooking={selectedBooking}
+              bookingStatus={bookingState}
+              setBookingState={(input) => setBookingState(input)}
+            ></ReturnModal>
             <ButtonOnChange
               color="DarkBlueBtn"
               primary="false"
@@ -143,9 +144,7 @@ function BookingOverviewCont() {
             ></BookingModal>
           </div>
         </div>
-        <span style={{marginTop:"32px"}}> Selected Booking: {selectedBooking}</span>
         <div className="bookingCardMargin">{cards}</div>
-
       </div>
     </>
   );
