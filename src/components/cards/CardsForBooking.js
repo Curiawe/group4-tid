@@ -54,7 +54,7 @@ function BookingCard(props) {
   }
 
   return (
-    <div className="card">
+    <div className={props.className}>
       <div className="cardBodyBooking" onClick={(e) => handleClick(e)}>
         <div className="h4Booking"> BOOKING {booking.Ref} </div>
         <div className="p1Booking"> {booking.Customer.name}</div>

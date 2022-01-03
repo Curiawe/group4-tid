@@ -30,14 +30,14 @@ const TransferModal = (props) => {
           <ButtonOnChange
             color="DarkBlueBtn"
             primary="false"
-            className="buttonLarge"
+            className="buttonMedium"
             title="Go Back"
             onClick={props.onClose}
           />
           <ButtonOnChange
             color="DarkBlueBtn"
             primary="true"
-            className="buttonLarge"
+            className="buttonMedium"
             title="Send Request"
             onClick={props.onConfirm}
           />

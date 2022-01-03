@@ -1,271 +1,322 @@
-import "./modal.css";
 import { React, useState } from "react";
-import { ButtonOnChange, ButtonNoLink } from "../buttons/ColorButton";
-import { BookingPickup } from "./bookingComponents/pickupInfo";
-import { BookingReturn } from "./bookingComponents/returnInfo";
+import { ButtonNoLink, ButtonOnChange } from "../buttons/ColorButton";
+import FetchFunctions from "../DB-functions/FetchFunctions";
+import updateEntries from "../DB-functions/UpdateEntries";
 import { BookingCarGroup } from "./bookingComponents/carGroup";
 import { BookingCustomerInfo } from "./bookingComponents/customerInfo";
 import { ExtraServices } from "./bookingComponents/extraServices";
+import { BookingPickup } from "./bookingComponents/pickupInfo";
 import { Price } from "./bookingComponents/price";
-import BOOKINGS from "../../data/bookings";
+import { BookingReturn } from "./bookingComponents/returnInfo";
+import "./modal.css";
+import FeatherIcon from "feather-icons-react";
+import EditBookingModal from "./editBookingModal";
 
 function ManageBookingModal(props) {
-  const [pickupDate, setPickupDate] = useState(new Date());
-  const [pickupTime, setPickupTime] = useState("");
-  const [pickupLocation, setPickupLocation] = useState();
-  const [walkin, setWalkin] = useState(false);
-  const [returnDate, setReturnDate] = useState();
-  const [returnTime, setReturnTime] = useState("");
-  const [returnLocation, setReturnLocation] = useState();
-  const [carGroup, setCarGroup] = useState();
-  const [name, setName] = useState();
-  const [address, setAddress] = useState();
-  const [phone, setPhone] = useState();
-  const [email, setEmail] = useState();
-  const [birthday, setBirthday] = useState();
-  const [licenseID, setLicenseID] = useState();
-  const [licenseIssueDate, setIssueDate] = useState();
-  const [licenseExpirationDate, setExpirationDate] = useState();
-  const [extraDriver, setExtraDriver] = useState(false);
+  let booking = FetchFunctions.fetchBookingFromRef(props.selectedBooking);
+
+  const [editData, setEditData] = useState(false);
+  const [showEditBookingModal, setShowEditBookingModal] = useState(false);
 
   if (!props.showManageBookingModal) {
     return null;
+  } else if (props.showManageBookingModal && !props.selectedBooking) {
+    return (
+      <div className="overlay">
+        <div className="popupBlue">
+          <div className="overlayTitle">
+            <FeatherIcon icon="alert-triangle" />
+          </div>
+          <div className="popupBody">
+            Please select the booking you want to edit.
+          </div>
+          <div className="buttonCenter">
+            <ButtonOnChange
+              color="LightBlueBtn"
+              primary="true"
+              className="buttonLarge"
+              title="Go back"
+              onClick={props.onClose}
+            />
+          </div>
+        </div>
+      </div>
+    );
   }
 
-  function newRef() {
-    let length = BOOKINGS.length;
-    let int = parseInt(BOOKINGS[length - 1].Ref) + 1;
-    return int;
+  let buttonFunct = () => {
+    confirmUpdate();
+  };
+
+  let buttonText = "";
+  let services;
+  let serviceComp;
+
+  /*
+  function updateBooking() {
+    updateEntries.updateCustomer(
+      props.booking,
+      name,
+      address,
+      phone,
+      email,
+      birthday,
+      licenseID,
+      licenseIssueDate,
+      licenseExpirationDate
+    );
+    console.log("Updated Customer " + name + ", Closing Overlay now");
+    setEditData(!editData);
+  } */
+
+  function confirmUpdate() {
+    props.onConfirm();
   }
 
-  function addBooking() {
-    let ref = newRef();
-    BOOKINGS.push({
-      Ref: ref,
-      Status: "not begun",
-      isWalkin: walkin,
-      carGroup: carGroup,
-      Customer: {
-        name: name,
-        address: address,
-        phone: phone,
-        email: email,
-        born: birthday,
-        license: {
-          id: licenseID,
-          issued: licenseIssueDate,
-          expires: licenseExpirationDate,
-          valid: true,
-        },
-        Car: null,
-        Pickup: { time: pickupDate, location: pickupLocation },
-        Return: { time: returnTime, location: returnLocation },
-      },
-    });
+  function onCloseModalReset() {
+    setEditData(false);
+    props.onClose();
   }
 
-  function onClickSave(e) {
-    // create alert with missing parts
+  function bookingContent() {
+    if (editData) {
+      buttonText = "Save Changes";
+      buttonFunct = () => confirmUpdate();
+      return <EditBookingModal booking={props.booking} />;
+    }
+    if (!editData) {
+      buttonText = "Confirm Information";
+      buttonFunct = () => confirmUpdate();
+      return displayBooking();
+    }
+  }
 
-    const missing = [];
+  function changeStatus() {
+    setEditData(!editData);
+    /*console.log("State Changed: " + editData);*/
+  }
 
-    if (!pickupDate) {
-      missing.push("Pickup Date");
-    }
-    if (!pickupTime) {
-      missing.push("Pickup Time");
-    }
-    if (!pickupLocation) {
-      missing.push("Pickup Location");
-    }
-    if (!returnDate) {
-      missing.push("Return Date");
-    }
-    if (!returnTime) {
-      missing.push("Return Time");
-    }
-    if (!returnLocation) {
-      missing.push("Return Location");
-    }
-    if (!carGroup) {
-      missing.push("Car Group");
+  function setBookingInfo(booking) {
+    props.onSave(booking);
+  }
+
+  function onCloseResetBooking() {
+    props.onSave(null);
+    setShowEditBookingModal(false);
+  }
+
+  function handleConfirm() {
+    /*console.log("Handling Click");
+    console.log(props.selected);*/
+    setShowEditBookingModal(false);
+  }
+
+  function displayBooking() {
+    if (booking.Services.driver) {
+      services = "1 Extra Driver";
+    } else if (booking.Services.mileage) {
+      services = "Extra Mileage: " + booking.Services.mileage;
     }
 
-    if (missing.length > 0) {
-      let alertString = "Sorry, you can't save, yet. You are missing: ";
-      for (let i = 0; i < missing.length; i++) {
-        alertString += missing[i] + ", ";
-      }
-      alertString += " so please fill that out.";
-      alert(alertString);
+    if (services) {
+      serviceComp = <>{services}</>;
     } else {
-      e.preventDefault();
-
-      console.log("pushing to Array... lenght: " + BOOKINGS.length);
-      addBooking();
-      console.log("Pushed to Array: " + BOOKINGS.length);
-      console.log(pickupLocation);
-      console.log("Pickup Date: " + pickupDate);
-      console.log("Pickup Time: " + pickupTime);
-      console.log("Pickup Location: " + pickupLocation);
-      console.log("Walkin? " + walkin);
-
-      console.log(
-        "current pickup: " +
-          pickupDate +
-          " at " +
-          pickupTime +
-          " at " +
-          pickupLocation
-      );
-      console.log(
-        "current return: " +
-          returnDate +
-          " at " +
-          returnTime +
-          " at " +
-          returnLocation
-      );
-      console.log("car group: " + carGroup);
-      console.log(
-        "name: " +
-          name +
-          " address: " +
-          address +
-          " phone number: " +
-          phone +
-          " email address: " +
-          email +
-          " birthday: " +
-          birthday +
-          " license ID: " +
-          licenseID +
-          " license issue date: " +
-          licenseIssueDate +
-          " license expiration date: " +
-          licenseExpirationDate
-      );
+      serviceComp = <>No extra services selected.</>;
     }
-  }
-
-  return (
-    <div className="overlay">
+    return (
       <div className="bookingContent">
         <div className="overlayTitle">
           <h3>Manage Booking</h3>
-          <p>bookingID</p>
+          Booking ID: {booking.Ref}
+          <buttonbox
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              padding: "4px",
+            }}
+          >
+            <ButtonNoLink // edit booking info
+              color="DarkBlueBtn"
+              primary="true"
+              className="buttonSmall"
+              title="Edit Booking"
+              onClick={() => setShowEditBookingModal(true)}
+            />
+            <EditBookingModal
+              selectedBooking={props.selectedBooking}
+              showEditBookingModal={showEditBookingModal}
+              onClose={() => setShowEditBookingModal(false)}
+              onConfirm={() => handleConfirm()}
+              onSave={(input) => setBookingInfo(input)}
+            />
+            <ButtonNoLink // delete booking
+              color="DarkRedBtn"
+              primary="true"
+              className="buttonSmall"
+              title="Delete Booking"
+              onClick={() => alert("Booking deleted!")}
+            />
+          </buttonbox>
         </div>
         <div className="overlayBody">
           <div className="row">
             <div className="column">
               <div className="firstColumn">
-                <BookingPickup
-                  date={pickupDate}
-                  time={pickupTime}
-                  location={pickupLocation}
-                  walkin={walkin}
-                  onChangeTime={(newTime) => {
-                    setPickupTime(newTime);
-                  }}
-                  onChangeDate={(newDate) => {
-                    setPickupDate(newDate);
-                  }}
-                  onChangeLocation={(newLocation) => {
-                    setPickupLocation(newLocation);
-                  }}
-                  onChangeWalkin={(newBool) => {
-                    setWalkin(newBool);
-                  }}
-                />
-                <BookingReturn
-                  date={returnDate}
-                  time={returnTime}
-                  location={returnLocation}
-                  onChangeTime={(newTime) => {
-                    setReturnTime(newTime);
-                  }}
-                  onChangeDate={(newDate) => {
-                    setReturnDate(newDate);
-                  }}
-                  onChangeLocation={(newLocation) => {
-                    setReturnLocation(newLocation);
-                  }}
-                />
-                <BookingCarGroup
-                  carGroup={carGroup}
-                  onChangeCarGroup={(newCarGroup) => {
-                    setCarGroup(newCarGroup);
-                  }}
-                />
-                <ExtraServices
-                  extraDriver={extraDriver}
-                  onChangeExtraDriver={(newExtraDriver) => {
-                    setExtraDriver(newExtraDriver);
-                  }}
-                />
+                <h5>Pickup</h5>
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <b>Location:</b>
+                      </td>
+                      <td>{booking.Pickup.location.Location}</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <b>Time:</b>
+                      </td>
+                      <td>
+                        {new Date(booking.Pickup.time).toLocaleDateString(
+                          "da-DA"
+                        )}
+                        ,{" "}
+                        {new Date(booking.Pickup.time)
+                          .toLocaleTimeString("da-DA")
+                          .replace("00.00", "00")}
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <h5>Return</h5>
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <b>Location:</b>
+                      </td>
+                      <td>{booking.Return.location.Location}</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <b>Time:</b>
+                      </td>
+                      <td>
+                        {new Date(booking.Return.time).toLocaleDateString(
+                          "da-DA"
+                        )}
+                        ,{" "}
+                        {new Date(booking.Return.time)
+                          .toLocaleTimeString("da-DA")
+                          .replace("00.00", "00")}
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <h5>Car Group</h5>
+                {booking.carGroup.name}
+                <h5>Extra Services</h5>
+                {serviceComp}
               </div>
             </div>
             <div className="column">
               <div className="secondColumn">
-                <BookingCustomerInfo
-                  name={name}
-                  address={address}
-                  phone={phone}
-                  email={email}
-                  birthday={birthday}
-                  licenseID={licenseID}
-                  licenseIssueDate={licenseIssueDate}
-                  licenseExpirationDate={licenseExpirationDate}
-                  onChangeName={(newName) => {
-                    setName(newName);
-                  }}
-                  onChangeAddress={(newAddress) => {
-                    setAddress(newAddress);
-                  }}
-                  onChangePhone={(newPhone) => {
-                    setPhone(newPhone);
-                  }}
-                  onChangeEmail={(newEmail) => {
-                    setEmail(newEmail);
-                  }}
-                  onChangeBirthday={(newBirthday) => {
-                    setBirthday(newBirthday);
-                  }}
-                  onChangeLicenseID={(newLicenseID) => {
-                    setLicenseID(newLicenseID);
-                  }}
-                  onChangeIssueDate={(newIssueDate) => {
-                    setIssueDate(newIssueDate);
-                  }}
-                  onChangeExpirationDate={(newExpirationDate) => {
-                    setExpirationDate(newExpirationDate);
-                  }}
-                />
-                <Price />
+                <h5>Customer Info</h5>
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <b>Name:</b>
+                      </td>
+                      <td>{booking.Customer.name}</td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        <b>Address:</b>
+                      </td>
+                      <td>{booking.Customer.address}</td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        <b>Phone:</b>
+                      </td>
+                      <td>{booking.Customer.phone}</td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        <b>Email:</b>
+                      </td>
+                      <td>{booking.Customer.email}</td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        <b>Birthday:</b>
+                      </td>
+                      <td>
+                        {new Date(booking.Customer.born).toLocaleDateString(
+                          "da-DA"
+                        )}
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        <b>License ID:</b>
+                      </td>
+                      <td>{booking.Customer.license.id}</td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        <b>License Issued:</b>
+                      </td>
+                      <td>
+                        {new Date(
+                          booking.Customer.license.issued
+                        ).toLocaleDateString("da-DA")}
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        <b>License Expires:</b>
+                      </td>
+                      <td>
+                        {new Date(
+                          booking.Customer.license.expires
+                        ).toLocaleDateString("da-DA")}
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        <b>License Valid:</b>
+                      </td>
+                      <td>{booking.Customer.license.valid.toString()}</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
         </div>
-        <div className="overlayFooter">
+        <div className="overlayFooterOneBtn">
           <ButtonOnChange
             color="DarkBlueBtn"
-            primary="false"
-            className="buttonLarge"
-            title="Cancel"
-            onClick={props.onClose}
-          />
-
-          <ButtonNoLink
-            color="DarkBlueBtn"
             primary="true"
-            className="buttonLarge"
-            title="Confirm Booking"
-            onClick={(e) => onClickSave(e)}
+            className="buttonMedium"
+            title="Close"
+            onClick={props.onClose}
           />
         </div>
       </div>
-    </div>
-  );
+    );
+  }
+
+  return <div className="overlay">{bookingContent()}</div>;
 }
 
 export default ManageBookingModal;

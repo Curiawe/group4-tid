@@ -7,7 +7,7 @@ import { BookingCarGroup } from "./bookingComponents/carGroup";
 import { BookingCustomerInfo } from "./bookingComponents/customerInfo";
 import { ExtraServices } from "./bookingComponents/extraServices";
 import { Price } from "./bookingComponents/price";
-import BOOKINGS from "../../data/bookings";
+import {BOOKINGS} from "../../data/bookings";
 import addEntries from "../DB-functions/AddEntries";
 
 function BookingModal(props) {
@@ -15,7 +15,7 @@ function BookingModal(props) {
   const [pickupTime, setPickupTime] = useState("");
   const [pickupLocation, setPickupLocation] = useState();
   const [walkin, setWalkin] = useState(false);
-  const [returnDate, setReturnDate] = useState();
+  const [returnDate, setReturnDate] = useState(new Date());
   const [returnTime, setReturnTime] = useState("");
   const [returnLocation, setReturnLocation] = useState();
   const [carGroup, setCarGroup] = useState();
@@ -91,7 +91,7 @@ function BookingModal(props) {
       <div className="bookingContent">
         <div className="overlayTitle">
           <h3>New Booking</h3>
-          <p>bookingID</p>
+          bookingID
         </div>
         <div className="overlayBody">
           <div className="row">
@@ -188,14 +188,14 @@ function BookingModal(props) {
           <ButtonOnChange
             color="DarkBlueBtn"
             primary="false"
-            className="buttonLarge"
+            className="buttonMedium"
             title="Cancel"
             onClick={props.onClose}
           />
           <ButtonNoLink
             color="DarkBlueBtn"
             primary="true"
-            className="buttonLarge"
+            className="buttonMedium"
             title="Confirm Booking"
             onClick={(e) => onClickSave(e)}
           />

@@ -1,4 +1,4 @@
-import BOOKINGS from "../../data/bookings"
+import {BOOKINGS} from "../../data/bookings"
 import { CARGROUPS } from "../../data/carGroups"
 import { CARS } from "../../data/cars"
 import { LOCATIONS } from "../../data/locations"

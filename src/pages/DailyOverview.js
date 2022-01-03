@@ -6,7 +6,7 @@ function DailyOverview() {
       <div className="pageTitle">
         <h1>Daily Overview</h1>
       </div>
-      <div className="pageFilters">
+      <div className="pageContent">
         <DailyOverviewTable />;
       </div>
     </>

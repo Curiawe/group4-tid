@@ -1,5 +1,5 @@
 import { bookingStates } from "../../data/bookingStates";
-import BOOKINGS from "../../data/bookings";
+import {BOOKINGS} from "../../data/bookings";
 import calcPrice from "../priceCalc"
 import FetchFunctions from "./FetchFunctions";
 

@@ -55,7 +55,7 @@ const ReturnModal = (props) => {
             <ButtonOnChange
             color="DarkBlueBtn"
             primary="true"
-            className="buttonLarge"
+            className="buttonMedium"
             title="Go back"
             onClick={props.onClose}/>
             </div>

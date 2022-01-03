@@ -28,8 +28,11 @@
 .bookingOvButtons {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
+  height: fit-content;
 }
 
 .bookingOvBtn1 {
@@ -42,10 +45,11 @@
 
 .bookingOvBtn2 {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: flex-end;
   height: fit-content;
-  width: 30%;
+  width: fit-content;
 }
 
 .clickableIcon {
@@ -64,19 +68,16 @@
   background-color: #f0f4f9;
 }
 
-.card #active {
-  background-color: sandybrown;
-}
-
 .cardActive {
   position: absolute;
   width: 308px;
   height: 454px;
   border-radius: 10px;
   transition: 0.2s;
-  border: 1px solid #c4c4c4;
+  border: 2px solid #f95959;
   box-sizing: border-box;
-  background-color: #f95959;
+  background-color: #f0f4f9;
+  cursor: pointer;
 }
 
 .card:hover {
@@ -349,4 +350,26 @@
   justify-content: space-between;
   align-content: stretch;
   align-items: stretch;
+}
+
+@media (max-width: 960px) {
+  .bookingOvButtons {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+
+  .bookingOvBtn1 {
+    display: flex;
+    align-items: flex-start;
+    width: fit-content;
+    margin-bottom: 8px;
+  }
+
+  .bookingOvBtn2 {
+    display: flex;
+    height: fit-content;
+    width: 100%;
+    justify-content: space-evenly;
+  }
 }

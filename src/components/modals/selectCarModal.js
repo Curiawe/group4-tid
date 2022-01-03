@@ -7,36 +7,41 @@ import ShowAvailableCars from "../cards/SelectCar";
 function SelectCar(props) {
   const cards = [];
   const [car, setSelectedCarLicense] = useState("");
-  let cars = ShowAvailableCars(props.booking)
+  let cars = ShowAvailableCars(props.booking);
 
   function handleSelectCar(e, license) {
     e.preventDefault();
     if (car === license) {
       //if I want to set it to the same thing again
       setSelectedCarLicense(""); // clear the selection instead
-      props.onSelect(null)
+      props.onSelect(null);
     } else {
       setSelectedCarLicense(license);
-      props.onSelect(license)
+      props.onSelect(license);
     }
   }
 
   if (cars.length > 0) {
-      cars.map((selCar) => {
+    cars.map((selCar) => {
+      cards.push(
+        <div key={selCar.License} className="cardMargin">
+          <LargeCardBody
+            car={selCar.License}
+            onClick={(e, license) => handleSelectCar(e, license)}
+            className={car === selCar.License ? "cardActive" : "card"}
+          />
+        </div>
+      );
+      return null;
+    });
+  } else {
     cards.push(
-      <div key={selCar.License} className="cardMargin">
-        <LargeCardBody
-          car={selCar.License}
-          onClick={(e, license) => handleSelectCar(e, license)}
-        />
+      <div>
+        <h3>No Cars Available today.</h3>
+        <p>Please inform your Manager.</p>
       </div>
     );
-    return null;
-  });
-  } else {
-    cards.push(<div><h3>No Cars Available today.</h3><p>Please inform your Manager.</p></div>)
   }
-
 
   if (!props.showSelectCarModal) {
     return null;
@@ -59,14 +64,14 @@ function SelectCar(props) {
           <ButtonOnChange
             color="DarkBlueBtn"
             primary="false"
-            className="buttonLarge"
+            className="buttonMedium"
             title="Cancel"
             onClick={props.onClose}
           />
           <ButtonOnChange
             color="DarkBlueBtn"
             primary="true"
-            className="buttonLarge"
+            className="buttonMedium"
             title="Select Car"
             onClick={props.onConfirm}
             car={props.car}

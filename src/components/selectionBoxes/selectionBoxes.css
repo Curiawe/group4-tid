@@ -1,6 +1,7 @@
 .checkBox {
   display: flex;
   flex-direction: row;
+  align-items: center;
   padding: 5px;
 }
 
@@ -10,5 +11,11 @@
 
 .checkBox input,
 .radioButton input {
-  margin-right: 5px;
+  margin-right: 10px;
+}
+
+.checkBox label {
+  font-weight: inherit;
+  font-size: inherit;
+  color: black;
 }
