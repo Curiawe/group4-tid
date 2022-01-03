@@ -1,5 +1,4 @@
 .sidebarContainer {
-  /* position: fixed; */
   grid-area: sidebarContainer;
   grid-column: 1 / 2;
   grid-row: 1 / 4;
@@ -112,7 +111,7 @@
     top: 0;
     right: 0;
     transform: translate(-100%, 60%);
-    font-size: 1.8rem;
+    font-size: 2rem;
     cursor: pointer;
     color: white;
   }

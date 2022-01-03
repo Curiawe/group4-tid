@@ -1,13 +1,13 @@
 import "./modal.css";
-import "../tables/tables.css"
+import "../tables/tables.css";
 import { React, useState } from "react";
 import { ButtonOnChange, ButtonNoLink } from "../buttons/ColorButton";
-import {BookingCustomerInfo} from "./bookingComponents/customerInfo"
+import { BookingCustomerInfo } from "./bookingComponents/customerInfo";
 import updateEntries from "../DB-functions/UpdateEntries";
 import FetchFunctions from "../DB-functions/FetchFunctions";
 
 function CustomerInfoModal(props) {
-  const customer = FetchFunctions.fetchCustomerFromBookingRef(props.booking)
+  const customer = FetchFunctions.fetchCustomerFromBookingRef(props.booking);
 
   const [editData, setEditData] = useState(false);
 
@@ -21,73 +21,93 @@ function CustomerInfoModal(props) {
   const [licenseExpirationDate, setExpirationDate] = useState(new Date (customer.license.expires));
 
   let buttonFunct = () => {
-    confirmUpdate()
-  }
-  let buttonText = "Confirm Information"
+    confirmUpdate();
+  };
+  let buttonText = "Confirm Information";
 
-
-  function displayCustomer () {
+  function displayCustomer() {
     return (
       <div className="overlayBody">
-      <table style={{width:"364px"}}>
-        <tbody>
-          <tr>
-            <td><b>Customer Name:</b></td>
-            <td>{customer.name}</td>
-          </tr>
+        <table style={{ width: "364px" }}>
+          <tbody>
+            <tr>
+              <td>
+                <b>Customer Name:</b>
+              </td>
+              <td>{customer.name}</td>
+            </tr>
 
-          <tr>
-            <td><b>Address:</b></td>
-            <td>{address}</td>
-          </tr>
+            <tr>
+              <td>
+                <b>Address:</b>
+              </td>
+              <td>{address}</td>
+            </tr>
 
-          <tr>
-            <td><b>Phone:</b></td>
-            <td>{customer.phone}</td>
-          </tr>
+            <tr>
+              <td>
+                <b>Phone:</b>
+              </td>
+              <td>{customer.phone}</td>
+            </tr>
 
-          <tr>
-            <td><b>Email:</b></td>
-            <td>{customer.email}</td>
-          </tr>
+            <tr>
+              <td>
+                <b>Email:</b>
+              </td>
+              <td>{customer.email}</td>
+            </tr>
 
-          <tr>
-            <td><b>Birthday:</b></td>
-            <td>{new Date(customer.born).toLocaleDateString("da-DA")}</td>
-          </tr>
+            <tr>
+              <td>
+                <b>Birthday:</b>
+              </td>
+              <td>{new Date(customer.born).toLocaleDateString("da-DA")}</td>
+            </tr>
 
-          <tr>
-            <td><b>License ID:</b></td>
-            <td>{licenseID}</td>
-          </tr>
+            <tr>
+              <td>
+                <b>License ID:</b>
+              </td>
+              <td>{customer.license.id}</td>
+            </tr>
 
-          <tr>
-            <td><b>License Issued:</b></td>
-            <td>{new Date(customer.license.issued).toLocaleDateString("da-DA")}</td>
-          </tr>
+            <tr>
+              <td>
+                <b>License Issued:</b>
+              </td>
+              <td>
+                {new Date(customer.license.issued).toLocaleDateString("da-DA")}
+              </td>
+            </tr>
 
-          <tr>
-            <td><b>License Expires:</b></td>
-            <td>{new Date(customer.license.expires).toLocaleDateString("da-DA")}</td>
-          </tr>
+            <tr>
+              <td>
+                <b>License Expires:</b>
+              </td>
+              <td>
+                {new Date(customer.license.expires).toLocaleDateString("da-DA")}
+              </td>
+            </tr>
 
-          <tr>
-            <td><b>License Valid:</b></td>
-            <td>{customer.license.valid.toString()}</td>
-          </tr>
-
-        </tbody>
-      </table>
+            <tr>
+              <td>
+                <b>License Valid:</b>
+              </td>
+              <td>{customer.license.valid.toString()}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-    )
+    );
   }
 
-  function onCloseModalReset () {
+  function onCloseModalReset() {
     setEditData(false);
-    props.onClose()
+    props.onClose();
   }
 
-  function editCustomer () {
+  function editCustomer() {
     return (
       <div className="overlayBody">
       <BookingCustomerInfo
@@ -128,9 +148,9 @@ function CustomerInfoModal(props) {
     )
   }
 
-  function editButton () {
+  function editButton() {
     if (editData) {
-      return (null)
+      return null;
     } else {
       return (
         <div style={{display:"flex", flexDirection:"row"}}>
@@ -165,24 +185,20 @@ function CustomerInfoModal(props) {
     props.onConfirm();
   }
 
-
-  function customerContent() { 
-
+  function customerContent() {
     if (editData) {
-      buttonText = "Save Changes"
+      buttonText = "Save Changes";
       buttonFunct = () => updateCustomer();
-      return (editCustomer())
-
-    } if (!editData) {
-      buttonText = "Confirm Information"
+      return editCustomer();
+    }
+    if (!editData) {
+      buttonText = "Confirm Information";
       buttonFunct = () => confirmUpdate();
-      return (displayCustomer())
+      return displayCustomer();
+    }
   }
 
-}
-
-
-  function changeStatus () {
+  function changeStatus() {
     setEditData(!editData);
   }
 
@@ -202,14 +218,14 @@ function CustomerInfoModal(props) {
           <ButtonOnChange
             color="DarkBlueBtn"
             primary="false"
-            className="buttonLarge"
+            className="buttonMedium"
             title="Close"
             onClick={() => onCloseModalReset()}
           />
           <ButtonNoLink
             color="DarkBlueBtn"
             primary="true"
-            className="buttonLarge"
+            className="buttonMedium"
             title={buttonText}
             onClick={() => buttonFunct()}
           />

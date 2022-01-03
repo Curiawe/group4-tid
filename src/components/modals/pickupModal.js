@@ -36,8 +36,8 @@ const PickupModal = (props) => {
     } else {
         updateEntries.updateBookingForPickup(props.selectedBooking, car, 
           FetchFunctions.fetchGroupFromGroupNameString(billAs), mileage, fuel, comment);
+          props.onConfirm()
     }
-    props.onConfirm() 
   }
 
   function onClickOverrideStatus (e) {
@@ -66,7 +66,7 @@ const PickupModal = (props) => {
           <div className="overlayTitle">
             <FeatherIcon icon="alert-triangle" />
           </div>
-          <div className="overlayBody">
+          <div className="popupBody">
             Please select a booking before proceeding with Pickup.
           </div>
           <div className="buttonCenter">
@@ -135,7 +135,7 @@ const PickupModal = (props) => {
             <ButtonOnChange
             color="DarkBlueBtn"
             primary="false"
-            className="buttonLarge"
+            className="buttonMedium"
             title="Go Back"
             onClick={() => handleClose()}
           />

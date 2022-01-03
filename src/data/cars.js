@@ -159,5 +159,5 @@ export let CARS = [
     Status: "Unavailable",
     relStatus: "Released",
     Image: Fiat500,
-    }
+  },
 ];

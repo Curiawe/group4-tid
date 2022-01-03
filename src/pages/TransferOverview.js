@@ -49,6 +49,14 @@ function TransferOverview() {
 }
 
 
+  // Closing the modals on escape
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      setShowRequestModal(false);
+      setShowReleaseModal(false);
+    }
+  });
+
   return (
     <>
       <div className="pageTitle">

@@ -17,12 +17,13 @@ import FetchFunctions from "../DB-functions/FetchFunctions";
 
 const ReturnModal = (props) => {
 
-  const [arrivalTime, setArrivalTime] = useState(new Date(2021,11,26,8,45))
+  const [arrivalTime, setArrivalTime] = useState(new Date(2021,11,26,8,45).toLocaleTimeString("fr-CA"))
   const [returnMileage, setMileage] = useState(0)
   const [returnFuel, setFuel] = useState(100)
   const [returnComment, setComment] = ("")
 
-  let selectedCar = FetchFunctions.fetchBookingFromRef(props.selectedBooking).Car
+  let selectedCar
+  if (props.selectedBooking) {selectedCar = FetchFunctions.fetchBookingFromRef(props.selectedBooking).Car}
 
   function onClickOverrideStatus (e) {
     e.preventDefault();
@@ -36,7 +37,7 @@ const ReturnModal = (props) => {
       returnString =
       selectedCar.License + " (" + selectedCar.Model + ")";
     } else {
-      returnString = `Please select a car under "Pickup" or "Manage Booking."`;
+      returnString = `Please select a car under "Pickup" or "Edit."`;
     }
     return returnString;
   }
@@ -54,7 +55,7 @@ const ReturnModal = (props) => {
             <ButtonOnChange
             color="DarkBlueBtn"
             primary="true"
-            className="buttonLarge"
+            className="buttonMedium"
             title="Go back"
             onClick={props.onClose}/>
             </div>
@@ -114,7 +115,7 @@ const ReturnModal = (props) => {
               {carText()}
               </div>
             </Overlay>
-              <ReturnTime time={booking.Return.time} returned={arrivalTime} setReturned = {(time) => setArrivalTime(time)}/>
+              <ReturnTime time={booking.Return.time.toLocaleTimeString("fr-CA").substring(0,5)} returned={arrivalTime} setReturned = {(time) => setArrivalTime(time)}/>
               <ReturnMileage />
               <ReturnFuel />
               <Comments />

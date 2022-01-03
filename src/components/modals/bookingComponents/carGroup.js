@@ -7,9 +7,20 @@ function BookingCarGroup(props) {
     <BookingComponent title="Car Group">
       <SelectCarGroup
         onChange={(input) => props.onChangeCarGroup(input)}
+        defaultValue="Select Car Group"
       />
     </BookingComponent>
   );
 }
 
-export { BookingCarGroup };
+function EditBookingCarGroup(props) {
+  return (
+    <BookingComponent title="Car Group">
+      <SelectCarGroup
+        onChange={(e) => props.onChangeCarGroup(e.target.value)}
+        defaultValue={props.carGroup.name}
+      />
+    </BookingComponent>
+  );
+}
+export { BookingCarGroup, EditBookingCarGroup };

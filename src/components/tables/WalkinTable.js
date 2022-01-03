@@ -5,7 +5,7 @@ import { useState } from "react";
 import DatePicker from "sassy-datepicker";
 
 //
-import BOOKINGS from "../../data/bookings";
+import {BOOKINGS} from "../../data/bookings";
 import { WALKINS } from "../../data/walkins";
 
 function dateArray(date) {
