@@ -1,4 +1,4 @@
-import LargeCardBody from "../components/cards/CardsForOverview";
+import { LargeCardBody } from "../components/cards/CardsForOverview";
 import { CARS } from "../data/cars";
 import "../components/cards/cards.css";
 

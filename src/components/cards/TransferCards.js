@@ -1,7 +1,5 @@
 import "./cards.css";
-import { ButtonStyled } from "../buttons/ColorButton";
 import { IconBody } from "./IconBody";
-import Pages from "../../pages/Pages";
 import { CARS } from "../../data/cars";
 import ColorIcon from "./AvailabilityIcon";
 import { TRANSFERS } from "../../data/transfer";
@@ -9,6 +7,7 @@ import { TRANSFERS } from "../../data/transfer";
 let CAR = CARS;
 let TRANSFER = TRANSFERS;
 
+/* Returns car cards for the transfer overview */
 function TransferCardBody(props) {
   let car = CARS[0];
 
@@ -52,15 +51,6 @@ function TransferCardBody(props) {
         <div className="iconRow">
           <ColorIcon title={car.relStatus} />
         </div>
-      </div>
-      <div className="btnMargin">
-        <ButtonStyled
-          link={Pages.Walkins}
-          color="PurpleBtn"
-          primary="false"
-          className="buttonSmall"
-          title="Select car"
-        />
       </div>
     </div>
   );
