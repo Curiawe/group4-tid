@@ -5,7 +5,7 @@ import { useState } from "react";
 import DatePicker from "sassy-datepicker";
 
 //
-import {BOOKINGS} from "../../data/bookings";
+import { BOOKINGS } from "../../data/bookings";
 import { WALKINS } from "../../data/walkins";
 
 function dateArray(date) {
@@ -155,7 +155,7 @@ function WalkinTable() {
   return (
     <>
       <DatePicker onChange={onChange} selected={date} />
-      <table style={{ marginTop: "16px", marginBottom: "16px" }}>
+      <table>
         <WalkinHeader />
         <WalkinContent date={date} />
       </table>
