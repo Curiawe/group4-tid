@@ -5,7 +5,7 @@ import { MainDescription } from './IconBody';
 const colorMap = {
     // this first part is used for availability
     Unavailable: COLORS.Red300,
-    Available: COLORS.Green400,
+    Ready: COLORS.Green400,
     Rented: COLORS.Blue300,
     Transfer: COLORS.Purple300,
     Service: COLORS.Yellow400,

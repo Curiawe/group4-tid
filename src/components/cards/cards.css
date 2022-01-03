@@ -21,7 +21,8 @@
   flex-wrap: wrap;
   flex-direction: row;
   width: 100%;
-  margin-top: 23px;
+  margin-top: 24px;
+  margin-left: -10px; /* This evens out the individual card padding to align with the page  */
 }
 
 .bookingOvButtons {

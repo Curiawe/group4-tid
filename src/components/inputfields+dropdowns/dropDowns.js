@@ -26,7 +26,7 @@ const SelectCarGroup = (props) => {
 
 const SelectPaymentMethod = (props) => {
   return (
-    <select defaultValue={"Select Payment Method"} onChange={props.onChange}>
+    <select defaultValue={"Select Payment Method"} onChange={(e) => props.onChange(e.target.value)}>
       <option value="Select Payment Method" disabled>
         Select Payment Method
       </option>

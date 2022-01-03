@@ -4,6 +4,8 @@ import { ButtonNoLink } from "../../buttons/ColorButton";
 import { SelectCar } from "../selectCarModal";
 import FetchFunctions from "../../DB-functions/FetchFunctions";
 
+// You are trying to fix the data transmition between the car.js and selectCarModal.js, tracking the License in cars.js that is transmitted from selectCarModal.js
+// To then on Confirm set the car in the PickupModal to the one corresponding to the license
 
 /**
  *
@@ -12,6 +14,7 @@ import FetchFunctions from "../../DB-functions/FetchFunctions";
  */
 function SelectedCar(props) {
   const [showSelectCarModal, setShowSelectCarModal] = useState(false);
+  const [currentLicense, setLicense] = useState("")
 
   /**
    * Checks whether there is a car currently selected and returns the field text accordingly.
@@ -28,20 +31,19 @@ function SelectedCar(props) {
     return returnString;
   }
 
-  function setNewCar(car) {
-    props.onSelect(car);
-  }
-
   function onCloseResetCar() {
-    props.onSelect(null)
+    props.onClickConfirm(null)
     setShowSelectCarModal(false)
   }
 
   function handleConfirm(){
-    console.log("Handling Click")
-    console.log(props.selected)
-    props.onClickConfirm(FetchFunctions.fetchCarFromLicense(props.selected));
-    setShowSelectCarModal(false)
+    if (currentLicense) {
+      props.onClickConfirm(FetchFunctions.fetchCarFromLicense(currentLicense));
+      setShowSelectCarModal(false)
+    } else {
+      alert("No car to save.")
+      onCloseResetCar()
+    }
 
   }
 
@@ -78,7 +80,7 @@ function SelectedCar(props) {
           showSelectCarModal={showSelectCarModal}
           onClose={() => onCloseResetCar()}
           onConfirm={() => handleConfirm()}
-          onSelect= {(input) => setNewCar(input)}
+          onSelect= {(input) => setLicense(input)}
         />
       </div>
     </Overlay>

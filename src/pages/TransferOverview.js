@@ -3,21 +3,51 @@ import "../components/cards/cards.css";
 import TransferCardBody from "../components/cards/TransferCards";
 import { ButtonOnChange } from "../components/buttons/ColorButton";
 import { TransferModal } from "../components/modals/transferModal";
-import { CARS } from "../data/cars";
-import DailyOverviewTable from "../components/tables/DailyOverviewTable";
+import { LOCATIONS } from "../data/locations";
+import { FilterCarRequest, FilterCarRelease } from "../components/cards/FilterTransferCards";
 
 function TransferOverview() {
   const [showRequestModal, setShowRequestModal] = useState(false);
   const [showReleaseModal, setShowReleaseModal] = useState(false);
 
-  const cards = [];
-  CARS.map((selCar) => {
-    cards.push(
-      <div key={selCar.License} className="cardMargin">
-        <TransferCardBody car={selCar.License} />
+  // requests
+  const reqCards = [];
+  let reqCars = FilterCarRequest(LOCATIONS[0])
+
+   if (reqCars.length > 0) {
+      reqCars.map((selCar) => {
+    reqCards.push(
+      <div key={selCar} className="cardMargin">
+        <TransferCardBody
+          car={selCar}
+        />
       </div>
     );
+    return null;
   });
+  } else {
+    reqCards.push(<div><h3>No Requests.</h3></div>)
+  }
+
+  // releases
+  const relCards = [];
+  let relCars = FilterCarRelease(LOCATIONS[0])
+
+  if (relCars.length > 0) {
+    relCars.map((selCar) => {
+  relCards.push(
+    <div key={selCar} className="cardMargin">
+      <TransferCardBody
+        car={selCar}
+      />
+    </div>
+  );
+  return null;
+});
+} else {
+  relCards.push(<div><h3>No Requests.</h3></div>)
+}
+
 
   return (
     <>
@@ -25,7 +55,6 @@ function TransferOverview() {
         <h1>Transfer Overview</h1>
       </div>
       <div className="pageContent">
-        <DailyOverviewTable />
         <div className="bookingOvBtn1">
           <ButtonOnChange
             color="PurpleBtn"
@@ -53,7 +82,12 @@ function TransferOverview() {
           ></TransferModal>
         </div>
         <div className="box">
-          <div className="cardPageMargin">{cards}</div>
+          <h2>Requests</h2>
+          <div className="cardPageMargin">{reqCards}</div>
+        </div>
+        <div className="box">
+          <h2>Releases</h2>
+          <div className="cardPageMargin">{relCards}</div>
         </div>
       </div>
     </>

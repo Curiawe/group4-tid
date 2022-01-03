@@ -10,11 +10,11 @@ function StartingMileage(props) {
   const [startingMileage, setStartingMileage] = useState("");
   return (
     <Overlay title="Starting Mileage">
-      <InputField
-        type="number"
+      <InputField 
+        type="number" 
         placeHolder="Starting Mileage in km"
-        onChange={(e) => setStartingMileage(e.target.value)}
-      />
+        min={0} value={props.mileage}
+        onChange={(e) => props.onChange(e.target.value)}/>
     </Overlay>
   );
 }

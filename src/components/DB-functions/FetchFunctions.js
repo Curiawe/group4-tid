@@ -1,4 +1,5 @@
 import BOOKINGS from "../../data/bookings"
+import { CARGROUPS } from "../../data/carGroups"
 import { CARS } from "../../data/cars"
 
 /**
@@ -12,14 +13,11 @@ const FetchFunctions = {
      * @param {*} ref the booking reference of a given booking
      * @returns {BOOKINGS} matching Booking element from the database
      */
-    fetchBookingFromRef: (ref) => {
+     fetchBookingFromRef: (ref) => {
         let foundBooking = null
         BOOKINGS.find((bkng) => {
            if (ref === bkng.Ref) {
-               console.log(bkng)
-               console.log(bkng.Ref)
                foundBooking = bkng
-               console.log("Set Booking Ref:" + bkng.Ref)
            }
         })
         return foundBooking
@@ -28,8 +26,6 @@ const FetchFunctions = {
     fetchCustomerFromBookingRef : (booking) => {
         try {
         let Bkng = FetchFunctions.fetchBookingFromRef(booking)
-        console.log("I found the booking " + Bkng.Ref)
-        console.log("Returning Customer: " + Bkng.Customer.name)
         return (Bkng.Customer)   
         } catch (error) {
         return new Error(error)
@@ -45,6 +41,15 @@ const FetchFunctions = {
         )
         return car
     },
+
+    fetchGroupFromGroupNameString : (groupName) => {
+        let group = CARGROUPS.find((g) => {
+            if (g.name === groupName) {
+                return g
+            }
+        })
+        return group
+    }
 
 
 }

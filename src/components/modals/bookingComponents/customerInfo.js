@@ -3,19 +3,23 @@ import { BookingComponent } from "./skeleton";
 import { InputField } from "../../inputfields+dropdowns/inputFields";
 
 function BookingCustomerInfo(props) {
-  let nameString = props.name;
-  let addressString = props.address;
-  let phoneString = props.phone;
-  let emailString = props.email;
-  let bornString = new Date(props.birthday).toLocaleDateString("da-DA");
-  let licenseIDString = props.licenseID;
-  let licenseIssueString = new Date(props.licenseIssueDate).toLocaleDateString(
-    "da-DA"
-  );
-  let licenseExpireString = new Date(
-    props.licenseExpirationDate
-  ).toLocaleDateString("da-DA");
-
+  let NameString = propsContained(props.name)
+  let addressString = propsContained(props.address)
+  let phoneString = propsContained(props.phone)
+  let emailString = propsContained(props.email)
+  let bornString = propsContained(new Date (props.birthday).toLocaleDateString("fr-CA"))
+  let licenseIDString = propsContained(props.licenseID)
+  let licenseIssueString = propsContained(new Date(props.licenseIssueDate).toLocaleDateString("fr-CA"))
+  let licenseExpireString = propsContained(new Date(props.licenseExpirationDate).toLocaleDateString("fr-CA"))
+  
+  function propsContained(input) {
+    if (input) {
+      return input
+    } else {
+      return ""
+    }
+  }
+  
   return (
     <BookingComponent title="Customer Info">
       <InputField
@@ -23,7 +27,7 @@ function BookingCustomerInfo(props) {
         type="text"
         onChange={(e) => props.onChangeName(e.target.value)}
         placeHolder="Name"
-        value={nameString}
+        value={NameString}
       />
       <InputField
         className="inputField"
@@ -49,7 +53,7 @@ function BookingCustomerInfo(props) {
       <InputField
         className="inputField"
         type="date"
-        onChange={(e) => props.onChangeBirthday(e.target.value)}
+        onChange={(e) => props.onChangeDate(e.target.value)}
         placeHolder="Date of Birth"
         value={bornString}
       />

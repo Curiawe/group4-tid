@@ -6,7 +6,7 @@ function BookingCarGroup(props) {
   return (
     <BookingComponent title="Car Group">
       <SelectCarGroup
-        onChange={(e) => props.onChangeCarGroup(e.target.value)}
+        onChange={(input) => props.onChangeCarGroup(input)}
       />
     </BookingComponent>
   );
