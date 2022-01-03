@@ -4,7 +4,7 @@ function Walkins() {
   return (
     <>
       <div className="pageTitle">
-        <h1>Walkins</h1>
+        <h1>Walk-ins</h1>
       </div>
       <div className="pageContent">
         <WalkinTable />
