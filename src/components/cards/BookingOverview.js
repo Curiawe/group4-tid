@@ -67,7 +67,7 @@ function BookingOverviewCont() {
         <BookingCard
           booking={bkng.Ref}
           onClick={(e, ref) => handleSelect(e, ref)}
-          className={selectedBooking === bkng.Ref ? "cardActive" : "card"}
+          className={selectedBooking === bkng.Ref ? "bookingCardActive" : "bookingCard"}
         />
       </div>
     );
