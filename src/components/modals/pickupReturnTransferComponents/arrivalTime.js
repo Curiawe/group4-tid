@@ -14,7 +14,7 @@ function ReturnTime(props) {
   return (
     <Overlay title="Returned">
       <div style={{lineHeight:"1.8"}}>
-      Planned: {props.time.toLocaleTimeString("en-US").substring(0,5)}<br/>
+      Planned: {new Date(props.time).toLocaleTimeString("en-US").substring(0,5)}<br/>
       Actual:  <InputFieldSmall type="time" value={arrivalTime} onChange={(input) => setArrivalTime(input)} name ="Actual" list={permittedTimes}/>
       </div>
       <TwoRadioButtons
