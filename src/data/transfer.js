@@ -24,7 +24,7 @@ export let TRANSFERS = [
     Incoming: LOCATIONS[3],
     Outgoing: LOCATIONS[7],
     Date: new Date(2021, 11, 9),
-    Car: CARS[2],
+    Car: CARS[4],
   },
   {
     Incoming: LOCATIONS[7],
@@ -36,12 +36,12 @@ export let TRANSFERS = [
     Incoming: LOCATIONS[7],
     Outgoing: LOCATIONS[6],
     Date: new Date(2021, 11, 10),
-    Car: CARS[2],
+    Car: CARS[8],
   },
   {
     Incoming: LOCATIONS[6],
     Outgoing: LOCATIONS[3],
     Date: new Date(2021, 11, 8),
-    Car: CARS[0],
+    Car: CARS[7],
   },
 ];
