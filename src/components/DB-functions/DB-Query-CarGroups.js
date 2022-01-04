@@ -2,10 +2,11 @@ import Parse from "parse";
 
 const queryCarGroups = {
     
-    getGroupFromName : async (groupName) => {
+    getPriceFromName : async (groupName) => {
         const CarGroups = Parse.Object.extend("CarGroups")
         const query = new Parse.Query(CarGroups);
-        query.include("")
+        query.include("price")
+        return await query.get(groupName)
     }
 }
 

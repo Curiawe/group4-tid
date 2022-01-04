@@ -1,21 +1,32 @@
 import Parse from "parse";
 
-const queryBookings = {
-    bookingFromRef : async (ref, funct) => { // this async function takes the variable 'ref'
+
+/**
+ * Async Parse query function that retuns a promise, 
+ * possibly containing a booking Object
+ * 
+ * @param {String} bookingRef 
+ * @returns Promise
+ */
+async function bookingFromRef () { // this needs to be async if we want to use await query.find()
+
         const Bookings = Parse.Object.extend("Bookings"); // we first create a class reference for our desired table(s)
         const query = new Parse.Query(Bookings); // we then initialize a query object for our desired table
-        query.contains("ref", ref) // we set the constraints for our query afterwards
-
-        let result = [] // this is for error handling, ensuring that we return an array, even if it is empty
-        try {
-            result = await query.find().then((booking) => funct(booking));
+        const returnArray = []
+       //query.contains("ref", ref); // we set the constraints for our query afterwards
+      
+        try { // we want to use try-catch for error handling. 
+          const result = await query.find()
+    
+              for (let i = 0; i < result.length; i++) { // for each of the results
+                  console.log(result[i].get("ref"))
+                  
+    
+              }
+     // right now, this is a Promise. I might turn into an array.   
         } catch (error) {
-            alert("Couldn't find what you were looking for. Error: " + error.message)
-        } finally {
-            return result
+          alert("Couldn't find what you were looking for. Error: " + error.message);
         }
-         
-    }
-}
+      };
 
-export default queryBookings
+export default bookingFromRef

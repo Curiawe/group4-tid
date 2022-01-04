@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./cards.css";
 import BookingCard from "./CardsForBooking";
 import { ButtonOnChange } from "../buttons/ColorButton";
-import {BOOKINGS} from "../../data/bookings";
+import { BOOKINGS } from "../../data/bookings";
 import PickupModal from "../modals/pickupModal";
 import ReturnModal from "../modals/returnModal";
 import BookingModal from "../modals/bookingModal";
@@ -10,14 +10,19 @@ import SearchBar from "../inputfields+dropdowns/searchBar";
 import ManageBookingModal from "../modals/manageBookingModal";
 import FetchFunctions from "../DB-functions/FetchFunctions";
 
+import Parse from "parse";
+
 function BookingOverviewCont() {
-  const cards = [];
   const [selectedBooking, setSelectedBooking] = useState("");
-  const [bookingState, setBookingState] = useState("")
+  const [bookingState, setBookingState] = useState("");
   const [showBookingModal, setShowBookingModal] = useState(false);
   const [showPickupModal, setShowPickupModal] = useState(false);
   const [showReturnModal, setShowReturnModal] = useState(false);
   const [showManageBookingModal, setShowManageBookingModal] = useState(false);
+
+  const cards = []; // cards
+  const bookings = [] // booking references 
+
 
   // Closing the modals on escape
   document.addEventListener("keydown", (event) => {
@@ -41,38 +46,55 @@ function BookingOverviewCont() {
     }
   }
 
-  console.log("Booking and booking Status: " + selectedBooking + ": " + bookingState)
+  console.log(
+    "Booking and booking Status: " + selectedBooking + ": " + bookingState
+  );
 
-  function handleSelect (e, ref) {
+  function handleSelect(e, ref) {
     e.preventDefault();
-    if (selectedBooking === ref) { //if I want to set it to the same thing again
+    if (selectedBooking === ref) {
+      //if I want to set it to the same thing again
       setSelectedBooking(""); // clear the selection instead
-      setBookingState("")
+      setBookingState("");
     } else {
       setSelectedBooking(ref);
-      setBookingState(FetchFunctions.fetchBookingFromRef(ref).Status)
-
+      setBookingState(FetchFunctions.fetchBookingFromRef(ref).Status);
     }
   }
 
-  function handlePickupSelect () {
+  function handlePickupSelect() {
     setSelectedBooking("");
     setShowPickupModal(false);
-
   }
 
-  BOOKINGS.map((bkng) => {
+  async function dbCall() {
+    const Bookings = Parse.Object.extend("Bookings"); // we first create a class reference for our desired table(s)
+    const query = new Parse.Query(Bookings); // we then initialize a query object for our desired table
+    query.select("ref"); // we only want the booking references
+
+    const bookingRefs = await query.find();
+
+    bookingRefs.map(function (booking) {
+      const ref = booking.get("ref");
+      console.log("Ref: " + ref)
+      bookings.push(ref)
+    });
+    console.log(bookings);
+  }
+
+  dbCall().then(() =>  {for (let i = 0; i < bookings.length; i++) {
     cards.push(
-      <div key={bkng.Ref} className="cardMargin">
+      <div key={bookings[i]} className="cardMargin">
         <BookingCard
-          booking={bkng.Ref}
-          onClick={(e, ref) => handleSelect(e, ref)}
-          className={selectedBooking === bkng.Ref ? "cardActive" : "card"}
+          booking={bookings[i]}
+          onClick={(e, r) => handleSelect(e, r)}
+          className={selectedBooking === bookings[i] ? "cardActive" : "card"}
         />
       </div>
-    );
-    return null;
-  });
+
+    )
+  };});
+
 
   return (
     <>
@@ -95,14 +117,14 @@ function BookingOverviewCont() {
               title="Pickup"
               onClick={() => setShowPickupModal(true)}
             />
-          <PickupModal
-            showPickupModal={showPickupModal}
-            onClose={() => setShowPickupModal(false)}
-            onConfirm={() => handlePickupSelect()}
-            selectedBooking={selectedBooking}
-            bookingStatus={bookingState}
-            setBookingState={(input) => setBookingState(input)}
-          ></PickupModal>
+            <PickupModal
+              showPickupModal={showPickupModal}
+              onClose={() => setShowPickupModal(false)}
+              onConfirm={() => handlePickupSelect()}
+              selectedBooking={selectedBooking}
+              bookingStatus={bookingState}
+              setBookingState={(input) => setBookingState(input)}
+            ></PickupModal>
             <ButtonOnChange
               color="LightBlueBtn"
               primary="true"
@@ -110,14 +132,14 @@ function BookingOverviewCont() {
               title="Return"
               onClick={() => setShowReturnModal(true)}
             />
-          <ReturnModal
-            showReturnModal={showReturnModal}
-            onClose={() => setShowReturnModal(false)}
-            onConfirm={() => setShowReturnModal(false)}
-            selectedBooking={selectedBooking}
-            bookingStatus={bookingState}
-            setBookingState={(input) => setBookingState(input)}
-          ></ReturnModal>
+            <ReturnModal
+              showReturnModal={showReturnModal}
+              onClose={() => setShowReturnModal(false)}
+              onConfirm={() => setShowReturnModal(false)}
+              selectedBooking={selectedBooking}
+              bookingStatus={bookingState}
+              setBookingState={(input) => setBookingState(input)}
+            ></ReturnModal>
             <ButtonOnChange
               color="DarkBlueBtn"
               primary="false"
@@ -143,9 +165,11 @@ function BookingOverviewCont() {
             ></BookingModal>
           </div>
         </div>
-        <span style={{marginTop:"32px"}}> Selected Booking: {selectedBooking}</span>
+        <span style={{ marginTop: "32px" }}>
+          {" "}
+          Selected Booking: {selectedBooking}
+        </span>
         <div className="bookingCardMargin">{cards}</div>
-
       </div>
     </>
   );
