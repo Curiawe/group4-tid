@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./cards.css";
 import BookingCard from "./CardsForBooking";
 import { ButtonOnChange } from "../buttons/ColorButton";
@@ -20,8 +20,8 @@ function BookingOverviewCont() {
   const [showReturnModal, setShowReturnModal] = useState(false);
   const [showManageBookingModal, setShowManageBookingModal] = useState(false);
 
-  const cards = []; // cards
-  const bookings = [] // booking references 
+  let cards = []; // cards
+  let bookings = [] // booking references 
 
 
   // Closing the modals on escape
@@ -71,7 +71,7 @@ function BookingOverviewCont() {
     const Bookings = Parse.Object.extend("Bookings"); // we first create a class reference for our desired table(s)
     const query = new Parse.Query(Bookings); // we then initialize a query object for our desired table
     query.select("ref"); // we only want the booking references
-
+    bookings = []
     const bookingRefs = await query.find();
 
     bookingRefs.map(function (booking) {
@@ -80,20 +80,27 @@ function BookingOverviewCont() {
       bookings.push(ref)
     });
     console.log(bookings);
+    makeCards();
   }
 
-  dbCall().then(() =>  {for (let i = 0; i < bookings.length; i++) {
-    cards.push(
-      <div key={bookings[i]} className="cardMargin">
-        <BookingCard
-          booking={bookings[i]}
-          onClick={(e, r) => handleSelect(e, r)}
-          className={selectedBooking === bookings[i] ? "cardActive" : "card"}
-        />
-      </div>
-
-    )
-  };});
+  dbCall();
+  
+  function makeCards() {
+    cards = []
+    console.log("using Effect")
+    bookings.map((bkng) => {
+      cards.push(
+        <div key={bkng} className="cardMargin">
+          <BookingCard
+            booking={bkng}
+            onClick={(e, ref) => handleSelect(e, ref)}
+            className={selectedBooking === bkng ? "cardActive" : "card"}
+          />
+        </div>
+      );
+      return null;
+    })  
+  }
 
 
   return (
