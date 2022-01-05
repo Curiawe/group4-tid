@@ -1,42 +1,20 @@
 import { CARGROUPS } from "../data/carGroups";
+import updateDate from "./dataHandling/updateDate";
 
-function calcPrice(booking) {
-  // time
-  let hourlyPrice = 0;
-
-  if (!booking.BillAs) {
-    hourlyPrice = booking.carGroup[3];
-  } else {
-    hourlyPrice = booking.BillAs[3];
+// Returns 0 instead of NaN when values are empty
+function getNumber(value) {
+  if (isNaN(value)) {
+    return 0;
   }
-
-  let returnDate = new Date(booking.Return.time);
-  let pickupDate = new Date(booking.Pickup.time);
-
-  const diffTime = Math.abs(returnDate - pickupDate);
-  const diffHours = Math.ceil(diffTime / (1000 * 60 * 60));
-
-  let timePeriod = 6; // (divided by two)
-  // this needs fixing!
-
-  // extra Services
-  let extraDriver = 0;
-
-  if (booking.Services.driver) {
-    extraDriver = 500;
-  }
-
-  let extraMileage = 0;
-  if (booking.Services.mileage) {
-    extraMileage = booking.Services.mileage * 2;
-  }
-
-  return hourlyPrice * timePeriod + 500 + extraDriver + extraMileage;
+  return value;
 }
 
+// Calculating booking price based on booking details
 function bookingPrice(
   returnDate,
+  returnTime,
   pickupDate,
+  pickupTime,
   carGroup,
   extraDriver,
   extraMileage
@@ -46,50 +24,73 @@ function bookingPrice(
 
   // Hourly Price for each carGroup
   let hourlyPrice = 0;
-
-  if (carGroup == CARGROUPS[0].name) {
-    hourlyPrice = CARGROUPS[0].Price;
-  } else if (carGroup == CARGROUPS[1].name) {
-    hourlyPrice = CARGROUPS[1].Price;
-  } else if (carGroup == CARGROUPS[2].name) {
-    hourlyPrice = CARGROUPS[2].Price;
-  } else if (carGroup == CARGROUPS[3].name) {
-    hourlyPrice = CARGROUPS[3].Price;
-  } else if (carGroup == CARGROUPS[4].name) {
-    hourlyPrice = CARGROUPS[4].Price;
-  } else if (carGroup == CARGROUPS[5].name) {
-    hourlyPrice = CARGROUPS[5].Price;
-  } else if (carGroup == CARGROUPS[6].name) {
-    hourlyPrice = CARGROUPS[6].Price;
-  } else if (carGroup == CARGROUPS[7].name) {
-    hourlyPrice = CARGROUPS[7].Price;
+  if (carGroup === undefined) {
+    hourlyPrice = 0;
+  } else if (typeof carGroup === "string" && carGroup !== undefined) {
+    if (carGroup === CARGROUPS[0].name) {
+      hourlyPrice = CARGROUPS[0].Price;
+    } else if (carGroup === CARGROUPS[1].name) {
+      hourlyPrice = CARGROUPS[1].Price;
+    } else if (carGroup === CARGROUPS[2].name) {
+      hourlyPrice = CARGROUPS[2].Price;
+    } else if (carGroup === CARGROUPS[3].name) {
+      hourlyPrice = CARGROUPS[3].Price;
+    } else if (carGroup === CARGROUPS[4].name) {
+      hourlyPrice = CARGROUPS[4].Price;
+    } else if (carGroup === CARGROUPS[5].name) {
+      hourlyPrice = CARGROUPS[5].Price;
+    } else if (carGroup === CARGROUPS[6].name) {
+      hourlyPrice = CARGROUPS[6].Price;
+    } else if (carGroup === CARGROUPS[7].name) {
+      hourlyPrice = CARGROUPS[7].Price;
+    } else if (carGroup === CARGROUPS[8].name) {
+      hourlyPrice = CARGROUPS[8].Price;
+    }
+  } else {
+    hourlyPrice = carGroup.Price;
   }
 
-  // Number of hours
-  let DateOfReturn = new Date(returnDate);
-  let DateOfPickup = new Date(pickupDate);
+  // Rental period
+  let timeOfReturn = new Date(updateDate(returnDate, returnTime));
+  let timeOfPickup = new Date(updateDate(pickupDate, pickupTime));
 
-  const diffMilliseconds = Math.abs(DateOfReturn - DateOfPickup);
+  const diffMilliseconds = Math.abs(timeOfReturn - timeOfPickup);
   let diffHours = diffMilliseconds / 36e5;
 
+  // pickupDate must be before returnDate
   if (pickupDate > returnDate) {
     diffHours = 0;
   }
 
   // Adding fees for extra services
   let extraDriverPrice = 0;
-
   if (extraDriver) {
     extraDriverPrice = 500;
   }
-
   let extraMileagePrice = 0;
   if (extraMileage) {
-    extraMileagePrice = extraMileage * 2;
+    extraMileagePrice = extraMileage * 2; // 1 extra km costs 2 DKK
   }
 
-  // Getting the total price
-  let total = hourlyPrice * diffHours + extraDriverPrice + extraMileagePrice;
+  // Adding discount on longer rentals
+  // The hourly rates are smaller the longer rental
+  if (diffHours >= 48 && diffHours < 72) {
+    hourlyPrice = hourlyPrice / 1.5;
+  }
+  if (diffHours >= 72 && diffHours < 120) {
+    hourlyPrice = hourlyPrice / 2;
+  }
+  if (diffHours >= 120) {
+    hourlyPrice = hourlyPrice / 2.5;
+  }
+
+  // Transforming NaN to 0
+  diffHours = getNumber(diffHours);
+
+  // Calculating the total price
+
+  let total =
+    hourlyPrice * diffHours + extraDriverPrice + extraMileagePrice + deposit;
 
   // Creating an array with the deposit, total, hourly price and number of hours for the booking
   let prices = [];
@@ -98,4 +99,4 @@ function bookingPrice(
   return prices;
 }
 
-export { calcPrice, bookingPrice };
+export { bookingPrice, getNumber };
