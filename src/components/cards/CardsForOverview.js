@@ -1,10 +1,12 @@
 import "./cards.css";
 import { React, useState } from "react";
 import { ButtonStyled } from "../buttons/ColorButton";
+import { ButtonNoLink } from "../buttons/ColorButton";
 import { IconBody } from "./IconBody";
 import { CARS } from "../../data/cars";
 import ColorIcon from "./AvailabilityIcon";
 import { Icon } from "@iconify/react";
+import pickTransfer from "../modals/walkinRes";
 
 let CAR = CARS;
 
@@ -24,6 +26,10 @@ function LargeCardBody(props) {
   function handleClick(e) {
     setActive(!active);
     props.onClick(e, car.License);
+  }
+
+  function clickCard(e) {
+    props.onClick(e, pickTransfer.updateCarWalkin(car.License, true))
   }
 
   return (
@@ -57,12 +63,12 @@ function LargeCardBody(props) {
         </div>
       </div>
       <div className="btnMargin">
-        <ButtonStyled
-          link=""
+        <ButtonNoLink
+          onClick={()=> pickTransfer.updateCarWalkin(car.License, !car.resWalkin)}
           color="PurpleBtn"
           primary="false"
           className="buttonSmall"
-          title="Select car"
+          title="Reserve for Walk-in"
         />
       </div>
     </div>
