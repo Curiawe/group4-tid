@@ -118,7 +118,7 @@ const updateEntries = {
         booking.Car.fuelStatus = fuel;
       }
       booking.Status= bookingStates.RETURNED;
-      console.log(booking);
+      alert("Car Return for Booking" + ref +  " registered. The booking can now be billed.")
    
     } catch (error) {
       alert("Something went wrong. Please double-check your inputs and try saving again. \nError: " + error.message)      
