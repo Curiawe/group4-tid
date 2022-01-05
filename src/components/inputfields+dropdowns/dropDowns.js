@@ -78,8 +78,13 @@ const SelectTime = (props) => {
     20: "20:00",
   };
 
+  let width = "auto"
+  if (props.width) {
+    width = props.width
+  }
+
   return (
-    <select defaultValue={props.defaultValue} onChange={props.onChange}>
+    <select defaultValue={props.defaultValue} onChange={props.onChange} className={props.className}>
       <option value="Select Time" disabled>
         Select Time
       </option>
