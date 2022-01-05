@@ -29,7 +29,7 @@ function TransferCardBody(props) {
   let usedCarGroup = car.carGroup;
 
   return (
-    <div className="card">
+    <div className="cardNonHover">
       <img className="cardImg" src={car.Image} alt="carpic" />
       <div className="h4Large"> {car.Model} </div>
       <div className="p1Large"> {usedCarGroup[0]}</div>

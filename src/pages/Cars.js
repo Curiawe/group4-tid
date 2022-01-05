@@ -7,13 +7,13 @@ function Cars() {
 
   CARS.map((selCar) => {
     cards.push(
-      <div key={selCar.License} className="cardMargin">
+      <div key={selCar.License} className="cardMarginNonHover">
         <LargeCardBody
           car={selCar.License}
           onClick={(e, input) => {
             return null;
           }}
-          className="card"
+          className="cardNonHover"
         />
       </div>
     );
