@@ -1,17 +1,32 @@
 import "../modal.css";
 import { BookingComponent } from "./skeleton";
 import { bookingPrice } from "../../priceCalc";
-import { Underline } from "react-feather";
+import { useEffect } from "react";
 
 function Price(props) {
   let returnDate = props.returnDate;
+  let returnTime = props.returnTime;
   let pickupDate = props.pickupDate;
+  let pickupTime = props.pickupTime;
   let carGroup = props.carGroup;
   let extraDriver = props.extraDriver;
   let extraMileage = props.extraMileage;
+  let price = bookingPrice(
+    returnDate,
+    returnTime,
+    pickupDate,
+    pickupTime,
+    carGroup,
+    extraDriver,
+    extraMileage
+  );
+
+  useEffect(() => {
+    props.onChangePrice(price[1]);
+  });
 
   return (
-    <BookingComponent title="Price">
+    <BookingComponent title="Price" price={price}>
       <div className="rowButton" style={{ fontSize: "12px" }}>
         <div>Hourly rate for {carGroup}:</div>
         <div>
@@ -19,7 +34,9 @@ function Price(props) {
           {
             bookingPrice(
               returnDate,
+              returnTime,
               pickupDate,
+              pickupTime,
               carGroup,
               extraDriver,
               extraMileage
@@ -35,7 +52,9 @@ function Price(props) {
           {
             bookingPrice(
               returnDate,
+              returnTime,
               pickupDate,
+              pickupTime,
               carGroup,
               extraDriver,
               extraMileage
@@ -51,7 +70,9 @@ function Price(props) {
           {
             bookingPrice(
               returnDate,
+              returnTime,
               pickupDate,
+              pickupTime,
               carGroup,
               extraDriver,
               extraMileage
@@ -68,7 +89,9 @@ function Price(props) {
           {
             bookingPrice(
               returnDate,
+              returnTime,
               pickupDate,
+              pickupTime,
               carGroup,
               extraDriver,
               extraMileage

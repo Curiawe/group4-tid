@@ -9,6 +9,7 @@ import { ExtraServices } from "./bookingComponents/extraServices";
 import { Price } from "./bookingComponents/price";
 import { BOOKINGS } from "../../data/bookings";
 import addEntries from "../DB-functions/AddEntries";
+import updateDate from "../dataHandling/updateDate";
 
 function BookingModal(props) {
   const [pickupDate, setPickupDate] = useState(new Date());
@@ -29,6 +30,7 @@ function BookingModal(props) {
   const [licenseExpirationDate, setExpirationDate] = useState();
   const [extraDriver, setExtraDriver] = useState(false);
   const [extraMileage, setExtraMileage] = useState(0);
+  const [price, setPrice] = useState();
 
   if (!props.showBookingModal) {
     return null;
@@ -74,6 +76,8 @@ function BookingModal(props) {
       }
       alertString += " so please fill that out.";
       alert(alertString);
+    } else if (pickupDate > returnDate) {
+      alert("The date of the return must be AFTER the pickup date.");
     } else {
       e.preventDefault();
       addEntries.addBooking(
@@ -88,26 +92,31 @@ function BookingModal(props) {
         licenseID,
         licenseIssueDate,
         licenseExpirationDate,
-        pickupDate,
+        updateDate(pickupDate, pickupTime),
         pickupLocation,
-        returnDate,
+        updateDate(returnDate, returnTime),
         returnLocation,
         extraDriver,
-        extraMileage
+        extraMileage,
+        price
       );
+      alert("Booking saved!");
+      console.log(carGroup);
+      props.onClose();
     }
+  }
 
-    if (pickupDate > returnDate) {
-      alert("The date of the return must be AFTER the pickup date.");
-    }
+  function handlePriceChange(newPrice) {
+    console.log(price);
+    setPrice(newPrice);
+    console.log(price);
   }
 
   return (
     <div className="overlay">
       <div className="bookingContent">
         <div className="overlayTitle">
-          <h3>New Booking</h3>
-          bookingID
+          <h3>New Booking #{newRef()}</h3>
         </div>
         <div className="overlayBody">
           <div className="row">
@@ -131,6 +140,7 @@ function BookingModal(props) {
                     setWalkin(newBool);
                   }}
                 />
+
                 <BookingReturn
                   date={returnDate}
                   time={returnTime}
@@ -155,6 +165,10 @@ function BookingModal(props) {
                   extraDriver={extraDriver}
                   onChangeExtraDriver={(newExtraDriver) => {
                     setExtraDriver(newExtraDriver);
+                  }}
+                  extraMileage={extraMileage}
+                  onChangeExtraMileage={(newExtraMileage) => {
+                    setExtraMileage(newExtraMileage);
                   }}
                 />
               </div>
@@ -197,10 +211,16 @@ function BookingModal(props) {
                 />
                 <Price
                   returnDate={returnDate}
+                  returnTime={returnTime}
                   pickupDate={pickupDate}
+                  pickupTime={pickupTime}
                   carGroup={carGroup}
                   extraDriver={extraDriver}
                   extraMileage={extraMileage}
+                  price={props.price}
+                  onChangePrice={(newPrice) => {
+                    handlePriceChange(newPrice);
+                  }}
                 />
               </div>
             </div>

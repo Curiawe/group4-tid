@@ -1,5 +1,5 @@
 import { React, useState } from "react";
-import { ButtonNoLink, ButtonOnChange } from "../buttons/ColorButton";
+import { ButtonOnChange } from "../buttons/ColorButton";
 import FetchFunctions from "../DB-functions/FetchFunctions";
 import updateEntries from "../DB-functions/UpdateEntries";
 import { EditBookingCarGroup } from "./bookingComponents/carGroup";
@@ -9,38 +9,33 @@ import { EditBookingPickup } from "./bookingComponents/pickupInfo";
 import { Price } from "./bookingComponents/price";
 import { EditBookingReturn } from "./bookingComponents/returnInfo";
 import "./modal.css";
-import { calcPrice } from "../priceCalc";
 import updateDate from "../dataHandling/updateDate";
+import { bookingPrice } from "../priceCalc";
 
 function EditBookingModal(props) {
   let updatedBooking = FetchFunctions.fetchBookingFromRef(
     props.selectedBooking
   );
-
-  let bookingPickupTime = new Date(
-    updatedBooking.Pickup.time
-  ).toLocaleTimeString("da-DA");
-
-  let bookingReturnTime = new Date(
-    updatedBooking.Return.time
-  ).toLocaleTimeString("da-DA");
-
   const [pickupDate, setPickupDate] = useState(
     new Date(updatedBooking.Pickup.time)
   );
-  const [pickupTime, setPickupTime] = useState(bookingPickupTime);
+  const [pickupTime, setPickupTime] = useState(
+    updatedBooking.Pickup.time.toLocaleTimeString("fr-CA")
+  );
   const [pickupLocation, setPickupLocation] = useState(
-    updatedBooking.Pickup.location
+    updatedBooking.Pickup.location.Location
   );
   const [walkin, setWalkin] = useState(updatedBooking.isWalkin);
   const [returnDate, setReturnDate] = useState(
     new Date(updatedBooking.Return.time)
   );
-  const [returnTime, setReturnTime] = useState(bookingReturnTime);
-  const [returnLocation, setReturnLocation] = useState(
-    updatedBooking.Return.location
+  const [returnTime, setReturnTime] = useState(
+    updatedBooking.Return.time.toLocaleTimeString("fr-CA")
   );
-  const [carGroup, setCarGroup] = useState(updatedBooking.carGroup);
+  const [returnLocation, setReturnLocation] = useState(
+    updatedBooking.Return.location.Location
+  );
+  const [carGroup, setCarGroup] = useState(updatedBooking.carGroup.name);
   const [name, setName] = useState(updatedBooking.Customer.name);
   const [address, setAddress] = useState(updatedBooking.Customer.address);
   const [phone, setPhone] = useState(updatedBooking.Customer.phone);
@@ -61,13 +56,17 @@ function EditBookingModal(props) {
   const [extraMileage, setExtraMileage] = useState(
     updatedBooking.Services.mileage
   );
+  const [price, setPrice] = useState(updatedBooking.price);
 
   function handleUpdate() {
+    let pLocation = FetchFunctions.fetchLocationFromName(pickupLocation);
+    let rLocation = FetchFunctions.fetchLocationFromName(returnLocation);
+
     updateEntries.updateBooking(
       props.selectedBooking,
       updatedBooking.Status,
       walkin,
-      carGroup,
+      FetchFunctions.fetchGroupFromGroupNameString(carGroup),
       name,
       address,
       phone,
@@ -79,12 +78,12 @@ function EditBookingModal(props) {
       licenseExpirationDate > new Date(),
       updatedBooking.Car,
       updateDate(pickupDate, pickupTime),
-      pickupLocation,
+      pLocation,
       updatedBooking.Pickup.fuel,
       updatedBooking.Pickup.mileage,
       updatedBooking.Pickup.comment,
       updateDate(returnDate, returnTime),
-      returnLocation,
+      rLocation,
       updatedBooking.Return.fuel,
       updatedBooking.Return.mileage,
       updatedBooking.Return.comment,
@@ -92,21 +91,39 @@ function EditBookingModal(props) {
       extraMileage,
       updatedBooking.Returned.time,
       updatedBooking.Returned.mileage,
-      calcPrice(updatedBooking)
+      bookingPrice(
+        returnDate,
+        returnTime,
+        pickupDate,
+        pickupTime,
+        carGroup,
+        extraDriver,
+        extraMileage
+      )[1]
     );
+    alert("Update saved!");
     props.onConfirm();
+    let mybooking = FetchFunctions.fetchBookingFromRef(updatedBooking);
+    console.log(pickupLocation);
+    console.log(returnLocation);
+    console.log(updateDate(pickupDate, pickupTime));
   }
 
   if (!props.showEditBookingModal) {
     return null;
   }
 
+  function handlePriceChange(newPrice) {
+    console.log(price);
+    setPrice(newPrice);
+    console.log(price);
+  }
+
   return (
     <div className="overlay">
       <div className="bookingContent">
         <div className="overlayTitle">
-          <h3>Manage Booking</h3>
-          Booking ID: {updatedBooking.Ref}
+          <h3>Edit Booking #{updatedBooking.Ref}</h3>
         </div>
         <div className="overlayBody">
           <div className="row">
@@ -150,10 +167,15 @@ function EditBookingModal(props) {
                     setCarGroup(newCarGroup);
                   }}
                 />
+
                 <ExtraServices
                   extraDriver={extraDriver}
                   onChangeExtraDriver={(newExtraDriver) => {
                     setExtraDriver(newExtraDriver);
+                  }}
+                  extraMileage={extraMileage}
+                  onChangeExtraMileage={(newExtraMileage) => {
+                    setExtraMileage(newExtraMileage);
                   }}
                 />
               </div>
@@ -194,7 +216,20 @@ function EditBookingModal(props) {
                     setExpirationDate(new Date(newExpirationDate));
                   }}
                 />
-                <Price />
+
+                <Price
+                  returnDate={returnDate}
+                  returnTime={returnTime}
+                  pickupDate={pickupDate}
+                  pickupTime={pickupTime}
+                  carGroup={carGroup}
+                  extraDriver={extraDriver}
+                  extraMileage={extraMileage}
+                  price={props.price}
+                  onChangePrice={(newPrice) => {
+                    handlePriceChange(newPrice);
+                  }}
+                />
               </div>
             </div>
           </div>

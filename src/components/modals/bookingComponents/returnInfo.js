@@ -2,6 +2,7 @@ import "../modal.css";
 import { BookingComponent } from "./skeleton";
 import { SelectLocation } from "../../inputfields+dropdowns/dropDowns";
 import { InputField } from "../../inputfields+dropdowns/inputFields";
+import { SelectTime } from "../../inputfields+dropdowns/dropDowns";
 
 function BookingReturn(props) {
   return (
@@ -17,22 +18,24 @@ function BookingReturn(props) {
         onChange={(e) => props.onChangeDate(e.target.value)}
         placeHolder="Select Date"
       />
-      <InputField
-        className="inputField"
-        type="time"
+      <SelectTime
         onChange={(e) => props.onChangeTime(e.target.value)}
-        placeHolder="Select Time"
+        defaultValue="Select Time"
       />
     </BookingComponent>
   );
 }
 
 function EditBookingReturn(props) {
+  let locationString = props.location;
+  let returnDateString = props.date.toLocaleDateString("fr-CA");
+  let returnTimeString = props.time;
+
   return (
     <BookingComponent title="Return">
       <SelectLocation
         dropdownTitle="Select Return Location"
-        defaultValue={props.location.Location}
+        defaultValue={locationString}
         onChange={(e) => props.onChangeLocation(e.target.value)}
       />
       <InputField
@@ -40,12 +43,11 @@ function EditBookingReturn(props) {
         type="date"
         onChange={(e) => props.onChangeDate(new Date(e.target.value))}
         placeHolder="Select Date"
+        value={returnDateString}
       />
-      <InputField
-        className="inputField"
-        type="time"
+      <SelectTime
         onChange={(e) => props.onChangeTime(e.target.value)}
-        placeHolder="Select Time"
+        defaultValue={returnTimeString}
       />
     </BookingComponent>
   );
