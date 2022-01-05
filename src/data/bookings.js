@@ -1,8 +1,7 @@
-import {CARS} from "./cars.js"
-import {CARGROUPS} from "./carGroups.js"
-import {LOCATIONS} from "./locations.js"
-import { CUSTOMERS } from "./customers.js"
-import { bookingStates } from "./bookingStates.js"
+import { CARGROUPS } from "./carGroups.js";
+import { LOCATIONS } from "./locations.js";
+import { CUSTOMERS } from "./customers.js";
+import { bookingStates } from "./bookingStates.js";
 
 /**
  * Schema: ID: {Status,isWalkin, carGroup, CARS.license, Pickup {time, location}, Return {time, location}}, Returned {time, mileage}, price},

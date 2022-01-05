@@ -133,6 +133,7 @@ function ButtonOnChange(props) {
   );
 }
 
+// For searching only
 function SubmitButton(props) {
   let backColor = "";
   let fontColor = "";
@@ -159,7 +160,7 @@ function SubmitButton(props) {
           backgroundColor: backColor,
           color: fontColor,
           borderColor: borderColor,
-          marginLeft:"16px"
+          marginLeft: "16px",
         }}
         className={props.className}
         type="submit"

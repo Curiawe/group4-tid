@@ -54,20 +54,28 @@ button:hover {
 
 /* Navigation buttons */
 
-.navButtons {
+.navButtonContainer {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 100%;
-  justify-content: center;
-  margin-top: 8px;
 }
 
-.navButton {
+.navButtons {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  list-style-type: none;
+  padding: 0;
+}
+
+.navButtons .navButtonsColumn {
+  list-style-type: none;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
   width: 290px;
   height: 290px;
   background-color: #f0f4f9;
@@ -77,21 +85,20 @@ button:hover {
   color: #31465f;
   margin-left: 8px;
   margin-right: 8px;
-  margin-bottom: 8px;
 }
 
-.navButton h4 {
+.navButtons .navButtonsColumn h4 {
   text-align: center;
   color: #31465f;
 }
 
-.navButton:hover {
+.navButtons .navButtonsColumn:hover {
   cursor: pointer;
   box-shadow: 0px 10px 10px rgba(249, 89, 89, 0.1);
   transform: scale(1.01);
 }
 
-.navButton:hover h4 {
+.navButtons .navButtonsColumn:hover h4 {
   color: #f95959;
 }
 
@@ -99,17 +106,15 @@ button:hover {
 /* Tablets */
 @media (max-width: 960px) {
   .navButtons {
-    align-items: flex-start;
-  }
-  .navButton {
     flex-direction: column;
-    width: 80%;
+    align-items: center;
+    width: 100%;
   }
 }
 
 @media (max-width: 960px) {
-  .navButton {
+  .navButtons .navButtonsColumn {
     height: 80px;
-    margin: 2px;
+    margin-bottom: 2px;
   }
 }

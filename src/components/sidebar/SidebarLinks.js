@@ -17,7 +17,7 @@ const SidebarLinks = [
     link: "/transfers",
   },
   {
-    title: "Walkins",
+    title: "Walk-ins",
     link: "/walkins",
   },
   {

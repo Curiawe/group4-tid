@@ -14,11 +14,21 @@ function BookingCarGroup(props) {
 }
 
 function EditBookingCarGroup(props) {
+  let carGroup = propsContained(props.carGroup);
+
+  function propsContained(input) {
+    if (input) {
+      return input;
+    } else {
+      return "";
+    }
+  }
+
   return (
     <BookingComponent title="Car Group">
       <SelectCarGroup
-        onChange={(e) => props.onChangeCarGroup(e.target.value)}
-        defaultValue={props.carGroup.name}
+        onChange={(input) => props.onChangeCarGroup(input)}
+        defaultValue={carGroup}
       />
     </BookingComponent>
   );

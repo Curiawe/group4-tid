@@ -27,8 +27,6 @@ const InputFieldSmall = (props) => {
         type={props.type}
         onChange={props.onChange}
         name={props.placeHolder}
-        min={props.min}
-        max={props.max}
         required
         value={props.value}
       />
