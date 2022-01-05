@@ -29,18 +29,6 @@ function BookingOverviewCont() {
     }
   });
 
-  function handleSelect(e, ref) {
-    e.preventDefault();
-    if (selectedBooking === ref) {
-      //if I want to set it to the same thing again
-
-      setSelectedBooking("");
-      // clear the selection instead
-    } else {
-      setSelectedBooking(ref);
-    }
-  }
-
   console.log(
     "Booking and booking Status: " + selectedBooking + ": " + bookingState
   );
@@ -105,7 +93,7 @@ function BookingOverviewCont() {
               setBookingState={(input) => setBookingState(input)}
             ></PickupModal>
             <ButtonOnChange
-              color="LightBlueBtn"
+              color="PurpleBtn"
               primary="true"
               className="buttonMedium"
               title="Return"
