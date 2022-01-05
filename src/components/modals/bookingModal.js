@@ -68,6 +68,18 @@ function BookingModal(props) {
     if (!carGroup) {
       missing.push("Car Group");
     }
+    if (!name) {
+      missing.push("Name");
+    }
+    if (!address) {
+      missing.push("Address");
+    }
+    if (!phone) {
+      missing.push("Phone");
+    }
+    if (!licenseID) {
+      missing.push("License ID");
+    }
 
     if (missing.length > 0) {
       let alertString = "Sorry, you can't save, yet. You are missing: ";
