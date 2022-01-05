@@ -47,10 +47,11 @@ select:focus {
   border: 1px solid #d1dae0;
   box-sizing: border-box;
   box-shadow: none;
+  outline: none;
   border-radius: 8px;
   font-size: 16px;
   font: inherit;
-  padding: 1em 4px 4px 4px
+  padding: 1em 4px 4px 4px;
 }
 
 .inputText textarea {
