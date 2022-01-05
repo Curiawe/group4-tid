@@ -9,25 +9,17 @@ import { ReturnTime } from "./pickupReturnTransferComponents/arrivalTime";
 import { ReturnMileage } from "./pickupReturnTransferComponents/mileage";
 
 import { ReturnCarState } from "./pickupReturnTransferComponents/carState";
-import { SelectedCar } from "./pickupReturnTransferComponents/car";
 
-import { CustomerInfo } from "./pickupReturnTransferComponents/customerInfo";
 import { bookingStates } from "../../data/bookingStates";
 import FetchFunctions from "../DB-functions/FetchFunctions";
 import FeatherIcon from "feather-icons-react";
 
 const ReturnModal = (props) => {
-  const [arrivalTime, setArrivalTime] = useState(
-    new Date(2021, 11, 26, 8, 45).toLocaleTimeString("fr-CA")
-  );
+
+  const [arrivalTime, setArrivalTime] = useState("");
   const [returnMileage, setMileage] = useState(0);
   const [returnFuel, setFuel] = useState(100);
   const [returnComment, setComment] = "";
-
-  let selectedCar;
-  if (props.selectedBooking) {
-    selectedCar = FetchFunctions.fetchBookingFromRef(props.selectedBooking).Car;
-  }
 
   function onClickOverrideStatus(e) {
     e.preventDefault();
@@ -36,6 +28,9 @@ const ReturnModal = (props) => {
     );
     props.setBookingState(bookingStates.PICKEDUP);
   }
+
+  console.log(returnMileage)
+  console.log(returnFuel)
 
   function carText() {
     let returnString = "";
@@ -72,6 +67,7 @@ const ReturnModal = (props) => {
       </div>
     );
   } else if (props.showReturnModal && props.selectedBooking) {
+
     if (props.bookingStatus !== bookingStates.PICKEDUP) {
       return (
         <div className="overlay">
@@ -108,8 +104,9 @@ const ReturnModal = (props) => {
     }
   }
 
+  
   let booking = FetchFunctions.fetchBookingFromRef(props.selectedBooking);
-  let car = booking.Car;
+  let selectedCar = booking.Car;
 
   return (
     <div className="overlay">
@@ -125,14 +122,14 @@ const ReturnModal = (props) => {
           </Overlay>
           <ReturnTime
             time={booking.Return.time
-              .toLocaleTimeString("fr-CA")
+              .toLocaleTimeString("en-US")
               .substring(0, 5)}
             returned={arrivalTime}
             setReturned={(time) => setArrivalTime(time)}
           />
-          <ReturnMileage />
-          <ReturnFuel />
-          <Comments />
+          <ReturnMileage onChange={(newMiles) => setMileage(newMiles)}/>
+          <ReturnFuel onChange={(newFuel) => setFuel(newFuel)}/>
+          <Comments onChange={(newComment) => setComment(newComment)}/>
         </div>
         <div className="overlayFooter">
           <ButtonOnChange

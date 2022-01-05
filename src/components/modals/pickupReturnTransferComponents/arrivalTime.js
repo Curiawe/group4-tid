@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Overlay } from "./pickupReturnTransferSkeleton";
 import { TwoRadioButtons } from "../../selectionBoxes/selectionBoxes";
 import { SelectTime } from "../../inputfields+dropdowns/dropDowns";
-import dataSetBusinessHours from "../../../data/businessHours";
 
 function ReturnTime(props) {
   const [arrivalTime, setArrivalTime] = useState(props.returned);
@@ -10,18 +9,20 @@ function ReturnTime(props) {
   let late = (arrivalTime > props.time)
   console.log("props.time: " + props.time)
 
-  function handleChange(input) {
-    props.setReturned(input)
-    setArrivalTime(input)
+  function handleChange(e) {
+    props.setReturned(e.target.value)
+    console.log(props.returned)
+    setArrivalTime(e.target.value)
+    console.log("New Time" + arrivalTime)
   }
 
   return (
     <Overlay title="Returned">
       <div style={{lineHeight:"1.8"}}>
       Planned: {props.time}<br/>
-      Actual:
+      Arrived before:
       <SelectTime
-        onChange={(e) => handleChange(e.target.value)}
+        onChange={(e) => handleChange(e)}
         className="small"
         defaultValue="Select Time"
       />
@@ -29,9 +30,9 @@ function ReturnTime(props) {
       <TwoRadioButtons
         name="Arrival Time"
         buttonOne="On Time"
-        checkedOne={!late} //this is not fine. 
+        checkedOne={!late} 
         buttonTwo="Late"
-        checkedTwo={late} // this does not work, but I need to be able to note the time, anyway
+        checkedTwo={late}
       />
     </Overlay>
   );
