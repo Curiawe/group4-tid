@@ -27,8 +27,6 @@ function SelectCar(props) {
   else {
       cars = ShowAvailableCars(props.booking)
   }
-
-  console.log(cars)
   
   function handleSelectCar(e, license) {
     e.preventDefault();
@@ -67,8 +65,6 @@ function SelectCar(props) {
   if (!props.showSelectCarModal) {
     return null;
   }
-
-  console.log(car);
 
   return (
     <div className="overlay">

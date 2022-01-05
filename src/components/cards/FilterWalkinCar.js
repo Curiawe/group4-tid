@@ -33,8 +33,7 @@ function ShowWalkinCars(bookingRef) {
     // filter car groups - identify the requested group for booking
     let avCarGroups = FilterGroups(carGroup) // available, right group
     let groupWalkinCars= allWalkinCars.filter(c => !avCarGroups.includes(c))
-
-
+    
     //if (booking.isWalkin = true) {
     if (groupWalkinCars.length >= 1){
         return groupWalkinCars} 

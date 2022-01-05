@@ -28,6 +28,7 @@ export let CARS = [
     Doors: 2,
     Status: "Ready",
     relStatus: "Released",
+    resWalkin: false,
     Image: FiatSLV,
   },
   {
@@ -41,6 +42,7 @@ export let CARS = [
     Doors: 2,
     Status: "Ready",
     relStatus: "Released",
+    resWalkin: false,
     Image: FiatBLK,
   },
   {
@@ -50,10 +52,11 @@ export let CARS = [
     Color: "RED",
     fuelType: "P",
     fuelStatus: 100,
-    Location: LOCATIONS[1],
+    Location: LOCATIONS[0],
     Doors: 2,
     Status: "Ready",
     relStatus: "Released",
+    resWalkin: true,
     Image: SkodaRED,
   },
   {
@@ -67,6 +70,7 @@ export let CARS = [
     Doors: 2,
     Status: "Ready",
     relStatus: "Released",
+    resWalkin: false,
     Image: Ford,
   },
   {
@@ -80,6 +84,7 @@ export let CARS = [
     Doors: 2,
     Status: "Ready",
     relStatus: "Released",
+    resWalkin: false,
     Image: SkodaSLV,
   },
   {
@@ -93,6 +98,7 @@ export let CARS = [
     Doors: 2,
     Status: "Unavailable",
     relStatus: "Released",
+    resWalkin: false,
     Image: Renault,
   },
   {
@@ -104,8 +110,9 @@ export let CARS = [
     fuelStatus: 100,
     Location: LOCATIONS[0],
     Doors: 2,
-    Status: "Returned",
+    Status: "Ready",
     relStatus: "Released",
+    resWalkin: false,
     Image: VW,
   },
   {
@@ -119,6 +126,7 @@ export let CARS = [
     Doors: 2,
     Status: "Ready",
     relStatus: "Released",
+    resWalkin: false,
     Image: Audi,
   },
   {
@@ -130,8 +138,9 @@ export let CARS = [
     fuelStatus: 100,
     Location: LOCATIONS[0],
     Doors: 2,
-    Status: "Unavailable",
+    Status: "Ready",
     relStatus: "Released",
+    resWalkin: false,
     Image: HondaRED,
   },
   {
@@ -145,6 +154,7 @@ export let CARS = [
     Doors: 2,
     Status: "Unavailable",
     relStatus: "Released",
+    resWalkin: false,
     Image: HondaSLV,
   },
   {
@@ -158,6 +168,7 @@ export let CARS = [
     Doors: 2,
     Status: "Unavailable",
     relStatus: "Released",
+    resWalkin: false,
     Image: Fiat500,
   },
 ];

@@ -63,15 +63,17 @@ function ShowAvailableCars(bookingRef) {
     // filter cars based on location, status, availability during booking (= no transfers)
     let filteredCars = FilterCar(pickupLocation, carStatus)
     let cars = FilterTransferCars(filteredCars, booking.Pickup.time, booking.Return.time)
+
     // filter out walkin reservations
     let walkins = FilterWalkinCar()
     cars = cars.filter(c => !walkins.includes(c))
- 
-    // filter car groups - identify the requested group for booking
-    let avCarGroups = FilterGroups(carGroup) // available, right group
-    let finalAvCars = cars.filter(c => !avCarGroups.includes(c))
 
+    // filter car groups - identify the requested group for booking
+    let avCarGroups = FilterGroups(carGroup) // right group
+    let finalAvCars = cars.filter(c => avCarGroups.includes(c))
+    
     // return available car. If no car of requested group is available, show all available cars
+    
     if (finalAvCars.length < 1){
         return cars
     } else {
