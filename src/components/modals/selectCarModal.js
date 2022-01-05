@@ -3,12 +3,33 @@ import { React, useState } from "react";
 import { ButtonOnChange } from "../buttons/ColorButton";
 import LargeCardBody from "../cards/CardsForOverview";
 import ShowAvailableCars from "../cards/SelectCar";
+import { BOOKINGS } from "../../data/bookings";
+import ShowWalkinCars from "../cards/FilterWalkinCar";
 
 function SelectCar(props) {
+
+  let booking = BOOKINGS[0];
+
+    BOOKINGS.map((bkng) => {
+        if (bkng.Ref === props) {
+        booking = bkng;
+        }
+        return null;
+        });
+
   const cards = [];
   const [car, setSelectedCarLicense] = useState("");
-  let cars = ShowAvailableCars(props.booking);
+  let cars = "";
 
+  if (booking.isWalkin = true) {
+      cars = ShowWalkinCars(props.booking)
+  }
+  else {
+      cars = ShowAvailableCars(props.booking)
+  }
+
+  console.log(cars)
+  
   function handleSelectCar(e, license) {
     e.preventDefault();
     if (car === license) {
@@ -20,7 +41,7 @@ function SelectCar(props) {
       props.onSelect(license);
     }
   }
-
+  
   if (cars.length > 0) {
     cars.map((selCar) => {
       cards.push(
