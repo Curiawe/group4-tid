@@ -13,13 +13,14 @@ import { ReturnCarState } from "./pickupReturnTransferComponents/carState";
 import { bookingStates } from "../../data/bookingStates";
 import FetchFunctions from "../DB-functions/FetchFunctions";
 import FeatherIcon from "feather-icons-react";
+import updateEntries from "../DB-functions/UpdateEntries";
 
 const ReturnModal = (props) => {
 
   const [arrivalTime, setArrivalTime] = useState("");
   const [returnMileage, setMileage] = useState(0);
   const [returnFuel, setFuel] = useState(100);
-  const [returnComment, setComment] = "";
+  const [returnComment, setComment] = useState("");
 
   function onClickOverrideStatus(e) {
     e.preventDefault();
@@ -29,8 +30,24 @@ const ReturnModal = (props) => {
     props.setBookingState(bookingStates.PICKEDUP);
   }
 
-  console.log(returnMileage)
-  console.log(returnFuel)
+  function handleTime(){
+    let day = new Date();
+    day.setHours(parseInt(arrivalTime.substring(0,2)),parseInt(arrivalTime.substring(3,5)),0,0)
+    return day
+  }
+
+  function handleConfirm(){
+    updateEntries.updateBookingForReturn(props.selectedBooking, handleTime(), returnMileage, returnFuel, returnComment);
+    props.onConfirm();
+  }
+
+  function handleClose() {
+    setArrivalTime("");
+    setMileage(0);
+    setFuel(0);
+    setComment("");
+    props.onClose();
+  }
 
   function carText() {
     let returnString = "";
@@ -137,14 +154,14 @@ const ReturnModal = (props) => {
             primary="false"
             className="buttonLarge"
             title="Go Back"
-            onClick={props.onClose}
+            onClick={() => handleClose()}
           />
           <ButtonOnChange
             color="DarkBlueBtn"
             primary="true"
             className="buttonLarge"
             title="Register Return"
-            onClick={props.onConfirm}
+            onClick={() => handleConfirm()}
           />
         </div>
       </div>
