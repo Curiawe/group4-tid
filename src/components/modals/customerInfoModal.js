@@ -251,7 +251,7 @@ function CustomerInfoModal(props) {
       <div className="customerInfoContent">
         <div className="overlayTitle">
           <h3>Review Customer</h3>
-          <p>CustomerID: {licenseID}</p>
+          <p>Customer ID: #{licenseID}</p>
           {editButton()}
         </div>
         {customerContent()}

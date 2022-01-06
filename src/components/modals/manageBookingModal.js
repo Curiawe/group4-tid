@@ -73,7 +73,7 @@ function ManageBookingModal(props) {
     <div className="overlay">
       <div className="bookingContent">
         <div className="overlayTitle">
-          <h3>Manage Booking #{booking.Ref}</h3>
+          <h3>Manage Booking: #{booking.Ref}</h3>
 
           <div className="editButtons">
             <ButtonNoLink // edit booking info

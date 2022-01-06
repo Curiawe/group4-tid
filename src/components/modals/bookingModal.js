@@ -131,7 +131,7 @@ function BookingModal(props) {
     <div className="overlay">
       <div className="bookingContent">
         <div className="overlayTitle">
-          <h3>New Booking #{newRef()}</h3>
+          <h3>New Booking: #{newRef()}</h3>
         </div>
         <div className="overlayBody">
           <div className="row">

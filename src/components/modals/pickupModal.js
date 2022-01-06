@@ -125,7 +125,7 @@ const PickupModal = (props) => {
         <div className="overlay">
           <div className="overlayContent">
             <div className="overlayTitle">
-              <h3>Pickup Booking {props.selectedBooking}</h3>
+              <h3>Pickup Booking: #{props.selectedBooking}</h3>
             </div>
             <div className="overlayBody">
               <CustomerInfo booking={props.selectedBooking} />
