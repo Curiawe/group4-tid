@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./modal.css";
 import { ButtonOnChange, ButtonNoLink } from "../buttons/ColorButton";
 import { Overlay } from "../modals/pickupReturnTransferComponents/pickupReturnTransferSkeleton";
@@ -50,9 +50,7 @@ const ReturnModal = (props) => {
   }
 
   function handlePriceChange(newPrice) {
-    console.log(price);
     setPrice(newPrice);
-    console.log(price);
   }
 
   function handleConfirm(){

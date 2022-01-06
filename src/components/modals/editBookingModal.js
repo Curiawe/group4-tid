@@ -60,9 +60,6 @@ function EditBookingModal(props) {
   );
   const [price, setPrice] = useState(updatedBooking.price);
 
-  console.log(pickupTime, pickupDate)
-  console.log(returnTime, returnDate)
-
   function handleUpdate() {
     let pLocation = FetchFunctions.fetchLocationFromName(pickupLocation);
     let rLocation = FetchFunctions.fetchLocationFromName(returnLocation);
