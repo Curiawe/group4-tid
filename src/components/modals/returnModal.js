@@ -14,6 +14,7 @@ import { bookingStates } from "../../data/bookingStates";
 import FetchFunctions from "../DB-functions/FetchFunctions";
 import FeatherIcon from "feather-icons-react";
 import updateEntries from "../DB-functions/UpdateEntries";
+import timeStringFromDate from "../dataHandling/timeStringFromDate";
 
 const ReturnModal = (props) => {
 
@@ -138,9 +139,7 @@ const ReturnModal = (props) => {
             <div className="rowButton">{carText()}</div>
           </Overlay>
           <ReturnTime
-            time={booking.Return.time
-              .toLocaleTimeString("en-US")
-              .substring(0, 5)}
+            time={timeStringFromDate(booking.Return.time)}
             returned={arrivalTime}
             setReturned={(time) => setArrivalTime(time)}
           />

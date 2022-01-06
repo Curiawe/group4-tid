@@ -5,6 +5,7 @@ import "./modal.css";
 import FeatherIcon from "feather-icons-react";
 import EditBookingModal from "./editBookingModal";
 import { getNumber } from "../priceCalc";
+import timeStringFromDate from "../dataHandling/timeStringFromDate";
 
 function ManageBookingModal(props) {
   let booking = FetchFunctions.fetchBookingFromRef(props.selectedBooking);
@@ -120,9 +121,7 @@ function ManageBookingModal(props) {
                           "da-DA"
                         )}
                         ,{" "}
-                        {new Date(booking.Pickup.time)
-                          .toLocaleTimeString("da-DA")
-                          .replace("00.00", "00")}
+                        { timeStringFromDate(booking.Pickup.time) }
                       </td>
                     </tr>
                   </tbody>
@@ -145,9 +144,7 @@ function ManageBookingModal(props) {
                           "da-DA"
                         )}
                         ,{" "}
-                        {new Date(booking.Return.time)
-                          .toLocaleTimeString("da-DA")
-                          .replace("00.00", "00")}
+                        { timeStringFromDate(booking.Return.time) }
                       </td>
                     </tr>
                   </tbody>
