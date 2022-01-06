@@ -28,7 +28,7 @@ export let CARS = [
     Doors: 2,
     Status: "Ready",
     relStatus: "Released",
-    resWalkin: false,
+    resWalkin: true,
     Image: FiatSLV,
   },
   {

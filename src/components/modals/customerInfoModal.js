@@ -195,6 +195,9 @@ function CustomerInfoModal(props) {
     if (!licenseID) {
       missing.push("License ID");
     }
+    if (!email) {
+      missing.push("Email");
+    }
 
     if (missing.length > 0) {
       let alertString = "Sorry, you can't save, yet. You are missing: ";
