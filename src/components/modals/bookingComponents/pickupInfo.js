@@ -64,6 +64,7 @@ function EditBookingPickup(props) {
       <SelectTime
         onChange={(e) => props.onChangeTime(e.target.value)}
         defaultValue={pickupTimeString}
+        value={pickupTimeString}
       />
     </BookingComponent>
   );

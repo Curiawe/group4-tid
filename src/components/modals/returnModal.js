@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./modal.css";
 import { ButtonOnChange, ButtonNoLink } from "../buttons/ColorButton";
 import { Overlay } from "../modals/pickupReturnTransferComponents/pickupReturnTransferSkeleton";
@@ -22,6 +22,12 @@ const ReturnModal = (props) => {
   const [returnComment, setComment] = useState("");
   const [price, setPrice] = useState(0)
 
+  let booking =  FetchFunctions.fetchBookingFromRef(props.selectedBooking);
+  let selectedCar;
+  if (props.selectedBooking) {
+    selectedCar = booking.Car;
+  }
+
   function onClickOverrideStatus(e) {
     e.preventDefault();
     alert(
@@ -37,9 +43,9 @@ const ReturnModal = (props) => {
   }
 
   function returnTimeForPrice() {
-    if (arrivalTime > props.returned) {
+    if (arrivalTime > timeStringFromDate(booking.Return.time)) {
       return arrivalTime } else {
-        return props.returned
+        return booking.Return.time
       }
   }
 
@@ -50,7 +56,7 @@ const ReturnModal = (props) => {
   }
 
   function handleConfirm(){
-    updateEntries.updateBookingForReturn(props.selectedBooking, handleTime(), returnMileage, returnFuel, returnComment);
+    updateEntries.updateBookingForReturn(props.selectedBooking, handleTime(), returnMileage, returnFuel, returnComment, price);
     props.onConfirm();
   }
 
@@ -132,12 +138,10 @@ const ReturnModal = (props) => {
           </div>
         </div>
       );
-    }
-  }
+    } else {
 
-  
-  let booking = FetchFunctions.fetchBookingFromRef(props.selectedBooking);
-  let selectedCar = booking.Car;
+  }
+  }
 
   return (
     <div className="overlay">

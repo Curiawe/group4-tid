@@ -21,7 +21,7 @@ function ReturnTime(props) {
       <SelectTime
         onChange={(e) => handleChange(e)}
         className="small"
-        defaultValue="Select Time"
+        value={props.returned}
       />
       </div>
       <TwoRadioButtons
