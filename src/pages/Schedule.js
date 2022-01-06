@@ -1,17 +1,18 @@
-import { ScheduleTable } from "../components/schedule/ScheduleTiles";
-import Filters from "../components/schedule/FilterRow";
+import schedule from "../Images/schedule.png";
 
 function Schedule(props) {
   return (
     <>
       <div className="pageTitle">
-        <h1>Schedule go BRRRRR~</h1>
+        <h1>Schedule</h1>
       </div>
-      <div className="pageFilters">
-        <Filters />
-      </div>
+
       <div className="pageContent">
-        <ScheduleTable />
+        <img
+          src={schedule}
+          alt="Visualisation of the final ScanCar schedule"
+          style={{ width: "100%", maxWidth: "1000px" }}
+        />
       </div>
     </>
   );
