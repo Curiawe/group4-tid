@@ -135,6 +135,10 @@
   cursor: pointer;
 }
 
+.bookingCard:hover {
+  cursor: pointer;
+}
+
 .bookingCard:hover .h4Booking,
 .bookingCardMargin:hover .h4Large {
   color: #f95959;
