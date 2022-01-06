@@ -104,9 +104,6 @@ function EditBookingModal(props) {
     alert("Update saved!");
     props.onConfirm();
     let mybooking = FetchFunctions.fetchBookingFromRef(updatedBooking);
-    console.log(pickupLocation);
-    console.log(returnLocation);
-    console.log(updateDate(pickupDate, pickupTime));
   }
 
   if (!props.showEditBookingModal) {
