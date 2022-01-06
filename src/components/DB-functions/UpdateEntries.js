@@ -1,33 +1,8 @@
 import FetchFunctions from "./FetchFunctions";
 import { bookingStates } from "../../data/bookingStates";
 import { CARSTATES } from "../../data/carStates";
-import { BOOKINGS } from "../../data/bookings";
 
 const updateEntries = {
-  updateCustomer: (
-    ref,
-    name,
-    address,
-    phone,
-    email,
-    born,
-    id,
-    issued,
-    expires
-  ) => {
-    let customer = FetchFunctions.fetchBookingFromRef(ref).Customer;
-    console.log("Customer Found: " + customer.name);
-    customer.name = name;
-    customer.address = address;
-    customer.phone = phone;
-    customer.email = email;
-    customer.born = born;
-    customer.license.id = id;
-    customer.license.issued = issued;
-    customer.license.expires = expires;
-    customer.license.valid = new Date() < expires;
-  },
-
   updateCustomer: (
     ref,
     name,

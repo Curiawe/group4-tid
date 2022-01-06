@@ -116,15 +116,12 @@ function BookingModal(props) {
         price
       );
       alert("Booking saved!");
-      console.log(carGroup);
       props.onClose();
     }
   }
 
   function handlePriceChange(newPrice) {
-    console.log(price);
     setPrice(newPrice);
-    console.log(price);
   }
 
   return (

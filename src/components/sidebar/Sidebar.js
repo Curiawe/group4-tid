@@ -1,31 +1,16 @@
 import "./sidebar.css";
 import { SidebarLinks } from "./SidebarLinks";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Pages from "../../pages/Pages";
 import logo from "../../Images/logo/logo.png";
 import FeatherIcon from "feather-icons-react";
 
 function Sidebar() {
   const [click, setClick] = useState(false);
-  const [button, setButton] = useState(true);
 
   const handleClick = () => {
     return setClick(!click);
   };
-
-  const showButton = () => {
-    if (window.innerWidth <= 960) {
-      setButton(false);
-    } else {
-      setButton(true);
-    }
-  };
-
-  useEffect(() => {
-    showButton();
-  }, []);
-
-  window.addEventListener("resize", showButton);
 
   return (
     <div className="sidebarContainer">
@@ -58,8 +43,3 @@ function Sidebar() {
 }
 
 export default Sidebar;
-
-/* <Link to={Pages.Home} className="Navtab-Logo">
-          <img src={logo} alt="ScanCar Logo" height="40px" />
-        </Link>
-        <SidebarLinks /> */

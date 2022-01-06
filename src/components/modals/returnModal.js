@@ -2,14 +2,10 @@ import { useState } from "react";
 import "./modal.css";
 import { ButtonOnChange, ButtonNoLink } from "../buttons/ColorButton";
 import { Overlay } from "../modals/pickupReturnTransferComponents/pickupReturnTransferSkeleton";
-
 import { ReturnFuel } from "./pickupReturnTransferComponents/fuelLevel";
 import { Comments } from "./pickupReturnTransferComponents/comments";
 import { ReturnTime } from "./pickupReturnTransferComponents/arrivalTime";
 import { ReturnMileage } from "./pickupReturnTransferComponents/mileage";
-
-import { ReturnCarState } from "./pickupReturnTransferComponents/carState";
-
 import { bookingStates } from "../../data/bookingStates";
 import FetchFunctions from "../DB-functions/FetchFunctions";
 import FeatherIcon from "feather-icons-react";

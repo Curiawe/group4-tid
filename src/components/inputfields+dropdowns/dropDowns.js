@@ -13,6 +13,7 @@ const SelectCarGroup = (props) => {
           {group.name}
         </option>
       );
+      return null
     });
     return myOptions;
   }

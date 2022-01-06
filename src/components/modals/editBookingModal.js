@@ -137,9 +137,7 @@ function EditBookingModal(props) {
   }
 
   function handlePriceChange(newPrice) {
-    console.log(price);
     setPrice(newPrice);
-    console.log(price);
   }
 
   return (
@@ -249,6 +247,7 @@ function EditBookingModal(props) {
                   extraDriver={extraDriver}
                   extraMileage={extraMileage}
                   price={props.price}
+                  oldPrice={price}
                   onChangePrice={(newPrice) => {
                     handlePriceChange(newPrice);
                   }}

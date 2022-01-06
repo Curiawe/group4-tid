@@ -60,12 +60,12 @@ function BookingCard(props) {
         <div className="h4Booking"> BOOKING {booking.Ref}</div>
          <div className="cardBodyMargin">
           <div className="cardBookingColumn1">
-            <div class="p2Booking">Customer</div>
+            <div className="p2Booking">Customer</div>
             <div className="p1Booking"> {booking.Customer.name}</div>
             <IconBody title={booking.Customer.phone} icon="phone" />
           </div>   
           <div className="cardBookingColumn2">
-            <div class="p2Booking">Status</div>
+            <div className="p2Booking">Status</div>
             <div className="subHead">{booking.Status}</div>
           </div>
           <div className="cardBookingColumn1">
@@ -79,7 +79,7 @@ function BookingCard(props) {
             <IconBody title={returnTime} icon="calendar" />
           </div>
           <div className="cardBookingColumn1">
-            <div class="p2Booking">Car Group</div>
+            <div className="p2Booking">Car Group</div>
             <div className="p1Booking">{booking.carGroup.name}</div>
           </div>
           <div className="cardBookingColumn2">

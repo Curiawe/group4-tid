@@ -58,7 +58,7 @@ function ManageBookingModal(props) {
     services = "Extra Mileage: " + booking.Services.mileage;
   } else if (booking.Services.driver && booking.Services.mileage) {
     services =
-      "1 Extra Driver" + " & " + booking.Services.mileage + "km Extra Mileage";
+      "1 Extra Driver & " + booking.Services.mileage + "km Extra Mileage";
   }
 
   // displays extra services if they're there, displays string if they're not

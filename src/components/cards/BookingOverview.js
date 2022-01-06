@@ -29,10 +29,6 @@ function BookingOverviewCont() {
     }
   });
 
-  console.log(
-    "Booking and booking Status: " + selectedBooking + ": " + bookingState
-  );
-
   function handleSelect(e, ref) {
     e.preventDefault();
     if (selectedBooking === ref) {
@@ -73,7 +69,7 @@ function BookingOverviewCont() {
           <div className="bookingOvBtn1">
             <SearchBar
               placeholder="Search bookings"
-              onChange={(e) => console.log(e.target.value)} // To-Do: implement search
+              onChange={(e) => ""} // To-Do: implement search
             />
           </div>
           <div className="bookingOvBtn2">

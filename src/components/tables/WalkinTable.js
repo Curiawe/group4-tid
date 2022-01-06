@@ -20,14 +20,8 @@ function setEstimate(walkin, input) {
   const reg = new RegExp("^[0-9]*$");
   if (input === "") {
     walkin.estimate = 0;
-    console.log(
-      "the estimate for the date " + walkin.date + " is " + walkin.estimate
-    );
   } else if (reg.test(input)) {
     walkin.estimate = input;
-    console.log(
-      "the estimate for the date " + walkin.date + " is " + walkin.estimate
-    );
   } else {
     alert("The estimate must be a number. For exampe \n 3");
   }
@@ -69,7 +63,6 @@ function WalkinHeader() {
 function WalkinRow(props) {
   let entryFound = false;
   let outputDate = new Date(props.date).toLocaleDateString("da-DA");
-  console.log(outputDate + " is the output Date");
   let outputEstimate;
   let outputRegistered;
   let outputWalkin;
@@ -80,7 +73,6 @@ function WalkinRow(props) {
 
     if (outputDate === currentDate) {
       outputEstimate = walkins[i].estimate;
-      console.log(outputEstimate);
       outputRegistered = getWalkins(props.date);
       outputWalkin = i;
       entryFound = true;
@@ -96,9 +88,6 @@ function WalkinRow(props) {
       total: 0,
       changeable: true,
     });
-    console.log(
-      "date has been pushed: " + new Date(props.date).toLocaleDateString()
-    );
     outputEstimate = 0;
     outputRegistered = 0;
   }
@@ -130,10 +119,7 @@ function WalkinContent(props) {
     let currentDate = new Date(props.date);
     currentDate.setDate(props.date.getDate() + i);
     allRows.push(<WalkinRow key={currentDate} date={currentDate} />);
-    console.log(currentDate);
   }
-
-  console.log(allRows);
 
   return <tbody>{allRows}</tbody>;
 }
@@ -148,7 +134,6 @@ function WalkinTable() {
   const [date, setDate] = useState(new Date());
 
   const onChange = (newDate) => {
-    console.log(`New date selected - ${newDate.toString()}`);
     setDate(newDate);
   };
 

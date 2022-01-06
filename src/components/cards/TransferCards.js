@@ -42,11 +42,11 @@ function TransferCardBody(props) {
         </div>
         <div className="iconRow">
           <IconBody title={transfer.Outgoing.Location} icon="map-pin" />
-          <IconBody title="(Outgoing)" />
+          <p className="mainDescription"> {"(Outgoing)"} </p>
         </div>
         <div className="iconRow">
           <IconBody title={transfer.Incoming.Location} icon="map-pin" />
-          <IconBody title="(Incoming)" />
+          <p className="mainDescription"> {"(Incoming)"} </p>
         </div>
         <div className="iconRow">
           <ColorIcon title={car.relStatus} />
