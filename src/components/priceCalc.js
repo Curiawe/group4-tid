@@ -78,10 +78,10 @@ function bookingPrice(
     hourlyPrice = hourlyPrice / 1.5;
   }
   if (diffHours >= 72 && diffHours < 120) {
-    hourlyPrice = hourlyPrice / 2;
+    hourlyPrice = hourlyPrice / 2.5;
   }
   if (diffHours >= 120) {
-    hourlyPrice = hourlyPrice / 2.5;
+    hourlyPrice = hourlyPrice / 4;
   }
 
   // Transforming NaN to 0
