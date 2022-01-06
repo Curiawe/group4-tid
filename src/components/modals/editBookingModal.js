@@ -62,48 +62,71 @@ function EditBookingModal(props) {
     let pLocation = FetchFunctions.fetchLocationFromName(pickupLocation);
     let rLocation = FetchFunctions.fetchLocationFromName(returnLocation);
 
-    updateEntries.updateBooking(
-      props.selectedBooking,
-      updatedBooking.Status,
-      walkin,
-      FetchFunctions.fetchGroupFromGroupNameString(carGroup),
-      name,
-      address,
-      phone,
-      email,
-      birthday,
-      licenseID,
-      licenseIssueDate,
-      licenseExpirationDate,
-      licenseExpirationDate > new Date(),
-      updatedBooking.Car,
-      updateDate(pickupDate, pickupTime),
-      pLocation,
-      updatedBooking.Pickup.fuel,
-      updatedBooking.Pickup.mileage,
-      updatedBooking.Pickup.comment,
-      updateDate(returnDate, returnTime),
-      rLocation,
-      updatedBooking.Return.fuel,
-      updatedBooking.Return.mileage,
-      updatedBooking.Return.comment,
-      extraDriver,
-      extraMileage,
-      updatedBooking.Returned.time,
-      updatedBooking.Returned.mileage,
-      bookingPrice(
-        returnDate,
-        returnTime,
-        pickupDate,
-        pickupTime,
-        carGroup,
+    const missing = [];
+
+    if (!name) {
+      missing.push("Name");
+    }
+    if (!address) {
+      missing.push("Address");
+    }
+    if (!phone) {
+      missing.push("Phone");
+    }
+    if (!licenseID) {
+      missing.push("License ID");
+    }
+
+    if (missing.length > 0) {
+      let alertString = "Sorry, you can't save, yet. You are missing: ";
+      for (let i = 0; i < missing.length; i++) {
+        alertString += missing[i] + ", ";
+      }
+      alertString += " so please fill that out.";
+      alert(alertString);
+    } else {
+      updateEntries.updateBooking(
+        props.selectedBooking,
+        updatedBooking.Status,
+        walkin,
+        FetchFunctions.fetchGroupFromGroupNameString(carGroup),
+        name,
+        address,
+        phone,
+        email,
+        birthday,
+        licenseID,
+        licenseIssueDate,
+        licenseExpirationDate,
+        licenseExpirationDate > new Date(),
+        updatedBooking.Car,
+        updateDate(pickupDate, pickupTime),
+        pLocation,
+        updatedBooking.Pickup.fuel,
+        updatedBooking.Pickup.mileage,
+        updatedBooking.Pickup.comment,
+        updateDate(returnDate, returnTime),
+        rLocation,
+        updatedBooking.Return.fuel,
+        updatedBooking.Return.mileage,
+        updatedBooking.Return.comment,
         extraDriver,
-        extraMileage
-      )[1]
-    );
-    alert("Update saved!");
-    props.onConfirm();
-    let mybooking = FetchFunctions.fetchBookingFromRef(updatedBooking);
+        extraMileage,
+        updatedBooking.Returned.time,
+        updatedBooking.Returned.mileage,
+        bookingPrice(
+          returnDate,
+          returnTime,
+          pickupDate,
+          pickupTime,
+          carGroup,
+          extraDriver,
+          extraMileage
+        )[1]
+      );
+      alert("Update saved!");
+      props.onConfirm();
+    }
   }
 
   if (!props.showEditBookingModal) {

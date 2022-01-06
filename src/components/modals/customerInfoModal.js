@@ -181,18 +181,42 @@ function CustomerInfoModal(props) {
   }
 
   function updateCustomer() {
-    updateEntries.updateCustomer(
-      props.booking,
-      name,
-      address,
-      phone,
-      email,
-      birthday,
-      licenseID,
-      licenseIssueDate,
-      licenseExpirationDate
-    );
-    setEditData(!editData);
+    const missing = [];
+
+    if (!name) {
+      missing.push("Name");
+    }
+    if (!address) {
+      missing.push("Address");
+    }
+    if (!phone) {
+      missing.push("Phone");
+    }
+    if (!licenseID) {
+      missing.push("License ID");
+    }
+
+    if (missing.length > 0) {
+      let alertString = "Sorry, you can't save, yet. You are missing: ";
+      for (let i = 0; i < missing.length; i++) {
+        alertString += missing[i] + ", ";
+      }
+      alertString += " so please fill that out.";
+      alert(alertString);
+    } else {
+      updateEntries.updateCustomer(
+        props.booking,
+        name,
+        address,
+        phone,
+        email,
+        birthday,
+        licenseID,
+        licenseIssueDate,
+        licenseExpirationDate
+      );
+      setEditData(!editData);
+    }
   }
 
   function confirmUpdate() {
