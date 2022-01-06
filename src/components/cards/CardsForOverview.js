@@ -5,6 +5,7 @@ import { IconBody } from "./IconBody";
 import { CARS } from "../../data/cars";
 import ColorIcon from "./AvailabilityIcon";
 import { Icon } from "@iconify/react";
+import pickTransfer from "../modals/walkinRes";
 
 let CAR = CARS;
 
@@ -30,6 +31,7 @@ function LargeCardBody(props) {
 
   function handleReserve(e) {
     setReserveWalkin(!reserveWalkin);
+    pickTransfer.updateCarWalkin(car.License, !car.resWalkin) // should update this in car
     props.onClick(e);
   }
 
@@ -47,6 +49,9 @@ function LargeCardBody(props) {
     } else {
       return "Reserve for Walk-in";
     }
+  }
+  function clickCard(e) {
+    props.onClick(e, pickTransfer.updateCarWalkin(car.License, true))
   }
 
   return (
