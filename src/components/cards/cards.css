@@ -16,6 +16,10 @@
   padding: 10px;
 }
 
+.bookingCardMargin {
+  display: flex;
+}
+
 .bookingOvButtons {
   display: flex;
   flex-direction: row;
@@ -74,12 +78,11 @@
 
 .card:hover {
   cursor: pointer;
-  border: 1px solid #4b7db9;
 }
 
 .card:hover .h4Booking,
 .cardMargin:hover .h4Large {
-  color: #4b7db9;
+  color: #f95959;
 }
 
 /* for cards that can't be clicked */
@@ -119,6 +122,10 @@
   border: 2px solid #f95959;
   box-sizing: border-box;
   background-color: #f0f4f9;
+  cursor: pointer;
+}
+
+.bookingCard:hover {
   cursor: pointer;
 }
 

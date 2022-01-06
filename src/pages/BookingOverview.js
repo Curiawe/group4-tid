@@ -52,7 +52,9 @@ function Bookings() {
         <BookingCard
           booking={bkng.Ref}
           onClick={(e, ref) => handleSelect(e, ref)}
-          className={selectedBooking === bkng.Ref ? "bookingCardActive" : "bookingCard"}
+          className={
+            selectedBooking === bkng.Ref ? "bookingCardActive" : "bookingCard"
+          }
         />
       </div>
     );
