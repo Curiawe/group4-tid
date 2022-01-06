@@ -11,6 +11,7 @@ function CheckBox(props) {
         type="checkbox"
         name={props.name}
         value={props.buttonText}
+        checked={props.checked}
         onChange={props.onChange}
       />
       <label>{props.buttonText}</label>

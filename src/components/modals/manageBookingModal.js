@@ -5,21 +5,11 @@ import "./modal.css";
 import FeatherIcon from "feather-icons-react";
 import EditBookingModal from "./editBookingModal";
 import { getNumber } from "../priceCalc";
-import updateDate from "../dataHandling/updateDate";
-import { useEffect } from "react";
 
 function ManageBookingModal(props) {
   let booking = FetchFunctions.fetchBookingFromRef(props.selectedBooking);
-  let services;
-  let serviceComp;
 
   const [showEditBookingModal, setShowEditBookingModal] = useState(false);
-  /*   const [newPickupLocation, setNewPickupLocation] = useState(
-    booking.Pickup.location.Location
-  );
-  const [newReturnLocation, setNewReturnLocation] = useState(
-    booking.Return.location.Location
-  ); */
 
   // only displaying the modal if a booking is selected and button is clicked
   if (!props.showManageBookingModal) {
@@ -48,16 +38,20 @@ function ManageBookingModal(props) {
     );
   }
 
+  // handling the edit modal
   function handleConfirm() {
     booking = FetchFunctions.fetchBookingFromRef(props.selectedBooking);
     setShowEditBookingModal(false);
   }
+
+  // handling walkins
   let walkinComp;
   if (booking.isWalkin === true) {
     walkinComp = "This is Walk-in Booking";
   }
 
   // handling extra services
+  let services;
   if (booking.Services.driver && !booking.Services.mileage) {
     services = "1 Extra Driver";
   } else if (booking.Services.mileage && !booking.Services.driver) {
@@ -68,6 +62,7 @@ function ManageBookingModal(props) {
   }
 
   // displays extra services if they're there, displays string if they're not
+  let serviceComp;
   if (services) {
     serviceComp = <>{services}</>;
   } else {
@@ -80,13 +75,7 @@ function ManageBookingModal(props) {
         <div className="overlayTitle">
           <h3>Manage Booking #{booking.Ref}</h3>
 
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              padding: "4px",
-            }}
-          >
+          <div className="editButtons">
             <ButtonNoLink // edit booking info
               color="DarkBlueBtn"
               primary="true"
@@ -105,7 +94,6 @@ function ManageBookingModal(props) {
               primary="true"
               className="buttonSmall"
               title="Delete Booking"
-              onClick={""}
             />
           </div>
         </div>
@@ -114,7 +102,7 @@ function ManageBookingModal(props) {
             <div className="column">
               <div className="firstColumn">
                 <h5>Pickup</h5>
-                {walkinComp}
+                <p>{walkinComp}</p>
                 <table>
                   <tbody>
                     <tr>
@@ -253,7 +241,12 @@ function ManageBookingModal(props) {
                 </table>
                 <div className="rowButton">
                   <h5>Price</h5>
-                  {getNumber(booking.price)} DKK
+
+                  <div
+                    style={{ borderBottom: "3px double", fontWeight: "bolder" }}
+                  >
+                    {getNumber(booking.price)} DKK
+                  </div>
                 </div>
               </div>
             </div>
