@@ -4,7 +4,7 @@ import FetchFunctions from "../DB-functions/FetchFunctions";
 import "./modal.css";
 import FeatherIcon from "feather-icons-react";
 import EditBookingModal from "./editBookingModal";
-import { getNumber } from "../priceCalc";
+import { getNumber } from "../dataHandling/priceCalc";
 
 function ManageBookingModal(props) {
   let booking = FetchFunctions.fetchBookingFromRef(props.selectedBooking);

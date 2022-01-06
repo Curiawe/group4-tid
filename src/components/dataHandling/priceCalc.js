@@ -1,5 +1,5 @@
-import { CARGROUPS } from "../data/carGroups";
-import updateDate from "./dataHandling/updateDate";
+import { CARGROUPS } from "../../data/carGroups";
+import updateDate from "./updateDate";
 
 // Returns 0 instead of NaN when values are empty
 function getNumber(value) {

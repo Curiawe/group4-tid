@@ -5,7 +5,7 @@ import { IconBody } from "./IconBody";
 import { CARS } from "../../data/cars";
 import ColorIcon from "./AvailabilityIcon";
 import { Icon } from "@iconify/react";
-import pickTransfer from "../modals/walkinRes";
+import pickTransfer from "../DB-functions/walkinRes";
 
 let CAR = CARS;
 

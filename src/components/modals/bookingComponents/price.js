@@ -1,6 +1,6 @@
 import "../modal.css";
 import { BookingComponent } from "./skeleton";
-import { bookingPrice } from "../../priceCalc";
+import { bookingPrice } from "../../dataHandling/priceCalc";
 import { useEffect } from "react";
 
 function Price(props) {

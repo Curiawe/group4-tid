@@ -10,7 +10,7 @@ import { Price } from "./bookingComponents/price";
 import { EditBookingReturn } from "./bookingComponents/returnInfo";
 import "./modal.css";
 import updateDate from "../dataHandling/updateDate";
-import { bookingPrice } from "../priceCalc";
+import { bookingPrice } from "../dataHandling/priceCalc";
 
 function EditBookingModal(props) {
   let updatedBooking = FetchFunctions.fetchBookingFromRef(
