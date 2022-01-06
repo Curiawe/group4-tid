@@ -29,75 +29,22 @@ function Price(props) {
     <BookingComponent title="Price" price={price}>
       <div className="rowButton" style={{ fontSize: "12px" }}>
         <div>Hourly rate for {carGroup}:</div>
-        <div>
-          {" "}
-          {
-            bookingPrice(
-              returnDate,
-              returnTime,
-              pickupDate,
-              pickupTime,
-              carGroup,
-              extraDriver,
-              extraMileage
-            )[2]
-          }{" "}
-          DKK
-        </div>
+        <div> {price[2]} DKK</div>
       </div>
       <div className="rowButton" style={{ fontSize: "12px" }}>
         <div></div>
-        <div>
-          x{" "}
-          {
-            bookingPrice(
-              returnDate,
-              returnTime,
-              pickupDate,
-              pickupTime,
-              carGroup,
-              extraDriver,
-              extraMileage
-            )[3]
-          }{" "}
-          hours
-        </div>
+        <div>x {price[3]} hours</div>
       </div>
       <div className="rowButton" style={{ fontSize: "12px" }}>
         <div>Deposit:</div>
-        <div>
-          {" "}
-          {
-            bookingPrice(
-              returnDate,
-              returnTime,
-              pickupDate,
-              pickupTime,
-              carGroup,
-              extraDriver,
-              extraMileage
-            )[0]
-          }{" "}
-          DKK
-        </div>
+        <div> {price[0]} DKK</div>
       </div>
       <br />
       <div className="rowButton">
         <div>Total:</div>
         <div style={{ borderBottom: "3px double", fontWeight: "bolder" }}>
           {" "}
-          {
-            bookingPrice(
-              returnDate,
-              returnTime,
-              pickupDate,
-              pickupTime,
-              carGroup,
-              extraDriver,
-              extraMileage
-            )[1]
-          }{" "}
-          DKK
+          {price[1]} DKK
         </div>
       </div>
     </BookingComponent>
