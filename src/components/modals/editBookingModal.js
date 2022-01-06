@@ -10,9 +10,11 @@ import { Price } from "./bookingComponents/price";
 import { EditBookingReturn } from "./bookingComponents/returnInfo";
 import "./modal.css";
 import updateDate from "../dataHandling/updateDate";
+import timeStringFromDate from "../dataHandling/timeStringFromDate";
 import { bookingPrice } from "../priceCalc";
 
 function EditBookingModal(props) {
+
   let updatedBooking = FetchFunctions.fetchBookingFromRef(
     props.selectedBooking
   );
@@ -20,7 +22,7 @@ function EditBookingModal(props) {
     new Date(updatedBooking.Pickup.time)
   );
   const [pickupTime, setPickupTime] = useState(
-    updatedBooking.Pickup.time.toLocaleTimeString("fr-CA")
+    timeStringFromDate(updatedBooking.Pickup.time)
   );
   const [pickupLocation, setPickupLocation] = useState(
     updatedBooking.Pickup.location.Location
@@ -30,7 +32,7 @@ function EditBookingModal(props) {
     new Date(updatedBooking.Return.time)
   );
   const [returnTime, setReturnTime] = useState(
-    updatedBooking.Return.time.toLocaleTimeString("fr-CA")
+    timeStringFromDate(updatedBooking.Return.time)
   );
   const [returnLocation, setReturnLocation] = useState(
     updatedBooking.Return.location.Location
@@ -57,6 +59,9 @@ function EditBookingModal(props) {
     updatedBooking.Services.mileage
   );
   const [price, setPrice] = useState(updatedBooking.price);
+
+  console.log(pickupTime, pickupDate)
+  console.log(returnTime, returnDate)
 
   function handleUpdate() {
     let pLocation = FetchFunctions.fetchLocationFromName(pickupLocation);
