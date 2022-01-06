@@ -146,7 +146,7 @@ function EditBookingModal(props) {
     <div className="overlay">
       <div className="bookingContent">
         <div className="overlayTitle">
-          <h3>Edit Booking #{updatedBooking.Ref}</h3>
+          <h3>Edit Booking: #{updatedBooking.Ref}</h3>
         </div>
         <div className="overlayBody">
           <div className="row">
