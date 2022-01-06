@@ -9,7 +9,19 @@ function getNumber(value) {
   return value;
 }
 
-// Calculating booking price based on booking details
+
+/**
+ * Calculating booking price based on booking details
+ * 
+ * @param {Date} returnDate 
+ * @param {String} returnTime 
+ * @param {Date} pickupDate 
+ * @param {String} pickupTime 
+ * @param {String} carGroup 
+ * @param {Boolean} extraDriver 
+ * @param {Number} extraMileage 
+ * @returns Array of deposit, total cost and hourly rate.
+ */
 function bookingPrice(
   returnDate,
   returnTime,
