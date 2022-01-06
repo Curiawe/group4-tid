@@ -1,6 +1,5 @@
 import { bookingStates } from "../../data/bookingStates";
 import { BOOKINGS } from "../../data/bookings";
-import { calcPrice } from "../priceCalc";
 import FetchFunctions from "./FetchFunctions";
 
 const addEntries = {
@@ -86,8 +85,6 @@ const addEntries = {
         price: price,
       }
     );
-    console.log("AddEntries.js - Booking Added: ");
-    console.log(FetchFunctions.fetchBookingFromRef(ref));
   },
 };
 export default addEntries;

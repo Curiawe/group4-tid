@@ -15,7 +15,6 @@ import Walkins from "./pages/Walkins";
 import Pages from "./pages/Pages";
 import TransferOverview from "./pages/TransferOverview";
 import YourScanCar from "./pages/YourScanCar";
-import parse from "parse";
 
 function App() {
 

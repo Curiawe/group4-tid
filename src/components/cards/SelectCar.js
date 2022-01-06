@@ -16,7 +16,10 @@ function FilterTransferCars(cars, pickupTime, returnTime) {
     let avCars = cars
     let transferCars = []
 
-    TRANSFERS.map(t => {if (pickupTime <= t.Date && returnTime >= t.Date){
+    // if there are issues with this code, try: TRANSFERS.map(t => [etc... ] - so replace forEach with map
+    // in line 22
+
+    TRANSFERS.forEach(t => {if (pickupTime <= t.Date && returnTime >= t.Date){
         transferCars.push(t.Car)
         return null
     }})

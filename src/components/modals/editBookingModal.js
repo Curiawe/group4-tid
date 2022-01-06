@@ -11,7 +11,7 @@ import { EditBookingReturn } from "./bookingComponents/returnInfo";
 import "./modal.css";
 import updateDate from "../dataHandling/updateDate";
 import timeStringFromDate from "../dataHandling/timeStringFromDate";
-import { bookingPrice } from "../priceCalc";
+import { bookingPrice } from "../dataHandling/priceCalc";
 
 function EditBookingModal(props) {
 
@@ -142,9 +142,7 @@ function EditBookingModal(props) {
   }
 
   function handlePriceChange(newPrice) {
-    console.log(price);
     setPrice(newPrice);
-    console.log(price);
   }
 
   return (
@@ -254,6 +252,7 @@ function EditBookingModal(props) {
                   extraDriver={extraDriver}
                   extraMileage={extraMileage}
                   price={props.price}
+                  oldPrice={price}
                   onChangePrice={(newPrice) => {
                     handlePriceChange(newPrice);
                   }}

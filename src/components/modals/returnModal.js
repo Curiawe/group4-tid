@@ -2,7 +2,6 @@ import { useState } from "react";
 import "./modal.css";
 import { ButtonOnChange, ButtonNoLink } from "../buttons/ColorButton";
 import { Overlay } from "../modals/pickupReturnTransferComponents/pickupReturnTransferSkeleton";
-
 import { ReturnFuel } from "./pickupReturnTransferComponents/fuelLevel";
 import { Comments } from "./pickupReturnTransferComponents/comments";
 import { ReturnTime } from "./pickupReturnTransferComponents/arrivalTime";

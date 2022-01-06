@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React } from "react";
 import "./modal.css";
 import { ButtonOnChange } from "../buttons/ColorButton";
 import { TransferCar } from "./pickupReturnTransferComponents/car";

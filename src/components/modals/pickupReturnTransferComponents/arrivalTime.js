@@ -7,13 +7,10 @@ function ReturnTime(props) {
   const [arrivalTime, setArrivalTime] = useState(props.returned);
 
   let late = (arrivalTime > props.time)
-  console.log("props.time: " + props.time)
 
   function handleChange(e) {
     props.setReturned(e.target.value)
-    console.log(props.returned)
     setArrivalTime(e.target.value)
-    console.log("New Time" + arrivalTime)
   }
 
   return (

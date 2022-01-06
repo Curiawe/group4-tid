@@ -4,8 +4,8 @@ import FetchFunctions from "../DB-functions/FetchFunctions";
 import "./modal.css";
 import FeatherIcon from "feather-icons-react";
 import EditBookingModal from "./editBookingModal";
-import { getNumber } from "../priceCalc";
 import timeStringFromDate from "../dataHandling/timeStringFromDate";
+import { getNumber } from "../dataHandling/priceCalc";
 
 function ManageBookingModal(props) {
   let booking = FetchFunctions.fetchBookingFromRef(props.selectedBooking);
@@ -59,7 +59,7 @@ function ManageBookingModal(props) {
     services = "Extra Mileage: " + booking.Services.mileage;
   } else if (booking.Services.driver && booking.Services.mileage) {
     services =
-      "1 Extra Driver" + " & " + booking.Services.mileage + "km Extra Mileage";
+      "1 Extra Driver & " + booking.Services.mileage + "km Extra Mileage";
   }
 
   // displays extra services if they're there, displays string if they're not

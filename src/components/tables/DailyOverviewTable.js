@@ -9,7 +9,7 @@ import { ButtonOnChange } from "../buttons/ColorButton";
 import { InputField } from "../inputfields+dropdowns/inputFields";
 import { CARSTATES } from "../../data/carStates";
 
-function littleRow(item, column, date) {
+function littleRow(item, column, date, index) {
   const currDate = new Date(date).toLocaleDateString("da-DA");
   let avail = 0;
   let book = 0;
@@ -61,7 +61,7 @@ function littleRow(item, column, date) {
   }
 
   column.push(
-    <tr key={item.toString()}>
+    <tr key={index.toString()}>
       <td>{item.name}</td>
       <td>{book}</td>
       <td>{avail}</td>

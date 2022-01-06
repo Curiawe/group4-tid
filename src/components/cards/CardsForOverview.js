@@ -5,7 +5,7 @@ import { IconBody } from "./IconBody";
 import { CARS } from "../../data/cars";
 import ColorIcon from "./AvailabilityIcon";
 import { Icon } from "@iconify/react";
-import pickTransfer from "../modals/walkinRes";
+import pickTransfer from "../DB-functions/walkinRes";
 
 let CAR = CARS;
 
@@ -50,10 +50,7 @@ function LargeCardBody(props) {
       return "Reserve for Walk-in";
     }
   }
-  function clickCard(e) {
-    props.onClick(e, pickTransfer.updateCarWalkin(car.License, true))
-  }
-
+  
   return (
     <div className={props.className} onClick={(e) => handleClick(e)}>
       <img className="cardImg" src={car.Image} alt="carpic" />

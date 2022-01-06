@@ -1,4 +1,4 @@
-import FetchFunctions from "../DB-functions/FetchFunctions";
+import FetchFunctions from "./FetchFunctions";
 
 
 const pickTransfer = {

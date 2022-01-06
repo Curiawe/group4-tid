@@ -8,9 +8,7 @@ import './schedule.css'
 
 export default function TimeFilter(props){
     let timetitle= props.title;
-    const onChange = (date) => {
-        console.log(date.toDateString());
-      };
+    const onChange = (date) => {};
 
       return (
         <div title={timetitle}>

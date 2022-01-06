@@ -16,15 +16,6 @@
   padding: 10px;
 }
 
-.bookingCardMargin {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  width: 100%;
-  margin-top: 24px;
-  margin-left: -10px; /* This evens out the individual card padding to align with the page  */
-}
-
 .bookingOvButtons {
   display: flex;
   flex-direction: row;
@@ -50,10 +41,6 @@
   justify-content: flex-end;
   height: fit-content;
   width: fit-content;
-}
-
-.clickableIcon {
-  cursor: pointer;
 }
 
 /* large cards used for overview */
@@ -291,15 +278,6 @@
 }
 
 .iconBody {
-  height: 25.01px;
-  margin-top: 0px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 8px;
-}
-
-.iconBody2 {
   height: 25.01px;
   margin-top: 0px;
   display: flex;

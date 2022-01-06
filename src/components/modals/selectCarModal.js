@@ -22,7 +22,7 @@ function SelectCar(props) {
   const [car, setSelectedCarLicense] = useState("");
   let cars = "";
 
-  if (booking.isWalkin = true) {
+  if (booking.isWalkin === true) {
       cars = ShowWalkinCars(props.booking)
   }
   else {
