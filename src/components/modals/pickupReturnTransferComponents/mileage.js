@@ -23,7 +23,7 @@ function ReturnMileage(props) {
   const [aboveMileageLimit, setAboveMileageLimit] = useState(false);
   return (
     <Overlay title="Mileage">
-      <InputFieldSmall type="number" placeHolder="km" />
+      <InputFieldSmall type="number" placeHolder="km" onChange={(e) => props.onChange(e.target.value)}/>
       <CheckBox
         name="Mileage"
         buttonText="Above Limit"

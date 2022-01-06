@@ -7,6 +7,7 @@ import { COLORS } from "../../values/colors";
 import { ButtonStyled } from "../buttons/ColorButton";
 import { ButtonOnChange } from "../buttons/ColorButton";
 import { InputField } from "../inputfields+dropdowns/inputFields";
+import { CARSTATES } from "../../data/carStates";
 
 function littleRow(item, column, date) {
   const currDate = new Date(date).toLocaleDateString("da-DA");
@@ -28,7 +29,7 @@ function littleRow(item, column, date) {
   // check available cars
   // must also check for soon to be released cars!
   CARS.map((car) => {
-    if (car.carGroup === item && car.Status === "Available") {
+    if (car.carGroup === item && car.Status === CARSTATES.READY) {
       avail++;
     }
     return null;

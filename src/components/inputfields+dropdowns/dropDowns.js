@@ -79,7 +79,7 @@ const SelectTime = (props) => {
   };
 
   return (
-    <select defaultValue={props.defaultValue} onChange={props.onChange}>
+    <select defaultValue={props.defaultValue} onChange={props.onChange} className={props.className}>
       <option value="Select Time" disabled>
         Select Time
       </option>

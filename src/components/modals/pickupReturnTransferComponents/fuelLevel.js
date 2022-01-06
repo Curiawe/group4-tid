@@ -22,14 +22,23 @@ function StartingFuel(props) {
 
 function ReturnFuel(props) {
   const [belowFuelLimit, setBelowFuelLimit] = useState(false);
+
+  function handleChange(e) {
+    props.onChange(e.target.value)
+    if (e.target.value < 80) {
+      setBelowFuelLimit(true)
+    } else {
+      setBelowFuelLimit(false)
+    }
+  }
+
   return (
     <Overlay title="Fuel Level">
-      <InputFieldSmall type="number" placeHolder="%" />
+      <InputFieldSmall type="number" placeHolder="%" onChange={(e) => handleChange(e)}/>
       <CheckBox
         name="Mileage"
         buttonText="Below Limit"
         checked={belowFuelLimit}
-        onChange={(e) => setBelowFuelLimit(e.target.checked)}
       />
     </Overlay>
   );

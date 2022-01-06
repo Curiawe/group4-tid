@@ -1,6 +1,7 @@
 import FetchFunctions from "./FetchFunctions";
 import { bookingStates } from "../../data/bookingStates";
 import { CARSTATES } from "../../data/carStates";
+import { BOOKINGS } from "../../data/bookings";
 
 const updateEntries = {
   updateCustomer: (
@@ -90,6 +91,41 @@ const updateEntries = {
         " now picked up."
     );
   },
+
+  /**
+   * 
+   * @param {String} ref 
+   * @param {Date} time 
+   * @param {Number} mileage 
+   * @param {Number} fuel 
+   * @param {String} comment 
+   */
+  updateBookingForReturn: (ref, time, mileage, fuel, comment) => {
+    let booking = FetchFunctions.fetchBookingFromRef(ref);
+    if (booking.Status !== bookingStates.PICKEDUP){
+      alert ("Now updating a booking without the correct status. \nThis will result in the booking status being changed to " + bookingStates.RETURNED + ".")
+    }
+
+    try {
+      booking.Returned.time = time;
+      booking.Returned.mileage = mileage;
+      booking.Return.mileage = mileage;
+      booking.Return.fuel = fuel;
+      booking.Returned.fuel = fuel;
+      booking.Return.comment = comment;
+      if (booking.Car) {
+        updateEntries.udpateCarStatus(booking.Car.License, CARSTATES.RETURNED); // if there was already a car selected for some reason, reset it to "ready"
+        booking.Car.fuelStatus = fuel;
+      }
+      booking.Status= bookingStates.RETURNED;
+      alert("Car Return for Booking" + ref +  " registered. The booking can now be billed.")
+   
+    } catch (error) {
+      alert("Something went wrong. Please double-check your inputs and try saving again. \nError: " + error.message)      
+    }
+
+  }
+  ,
 
   updateBooking: (
     ref,

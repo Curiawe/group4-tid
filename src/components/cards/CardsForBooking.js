@@ -2,6 +2,7 @@ import "./cards.css";
 import { IconBody } from "./IconBody";
 import { useState } from "react";
 import FetchFunctions from "../DB-functions/FetchFunctions";
+
 /* Schema:
 000: {Name:"Per Son", Ref, Phone, PickupPlace, PickupTime, ReturnPlace, ReturnTime, CarGroup, ExtraService}
  */
@@ -56,18 +57,36 @@ function BookingCard(props) {
   return (
     <div className={props.className}>
       <div className="cardBodyBooking" onClick={(e) => handleClick(e)}>
-        <div className="h4Booking"> BOOKING {booking.Ref} </div>
-        <div className="p1Booking"> {booking.Customer.name}</div>
-        <div className="p1Booking"> {booking.Customer.phone} </div>
-        <div className="p2Booking">Pickup</div>
-        <IconBody title={booking.Pickup.location.Location} icon="map-pin" />
-        <IconBody title={pickupTime} icon="calendar" />
-        <div className="p2Booking">Return</div>
-        <IconBody title={booking.Return.location.Location} icon="map-pin" />
-        <IconBody title={returnTime} icon="calendar" />
-        <div className="p1Booking">{booking.carGroup.name}</div>
-        {serviceComp}
+        <div className="h4Booking"> BOOKING {booking.Ref}</div>
+         <div className="cardBodyMargin">
+          <div className="cardBookingColumn1">
+            <div class="p2Booking">Customer</div>
+            <div className="p1Booking"> {booking.Customer.name}</div>
+            <IconBody title={booking.Customer.phone} icon="phone" />
+          </div>   
+          <div className="cardBookingColumn2">
+            <div class="p2Booking">Status</div>
+            <div className="subHead">{booking.Status}</div>
+          </div>
+          <div className="cardBookingColumn1">
+            <div className="p2Booking">Pickup</div>
+            <IconBody title={booking.Pickup.location.Location} icon="map-pin" />
+            <IconBody title={pickupTime} icon="calendar" />
+          </div>
+          <div className="cardBookingColumn2">
+            <div className="p2Booking">Return</div>
+            <IconBody title={booking.Return.location.Location} icon="map-pin" />
+            <IconBody title={returnTime} icon="calendar" />
+          </div>
+          <div className="cardBookingColumn1">
+            <div class="p2Booking">Car Group</div>
+            <div className="p1Booking">{booking.carGroup.name}</div>
+          </div>
+          <div className="cardBookingColumn2">
+             {serviceComp}
+          </div>
       </div>
+    </div>
     </div>
   );
 }

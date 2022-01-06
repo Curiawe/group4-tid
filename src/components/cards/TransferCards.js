@@ -20,7 +20,7 @@ function TransferCardBody(props) {
 
   let transfer = TRANSFERS[0];
   TRANSFER.map((trans) => {
-    if (trans.Car === props.car) {
+    if (trans.Car.License === props.car) {
       transfer = trans;
     }
     return null;

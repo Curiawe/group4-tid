@@ -9,25 +9,18 @@ import { ReturnTime } from "./pickupReturnTransferComponents/arrivalTime";
 import { ReturnMileage } from "./pickupReturnTransferComponents/mileage";
 
 import { ReturnCarState } from "./pickupReturnTransferComponents/carState";
-import { SelectedCar } from "./pickupReturnTransferComponents/car";
 
-import { CustomerInfo } from "./pickupReturnTransferComponents/customerInfo";
 import { bookingStates } from "../../data/bookingStates";
 import FetchFunctions from "../DB-functions/FetchFunctions";
 import FeatherIcon from "feather-icons-react";
+import updateEntries from "../DB-functions/UpdateEntries";
 
 const ReturnModal = (props) => {
-  const [arrivalTime, setArrivalTime] = useState(
-    new Date(2021, 11, 26, 8, 45).toLocaleTimeString("fr-CA")
-  );
+
+  const [arrivalTime, setArrivalTime] = useState("");
   const [returnMileage, setMileage] = useState(0);
   const [returnFuel, setFuel] = useState(100);
-  const [returnComment, setComment] = "";
-
-  let selectedCar;
-  if (props.selectedBooking) {
-    selectedCar = FetchFunctions.fetchBookingFromRef(props.selectedBooking).Car;
-  }
+  const [returnComment, setComment] = useState("");
 
   function onClickOverrideStatus(e) {
     e.preventDefault();
@@ -35,6 +28,25 @@ const ReturnModal = (props) => {
       `Opening Return for booking ${props.selectedBooking}. If you opened this view by accident, select 'Cancel'.`
     );
     props.setBookingState(bookingStates.PICKEDUP);
+  }
+
+  function handleTime(){
+    let day = new Date();
+    day.setHours(parseInt(arrivalTime.substring(0,2)),parseInt(arrivalTime.substring(3,5)),0,0)
+    return day
+  }
+
+  function handleConfirm(){
+    updateEntries.updateBookingForReturn(props.selectedBooking, handleTime(), returnMileage, returnFuel, returnComment);
+    props.onConfirm();
+  }
+
+  function handleClose() {
+    setArrivalTime("");
+    setMileage(0);
+    setFuel(0);
+    setComment("");
+    props.onClose();
   }
 
   function carText() {
@@ -72,6 +84,7 @@ const ReturnModal = (props) => {
       </div>
     );
   } else if (props.showReturnModal && props.selectedBooking) {
+
     if (props.bookingStatus !== bookingStates.PICKEDUP) {
       return (
         <div className="overlay">
@@ -108,8 +121,9 @@ const ReturnModal = (props) => {
     }
   }
 
+  
   let booking = FetchFunctions.fetchBookingFromRef(props.selectedBooking);
-  let car = booking.Car;
+  let selectedCar = booking.Car;
 
   return (
     <div className="overlay">
@@ -125,14 +139,14 @@ const ReturnModal = (props) => {
           </Overlay>
           <ReturnTime
             time={booking.Return.time
-              .toLocaleTimeString("fr-CA")
+              .toLocaleTimeString("en-US")
               .substring(0, 5)}
             returned={arrivalTime}
             setReturned={(time) => setArrivalTime(time)}
           />
-          <ReturnMileage />
-          <ReturnFuel />
-          <Comments />
+          <ReturnMileage onChange={(newMiles) => setMileage(newMiles)}/>
+          <ReturnFuel onChange={(newFuel) => setFuel(newFuel)}/>
+          <Comments onChange={(newComment) => setComment(newComment)}/>
         </div>
         <div className="overlayFooter">
           <ButtonOnChange
@@ -140,14 +154,14 @@ const ReturnModal = (props) => {
             primary="false"
             className="buttonLarge"
             title="Go Back"
-            onClick={props.onClose}
+            onClick={() => handleClose()}
           />
           <ButtonOnChange
             color="DarkBlueBtn"
             primary="true"
             className="buttonLarge"
             title="Register Return"
-            onClick={props.onConfirm}
+            onClick={() => handleConfirm()}
           />
         </div>
       </div>
