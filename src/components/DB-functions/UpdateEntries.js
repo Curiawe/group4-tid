@@ -75,7 +75,7 @@ const updateEntries = {
    * @param {Number} fuel 
    * @param {String} comment 
    */
-  updateBookingForReturn: (ref, time, mileage, fuel, comment) => {
+  updateBookingForReturn: (ref, time, mileage, fuel, comment, price) => {
     let booking = FetchFunctions.fetchBookingFromRef(ref);
     if (booking.Status !== bookingStates.PICKEDUP){
       alert ("Now updating a booking without the correct status. \nThis will result in the booking status being changed to " + bookingStates.RETURNED + ".")
@@ -88,6 +88,7 @@ const updateEntries = {
       booking.Return.fuel = fuel;
       booking.Returned.fuel = fuel;
       booking.Return.comment = comment;
+      booking.price = price;
       if (booking.Car) {
         updateEntries.udpateCarStatus(booking.Car.License, CARSTATES.RETURNED); // if there was already a car selected for some reason, reset it to "ready"
         booking.Car.fuelStatus = fuel;
