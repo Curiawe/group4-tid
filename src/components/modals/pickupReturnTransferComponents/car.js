@@ -4,9 +4,6 @@ import { ButtonNoLink } from "../../buttons/ColorButton";
 import { SelectCar } from "../selectCarModal";
 import FetchFunctions from "../../DB-functions/FetchFunctions";
 
-// You are trying to fix the data transmition between the car.js and selectCarModal.js, tracking the License in cars.js that is transmitted from selectCarModal.js
-// To then on Confirm set the car in the PickupModal to the one corresponding to the license
-
 /**
  *
  * @param {*} props selected = a car, onSelect = function passed by pickupModal.js

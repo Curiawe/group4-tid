@@ -52,16 +52,6 @@ const PickupModal = (props) => {
     props.setBookingState("Booked");
   }
 
-  //Logic:
-  /**
-   * 1) if the car is selected, update all other states
-   * 2) Track other state changes
-   * 3) write to booking object
-   * 4) write to car object
-   * 4) change car status
-   * 5) re-direct to success/ do success alert, close modal
-   */
-
   if (!props.showPickupModal) {
     return null;
   } else if (props.showPickupModal && !props.selectedBooking) {
