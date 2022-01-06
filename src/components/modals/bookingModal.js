@@ -86,7 +86,7 @@ function BookingModal(props) {
       for (let i = 0; i < missing.length; i++) {
         alertString += missing[i] + ", ";
       }
-      alertString += " so please fill that out.";
+      alertString += "so please fill that out.";
       alert(alertString);
     } else if (pickupDate > returnDate) {
       alert("The date of the return must be AFTER the pickup date.");

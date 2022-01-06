@@ -82,7 +82,7 @@ function EditBookingModal(props) {
       for (let i = 0; i < missing.length; i++) {
         alertString += missing[i] + ", ";
       }
-      alertString += " so please fill that out.";
+      alertString += "so please fill that out.";
       alert(alertString);
     } else {
       updateEntries.updateBooking(
