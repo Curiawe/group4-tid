@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Overlay } from "./pickupReturnTransferSkeleton";
 import { SelectCarState } from "../../inputfields+dropdowns/dropDowns";
 

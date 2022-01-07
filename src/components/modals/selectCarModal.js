@@ -1,14 +1,34 @@
 import "./modal.css";
 import { React, useState } from "react";
 import { ButtonOnChange } from "../buttons/ColorButton";
-import LargeCardBody from "../cards/CardsForOverview";
+import { SelectCarCards } from "../cards/CardsForOverview";
 import ShowAvailableCars from "../cards/SelectCar";
+import FeatherIcon from "feather-icons-react";
+import { BOOKINGS } from "../../data/bookings";
+import ShowWalkinCars from "../cards/FilterWalkinCar";
 
 function SelectCar(props) {
+
+  let booking = BOOKINGS[0];
+
+    BOOKINGS.map((bkng) => {
+        if (bkng.Ref === props) {
+        booking = bkng;
+        }
+        return null;
+        });
+
   const cards = [];
   const [car, setSelectedCarLicense] = useState("");
-  let cars = ShowAvailableCars(props.booking);
+  let cars = "";
 
+  if (booking.isWalkin === true) {
+      cars = ShowWalkinCars(props.booking)
+  }
+  else {
+      cars = ShowAvailableCars(props.booking)
+  }
+  
   function handleSelectCar(e, license) {
     e.preventDefault();
     if (car === license) {
@@ -20,12 +40,12 @@ function SelectCar(props) {
       props.onSelect(license);
     }
   }
-
+  
   if (cars.length > 0) {
     cars.map((selCar) => {
       cards.push(
         <div key={selCar.License} className="cardMargin">
-          <LargeCardBody
+          <SelectCarCards
             car={selCar.License}
             onClick={(e, license) => handleSelectCar(e, license)}
             className={car === selCar.License ? "cardActive" : "card"}
@@ -34,27 +54,40 @@ function SelectCar(props) {
       );
       return null;
     });
-  } else {
-    cards.push(
-      <div>
-        <h3>No Cars Available today.</h3>
-        <p>Please inform your Manager.</p>
-      </div>
-    );
   }
 
   if (!props.showSelectCarModal) {
     return null;
+  } else if (props.showSelectCarModal && cars.length < 1) {
+    return (
+      <div className="overlay">
+        <div className="popupBlue">
+          <div className="overlayTitle">
+            <FeatherIcon icon="alert-triangle" />
+          </div>
+          <div className="popupBody">
+            There are no cars available for this booking. Please inform your
+            manager.
+          </div>
+          <div className="buttonCenter">
+            <ButtonOnChange
+              color="LightBlueBtn"
+              primary="true"
+              className="buttonLarge"
+              title="Go back"
+              onClick={props.onClose}
+            />
+          </div>
+        </div>
+      </div>
+    );
   }
-
-  console.log(car);
 
   return (
     <div className="overlay">
       <div className="carContent">
         <div className="overlayTitle">
           <h3>Select a Car</h3>
-          <span> Selected car: {car}</span>
         </div>
 
         <div className="carBody">

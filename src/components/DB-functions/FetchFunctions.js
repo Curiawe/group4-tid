@@ -15,12 +15,8 @@ const FetchFunctions = {
      * @returns {BOOKINGS} matching Booking element from the database
      */
      fetchBookingFromRef: (ref) => {
-        let foundBooking = null
-        BOOKINGS.find((bkng) => {
-           if (ref === bkng.Ref) {
-               foundBooking = bkng
-           }
-        })
+        let foundBooking = BOOKINGS.find((bkng) => (ref === bkng.Ref)   
+        )
         return foundBooking
     },
 
@@ -34,31 +30,18 @@ const FetchFunctions = {
     },
 
     fetchCarFromLicense : (license) => {
-        let car = CARS.find((c) => {
-            if (c.License === license) {
-                return c
-                }
-            }
+        let car = CARS.find((c) => (c.License === license) 
         )
         return car
     },
 
     fetchGroupFromGroupNameString : (groupName) => {
-        let group = CARGROUPS.find((g) => {
-            if (g.name === groupName) {
-                return g
-            }
-        })
+        let group = CARGROUPS.find((g) => (g.name === groupName))
         return group
     },
 
     fetchLocationFromName : (locationName) => {
-        let location = LOCATIONS.find((l) => {
-            if (l.Location === locationName) {
-                return l
-            }
-        }
-        )
+        let location = LOCATIONS.find((l) => (l.Location === locationName))
         return location
     }
 }

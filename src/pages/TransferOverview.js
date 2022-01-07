@@ -4,7 +4,10 @@ import TransferCardBody from "../components/cards/TransferCards";
 import { ButtonOnChange } from "../components/buttons/ColorButton";
 import { TransferModal } from "../components/modals/transferModal";
 import { LOCATIONS } from "../data/locations";
-import { FilterCarRequest, FilterCarRelease } from "../components/cards/FilterTransferCards";
+import {
+  FilterCarRequest,
+  FilterCarRelease,
+} from "../components/cards/FilterTransferCards";
 
 function TransferOverview() {
   const [showRequestModal, setShowRequestModal] = useState(false);
@@ -12,42 +15,45 @@ function TransferOverview() {
 
   // requests
   const reqCards = [];
-  let reqCars = FilterCarRequest(LOCATIONS[0])
+  let reqCars = FilterCarRequest(LOCATIONS[0]);
 
-   if (reqCars.length > 0) {
-      reqCars.map((selCar) => {
+  if (reqCars.length > 0) {
+    reqCars.map((selCar) => {
+      reqCards.push(
+        <div key={selCar} className="cardMarginNonHover">
+          <TransferCardBody car={selCar} />
+        </div>
+      );
+      return null;
+    });
+  } else {
     reqCards.push(
-      <div key={selCar} className="cardMargin">
-        <TransferCardBody
-          car={selCar}
-        />
+      <div>
+        <h3>No Requests.</h3>
       </div>
     );
-    return null;
-  });
-  } else {
-    reqCards.push(<div><h3>No Requests.</h3></div>)
   }
 
   // releases
   const relCards = [];
-  let relCars = FilterCarRelease(LOCATIONS[0])
+  let relCars = FilterCarRelease(LOCATIONS[0]);
 
   if (relCars.length > 0) {
     relCars.map((selCar) => {
-  relCards.push(
-    <div key={selCar} className="cardMargin">
-      <TransferCardBody
-        car={selCar}
-      />
-    </div>
-  );
-  return null;
-});
-} else {
-  relCards.push(<div><h3>No Requests.</h3></div>)
-}
-
+      relCards.push(
+        <div key={selCar} className="cardMarginNonHover">
+          <TransferCardBody car={selCar} />
+        </div>
+      );
+      return null;
+    });
+  } else {
+    relCards.push(
+      <div>
+        <h3>No Requests.</h3>
+      </div>
+    );
+  }
 
   // Closing the modals on escape
   document.addEventListener("keydown", (event) => {
@@ -77,11 +83,11 @@ function TransferOverview() {
             onConfirm={() => setShowRequestModal(false)}
           ></TransferModal>
           <ButtonOnChange
-            color="LightBlueBtn"
+            color="PurpleBtn"
             primary="true"
             className="buttonMedium"
             title="Release Car"
-            onClick={() => setShowReleaseModal(true)}
+            onClick={() => alert("Sorry, releasing cars is not possible, yet.")}
           />
           <TransferModal
             showReleaseModal={showReleaseModal}

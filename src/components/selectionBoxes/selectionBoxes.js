@@ -11,9 +11,10 @@ function CheckBox(props) {
         type="checkbox"
         name={props.name}
         value={props.buttonText}
+        checked={props.checked}
         onChange={props.onChange}
       />
-      <label for={props.buttonText}>{props.buttonText}</label>
+      <label>{props.buttonText}</label>
     </div>
   );
 }

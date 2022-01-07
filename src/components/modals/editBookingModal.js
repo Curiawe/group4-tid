@@ -1,5 +1,5 @@
 import { React, useState } from "react";
-import { ButtonNoLink, ButtonOnChange } from "../buttons/ColorButton";
+import { ButtonOnChange } from "../buttons/ColorButton";
 import FetchFunctions from "../DB-functions/FetchFunctions";
 import updateEntries from "../DB-functions/UpdateEntries";
 import { EditBookingCarGroup } from "./bookingComponents/carGroup";
@@ -9,38 +9,35 @@ import { EditBookingPickup } from "./bookingComponents/pickupInfo";
 import { Price } from "./bookingComponents/price";
 import { EditBookingReturn } from "./bookingComponents/returnInfo";
 import "./modal.css";
-import calcPrice from "../priceCalc";
 import updateDate from "../dataHandling/updateDate";
+import timeStringFromDate from "../dataHandling/timeStringFromDate";
+import { bookingPrice } from "../dataHandling/priceCalc";
 
 function EditBookingModal(props) {
+
   let updatedBooking = FetchFunctions.fetchBookingFromRef(
     props.selectedBooking
   );
-
-  let bookingPickupTime = new Date(
-    updatedBooking.Pickup.time
-  ).toLocaleTimeString("da-DA");
-
-  let bookingReturnTime = new Date(
-    updatedBooking.Return.time
-  ).toLocaleTimeString("da-DA");
-
   const [pickupDate, setPickupDate] = useState(
     new Date(updatedBooking.Pickup.time)
   );
-  const [pickupTime, setPickupTime] = useState(bookingPickupTime);
+  const [pickupTime, setPickupTime] = useState(
+    timeStringFromDate(updatedBooking.Pickup.time)
+  );
   const [pickupLocation, setPickupLocation] = useState(
-    updatedBooking.Pickup.location
+    updatedBooking.Pickup.location.Location
   );
   const [walkin, setWalkin] = useState(updatedBooking.isWalkin);
   const [returnDate, setReturnDate] = useState(
     new Date(updatedBooking.Return.time)
   );
-  const [returnTime, setReturnTime] = useState(bookingReturnTime);
-  const [returnLocation, setReturnLocation] = useState(
-    updatedBooking.Return.location
+  const [returnTime, setReturnTime] = useState(
+    timeStringFromDate(updatedBooking.Return.time)
   );
-  const [carGroup, setCarGroup] = useState(updatedBooking.carGroup);
+  const [returnLocation, setReturnLocation] = useState(
+    updatedBooking.Return.location.Location
+  );
+  const [carGroup, setCarGroup] = useState(updatedBooking.carGroup.name);
   const [name, setName] = useState(updatedBooking.Customer.name);
   const [address, setAddress] = useState(updatedBooking.Customer.address);
   const [phone, setPhone] = useState(updatedBooking.Customer.phone);
@@ -61,52 +58,95 @@ function EditBookingModal(props) {
   const [extraMileage, setExtraMileage] = useState(
     updatedBooking.Services.mileage
   );
+  const [price, setPrice] = useState(updatedBooking.price);
 
   function handleUpdate() {
-    updateEntries.updateBooking(
-      props.selectedBooking,
-      updatedBooking.Status,
-      walkin,
-      carGroup,
-      name,
-      address,
-      phone,
-      email,
-      birthday,
-      licenseID,
-      licenseIssueDate,
-      licenseExpirationDate,
-      licenseExpirationDate > new Date(),
-      updatedBooking.Car,
-      updateDate(pickupDate, pickupTime),
-      pickupLocation,
-      updatedBooking.Pickup.fuel,
-      updatedBooking.Pickup.mileage,
-      updatedBooking.Pickup.comment,
-      updateDate(returnDate, returnTime),
-      returnLocation,
-      updatedBooking.Return.fuel,
-      updatedBooking.Return.mileage,
-      updatedBooking.Return.comment,
-      extraDriver,
-      extraMileage,
-      updatedBooking.Returned.time,
-      updatedBooking.Returned.mileage,
-      calcPrice(updatedBooking)
-    );
-    props.onConfirm();
+    let pLocation = FetchFunctions.fetchLocationFromName(pickupLocation);
+    let rLocation = FetchFunctions.fetchLocationFromName(returnLocation);
+
+    const missing = [];
+
+    if (!name) {
+      missing.push("Name");
+    }
+    if (!address) {
+      missing.push("Address");
+    }
+    if (!phone) {
+      missing.push("Phone");
+    }
+    if (!licenseID) {
+      missing.push("License ID");
+    }
+    if (!email) {
+      missing.push("Email");
+    }
+
+    if (missing.length > 0) {
+      let alertString = "Sorry, you can't save, yet. You are missing: ";
+      for (let i = 0; i < missing.length; i++) {
+        alertString += missing[i] + ", ";
+      }
+      alertString += "so please fill that out.";
+      alert(alertString);
+    } else {
+      updateEntries.updateBooking(
+        props.selectedBooking,
+        updatedBooking.Status,
+        walkin,
+        FetchFunctions.fetchGroupFromGroupNameString(carGroup),
+        name,
+        address,
+        phone,
+        email,
+        birthday,
+        licenseID,
+        licenseIssueDate,
+        licenseExpirationDate,
+        licenseExpirationDate > new Date(),
+        updatedBooking.Car,
+        updateDate(pickupDate, pickupTime),
+        pLocation,
+        updatedBooking.Pickup.fuel,
+        updatedBooking.Pickup.mileage,
+        updatedBooking.Pickup.comment,
+        updateDate(returnDate, returnTime),
+        rLocation,
+        updatedBooking.Return.fuel,
+        updatedBooking.Return.mileage,
+        updatedBooking.Return.comment,
+        extraDriver,
+        extraMileage,
+        updatedBooking.Returned.time,
+        updatedBooking.Returned.mileage,
+        bookingPrice(
+          returnDate,
+          returnTime,
+          pickupDate,
+          pickupTime,
+          carGroup,
+          extraDriver,
+          extraMileage
+        )[1]
+      );
+      alert("Update saved!");
+      props.onConfirm();
+    }
   }
 
   if (!props.showEditBookingModal) {
     return null;
   }
 
+  function handlePriceChange(newPrice) {
+    setPrice(newPrice);
+  }
+
   return (
     <div className="overlay">
       <div className="bookingContent">
         <div className="overlayTitle">
-          <h3>Manage Booking</h3>
-          Booking ID: {updatedBooking.Ref}
+          <h3>Edit Booking #{updatedBooking.Ref}</h3>
         </div>
         <div className="overlayBody">
           <div className="row">
@@ -150,10 +190,15 @@ function EditBookingModal(props) {
                     setCarGroup(newCarGroup);
                   }}
                 />
+
                 <ExtraServices
                   extraDriver={extraDriver}
                   onChangeExtraDriver={(newExtraDriver) => {
                     setExtraDriver(newExtraDriver);
+                  }}
+                  extraMileage={extraMileage}
+                  onChangeExtraMileage={(newExtraMileage) => {
+                    setExtraMileage(newExtraMileage);
                   }}
                 />
               </div>
@@ -194,7 +239,21 @@ function EditBookingModal(props) {
                     setExpirationDate(new Date(newExpirationDate));
                   }}
                 />
-                <Price />
+
+                <Price
+                  returnDate={returnDate}
+                  returnTime={returnTime}
+                  pickupDate={pickupDate}
+                  pickupTime={pickupTime}
+                  carGroup={carGroup}
+                  extraDriver={extraDriver}
+                  extraMileage={extraMileage}
+                  price={props.price}
+                  oldPrice={price}
+                  onChangePrice={(newPrice) => {
+                    handlePriceChange(newPrice);
+                  }}
+                />
               </div>
             </div>
           </div>

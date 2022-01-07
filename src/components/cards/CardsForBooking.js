@@ -2,6 +2,7 @@ import "./cards.css";
 import { IconBody } from "./IconBody";
 import { useState } from "react";
 import FetchFunctions from "../DB-functions/FetchFunctions";
+import timeStringFromDate from "../dataHandling/timeStringFromDate";
 
 /* Schema:
 000: {Name:"Per Son", Ref, Phone, PickupPlace, PickupTime, ReturnPlace, ReturnTime, CarGroup, ExtraService}
@@ -12,15 +13,12 @@ function BookingCard(props) {
 
   let booking = FetchFunctions.fetchBookingFromRef(props.booking);
 
-  let pickupTime = new Date(booking.Pickup.time)
-    .toLocaleTimeString("da-DA")
-    .replace("00.00", "00");
+  let pickupTime = timeStringFromDate(booking.Pickup.time);
   const pickupDate = new Date(booking.Pickup.time).toLocaleDateString("da-DA");
   pickupTime = pickupDate + ", " + pickupTime;
 
-  let returnTime = new Date(booking.Return.time)
-    .toLocaleTimeString("da-DA")
-    .replace("00.00", "00");
+  let returnTime = timeStringFromDate(booking.Return.time)
+
   const returnDate = new Date(booking.Return.time).toLocaleDateString("da-DA");
   returnTime = returnDate + ", " + returnTime;
 
@@ -60,12 +58,12 @@ function BookingCard(props) {
         <div className="h4Booking"> BOOKING {booking.Ref}</div>
          <div className="cardBodyMargin">
           <div className="cardBookingColumn1">
-            <div class="p2Booking">Customer</div>
+            <div className="p2Booking">Customer</div>
             <div className="p1Booking"> {booking.Customer.name}</div>
             <IconBody title={booking.Customer.phone} icon="phone" />
           </div>   
           <div className="cardBookingColumn2">
-            <div class="p2Booking">Status</div>
+            <div className="p2Booking">Status</div>
             <div className="subHead">{booking.Status}</div>
           </div>
           <div className="cardBookingColumn1">
@@ -79,7 +77,7 @@ function BookingCard(props) {
             <IconBody title={returnTime} icon="calendar" />
           </div>
           <div className="cardBookingColumn1">
-            <div class="p2Booking">Car Group</div>
+            <div className="p2Booking">Car Group</div>
             <div className="p1Booking">{booking.carGroup.name}</div>
           </div>
           <div className="cardBookingColumn2">

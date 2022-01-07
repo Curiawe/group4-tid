@@ -2,12 +2,14 @@ import WalkinTable from "../components/tables/WalkinTable";
 
 function Walkins() {
   return (
-    <div>
+    <>
       <div className="pageTitle">
-        <h1>Walkins</h1>
+        <h1>Walk-ins</h1>
       </div>
-      <WalkinTable />
-    </div>
+      <div className="pageContent">
+        <WalkinTable />
+      </div>
+    </>
   );
 }
 

@@ -1,8 +1,8 @@
-import {CARS} from "./cars.js"
-import {CARGROUPS} from "./carGroups.js"
-import {LOCATIONS} from "./locations.js"
-import { CUSTOMERS } from "./customers.js"
-import { bookingStates } from "./bookingStates.js"
+import { CARGROUPS } from "./carGroups.js";
+import { LOCATIONS } from "./locations.js";
+import { CUSTOMERS } from "./customers.js";
+import { bookingStates } from "./bookingStates.js";
+import { CARS } from "./cars.js";
 
 /**
  * Schema: ID: {Status,isWalkin, carGroup, CARS.license, Pickup {time, location}, Return {time, location}}, Returned {time, mileage}, price},
@@ -41,7 +41,7 @@ export const BOOKINGS = [
     isWalkin: true,
     carGroup: CARGROUPS[2],
     Customer: CUSTOMERS[2],
-    Car: null,
+    Car: CARS[3],
     Pickup: {
       time: new Date(2021, 11, 9, 12),
       location: LOCATIONS[0],

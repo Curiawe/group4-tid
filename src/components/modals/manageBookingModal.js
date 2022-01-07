@@ -1,23 +1,18 @@
 import { React, useState } from "react";
 import { ButtonNoLink, ButtonOnChange } from "../buttons/ColorButton";
 import FetchFunctions from "../DB-functions/FetchFunctions";
-import updateEntries from "../DB-functions/UpdateEntries";
-import { BookingCarGroup } from "./bookingComponents/carGroup";
-import { BookingCustomerInfo } from "./bookingComponents/customerInfo";
-import { ExtraServices } from "./bookingComponents/extraServices";
-import { BookingPickup } from "./bookingComponents/pickupInfo";
-import { Price } from "./bookingComponents/price";
-import { BookingReturn } from "./bookingComponents/returnInfo";
 import "./modal.css";
 import FeatherIcon from "feather-icons-react";
 import EditBookingModal from "./editBookingModal";
+import timeStringFromDate from "../dataHandling/timeStringFromDate";
+import { getNumber } from "../dataHandling/priceCalc";
 
 function ManageBookingModal(props) {
   let booking = FetchFunctions.fetchBookingFromRef(props.selectedBooking);
 
-  const [editData, setEditData] = useState(false);
   const [showEditBookingModal, setShowEditBookingModal] = useState(false);
 
+  // only displaying the modal if a booking is selected and button is clicked
   if (!props.showManageBookingModal) {
     return null;
   } else if (props.showManageBookingModal && !props.selectedBooking) {
@@ -44,97 +39,44 @@ function ManageBookingModal(props) {
     );
   }
 
-  let buttonFunct = () => {
-    confirmUpdate();
-  };
-
-  let buttonText = "";
-  let services;
-  let serviceComp;
-
-  /*
-  function updateBooking() {
-    updateEntries.updateCustomer(
-      props.booking,
-      name,
-      address,
-      phone,
-      email,
-      birthday,
-      licenseID,
-      licenseIssueDate,
-      licenseExpirationDate
-    );
-    console.log("Updated Customer " + name + ", Closing Overlay now");
-    setEditData(!editData);
-  } */
-
-  function confirmUpdate() {
-    props.onConfirm();
-  }
-
-  function onCloseModalReset() {
-    setEditData(false);
-    props.onClose();
-  }
-
-  function bookingContent() {
-    if (editData) {
-      buttonText = "Save Changes";
-      buttonFunct = () => confirmUpdate();
-      return <EditBookingModal booking={props.booking} />;
-    }
-    if (!editData) {
-      buttonText = "Confirm Information";
-      buttonFunct = () => confirmUpdate();
-      return displayBooking();
-    }
-  }
-
-  function changeStatus() {
-    setEditData(!editData);
-    /*console.log("State Changed: " + editData);*/
-  }
-
-  function setBookingInfo(booking) {
-    props.onSave(booking);
-  }
-
-  function onCloseResetBooking() {
-    props.onSave(null);
-    setShowEditBookingModal(false);
-  }
-
+  // handling the edit modal
   function handleConfirm() {
-    /*console.log("Handling Click");
-    console.log(props.selected);*/
+    booking = FetchFunctions.fetchBookingFromRef(props.selectedBooking);
     setShowEditBookingModal(false);
   }
 
-  function displayBooking() {
-    if (booking.Services.driver) {
-      services = "1 Extra Driver";
-    } else if (booking.Services.mileage) {
-      services = "Extra Mileage: " + booking.Services.mileage;
-    }
+  // handling walkins
+  let walkinComp;
+  if (booking.isWalkin === true) {
+    walkinComp = "This is Walk-in Booking";
+  }
 
-    if (services) {
-      serviceComp = <>{services}</>;
-    } else {
-      serviceComp = <>No extra services selected.</>;
-    }
-    return (
+  // handling extra services
+  let services;
+  if (booking.Services.driver && !booking.Services.mileage) {
+    services = "1 Extra Driver";
+  } else if (booking.Services.mileage && !booking.Services.driver) {
+    services = "Extra Mileage: " + booking.Services.mileage;
+  } else if (booking.Services.driver && booking.Services.mileage) {
+    services =
+      "1 Extra Driver & " + booking.Services.mileage + "km Extra Mileage";
+  }
+
+  // displays extra services if they're there, displays string if they're not
+  let serviceComp;
+  if (services) {
+    serviceComp = <>{services}</>;
+  } else {
+    serviceComp = <>No extra services selected.</>;
+  }
+
+  return (
+    <div className="overlay">
       <div className="bookingContent">
         <div className="overlayTitle">
-          <h3>Manage Booking</h3>
-          Booking ID: {booking.Ref}
-          <buttonbox
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              padding: "4px",
-            }}
-          >
+          <h3>Manage Booking #{booking.Ref}</h3>
+
+          <div className="editButtons">
             <ButtonNoLink // edit booking info
               color="DarkBlueBtn"
               primary="true"
@@ -147,22 +89,22 @@ function ManageBookingModal(props) {
               showEditBookingModal={showEditBookingModal}
               onClose={() => setShowEditBookingModal(false)}
               onConfirm={() => handleConfirm()}
-              onSave={(input) => setBookingInfo(input)}
             />
-            <ButtonNoLink // delete booking
+            <ButtonNoLink // delete booking not implemented
               color="DarkRedBtn"
               primary="true"
               className="buttonSmall"
               title="Delete Booking"
-              onClick={() => alert("Booking deleted!")}
+              onClick={() => alert("Sorry, deletion is not possible, yet.")}
             />
-          </buttonbox>
+          </div>
         </div>
         <div className="overlayBody">
           <div className="row">
             <div className="column">
               <div className="firstColumn">
                 <h5>Pickup</h5>
+                <p>{walkinComp}</p>
                 <table>
                   <tbody>
                     <tr>
@@ -180,9 +122,7 @@ function ManageBookingModal(props) {
                           "da-DA"
                         )}
                         ,{" "}
-                        {new Date(booking.Pickup.time)
-                          .toLocaleTimeString("da-DA")
-                          .replace("00.00", "00")}
+                        { timeStringFromDate(booking.Pickup.time) }
                       </td>
                     </tr>
                   </tbody>
@@ -205,9 +145,7 @@ function ManageBookingModal(props) {
                           "da-DA"
                         )}
                         ,{" "}
-                        {new Date(booking.Return.time)
-                          .toLocaleTimeString("da-DA")
-                          .replace("00.00", "00")}
+                        { timeStringFromDate(booking.Return.time) }
                       </td>
                     </tr>
                   </tbody>
@@ -299,6 +237,15 @@ function ManageBookingModal(props) {
                     </tr>
                   </tbody>
                 </table>
+                <div className="rowButton">
+                  <h5>Price</h5>
+
+                  <div
+                    style={{ borderBottom: "3px double", fontWeight: "bolder" }}
+                  >
+                    {getNumber(booking.price)} DKK
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -313,10 +260,8 @@ function ManageBookingModal(props) {
           />
         </div>
       </div>
-    );
-  }
-
-  return <div className="overlay">{bookingContent()}</div>;
+    </div>
+  );
 }
 
 export default ManageBookingModal;

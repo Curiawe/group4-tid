@@ -13,6 +13,7 @@ const SelectCarGroup = (props) => {
           {group.name}
         </option>
       );
+      return null
     });
     return myOptions;
   }
@@ -26,21 +27,6 @@ const SelectCarGroup = (props) => {
         Select Car Group
       </option>
       {makeOptions()}
-    </select>
-  );
-};
-
-const SelectPaymentMethod = (props) => {
-  return (
-    <select defaultValue={"Select Payment Method"} onChange={(e) => props.onChange(e.target.value)}>
-      <option value="Select Payment Method" disabled>
-        Select Payment Method
-      </option>
-      <option value="Apple Pay">Apple Pay</option>
-      <option value="Credit Card">Credit Card</option>
-      <option value="Debit Card">Debit Card</option>
-      <option value="MobilePay">MobilePay</option>
-      <option value="PayPal">PayPal</option>
     </select>
   );
 };
@@ -82,4 +68,31 @@ const SelectCarState = (props) => {
   );
 };
 
-export { SelectCarGroup, SelectPaymentMethod, SelectLocation, SelectCarState };
+const SelectTime = (props) => {
+  const OpeningHours = {
+    8: "08:00",
+    10: "10:00",
+    12: "12:00",
+    14: "14:00",
+    16: "16:00",
+    18: "18:00",
+    20: "20:00",
+  };
+
+  return (
+    <select value={props.value} defaultValue={props.defaultValue} onChange={props.onChange} className={props.className}>
+      <option value="Select Time" disabled>
+        Select Time
+      </option>
+      <option value={OpeningHours[0]}>08:00</option>
+      <option value={OpeningHours[1]}>10:00</option>
+      <option value={OpeningHours[2]}>12:00</option>
+      <option value={OpeningHours[3]}>14:00</option>
+      <option value={OpeningHours[4]}>16:00</option>
+      <option value={OpeningHours[5]}>18:00</option>
+      <option value={OpeningHours[6]}>20:00</option>
+    </select>
+  );
+};
+
+export { SelectCarGroup, SelectLocation, SelectCarState, SelectTime };

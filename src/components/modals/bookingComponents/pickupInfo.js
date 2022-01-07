@@ -3,6 +3,7 @@ import { BookingComponent } from "./skeleton";
 import { CheckBox } from "../../selectionBoxes/selectionBoxes";
 import { SelectLocation } from "../../inputfields+dropdowns/dropDowns";
 import { InputField } from "../../inputfields+dropdowns/inputFields";
+import { SelectTime } from "../../inputfields+dropdowns/dropDowns";
 
 function BookingPickup(props) {
   return (
@@ -25,19 +26,19 @@ function BookingPickup(props) {
         onChange={(e) => props.onChangeDate(e.target.value)}
         placeHolder="Pickup Date"
       />
-      <InputField
-        className="inputField"
-        type="time"
-        min="8"
-        max="10"
+      <SelectTime
         onChange={(e) => props.onChangeTime(e.target.value)}
-        placeHolder="Pickup Time"
+        defaultValue="Select Time"
       />
     </BookingComponent>
   );
 }
 
 function EditBookingPickup(props) {
+  let locationString = props.location;
+  let pickupDateString = props.date.toLocaleDateString("fr-CA");
+  let pickupTimeString = props.time;
+
   return (
     <BookingComponent title="Pickup">
       <CheckBox
@@ -49,7 +50,8 @@ function EditBookingPickup(props) {
       />
       <SelectLocation
         dropdownTitle="Select Pickup Location"
-        defaultValue={props.location.Location}
+        value={locationString}
+        defaultValue={locationString}
         onChange={(e) => props.onChangeLocation(e.target.value)}
       />
       <InputField
@@ -57,14 +59,12 @@ function EditBookingPickup(props) {
         type="date"
         onChange={(e) => props.onChangeDate(new Date(e.target.value))}
         placeHolder="Pickup Date"
+        value={pickupDateString}
       />
-      <InputField
-        className="inputField"
-        type="time"
-        min="8"
-        max="10"
+      <SelectTime
         onChange={(e) => props.onChangeTime(e.target.value)}
-        placeHolder="Pickup Time"
+        defaultValue={pickupTimeString}
+        value={pickupTimeString}
       />
     </BookingComponent>
   );

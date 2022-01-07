@@ -18,7 +18,9 @@ function CustomerInfoModal(props) {
   const [birthday, setBirthday] = useState(customer.born);
   const [licenseID, setLicenseID] = useState(customer.license.id);
   const [licenseIssueDate, setIssueDate] = useState(customer.license.issued);
-  const [licenseExpirationDate, setExpirationDate] = useState(new Date (customer.license.expires));
+  const [licenseExpirationDate, setExpirationDate] = useState(
+    new Date(customer.license.expires)
+  );
 
   let buttonFunct = () => {
     confirmUpdate();
@@ -110,42 +112,42 @@ function CustomerInfoModal(props) {
   function editCustomer() {
     return (
       <div className="overlayBody">
-      <BookingCustomerInfo
-        name={name}
-        address={address}
-        phone={phone}
-        email={email}
-        birthday={birthday}
-        licenseID={licenseID}
-        licenseIssueDate={licenseIssueDate}
-        licenseExpirationDate={licenseExpirationDate}
-        onChangeName={(newName) => {
-          setName(newName);
-        }}
-        onChangeAddress={(newAddress) => {
-          setAddress(newAddress);
-        }}
-        onChangePhone={(newPhone) => {
-          setPhone(newPhone);
-        }}
-        onChangeEmail={(newEmail) => {
-          setEmail(newEmail);
-        }}
-        onChangeBirthday={(newBirthday) => {
-          setBirthday(new Date(newBirthday));
-        }}
-        onChangeLicenseID={(newLicenseID) => {
-          setLicenseID(newLicenseID);
-        }}
-        onChangeIssueDate={(newIssueDate) => {
-          setIssueDate(new Date(newIssueDate));
-        }}
-        onChangeExpirationDate={(newExpirationDate) => {
-          setExpirationDate(new Date(newExpirationDate));
-        }}
-      />
-    </div>
-    )
+        <BookingCustomerInfo
+          name={name}
+          address={address}
+          phone={phone}
+          email={email}
+          birthday={birthday}
+          licenseID={licenseID}
+          licenseIssueDate={licenseIssueDate}
+          licenseExpirationDate={licenseExpirationDate}
+          onChangeName={(newName) => {
+            setName(newName);
+          }}
+          onChangeAddress={(newAddress) => {
+            setAddress(newAddress);
+          }}
+          onChangePhone={(newPhone) => {
+            setPhone(newPhone);
+          }}
+          onChangeEmail={(newEmail) => {
+            setEmail(newEmail);
+          }}
+          onChangeBirthday={(newBirthday) => {
+            setBirthday(new Date(newBirthday));
+          }}
+          onChangeLicenseID={(newLicenseID) => {
+            setLicenseID(newLicenseID);
+          }}
+          onChangeIssueDate={(newIssueDate) => {
+            setIssueDate(new Date(newIssueDate));
+          }}
+          onChangeExpirationDate={(newExpirationDate) => {
+            setExpirationDate(new Date(newExpirationDate));
+          }}
+        />
+      </div>
+    );
   }
 
   function editButton() {
@@ -153,32 +155,71 @@ function CustomerInfoModal(props) {
       return null;
     } else {
       return (
-        <div style={{display:"flex", flexDirection:"row"}}>
-
-        <ButtonNoLink // toggle edit customer info
-          color="DarkBlueBtn"
-          primary="true"
-          className="buttonSmall"
-          title="Edit Customer Info"
-          onClick={() => changeStatus()}
-      />
-
-        <ButtonNoLink // cancel booking -> Customer info is invalid 
-          color="DarkRedBtn"
-          primary="true"
-          className="buttonSmall"
-          title="Customer Unfit"
-          onClick={() => alert("You clicked 'Customer Unfit'.\n\nThis means the customer showed no valid driver's license, or was otherwise unfit to drive.\n\nIn the future, you can select between cancelling the booking for the customer and changing the Customer.\n\nFor now, either edit the customer information or cancel the booking by selecting the booking, clicking the Edit button and selecting 'Cancel Booking'.")}
+        <div className="editButtons">
+          <ButtonNoLink // toggle edit customer info
+            color="DarkBlueBtn"
+            primary="true"
+            className="buttonSmall"
+            title="Edit Customer Info"
+            onClick={() => changeStatus()}
           />
 
-      </div>
-      )
+          <ButtonNoLink // cancel booking -> Customer info is invalid
+            color="DarkRedBtn"
+            primary="true"
+            className="buttonSmall"
+            title="Customer Unfit"
+            onClick={() =>
+              alert(
+                "You clicked 'Customer Unfit'.\n\nThis means the customer showed no valid driver's license, or was otherwise unfit to drive.\n\nIn the future, you can select between cancelling the booking for the customer and changing the Customer.\n\nFor now, either edit the customer information or cancel the booking by selecting the booking, clicking the Edit button and selecting 'Cancel Booking'."
+              )
+            }
+          />
+        </div>
+      );
     }
   }
 
-  function updateCustomer(){
-    updateEntries.updateCustomer(props.booking, name, address, phone, email, birthday, licenseID, licenseIssueDate, licenseExpirationDate ) 
-    setEditData(!editData)
+  function updateCustomer() {
+    const missing = [];
+
+    if (!name) {
+      missing.push("Name");
+    }
+    if (!address) {
+      missing.push("Address");
+    }
+    if (!phone) {
+      missing.push("Phone");
+    }
+    if (!licenseID) {
+      missing.push("License ID");
+    }
+    if (!email) {
+      missing.push("Email");
+    }
+
+    if (missing.length > 0) {
+      let alertString = "Sorry, you can't save, yet. You are missing: ";
+      for (let i = 0; i < missing.length; i++) {
+        alertString += missing[i] + ", ";
+      }
+      alertString += "so please fill that out.";
+      alert(alertString);
+    } else {
+      updateEntries.updateCustomer(
+        props.booking,
+        name,
+        address,
+        phone,
+        email,
+        birthday,
+        licenseID,
+        licenseIssueDate,
+        licenseExpirationDate
+      );
+      setEditData(!editData);
+    }
   }
 
   function confirmUpdate() {

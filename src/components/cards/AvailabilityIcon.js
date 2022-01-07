@@ -26,9 +26,9 @@ function colorPicker(props) {
 function ColorIcon(props) {
     return (
         <div className = "iconBody"> 
-        <text className = "mainIcon" style = {{color: colorPicker(props.title)}}>
+        <div className = "mainIcon" style = {{color: colorPicker(props.title)}}>
             ██
-        </text>
+        </div>
         <MainDescription className="mainDescription" title={props.title}></MainDescription>
         </div>
 

@@ -7,8 +7,9 @@ import { BookingCarGroup } from "./bookingComponents/carGroup";
 import { BookingCustomerInfo } from "./bookingComponents/customerInfo";
 import { ExtraServices } from "./bookingComponents/extraServices";
 import { Price } from "./bookingComponents/price";
-import {BOOKINGS} from "../../data/bookings";
+import { BOOKINGS } from "../../data/bookings";
 import addEntries from "../DB-functions/AddEntries";
+import updateDate from "../dataHandling/updateDate";
 
 function BookingModal(props) {
   const [pickupDate, setPickupDate] = useState(new Date());
@@ -29,6 +30,7 @@ function BookingModal(props) {
   const [licenseExpirationDate, setExpirationDate] = useState();
   const [extraDriver, setExtraDriver] = useState(false);
   const [extraMileage, setExtraMileage] = useState(0);
+  const [price, setPrice] = useState();
 
   if (!props.showBookingModal) {
     return null;
@@ -66,32 +68,67 @@ function BookingModal(props) {
     if (!carGroup) {
       missing.push("Car Group");
     }
+    if (!name) {
+      missing.push("Name");
+    }
+    if (!address) {
+      missing.push("Address");
+    }
+    if (!phone) {
+      missing.push("Phone");
+    }
+    if (!licenseID) {
+      missing.push("License ID");
+    }
+    if (!email) {
+      missing.push("Email");
+    }
 
     if (missing.length > 0) {
       let alertString = "Sorry, you can't save, yet. You are missing: ";
       for (let i = 0; i < missing.length; i++) {
         alertString += missing[i] + ", ";
       }
-      alertString += " so please fill that out.";
+      alertString += "so please fill that out.";
       alert(alertString);
+    } else if (pickupDate > returnDate) {
+      alert("The date of the return must be AFTER the pickup date.");
     } else {
       e.preventDefault();
       addEntries.addBooking(
-        newRef(), walkin, carGroup, 
-        name, address, phone, email, birthday, 
-        licenseID, licenseIssueDate, licenseExpirationDate, 
-        pickupDate, pickupLocation,
-        returnDate, returnLocation, 
-        extraDriver, extraMileage)
+        newRef(),
+        walkin,
+        carGroup,
+        name,
+        address,
+        phone,
+        email,
+        birthday,
+        licenseID,
+        licenseIssueDate,
+        licenseExpirationDate,
+        updateDate(pickupDate, pickupTime),
+        pickupLocation,
+        updateDate(returnDate, returnTime),
+        returnLocation,
+        extraDriver,
+        extraMileage,
+        price
+      );
+      alert("Booking saved!");
+      props.onClose();
     }
+  }
+
+  function handlePriceChange(newPrice) {
+    setPrice(newPrice);
   }
 
   return (
     <div className="overlay">
       <div className="bookingContent">
         <div className="overlayTitle">
-          <h3>New Booking</h3>
-          bookingID
+          <h3>New Booking #{newRef()}</h3>
         </div>
         <div className="overlayBody">
           <div className="row">
@@ -115,6 +152,7 @@ function BookingModal(props) {
                     setWalkin(newBool);
                   }}
                 />
+
                 <BookingReturn
                   date={returnDate}
                   time={returnTime}
@@ -139,6 +177,10 @@ function BookingModal(props) {
                   extraDriver={extraDriver}
                   onChangeExtraDriver={(newExtraDriver) => {
                     setExtraDriver(newExtraDriver);
+                  }}
+                  extraMileage={extraMileage}
+                  onChangeExtraMileage={(newExtraMileage) => {
+                    setExtraMileage(newExtraMileage);
                   }}
                 />
               </div>
@@ -179,7 +221,19 @@ function BookingModal(props) {
                     setExpirationDate(newExpirationDate);
                   }}
                 />
-                <Price />
+                <Price
+                  returnDate={returnDate}
+                  returnTime={returnTime}
+                  pickupDate={pickupDate}
+                  pickupTime={pickupTime}
+                  carGroup={carGroup}
+                  extraDriver={extraDriver}
+                  extraMileage={extraMileage}
+                  price={props.price}
+                  onChangePrice={(newPrice) => {
+                    handlePriceChange(newPrice);
+                  }}
+                />
               </div>
             </div>
           </div>

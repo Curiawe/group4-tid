@@ -1,19 +1,20 @@
-import LargeCardBody from "../components/cards/CardsForOverview";
+import { LargeCardBody } from "../components/cards/CardsForOverview";
 import { CARS } from "../data/cars";
 import "../components/cards/cards.css";
 
 function Cars() {
   const cards = [];
 
-  CARS.map((selCar) => {
+  // if there are issues with this code, change .forEach() in line 9 to .map()
+  CARS.forEach((selCar) => {
     cards.push(
-      <div key={selCar.License} className="cardMargin">
+      <div key={selCar.License} className="cardMarginNonHover">
         <LargeCardBody
           car={selCar.License}
           onClick={(e, input) => {
             return null;
           }}
-          className="card"
+          className="cardNonHover"
         />
       </div>
     );

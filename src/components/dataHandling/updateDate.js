@@ -1,5 +1,7 @@
 export default function updateDate(date, time) {
   let hours;
+  date = new Date(date);
+  time = String(time);
   if (time.includes(".")) {
     hours = time.split(".");
   } else {

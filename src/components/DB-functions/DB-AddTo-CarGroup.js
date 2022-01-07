@@ -22,7 +22,7 @@ export default async function addCarGroup(groupName, groupBaggage, groupSeats, g
             } catch(error) { // but if any of this happens...
                 alert('Failed to create new object, with error code: ' + error.message); // do this instead
             } finally { // no matter what, do that when you're done
-                console.log("Tried to update CarGroups. Did it work?")
+              
             }
     }
 

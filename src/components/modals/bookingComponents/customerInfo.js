@@ -3,23 +3,29 @@ import { BookingComponent } from "./skeleton";
 import { InputField } from "../../inputfields+dropdowns/inputFields";
 
 function BookingCustomerInfo(props) {
-  let NameString = propsContained(props.name)
-  let addressString = propsContained(props.address)
-  let phoneString = propsContained(props.phone)
-  let emailString = propsContained(props.email)
-  let bornString = propsContained(new Date (props.birthday).toLocaleDateString("fr-CA"))
-  let licenseIDString = propsContained(props.licenseID)
-  let licenseIssueString = propsContained(new Date(props.licenseIssueDate).toLocaleDateString("fr-CA"))
-  let licenseExpireString = propsContained(new Date(props.licenseExpirationDate).toLocaleDateString("fr-CA"))
-  
+  let NameString = propsContained(props.name);
+  let addressString = propsContained(props.address);
+  let phoneString = propsContained(props.phone);
+  let emailString = propsContained(props.email);
+  let bornString = propsContained(
+    new Date(props.birthday).toLocaleDateString("fr-CA")
+  );
+  let licenseIDString = propsContained(props.licenseID);
+  let licenseIssueString = propsContained(
+    new Date(props.licenseIssueDate).toLocaleDateString("fr-CA")
+  );
+  let licenseExpireString = propsContained(
+    new Date(props.licenseExpirationDate).toLocaleDateString("fr-CA")
+  );
+
   function propsContained(input) {
     if (input) {
-      return input
+      return input;
     } else {
-      return ""
+      return "";
     }
   }
-  
+
   return (
     <BookingComponent title="Customer Info">
       <InputField
