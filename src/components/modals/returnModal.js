@@ -45,7 +45,7 @@ const ReturnModal = (props) => {
   function returnTimeForPrice() {
     if (arrivalTime > timeStringFromDate(booking.Return.time)) {
       return arrivalTime } else {
-        return booking.Return.time
+        return timeStringFromDate(booking.Return.time)
       }
   }
 
