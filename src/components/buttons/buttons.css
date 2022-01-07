@@ -1,0 +1,120 @@
+/* These are the buttons used in the prototype.
+The colours used are:
+
+Blue200: #9FBADB
+Blue600: #31465F
+
+Red300: #F95959
+OR
+Red400: #D32828 
+
+Purple400: #8882F4
+
+Gray200: #D1DAE0
+Gray/Light100: #EAEEF1
+
+*/
+@import url("https://fonts.googleapis.com/css?family=Raleway&display=swap");
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap");
+
+button {
+  border-radius: 128px;
+  border: 2px solid;
+  box-sizing: border-box;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  font-family: "Raleway";
+  font-size: 16px;
+  text-align: center;
+  letter-spacing: 0.05em;
+  height: fit-content;
+  padding: 12px;
+  cursor: pointer;
+}
+
+button:hover {
+  transition: 0.2s;
+  transform: scale(1.02);
+}
+
+.buttonLarge {
+  font-size: 20px;
+  padding: 16px;
+}
+
+.buttonMedium {
+  font-size: 16px;
+  padding: 10px;
+}
+
+.buttonSmall {
+  font-size: 12px;
+  padding: 4px;
+  margin: 4px;
+}
+
+/* Navigation buttons */
+
+.navButtonContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.navButtons {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  list-style-type: none;
+  padding: 0;
+}
+
+.navButtons .navButtonsColumn {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 290px;
+  height: 290px;
+  background-color: #f0f4f9;
+  border: 1px solid #9fbadb;
+  box-sizing: border-box;
+  border-radius: 10px;
+  color: #31465f;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.navButtons .navButtonsColumn h4 {
+  text-align: center;
+  color: #31465f;
+}
+
+.navButtons .navButtonsColumn:hover {
+  cursor: pointer;
+  box-shadow: 0px 10px 10px rgba(249, 89, 89, 0.1);
+  transform: scale(1.01);
+}
+
+.navButtons .navButtonsColumn:hover h4 {
+  color: #f95959;
+}
+
+/* Adjusting buttons to smaller screens */
+/* Tablets */
+@media (max-width: 960px) {
+  .navButtons {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+}
+
+@media (max-width: 960px) {
+  .navButtons .navButtonsColumn {
+    height: 80px;
+    margin-bottom: 2px;
+  }
+}

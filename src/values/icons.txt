@@ -1,0 +1,35 @@
+Here's what we do when we want to use the icons:
+
+We can add some CSS to it in general so we don't have to specify sizes all the time 
+Source: https://github.com/ianmiller347/feather-icons-react
+
+import FeatherIcon from 'feather-icons-react';
+
+All of our icons are:
+alert-triangle
+calendar
+check
+chevron-down
+chevron-up
+chevron-left
+chevron-right
+clock
+corner-left-up (undo)
+edit
+heart
+map-pin
+map
+menu
+plus
+save
+smile
+trash-2
+search
+x
+
+Use it as so:
+function Welcome(props) {
+    return <FeatherIcon icon="smile"/>; 
+  }
+
+export default Welcome;
