@@ -87,7 +87,7 @@ function TransferOverview() {
             primary="true"
             className="buttonMedium"
             title="Release Car"
-            onClick={() => setShowReleaseModal(true)}
+            onClick={() => alert("Sorry, releasing cars is not possible, yet.")}
           />
           <TransferModal
             showReleaseModal={showReleaseModal}

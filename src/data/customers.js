@@ -8,8 +8,8 @@
 export let CUSTOMERS = [
   {
     name: "Alice Robertson",
-    address: "totallyvej 2, 2300 A Real Address",
-    phone: "12 34 56 78",
+    address: "Slipager 10, 1435 København K",
+    phone: "60 38 72 40",
     email: "alice@mailinator.com",
     born: new Date(1984, 3, 25),
     license: {
@@ -21,8 +21,8 @@ export let CUSTOMERS = [
   },
   {
     name: "Bob Robertson",
-    address: "totallyvej 3, 2302 A Real Address",
-    phone: "12 34 56 89",
+    address: "Slipager 10, 1435 København K",
+    phone: "31 37 34 57",
     email: "bob@mailinator.com",
     born: new Date(1994, 2, 1),
     license: {
@@ -34,7 +34,7 @@ export let CUSTOMERS = [
   },
   {
     name: "Carlisle Bruun",
-    address: "totallyvej 3, 2384 No Real Address",
+    address: "Andekæret 27, 1665 København V",
     phone: "12 55 56 89",
     email: "carl@mailinator.com",
     born: new Date(1974, 3, 1),

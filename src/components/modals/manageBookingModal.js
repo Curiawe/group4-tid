@@ -91,10 +91,11 @@ function ManageBookingModal(props) {
               onConfirm={() => handleConfirm()}
             />
             <ButtonNoLink // delete booking not implemented
-              color="GrayBtn"
+              color="DarkRedBtn"
               primary="true"
               className="buttonSmall"
               title="Delete Booking"
+              onClick={() => alert("Sorry, deletion is not possible, yet.")}
             />
           </div>
         </div>
