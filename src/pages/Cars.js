@@ -149,7 +149,6 @@ function Cars() {
 
   function carCount() {
     var size = Object.keys(readResults).length;
-    console.log(size);
     if (!readResults) {
       return "";
     } else return size + " cars found.";
