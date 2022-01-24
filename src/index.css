@@ -12,6 +12,7 @@ Paste it into the bottom of the document and add your styling below it.
 
 @import url("https://fonts.googleapis.com/css?family=Raleway&display=swap");
 @import url("https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Bitter");
 
 /* ----------- Global Colors-------------
 
@@ -117,7 +118,7 @@ body {
 h1,
 h2,
 h3 {
-  font-family: "IBM Plex Mono", "Courier New", "Courier", "monospace";
+  font-family: "Bitter";
   color: #20334b;
   word-break: break-word;
   margin-top: 10px;
@@ -138,19 +139,16 @@ h3 {
 }
 
 h4 {
-  font-family: "IBM Plex Mono", "Courier New", "Courier", "monospace";
+  font-family: "Bitter";
   color: #3f39af;
   margin: 5px;
+  font-size: 24px;
 }
 
 h5,
 h6 {
-  font-family: "IBM Plex Mono", "Courier New", "Courier", "monospace";
+  font-family: "Bitter";
   color: #3f39af;
-}
-
-h4 {
-  font-size: 24px;
 }
 
 h5 {

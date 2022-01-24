@@ -10,6 +10,7 @@ import { Price } from "./bookingComponents/price";
 import { BOOKINGS } from "../../data/bookings";
 import addEntries from "../DB-functions/AddEntries";
 import updateDate from "../dataHandling/updateDate";
+import { addCustomer } from "../DB-functions/customers";
 
 function BookingModal(props) {
   const [pickupDate, setPickupDate] = useState(new Date());
@@ -41,6 +42,9 @@ function BookingModal(props) {
     let int = parseInt(BOOKINGS[length - 1].Ref) + 1;
     return int.toString();
   }
+
+  // making an object out of the ID
+  let licenseIdObejct = { id: licenseID };
 
   function onClickSave(e) {
     // create alert with missing parts
@@ -116,6 +120,15 @@ function BookingModal(props) {
         price
       );
       alert("Booking saved!");
+      // adds the customer to the DB
+      addCustomer(
+        name,
+        address,
+        phone,
+        email,
+        licenseIdObejct,
+        new Date(birthday)
+      );
       props.onClose();
     }
   }

@@ -1,7 +1,11 @@
 import { NavButtons } from "../components/buttons/navigationButtons";
 
 function Home() {
-  return <NavButtons />;
+  return (
+    <>
+      <NavButtons />
+    </>
+  );
 }
 
 export default Home;

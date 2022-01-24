@@ -48,7 +48,7 @@ function Bookings() {
 
   BOOKINGS.map((bkng) => {
     cards.push(
-      <div key={bkng.Ref} className="cardMargin">
+      <div key={bkng.Ref} className="bookingCardMargin">
         <BookingCard
           booking={bkng.Ref}
           onClick={(e, ref) => handleSelect(e, ref)}
@@ -130,7 +130,9 @@ function Bookings() {
             ></BookingModal>
           </div>
         </div>
-        <div className="bookingCardMargin">{cards}</div>
+        <div className="scrollableContainer">
+          <div className="bookingCardPageMargin">{cards}</div>
+        </div>
       </div>
     </>
   );
