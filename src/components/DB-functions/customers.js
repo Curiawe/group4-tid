@@ -18,8 +18,6 @@ async function addCustomer(name, address, phone, email, licenseID, birthday) {
   } catch (error) {
     // but if any of this happens...
     alert("Failed to create new object, with error code: " + error.message); // do this instead
-  } finally {
-    // no matter what, do that when you're done
   }
 }
 

@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import { IconBody } from "../components/cards/IconBody";
 import ColorIcon from "../components/cards/AvailabilityIcon";
 import { Icon } from "@iconify/react";
+import { ButtonNoLink } from "../components/buttons/ColorButton";
 
 function Cars() {
   const cards = [];
@@ -38,7 +39,6 @@ function Cars() {
   const resetCarsView = async function () {
     // Reading parse objects is done by using Parse.Query
     const parseQuery = new Parse.Query("Cars");
-    parseQuery.limit(10);
     parseQuery.include("location");
     parseQuery.include("carGroup");
     try {
@@ -52,11 +52,10 @@ function Cars() {
     }
   };
 
-  const readGreenCars = async function () {
+  const readBlueCars = async function () {
     // Reading parse objects is done by using Parse.Query
     const parseQuery = new Parse.Query("Cars");
-    parseQuery.limit(10);
-    parseQuery.matches("color", "RED");
+    parseQuery.matches("color", "BLU");
     try {
       let cars = await parseQuery.find();
       setReadResults(cars);
@@ -68,11 +67,11 @@ function Cars() {
     }
   };
 
-  const magicButton = async function () {
+  const readAvailableCars = async function () {
     // Reading parse objects is done by using Parse.Query
     const parseQuery = new Parse.Query("Cars");
     parseQuery.limit(10);
-    parseQuery.containedBy("name", "A - Small");
+    parseQuery.matches("status", "Available");
     try {
       let cars = await parseQuery.find();
       setReadResults(cars);
@@ -154,44 +153,48 @@ function Cars() {
       <div className="pageTitle">
         <h1>Car Overview</h1>
       </div>
+
       <div className="pageContent">
-        <div className="bookingOvBtns">
-          <div className="searchBar">
-            <div className="inputFieldSearch">
-              <input
-                type="search"
-                placeholder='e.g. "Toyota"'
-                onChange={(e) => setSearchInput(e.target.value)}
+        <div className="bookingOvButtons">
+          <div className="bookingOvBtn1">
+            <div className="searchBar">
+              <div className="inputFieldSearch">
+                <input
+                  type="search"
+                  placeholder='e.g. "Toyota"'
+                  onChange={(e) => setSearchInput(e.target.value)}
+                />
+              </div>
+
+              <ButtonNoLink
+                color="DarkBlueBtn"
+                onClick={() => bookingSearch()}
+                className="btnMedium"
+                title="Search"
               />
             </div>
-            <button
-              type="button"
-              onClick={() => bookingSearch()}
-              className="darkBlueBtn"
-            >
-              Search
-            </button>
-            <button
-              type="button"
-              onClick={() => readGreenCars()}
-              className="darkBlueBtn"
-            >
-              Show red Cars!
-            </button>
-            <button
-              type="button"
+          </div>
+
+          <div className="bookingOvBtn2">
+            <ButtonNoLink
+              color="PurpleBtn"
+              onClick={() => readBlueCars()}
+              className="btnXlarge"
+              title="Show blue cars"
+            />
+            <ButtonNoLink
+              color="PurpleBtn"
+              onClick={() => readAvailableCars()}
+              className="btnMedium"
+              title="Show available cars"
+            />
+            <ButtonNoLink
+              color="PurpleBtn"
+              primary="false"
               onClick={() => resetCarsView()}
-              className="darkBlueBtn"
-            >
-              Show all
-            </button>
-            <button
-              type="button"
-              onClick={() => magicButton()}
-              className="darkBlueBtn"
-            >
-              Magic Button
-            </button>
+              className="btnMedium"
+              title="Show all cars"
+            />
           </div>
         </div>
         <div className="scrollableContainer">
