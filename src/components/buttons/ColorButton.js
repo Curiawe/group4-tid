@@ -164,6 +164,7 @@ function SubmitButton(props) {
         }}
         className={props.className}
         type="submit"
+        onClick={props.onClick}
       >
         <TextColorBtn title={props.title} />
       </button>

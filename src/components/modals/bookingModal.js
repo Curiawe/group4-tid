@@ -10,7 +10,7 @@ import { Price } from "./bookingComponents/price";
 import { BOOKINGS } from "../../data/bookings";
 import addEntries from "../DB-functions/AddEntries";
 import updateDate from "../dataHandling/updateDate";
-import addCustomer from "../DB-functions/customers";
+import { addCustomer } from "../DB-functions/customers";
 
 function BookingModal(props) {
   const [pickupDate, setPickupDate] = useState(new Date());
