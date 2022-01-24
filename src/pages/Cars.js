@@ -23,7 +23,7 @@ function Cars() {
       parseQuery.include("location");
       parseQuery.include("carGroup");
       try {
-        let cars = await parseQuery.find();
+        let cars = await parseQuery.findAll();
         setReadResults(cars);
         setIsLoading(false);
         return true;
@@ -42,7 +42,7 @@ function Cars() {
     parseQuery.include("location");
     parseQuery.include("carGroup");
     try {
-      let cars = await parseQuery.find();
+      let cars = await parseQuery.findAll();
       setReadResults(cars);
       return true;
     } catch (error) {
@@ -57,7 +57,7 @@ function Cars() {
     const parseQuery = new Parse.Query("Cars");
     parseQuery.matches("color", "BLU");
     try {
-      let cars = await parseQuery.find();
+      let cars = await parseQuery.findAll();
       setReadResults(cars);
       return true;
     } catch (error) {
@@ -70,10 +70,9 @@ function Cars() {
   const readAvailableCars = async function () {
     // Reading parse objects is done by using Parse.Query
     const parseQuery = new Parse.Query("Cars");
-    parseQuery.limit(10);
     parseQuery.matches("status", "Available");
     try {
-      let cars = await parseQuery.find();
+      let cars = await parseQuery.findAll();
       setReadResults(cars);
       return true;
     } catch (error) {
@@ -94,7 +93,7 @@ function Cars() {
     parseQuery.matches("model", e, "i");
 
     try {
-      let profiles = await parseQuery.find();
+      let profiles = await parseQuery.findAll();
       setReadResults(profiles);
       console.log(readResults);
       return true;
@@ -148,6 +147,14 @@ function Cars() {
     );
   }); */
 
+  function carCount() {
+    var size = Object.keys(readResults).length;
+    console.log(size);
+    if (!readResults) {
+      return "";
+    } else return size + " cars found.";
+  }
+
   return (
     <>
       <div className="pageTitle">
@@ -165,7 +172,6 @@ function Cars() {
                   onChange={(e) => setSearchInput(e.target.value)}
                 />
               </div>
-
               <ButtonNoLink
                 color="DarkBlueBtn"
                 onClick={() => bookingSearch()}
@@ -174,6 +180,7 @@ function Cars() {
               />
             </div>
           </div>
+          {carCount()}
 
           <div className="bookingOvBtn2">
             <ButtonNoLink
