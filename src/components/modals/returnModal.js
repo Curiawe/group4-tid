@@ -187,14 +187,14 @@ const ReturnModal = (props) => {
           <ButtonOnChange
             color="DarkBlueBtn"
             primary="false"
-            className="buttonLarge"
+            className="buttonMedium"
             title="Go Back"
             onClick={() => handleClose()}
           />
           <ButtonOnChange
             color="DarkBlueBtn"
             primary="true"
-            className="buttonLarge"
+            className="buttonMedium"
             title="Register Return"
             onClick={() => handleConfirm()}
           />
