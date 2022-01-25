@@ -44,7 +44,12 @@ function BookingModal(props) {
   }
 
   // making an object out of the ID
-  let licenseIdObejct = { id: licenseID };
+  let licenseIdObejct = {
+    id: licenseID,
+    issued: licenseIssueDate,
+    expires: licenseExpirationDate,
+    valid: licenseExpirationDate < new Date(),
+  };
 
   function onClickSave(e) {
     // create alert with missing parts
