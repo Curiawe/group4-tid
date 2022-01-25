@@ -67,7 +67,7 @@ function Cars() {
   const readAvailableCars = async function () {
     // Reading parse objects is done by using Parse.Query
     const parseQuery = new Parse.Query("Cars");
-    parseQuery.matches("status", "Available");
+    parseQuery.matches("status", "Ready");
     try {
       let cars = await parseQuery.findAll();
       setReadResults(cars);
