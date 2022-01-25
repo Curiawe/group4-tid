@@ -25,10 +25,10 @@ function BookingModal(props) {
   const [address, setAddress] = useState();
   const [phone, setPhone] = useState();
   const [email, setEmail] = useState();
-  const [birthday, setBirthday] = useState();
+  const [birthday, setBirthday] = useState(new Date());
   const [licenseID, setLicenseID] = useState();
-  const [licenseIssueDate, setIssueDate] = useState();
-  const [licenseExpirationDate, setExpirationDate] = useState();
+  const [licenseIssueDate, setIssueDate] = useState(new Date());
+  const [licenseExpirationDate, setExpirationDate] = useState(new Date());
   const [extraDriver, setExtraDriver] = useState(false);
   const [extraMileage, setExtraMileage] = useState(0);
   const [price, setPrice] = useState();
