@@ -1,18 +1,16 @@
-import { LargeCardBody } from "../components/cards/CardsForOverview";
-import { CARS } from "../data/cars";
 import "../components/cards/cards.css";
 import Parse from "parse";
 import { useState, useEffect } from "react";
 import { IconBody } from "../components/cards/IconBody";
 import ColorIcon from "../components/cards/AvailabilityIcon";
 import { Icon } from "@iconify/react";
+import { ButtonNoLink } from "../components/buttons/ColorButton";
 
 function Cars() {
-  const cards = [];
   const [readResults, setReadResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [searchInput, setSearchInput] = useState("");
-  const [foundBookings, setFoundBookings] = useState([]);
+  const [foundCars, setFoundCars] = useState([]);
 
   useEffect(() => {
     const readCars = async function () {
@@ -22,7 +20,7 @@ function Cars() {
       parseQuery.include("location");
       parseQuery.include("carGroup");
       try {
-        let cars = await parseQuery.find();
+        let cars = await parseQuery.findAll();
         setReadResults(cars);
         setIsLoading(false);
         return true;
@@ -38,11 +36,10 @@ function Cars() {
   const resetCarsView = async function () {
     // Reading parse objects is done by using Parse.Query
     const parseQuery = new Parse.Query("Cars");
-    parseQuery.limit(10);
     parseQuery.include("location");
     parseQuery.include("carGroup");
     try {
-      let cars = await parseQuery.find();
+      let cars = await parseQuery.findAll();
       setReadResults(cars);
       return true;
     } catch (error) {
@@ -52,13 +49,12 @@ function Cars() {
     }
   };
 
-  const readGreenCars = async function () {
+  const readBlueCars = async function () {
     // Reading parse objects is done by using Parse.Query
     const parseQuery = new Parse.Query("Cars");
-    parseQuery.limit(10);
-    parseQuery.matches("color", "RED");
+    parseQuery.matches("color", "BLU");
     try {
-      let cars = await parseQuery.find();
+      let cars = await parseQuery.findAll();
       setReadResults(cars);
       return true;
     } catch (error) {
@@ -68,13 +64,12 @@ function Cars() {
     }
   };
 
-  const magicButton = async function () {
+  const readAvailableCars = async function () {
     // Reading parse objects is done by using Parse.Query
     const parseQuery = new Parse.Query("Cars");
-    parseQuery.limit(10);
-    parseQuery.containedBy("name", "A - Small");
+    parseQuery.matches("status", "Available");
     try {
-      let cars = await parseQuery.find();
+      let cars = await parseQuery.findAll();
       setReadResults(cars);
       return true;
     } catch (error) {
@@ -95,7 +90,7 @@ function Cars() {
     parseQuery.matches("model", e, "i");
 
     try {
-      let profiles = await parseQuery.find();
+      let profiles = await parseQuery.findAll();
       setReadResults(profiles);
       console.log(readResults);
       return true;
@@ -106,102 +101,84 @@ function Cars() {
     }
   };
 
-  const bookingSearch = () => {
+  const search = () => {
     if (searchInput == null) return;
-    const foundBookings = doQueryByName(searchInput);
-    setFoundBookings(foundBookings);
+    const found = doQueryByName(searchInput);
+    setFoundCars(found);
+    return foundCars;
   };
 
-  /* {
-    readResults !== undefined &&
-      readResults.map((profile, index) => {
-        <div className="cardPageMargin">
-          <div key={`${index}`} className="cardMarginNonHover">
-            <LargeCardBody
-              car={`${profile.get("model")}`}
-              onClick={(e, input) => {
-                return null;
-              }}
-              className="cardNonHover"
-            />
-          </div>
-        </div>;
-      });
+  function carCount() {
+    var size = Object.keys(readResults).length;
+    if (!readResults) {
+      return "";
+    } else if (isLoading) {
+      return "Loading cars...";
+    } else {
+      return size + " cars found";
+    }
   }
-  {
-    readResults !== undefined && readResults.length <= 0 ? (
-      <p>{"No results here!"}</p>
-    ) : null;
-  } */
-
-  // if there are issues with this code, change .forEach() in line 9 to .map()
-  /*   CARS.forEach((selCar) => {
-    cards.push(
-      <div key={selCar.License} className="cardMarginNonHover">
-        <LargeCardBody
-          car={selCar.License}
-          onClick={(e, input) => {
-            return null;
-          }}
-          className="cardNonHover"
-        />
-      </div>
-    );
-  }); */
 
   return (
     <>
       <div className="pageTitle">
         <h1>Car Overview</h1>
       </div>
+
       <div className="pageContent">
-        <div className="bookingOvBtns">
-          <div className="searchBar">
-            <div className="inputFieldSearch">
-              <input
-                type="search"
-                placeholder='e.g. "Toyota"'
-                onChange={(e) => setSearchInput(e.target.value)}
+        <div className="bookingOvButtons">
+          <div className="bookingOvBtn1">
+            <div className="searchBar">
+              <div className="inputFieldSearch">
+                <input
+                  type="search"
+                  placeholder='e.g. "Toyota"'
+                  onChange={(e) => setSearchInput(e.target.value)}
+                />
+              </div>
+              <ButtonNoLink
+                color="DarkBlueBtn"
+                onClick={() => search()}
+                className="btnMedium"
+                title="Search"
               />
             </div>
-            <button
-              type="button"
-              onClick={() => bookingSearch()}
-              className="darkBlueBtn"
-            >
-              Search
-            </button>
-            <button
-              type="button"
-              onClick={() => readGreenCars()}
-              className="darkBlueBtn"
-            >
-              Show red Cars!
-            </button>
-            <button
-              type="button"
+          </div>
+
+          <div className="bookingOvBtn2" style={{ width: "30%" }}>
+            <ButtonNoLink
+              color="PurpleBtn"
+              onClick={() => readBlueCars()}
+              className="btnXlarge"
+              title="Blue cars"
+            />
+            <ButtonNoLink
+              color="PurpleBtn"
+              onClick={() => readAvailableCars()}
+              className="btnMedium"
+              title="Available cars"
+            />
+            <ButtonNoLink
+              color="PurpleBtn"
+              primary="false"
               onClick={() => resetCarsView()}
-              className="darkBlueBtn"
-            >
-              Show all
-            </button>
-            <button
-              type="button"
-              onClick={() => magicButton()}
-              className="darkBlueBtn"
-            >
-              Magic Button
-            </button>
+              className="btnMedium"
+              title="Reset"
+            />
           </div>
         </div>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            marginBottom: "8px",
+          }}
+        >
+          {carCount()}
+        </div>{" "}
         <div className="scrollableContainer">
           <div className="bookingCardPageMargin">
-            {isLoading &&
-            readResults !== undefined &&
-            readResults.length <= 0 ? (
-              <p> Loading cars...</p>
-            ) : (
-              readResults !== undefined &&
+            {readResults !== undefined &&
               readResults.map((profile, index) => (
                 <div key={`${index}`} className="cardMarginNonHover">
                   <div className="cardNonHover">
@@ -262,8 +239,7 @@ function Cars() {
                     </div>
                   </div>
                 </div>
-              ))
-            )}
+              ))}
             {!isLoading &&
             readResults !== undefined &&
             readResults.length <= 0 ? (

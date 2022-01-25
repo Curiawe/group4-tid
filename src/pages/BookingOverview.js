@@ -131,7 +131,12 @@ function Bookings() {
           </div>
         </div>
         <div className="scrollableContainer">
-          <div className="bookingCardPageMargin">{cards}</div>
+          <div
+            className="bookingCardPageMargin"
+            style={{ justifyContent: "flex-start" }}
+          >
+            {cards}
+          </div>
         </div>
       </div>
     </>
