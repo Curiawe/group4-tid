@@ -1,13 +1,10 @@
-import schedule from "../Images/schedule.png";
+/* import schedule from "../Images/schedule.png"; */
 import { useState, useEffect } from "react";
 import Parse from "parse";
-import { SubmitButton } from "../components/buttons/ColorButton";
 import { IconBody } from "../components/cards/IconBody";
-import FeatherIcon from "feather-icons-react";
 
 function Schedule(props) {
   const [readResults, setReadResults] = useState([]);
-  const [userQuery, setUserQuery] = useState("");
   const [searchInput, setSearchInput] = useState("");
   const [foundBookings, setFoundBookings] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -97,8 +94,9 @@ function Schedule(props) {
 
   const bookingSearch = () => {
     if (searchInput == null) return;
-    const foundBookings = doQueryByName(searchInput);
-    setFoundBookings(foundBookings);
+    const found = doQueryByName(searchInput);
+    setFoundBookings(found);
+    return foundBookings;
   };
 
   const statusBooked = async function () {

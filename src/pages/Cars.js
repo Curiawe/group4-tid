@@ -1,5 +1,3 @@
-import { LargeCardBody } from "../components/cards/CardsForOverview";
-import { CARS } from "../data/cars";
 import "../components/cards/cards.css";
 import Parse from "parse";
 import { useState, useEffect } from "react";
@@ -9,11 +7,10 @@ import { Icon } from "@iconify/react";
 import { ButtonNoLink } from "../components/buttons/ColorButton";
 
 function Cars() {
-  const cards = [];
   const [readResults, setReadResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [searchInput, setSearchInput] = useState("");
-  const [foundBookings, setFoundBookings] = useState([]);
+  const [foundCars, setFoundCars] = useState([]);
 
   useEffect(() => {
     const readCars = async function () {
@@ -104,54 +101,22 @@ function Cars() {
     }
   };
 
-  const bookingSearch = () => {
+  const search = () => {
     if (searchInput == null) return;
-    const foundBookings = doQueryByName(searchInput);
-    setFoundBookings(foundBookings);
+    const found = doQueryByName(searchInput);
+    setFoundCars(found);
+    return foundCars;
   };
-
-  /* {
-    readResults !== undefined &&
-      readResults.map((profile, index) => {
-        <div className="cardPageMargin">
-          <div key={`${index}`} className="cardMarginNonHover">
-            <LargeCardBody
-              car={`${profile.get("model")}`}
-              onClick={(e, input) => {
-                return null;
-              }}
-              className="cardNonHover"
-            />
-          </div>
-        </div>;
-      });
-  }
-  {
-    readResults !== undefined && readResults.length <= 0 ? (
-      <p>{"No results here!"}</p>
-    ) : null;
-  } */
-
-  // if there are issues with this code, change .forEach() in line 9 to .map()
-  /*   CARS.forEach((selCar) => {
-    cards.push(
-      <div key={selCar.License} className="cardMarginNonHover">
-        <LargeCardBody
-          car={selCar.License}
-          onClick={(e, input) => {
-            return null;
-          }}
-          className="cardNonHover"
-        />
-      </div>
-    );
-  }); */
 
   function carCount() {
     var size = Object.keys(readResults).length;
     if (!readResults) {
       return "";
-    } else return size + " cars found.";
+    } else if (isLoading) {
+      return "Loading cars...";
+    } else {
+      return size + " cars found";
+    }
   }
 
   return (
@@ -173,44 +138,47 @@ function Cars() {
               </div>
               <ButtonNoLink
                 color="DarkBlueBtn"
-                onClick={() => bookingSearch()}
+                onClick={() => search()}
                 className="btnMedium"
                 title="Search"
               />
             </div>
           </div>
-          {carCount()}
 
-          <div className="bookingOvBtn2">
+          <div className="bookingOvBtn2" style={{ width: "30%" }}>
             <ButtonNoLink
               color="PurpleBtn"
               onClick={() => readBlueCars()}
               className="btnXlarge"
-              title="Show blue cars"
+              title="Blue cars"
             />
             <ButtonNoLink
               color="PurpleBtn"
               onClick={() => readAvailableCars()}
               className="btnMedium"
-              title="Show available cars"
+              title="Available cars"
             />
             <ButtonNoLink
               color="PurpleBtn"
               primary="false"
               onClick={() => resetCarsView()}
               className="btnMedium"
-              title="Show all cars"
+              title="Reset"
             />
           </div>
         </div>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            marginBottom: "8px",
+          }}
+        >
+          {carCount()}
+        </div>{" "}
         <div className="scrollableContainer">
           <div className="bookingCardPageMargin">
-            {isLoading &&
-            readResults !== undefined &&
-            readResults.length <= 0 ? (
-              <p> Loading cars...</p>
-            ) : (
-              readResults !== undefined &&
+            {readResults !== undefined &&
               readResults.map((profile, index) => (
                 <div key={`${index}`} className="cardMarginNonHover">
                   <div className="cardNonHover">
@@ -271,8 +239,7 @@ function Cars() {
                     </div>
                   </div>
                 </div>
-              ))
-            )}
+              ))}
             {!isLoading &&
             readResults !== undefined &&
             readResults.length <= 0 ? (
