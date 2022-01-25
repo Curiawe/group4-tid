@@ -85,6 +85,22 @@
   align-items: center;
 }
 
+.rowButtonRev {
+  display: flex;
+  flex-direction: column;
+  width: 256px;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.rowButtonTight {
+  display: flex;
+
+  width: 256px;
+  justify-content: flex-start;
+  align-items: center;
+}
+
 /* Styling for booking modal */
 .bookingContent {
   border: 1px solid #c4c4c4;

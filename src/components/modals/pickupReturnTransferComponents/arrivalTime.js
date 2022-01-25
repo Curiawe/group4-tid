@@ -6,32 +6,48 @@ import { SelectTime } from "../../inputfields+dropdowns/dropDowns";
 function ReturnTime(props) {
   const [arrivalTime, setArrivalTime] = useState(props.returned);
 
-  let late = (arrivalTime > props.time)
+  let late = arrivalTime > props.time;
 
   function handleChange(e) {
-    props.setReturned(e.target.value)
-    setArrivalTime(e.target.value)
+    props.setReturned(e.target.value);
+    setArrivalTime(e.target.value);
   }
 
   return (
-    <Overlay title="Returned">
-      <div style={{lineHeight:"1.8"}}>
-      Planned: {props.time}<br/>
-      Arrived before:
-      <SelectTime
-        onChange={(e) => handleChange(e)}
-        className="small"
-        value={props.returned}
-      />
-      </div>
-      <TwoRadioButtons
-        name="Arrival Time"
-        buttonOne="On Time"
-        checkedOne={!late} 
-        buttonTwo="Late"
-        checkedTwo={late}
-      />
-    </Overlay>
+    <>
+      <Overlay title="Scheduled">
+        <div className="rowButton">
+          <select
+            defaultValue={props.time}
+            className="small"
+            disabled
+            style={{ cursor: "not-allowed" }}
+          >
+            <option value="Scheduled return time" disabled>
+              {props.time}
+            </option>
+          </select>
+        </div>
+      </Overlay>
+      <Overlay title="Returned">
+        <div className="rowButtonTight">
+          <div style={{ display: "flex", flexDirection: "row" }}>
+            <SelectTime
+              onChange={(e) => handleChange(e)}
+              className="small"
+              value={props.returned}
+            />
+            <TwoRadioButtons
+              name="Arrival Time"
+              buttonOne="On Time"
+              checkedOne={!late}
+              buttonTwo="Late"
+              checkedTwo={late}
+            />
+          </div>
+        </div>
+      </Overlay>
+    </>
   );
 }
 

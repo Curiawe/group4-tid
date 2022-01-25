@@ -6,7 +6,7 @@ import { ReturnFuel } from "./pickupReturnTransferComponents/fuelLevel";
 import { Comments } from "./pickupReturnTransferComponents/comments";
 import { ReturnTime } from "./pickupReturnTransferComponents/arrivalTime";
 import { ReturnMileage } from "./pickupReturnTransferComponents/mileage";
-import { Price } from "./bookingComponents/price";
+import { Price, PriceReturn } from "./bookingComponents/price";
 
 import { bookingStates } from "../../data/bookingStates";
 import FetchFunctions from "../DB-functions/FetchFunctions";
@@ -15,14 +15,13 @@ import updateEntries from "../DB-functions/UpdateEntries";
 import timeStringFromDate from "../dataHandling/timeStringFromDate";
 
 const ReturnModal = (props) => {
-
   const [arrivalTime, setArrivalTime] = useState("");
   const [returnMileage, setMileage] = useState(0);
   const [returnFuel, setFuel] = useState(100);
   const [returnComment, setComment] = useState("");
-  const [price, setPrice] = useState(0)
+  const [price, setPrice] = useState(0);
 
-  let booking =  FetchFunctions.fetchBookingFromRef(props.selectedBooking);
+  let booking = FetchFunctions.fetchBookingFromRef(props.selectedBooking);
   let selectedCar;
   if (props.selectedBooking) {
     selectedCar = booking.Car;
@@ -36,25 +35,38 @@ const ReturnModal = (props) => {
     props.setBookingState(bookingStates.PICKEDUP);
   }
 
-  function handleTime(){
+  function handleTime() {
     let day = new Date();
-    day.setHours(parseInt(arrivalTime.substring(0,2)),parseInt(arrivalTime.substring(3,5)),0,0)
-    return day
+    day.setHours(
+      parseInt(arrivalTime.substring(0, 2)),
+      parseInt(arrivalTime.substring(3, 5)),
+      0,
+      0
+    );
+    return day;
   }
 
   function returnTimeForPrice() {
     if (arrivalTime > timeStringFromDate(booking.Return.time)) {
-      return arrivalTime } else {
-        return timeStringFromDate(booking.Return.time)
-      }
+      return arrivalTime;
+    } else {
+      return timeStringFromDate(booking.Return.time);
+    }
   }
 
   function handlePriceChange(newPrice) {
     setPrice(newPrice);
   }
 
-  function handleConfirm(){
-    updateEntries.updateBookingForReturn(props.selectedBooking, handleTime(), returnMileage, returnFuel, returnComment, price);
+  function handleConfirm() {
+    updateEntries.updateBookingForReturn(
+      props.selectedBooking,
+      handleTime(),
+      returnMileage,
+      returnFuel,
+      returnComment,
+      price
+    );
     props.onConfirm();
   }
 
@@ -63,7 +75,7 @@ const ReturnModal = (props) => {
     setMileage(0);
     setFuel(0);
     setComment("");
-    setPrice(0)
+    setPrice(0);
     props.onClose();
   }
 
@@ -102,7 +114,6 @@ const ReturnModal = (props) => {
       </div>
     );
   } else if (props.showReturnModal && props.selectedBooking) {
-
     if (props.bookingStatus !== bookingStates.PICKEDUP) {
       return (
         <div className="overlay">
@@ -137,8 +148,7 @@ const ReturnModal = (props) => {
         </div>
       );
     } else {
-
-  }
+    }
   }
 
   return (
@@ -156,23 +166,22 @@ const ReturnModal = (props) => {
             returned={arrivalTime}
             setReturned={(time) => setArrivalTime(time)}
           />
-          <ReturnMileage onChange={(newMiles) => setMileage(newMiles)}/>
-          <ReturnFuel onChange={(newFuel) => setFuel(newFuel)}/>
-          <Comments onChange={(newComment) => setComment(newComment)}/>
-          <Price
-                  returnDate={booking.Return.time}
-                  returnTime={returnTimeForPrice()} // FIX
-                  pickupDate={booking.Pickup.time}
-                  pickupTime={timeStringFromDate(booking.Pickup.time)}
-                  carGroup={booking.carGroup.name}
-                  extraDriver={booking.Services.driver}
-                  extraMileage={returnMileage}
-                  price={price}
-                  onChangePrice={(newPrice) => {
-                    handlePriceChange(newPrice);
-                  }}
-                />
-
+          <ReturnMileage onChange={(newMiles) => setMileage(newMiles)} />
+          <ReturnFuel onChange={(newFuel) => setFuel(newFuel)} />
+          <Comments onChange={(newComment) => setComment(newComment)} />
+          <PriceReturn
+            returnDate={booking.Return.time}
+            returnTime={returnTimeForPrice()} // FIX
+            pickupDate={booking.Pickup.time}
+            pickupTime={timeStringFromDate(booking.Pickup.time)}
+            carGroup={booking.carGroup.name}
+            extraDriver={booking.Services.driver}
+            extraMileage={returnMileage}
+            price={price}
+            onChangePrice={(newPrice) => {
+              handlePriceChange(newPrice);
+            }}
+          />
         </div>
         <div className="overlayFooter">
           <ButtonOnChange
