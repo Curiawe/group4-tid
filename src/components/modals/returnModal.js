@@ -6,7 +6,7 @@ import { ReturnFuel } from "./pickupReturnTransferComponents/fuelLevel";
 import { Comments } from "./pickupReturnTransferComponents/comments";
 import { ReturnTime } from "./pickupReturnTransferComponents/arrivalTime";
 import { ReturnMileage } from "./pickupReturnTransferComponents/mileage";
-import { Price, PriceReturn } from "./bookingComponents/price";
+import { PriceReturn } from "./bookingComponents/price";
 
 import { bookingStates } from "../../data/bookingStates";
 import FetchFunctions from "../DB-functions/FetchFunctions";
